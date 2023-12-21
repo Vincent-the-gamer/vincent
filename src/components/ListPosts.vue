@@ -14,23 +14,31 @@ const router = useRouter()
 const routes: Post[] = router.getRoutes()
   .filter(i => i.path.startsWith(BASE_URL + '/posts') && i.meta.frontmatter.date && !i.meta.frontmatter.draft)
   .filter(i => !i.path.endsWith('.html') && (i.meta.frontmatter.type || 'blog').split('+').includes(props.type))
-  .map(i => ({
-    path: i.meta.frontmatter.redirect || i.path,
-    title: i.meta.frontmatter.title,
-    date: i.meta.frontmatter.date,
-    lang: i.meta.frontmatter.lang,
-    duration: i.meta.frontmatter.duration,
-    recording: i.meta.frontmatter.recording,
-    upcoming: i.meta.frontmatter.upcoming,
-    redirect: i.meta.frontmatter.redirect,
-    place: i.meta.frontmatter.place,
-  }))
+  .map(i => {
+    let path = ""
+    if(i.meta.frontmatter.redirect) {
+      path = i.meta.frontmatter.redirect.replace("//","/")
+    } else {
+      path = i.path.replace("//","/")
+    }
+    return {
+      path,
+      title: i.meta.frontmatter.title,
+      date: i.meta.frontmatter.date,
+      lang: i.meta.frontmatter.lang,
+      duration: i.meta.frontmatter.duration,
+      recording: i.meta.frontmatter.recording,
+      upcoming: i.meta.frontmatter.upcoming,
+      redirect: i.meta.frontmatter.redirect,
+      place: i.meta.frontmatter.place,
+    }
+  })
 
-const posts = computed(() =>
-  [...(props.posts || routes), ...props.extra || []]
+const posts = computed(() => {
+  return [...(props.posts || routes), ...props.extra || []]
     .sort((a, b) => +new Date(b.date) - +new Date(a.date))
-    .filter(i => !englishOnly.value || i.lang !== 'zh'),
-)
+    .filter(i => !englishOnly.value || i.lang !== 'zh')
+})
 
 const getYear = (a: Date | string | number) => new Date(a).getFullYear()
 const isFuture = (a?: Date | string | number) => a && new Date(a) > new Date()

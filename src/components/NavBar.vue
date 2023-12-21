@@ -53,7 +53,7 @@ const { y: scroll } = useWindowScroll()
         <a href="https://discord.gg/qZBVS8yyyY" target="_blank">
           <div i-simple-icons-discord />
         </a>
-        <a href="/feed.xml" target="_blank" title="RSS" class="lt-md:hidden">
+        <a :href="`${BASE_URL}feed.xml`" target="_blank" title="RSS" class="lt-md:hidden">
           <div i-la-rss-square style="font-size:1.25rem; margin: 0 -0.125rem;" />
         </a>
         <ToggleTheme />

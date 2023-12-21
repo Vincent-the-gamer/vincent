@@ -1,5 +1,5 @@
-/rss https://vincent-the-gamer.github.io/vincent/feed.xml 301
-/blog https://vincent-the-gamer.github.io/vincent/posts 301
+/rss https://vincent-the-gamer.github.io/vincent-me/feed.xml 301
+/blog https://vincent-the-gamer.github.io/vincent-me/posts 301
 
 /github https://github.com/Vincent-the-gamer 301
 /gh https://github.com/Vincent-the-gamer 301
@@ -26,7 +26,9 @@
 /Rust-BaipiaoGPT	https://github.com/Vincent-the-gamer/Rust-BaipiaoGPT	302
 /static	https://github.com/Vincent-the-gamer/static	302
 /TkinterMakerApp	https://github.com/Vincent-the-gamer/TkinterMakerApp	302
+/vincent	https://github.com/Vincent-the-gamer/vincent	302
 /vincent-gearbox	https://github.com/Vincent-the-gamer/vincent-gearbox	302
+/vincent-me	https://github.com/Vincent-the-gamer/vincent-me	302
 /Vincent-the-gamer	https://github.com/Vincent-the-gamer/Vincent-the-gamer	302
 /vitefest	https://github.com/Vincent-the-gamer/vitefest	302
 /vitefest-docs	https://github.com/Vincent-the-gamer/vitefest-docs	302

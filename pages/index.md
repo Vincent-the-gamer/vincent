@@ -1,5 +1,5 @@
 ---
-title: 诡锋 Vincent-the-gamer
+title: 诡锋 Vincent
 description: 诡锋的博客
 plum: true
 ---
@@ -16,7 +16,7 @@ plum: true
 
 ---
 
-关注我：
+关注诡锋喵~，关注诡锋谢谢喵~
 
 <p flex="~ gap-3 wrap" class="mt--2!">
   <a href="https://github.com/Vincent-the-gamer" target="_blank"><span op75 i-simple-icons-github />GitHub</a>
