@@ -6,7 +6,7 @@ import MarkdownIt from 'markdown-it'
 import type { FeedOptions, Item } from 'feed'
 import { Feed } from 'feed'
 
-const DOMAIN = 'https://vincent-the-gamer.gitee.io/vincent/'
+const DOMAIN = 'https://vincent-the-gamer.github.io/vincent-me/'
 const AUTHOR = {
   name: 'Vincent-the-gamer',
   email: 'erxianqiaottjt@163.com',
@@ -26,15 +26,15 @@ async function buildBlogRSS() {
   const files = await fg('pages/posts/*.md')
 
   const options = {
-    title: 'Vincent-the-gamer',
+    title: '诡锋的博客',
     description: 'Vincent\'s Blog',
-    id: 'https://vincent-the-gamer.gitee.io/vincent/',
-    link: 'https://vincent-the-gamer.gitee.io/vincent/',
-    copyright: 'CC BY-NC-SA 4.0 2021 © Anthony Fu',
+    id: 'https://vincent-the-gamer.github.io/vincent-me/',
+    link: 'https://vincent-the-gamer.github.io/vincent-me/',
+    copyright: 'CC BY-NC-SA 4.0 2023-PRESENT © Vincent-the-gamer',
     feedLinks: {
-      json: 'https://vincent-the-gamer.gitee.io/vincent/feed.json',
-      atom: 'https://vincent-the-gamer.gitee.io/vincent/feed.atom',
-      rss: 'https://vincent-the-gamer.gitee.io/vincent/feed.xml',
+      json: 'https://vincent-the-gamer.github.io/vincent-me/feed.json',
+      atom: 'https://vincent-the-gamer.github.io/vincent-me/feed.atom',
+      rss: 'https://vincent-the-gamer.github.io/vincent-me/feed.xml',
     },
   }
   const posts: any[] = (
