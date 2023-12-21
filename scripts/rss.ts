@@ -71,8 +71,8 @@ async function buildBlogRSS() {
 
 async function writeFeed(name: string, options: FeedOptions, items: Item[]) {
   options.author = AUTHOR
-  options.image = 'https://vincent-the-gamer.gitee.io/vincent/avatar.png'
-  options.favicon = 'https://vincent-the-gamer.gitee.io/vincent/logo.png'
+  options.image = 'https://vincent-the-gamer.github.io/vincent-me/avatar.png'
+  options.favicon = 'https://vincent-the-gamer.github.io/vincent-me/logo.png'
 
   const feed = new Feed(options)
 
