@@ -8,25 +8,8 @@
 
 <br>
 
-# New Feature
-- Compatible with `GitHub Pages base url`(Magic!).
-  
-  Example:
-
-  Give a base url: "/vincent/"
-
-  1. switch branch to `github-pages`.
-  2. put your pages into `pages/vincent/` folder.
-
-  3. modify `baseUrl.ts`.
-  ```ts
-    // baseUrl.ts
-    export const BASE_URL: string = "/vincent/" //  do not add '/' at the end.
-  ```
-  4. modify `vite.config.ts`.
-  ```ts
-    base: BASE_URL,
-  ```
+# Visit
+[https://vincent-the-gamer.github.io/vincent-me/](https://vincent-the-gamer.github.io/vincent-me/)
 
 
 # License
