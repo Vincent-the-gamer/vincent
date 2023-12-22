@@ -41,7 +41,7 @@ const { y: scroll } = useWindowScroll()
           <span class="lt-md:hidden">项目</span>
           <div i-ri-lightbulb-line class="md:hidden" />
         </RouterLink>
-        <RouterLink :to="`${BASE_URL}videos`" class="lt-md:hidden" title="游戏视频">
+        <RouterLink :to="`${BASE_URL}videos`" class="lt-md:hidden" title="视频专区">
           视频专区
         </RouterLink>
         <RouterLink :to="`${BASE_URL}games`" class="lt-md:hidden" title="游戏奖杯">
