@@ -1,5 +1,5 @@
 ---
-title: 项目 - Vincent-the-gamer
+title: 项目 - Vincent
 display: 项目
 description: 我在GitHub上发布的一些好玩的项目
 plum: true
@@ -11,7 +11,7 @@ projects:
       desc: 'A HearthStone card maker. 炉石传说卡牌制作器。'
       icon: 'cardforge'
 
-  之前的项目:
+  值得提及的项目:
     - name: 'Nemassler'
       link: 'https://github.com/Vincent-the-gamer/Nemassler'
       desc: 'Transform Netease Music .ncm audio into .mp3 audio, and support .mp3 BPM calculation。
@@ -23,10 +23,16 @@ projects:
       desc: 'A server to compile wenyan-lang. 文言文编程语言的API接口服务。'
       icon: 'wenyan'
 
-    - name: '没写完，剩下的有空再说'
-      link: 'https://github.com/Vincent-the-gamer/Wenyan-Backend-Server'
-      desc: '图标用来占个位'
-      icon: 'cardforge'
+    - name: 'G-Shock Date Checker'
+      link: 'https://github.com/Vincent-the-gamer/g-shock-date-checker'
+      desc: 'Check your Casio G-SHOCK production factory & production date. <br/>查询你的卡西欧G-Shock手表的产地和生产日期。'
+      icon: 'g-shock'
+
+  实用的模板:
+    - name: 'Yew.rs Template'
+      link: 'https://github.com/Vincent-the-gamer/yew-template'
+      desc: 'Yew.rs项目基础模板。Yew.rs是一个Rust WebAssembly前端框架'
+      icon: 'yew'
 
 ---
 

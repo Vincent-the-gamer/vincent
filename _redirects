@@ -1,5 +1,13 @@
 /rss https://vincent-the-gamer.github.io/vincent-me/feed.xml 301
 /blog https://vincent-the-gamer.github.io/vincent-me/posts 301
+/posts https://vincent-the-gamer.github.io/vincent-me/posts 301
+/posts/install-arch https://vincent-the-gamer.github.io/vincent-me/posts/install-arch 301
+/posts/add-live-2d https://vincent-the-gamer.github.io/vincent-me/posts/add-live-2d 301
+/posts/use-jotai-instead-of-redux https://vincent-the-gamer.github.io/vincent-me/posts/use-jotai-instead-of-redux 301
+
+/projects https://vincent-the-gamer.github.io/vincent-me/projects 301
+/videos https://vincent-the-gamer.github.io/vincent-me/videos 301
+/game-trophy https://vincent-the-gamer.github.io/vincent-me/game-trophy 301
 
 /github https://github.com/Vincent-the-gamer 301
 /gh https://github.com/Vincent-the-gamer 301

@@ -1,5 +1,5 @@
 ---
-title: 博客 - Vincent-the-gamer
+title: 博客 - Vincent
 display: ''
 plum: true
 ---

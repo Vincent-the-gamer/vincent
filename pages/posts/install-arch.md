@@ -1,6 +1,6 @@
 ---
 title: 记录一次个人服务器搭建和Arch Linux安装过程
-date: 2023-12-20
+date: 2023-12-22
 lang: zh
 ---
 

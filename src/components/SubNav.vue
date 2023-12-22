@@ -23,11 +23,11 @@ const route = useRoute()
       <RouterLink :to="`${BASE_URL}projects`" class="!border-none" :class="route.path === `${BASE_URL}projects` ? activeStyle : inactiveStyle">
         项目
       </RouterLink>
-      <RouterLink :to="`${BASE_URL}game-video`" class="!border-none" :class="route.path === `${BASE_URL}game-video` ? activeStyle : inactiveStyle">
-        游戏视频
+      <RouterLink :to="`${BASE_URL}videos`" class="!border-none" :class="route.path === `${BASE_URL}videos` ? activeStyle : inactiveStyle">
+        视频专区
       </RouterLink>
-      <RouterLink :to="`${BASE_URL}game-trophy`" class="!border-none" :class="route.path === `${BASE_URL}game-trophy` ? activeStyle : inactiveStyle">
-        游戏奖杯
+      <RouterLink :to="`${BASE_URL}games`" class="!border-none" :class="route.path === `${BASE_URL}games` ? activeStyle : inactiveStyle">
+        游戏历程
       </RouterLink>
     </div>
   </div>

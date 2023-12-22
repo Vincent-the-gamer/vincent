@@ -30,9 +30,11 @@ function slug(name: string) {
           :title="item.name"
         >
           <div v-if="item.icon" class="pt-2 pr-5">
-            <img v-if="item.icon === 'cardforge'" class="text-4xl w-80px h-60px" src="/cardforge-logo.png"/>
-            <img v-else-if="item.icon === 'nemassler'" class="text-4xl w-200px h-75px" src="/nemassler-logo.png"/>
-            <img v-else-if="item.icon === 'wenyan'" class="text-4xl w-160px h-75px" src="/wenyan.png"/>
+            <img v-if="item.icon === 'cardforge'" class="text-4xl w-80px h-60px" src="/images/cardforge-logo.png"/>
+            <img v-else-if="item.icon === 'nemassler'" class="text-4xl w-200px h-75px" src="/images/nemassler-logo.png"/>
+            <img v-else-if="item.icon === 'wenyan'" class="text-4xl w-160px h-75px" src="/images/wenyan.png"/>
+            <img v-else-if="item.icon === 'g-shock'" class="text-4xl w-160px h-75px" src="/images/g-shock-date-checker.jpg"/>
+            <img v-else-if="item.icon === 'yew'" class="text-4xl w-140px h-75px" src="/gifs/yew.gif"/>
             <div v-else class="text-3xl opacity-50" :class="item.icon || 'i-carbon-unknown'" />
           </div>
           <div class="flex-auto">

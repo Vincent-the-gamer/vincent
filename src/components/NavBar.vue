@@ -33,25 +33,28 @@ const { y: scroll } = useWindowScroll()
     <nav class="nav">
       <div class="spacer" />
       <div class="right" print:op0>
-        <RouterLink :to="`${BASE_URL}posts`" title="Blog">
+        <RouterLink :to="`${BASE_URL}posts`" title="博客">
           <span class="lt-md:hidden">博客</span>
           <div i-ri-article-line md:hidden />
         </RouterLink>
-        <RouterLink :to="`${BASE_URL}projects`" title="Projects">
+        <RouterLink :to="`${BASE_URL}projects`" title="项目">
           <span class="lt-md:hidden">项目</span>
           <div i-ri-lightbulb-line class="md:hidden" />
         </RouterLink>
-        <RouterLink :to="`${BASE_URL}game-video`" class="lt-md:hidden" title="Talks">
-          游戏视频
+        <RouterLink :to="`${BASE_URL}videos`" class="lt-md:hidden" title="游戏视频">
+          视频专区
         </RouterLink>
-        <RouterLink :to="`${BASE_URL}game-trophy`" class="lt-md:hidden" title="Talks">
-          游戏奖杯
+        <RouterLink :to="`${BASE_URL}games`" class="lt-md:hidden" title="游戏奖杯">
+          游戏历程
         </RouterLink>
         <a href="https://github.com/Vincent-the-gamer" target="_blank" title="GitHub" class="lt-md:hidden">
           <div i-uil-github-alt />
         </a>
-        <a href="https://discord.gg/qZBVS8yyyY" target="_blank">
+        <a href="https://discord.gg/qZBVS8yyyY" target="_blank" title="Discord">
           <div i-simple-icons-discord />
+        </a>
+        <a href="https://space.bilibili.com/3342738" target="_blank" title="哔哩哔哩">
+          <div i-simple-icons-bilibili />
         </a>
         <a :href="`${BASE_URL}feed.xml`" target="_blank" title="RSS" class="lt-md:hidden">
           <div i-la-rss-square style="font-size:1.25rem; margin: 0 -0.125rem;" />
