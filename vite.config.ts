@@ -11,7 +11,7 @@ import Markdown from 'unplugin-vue-markdown/vite'
 import Vue from '@vitejs/plugin-vue'
 import matter from 'gray-matter'
 import AutoImport from 'unplugin-auto-import/vite'
-// import anchor from 'markdown-it-anchor'
+import anchor from 'markdown-it-anchor'
 import LinkAttributes from 'markdown-it-link-attributes'
 import GitHubAlerts from 'markdown-it-github-alerts'
 import UnoCSS from 'unocss/vite'
@@ -99,13 +99,13 @@ export default defineConfig({
           ],
         }))
 
-        // md.use(anchor, {
-        //   slugify,
-        //   permalink: anchor.permalink.linkInsideHeader({
-        //     symbol: '#',
-        //     renderAttrs: () => ({ 'aria-hidden': 'true' }),
-        //   }),
-        // })
+        md.use(anchor, {
+          slugify,
+          permalink: anchor.permalink.linkInsideHeader({
+            symbol: '#',
+            renderAttrs: () => ({ 'aria-hidden': 'true' }),
+          }),
+        })
 
         md.use(LinkAttributes, {
           matcher: (link: string) => /^https?:\/\//.test(link),

@@ -21,7 +21,6 @@ import App from './App.vue'
 import { createWebHashHistory } from 'vue-router'
 
 const routes = autoRoutes.map((i) => {
-  // i.path = BASE_URL + i.path
   return {
     ...i,
     alias: i.path.endsWith('/')
@@ -34,7 +33,7 @@ export const createApp = ViteSSG(
   App,
   {
     routes,
-    history: createWebHashHistory()
+    // history: createWebHashHistory()
   },
   ({ router, app, isClient }) => {
     dayjs.extend(LocalizedFormat)
