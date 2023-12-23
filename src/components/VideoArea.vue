@@ -9,7 +9,7 @@ const currentShow = ref<string>("game")
 </script>
 
 <template>
-    <div class="m-b-20px">
+    <div class="m-t-20px m-b-20px">
         <span>切换视频分类：</span>
         <a class="m-r-10px inline"
             @click.prevent="currentShow = 'game'">游戏视频</a>
