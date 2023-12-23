@@ -123,13 +123,13 @@ onMounted(() => {
       <a :href="tweetUrl" target="_blank" op50>twitter</a>
     </template> -->
     <br>
-    <span font-mono op50>> </span>
-    <RouterLink
-      :to="route.path.split('/').slice(0, -1).join('/') === '/vincent-me' ? 
-           '/vincent-me/' : 
-           route.path.split('/').slice(0, -1).join('/') || '/'"
-      class="font-mono op50 hover:op75"
-      v-text="'cd ..'"
-    />
+    <template v-if="route.path !== '/'">
+      <span font-mono op50>> </span>
+      <RouterLink
+        :to="route.path.split('/').slice(0, -1).join('/') || '/'"
+        class="font-mono op50 hover:op75"
+        v-text="'cd ..'"
+      />
+    </template>
   </div>
 </template>

@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import { BASE_URL } from '~/baseUrl';
-
-
 function toTop() {
   window.scrollTo({
     top: 0,
@@ -16,7 +13,7 @@ const { y: scroll } = useWindowScroll()
   <header class="header z-40">
     <RouterLink
       class="w-12 h-12 absolute xl:fixed m-5 select-none outline-none"
-      :to="BASE_URL"
+      to="/"
       focusable="false"
     >
       <img title="Vincent-the-gamer" src="/avatar.png"/>
@@ -33,18 +30,18 @@ const { y: scroll } = useWindowScroll()
     <nav class="nav">
       <div class="spacer" />
       <div class="right" print:op0>
-        <RouterLink :to="`${BASE_URL}posts`" title="博客">
+        <RouterLink to="/posts" title="博客">
           <span class="lt-md:hidden">博客</span>
           <div i-ri-article-line md:hidden />
         </RouterLink>
-        <RouterLink :to="`${BASE_URL}projects`" title="项目">
+        <RouterLink to="/projects" title="项目">
           <span class="lt-md:hidden">项目</span>
           <div i-ri-lightbulb-line class="md:hidden" />
         </RouterLink>
-        <RouterLink :to="`${BASE_URL}videos`" class="lt-md:hidden" title="视频专区">
+        <RouterLink to="/videos" class="lt-md:hidden" title="视频专区">
           视频专区
         </RouterLink>
-        <RouterLink :to="`${BASE_URL}games`" class="lt-md:hidden" title="游戏奖杯">
+        <RouterLink to="/games/" class="lt-md:hidden" title="游戏奖杯">
           游戏历程
         </RouterLink>
         <a href="https://github.com/Vincent-the-gamer" target="_blank" title="GitHub" class="lt-md:hidden">
@@ -56,7 +53,7 @@ const { y: scroll } = useWindowScroll()
         <a href="https://space.bilibili.com/3342738" target="_blank" title="哔哩哔哩">
           <div i-simple-icons-bilibili />
         </a>
-        <a :href="`${BASE_URL}feed.xml`" target="_blank" title="RSS" class="lt-md:hidden">
+        <a href="/feed.xml" target="_blank" title="RSS" class="lt-md:hidden">
           <div i-la-rss-square style="font-size:1.25rem; margin: 0 -0.125rem;" />
         </a>
         <ToggleTheme />

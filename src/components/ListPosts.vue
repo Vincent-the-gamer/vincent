@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
-import { BASE_URL } from '~/baseUrl';
 import { englishOnly, formatDate } from '~/logics'
 import type { Post } from '~/types'
 
@@ -12,7 +11,7 @@ const props = defineProps<{
 
 const router = useRouter()
 const routes: Post[] = router.getRoutes()
-  .filter(i => i.path.startsWith(BASE_URL + '/posts') && i.meta.frontmatter.date && !i.meta.frontmatter.draft)
+  .filter(i => i.path.startsWith('/posts') && i.meta.frontmatter.date && !i.meta.frontmatter.draft)
   .filter(i => !i.path.endsWith('.html') && (i.meta.frontmatter.type || 'blog').split('+').includes(props.type))
   .map(i => {
     let path = ""

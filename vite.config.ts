@@ -23,12 +23,11 @@ import { rendererRich, transformerTwoSlash } from 'shikiji-twoslash'
 import TOC from 'markdown-it-table-of-contents'
 import sharp from 'sharp'
 import { slugify } from './scripts/slugify'
-import { BASE_URL } from './src/baseUrl'
 
 const promises: Promise<any>[] = []
 
 export default defineConfig({
-  base: BASE_URL,
+  base: "/vincent-me/",
   resolve: {
     alias: [
       { find: '~/', replacement: `${resolve(__dirname, 'src')}/` },
