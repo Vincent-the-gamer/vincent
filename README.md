@@ -13,7 +13,7 @@
 
 # Router Mode
 
-## Web History + SSG(Default)
+## Web History + SSG (Default)
 ```typescript
 export const createApp = ViteSSG(
   App,
@@ -32,7 +32,7 @@ then
 pnpm run build
 ```
 
-## Web Hash History + Static Deploy
+## Web Hash History + Static Deploy (For GitHub Pages)
 ```typescript
 export const createApp = ViteSSG(
   App,
