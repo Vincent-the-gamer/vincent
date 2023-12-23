@@ -1,6 +1,6 @@
 {
   "name": "vincent",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "private": true,
   "packageManager": "pnpm@8.12.1",

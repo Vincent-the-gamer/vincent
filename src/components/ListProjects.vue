@@ -49,7 +49,7 @@ function slug(name: string) {
         <em>
           Thanks for getting interested in my works! If like them or find them useful, consider
           &nbsp;<a
-            href="https://github.com/sponsors/antfu"
+            href="https://github.com/sponsors/Vincent-the-gamer"
             target="_blank"
             rel="nofollow noopener noreferrer"
           >sponsoring me</a>&nbsp;to support me keeping them sustainable. Cheers! :)
