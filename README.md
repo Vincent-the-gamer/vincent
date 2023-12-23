@@ -32,7 +32,7 @@ then
 pnpm run build
 ```
 
-## Web Hash History + Static Deploy (For GitHub Pages)
+## Web Hash History + Client Render (For GitHub Pages)
 ```typescript
 export const createApp = ViteSSG(
   App,
@@ -49,7 +49,7 @@ export const createApp = ViteSSG(
 then
 
 ```shell
-pnpm run static-build
+pnpm run client-build
 ```
 
 
