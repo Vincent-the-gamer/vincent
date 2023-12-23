@@ -9,7 +9,7 @@
 <br>
 
 # Visit
-[https://vincent-the-gamer.github.io/vincent-me/](https://vincent-the-gamer.github.io/vincent-me/)
+[https://blog.vince-g.xyz/](https://blog.vince-g.xyz/)
 
 # Router Mode
 
