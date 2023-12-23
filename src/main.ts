@@ -33,7 +33,7 @@ export const createApp = ViteSSG(
   App,
   {
     routes,
-    // history: createWebHashHistory()
+    history: createWebHashHistory()
   },
   ({ router, app, isClient }) => {
     dayjs.extend(LocalizedFormat)
