@@ -4,9 +4,9 @@ date: 2023-12-21
 lang: zh
 ---
 
-## Vuex和Redux恶心人的地方
+# Vuex和Redux恶心人的地方
 
-### 前言
+## 前言
 
 自从Pinia出以后，咱就不在Vue上用Vuex了，因为那个mutation感觉很多此一举，现在Pinia出了，可以直接在actions定义方法，在getters定义计算属性了，然后我就想到了Redux也是一样的毛病，你要定义一堆Reducers，贼麻烦，别说React-Redux啥的，那玩意还得封装一个容器组件，折腾。
 
@@ -14,7 +14,7 @@ lang: zh
 
 
 
-### Pinia和Jotai是啥？
+## Pinia和Jotai是啥？
 
 次时代状态管理工具咯，Pinia和Jotai真正实现了完全简单化，只需要定义state，和操作这些state的函数，就可以实现响应式数据
 

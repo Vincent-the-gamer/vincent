@@ -11,9 +11,9 @@ const currentShow = ref<string>("game")
 <template>
     <div class="m-t-20px m-b-20px">
         <span>切换视频分类：</span>
-        <a class="m-r-10px inline"
+        <a class="m-r-10px inline hover:cursor-pointer"
             @click.prevent="currentShow = 'game'">游戏视频</a>
-        <a class="inline"
+        <a class="inline hover:cursor-pointer"
            @click.prevent="currentShow = 'launchpad'">Launchpad视频</a>
     </div>
 

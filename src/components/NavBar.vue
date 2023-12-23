@@ -41,7 +41,7 @@ const { y: scroll } = useWindowScroll()
         <RouterLink to="/videos" class="lt-md:hidden" title="视频专区">
           视频专区
         </RouterLink>
-        <RouterLink to="/games/" class="lt-md:hidden" title="游戏奖杯">
+        <RouterLink to="/games" class="lt-md:hidden" title="游戏奖杯">
           游戏历程
         </RouterLink>
         <a href="https://github.com/Vincent-the-gamer" target="_blank" title="GitHub" class="lt-md:hidden">

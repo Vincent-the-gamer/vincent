@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
 import { englishOnly, formatDate } from '~/logics'
+import { scrollIntoView } from "~/logics/scrollIntoView"
 import type { Post } from '~/types'
 
 const props = defineProps<{
@@ -92,7 +93,7 @@ function getGroupName(p: Post) {
           "
           class="item block font-normal mb-6 mt-2 no-underline"
         >
-          <li class="no-underline" flex="~ col md:row gap-2 md:items-center">
+          <li :id="route.path" class="no-underline" flex="~ col md:row gap-2 md:items-center">
             <div class="title text-lg leading-1.2em" flex="~ gap-2 wrap">
               <span
                 v-if="route.lang === 'zh'"
@@ -145,6 +146,18 @@ function getGroupName(p: Post) {
             {{ route.place }}
           </div>
         </component>
+      </div>
+      <div>
+        <div class="table-of-contents">
+          <div class="table-of-contents-anchor">
+            <div class="i-ri-menu-2-fill" />
+          </div>
+          <ul>
+            <li v-for="route of posts" :key="route.path"
+                class="hover:color-white hover:cursor-pointer"
+                @click="() => scrollIntoView(route.path)">{{ route.title }}</li>
+          </ul>
+        </div>
       </div>
     </template>
   </ul>
