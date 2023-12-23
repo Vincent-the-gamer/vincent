@@ -98,4 +98,3 @@ Value: `你的palm-proxy部署好的域名`
 
 ![modify-1](/images/gemini-guide/modify-env-1.png)
 ![modify-2](/images/gemini-guide/modify-env-2.png)
-
