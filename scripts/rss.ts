@@ -6,7 +6,7 @@ import MarkdownIt from 'markdown-it'
 import type { FeedOptions, Item } from 'feed'
 import { Feed } from 'feed'
 
-const DOMAIN = 'https://vincent-the-gamer.github.io/vincent-me/'
+const DOMAIN = 'https://blog.vince-g.xyz'
 const AUTHOR = {
   name: 'Vincent-the-gamer',
   email: 'erxianqiaottjt@163.com',
@@ -28,13 +28,13 @@ async function buildBlogRSS() {
   const options = {
     title: '诡锋的博客',
     description: 'Vincent\'s Blog',
-    id: 'https://vincent-the-gamer.github.io/vincent-me/',
-    link: 'https://vincent-the-gamer.github.io/vincent-me/',
+    id: 'https://blog.vince-g.xyz',
+    link: 'https://blog.vince-g.xyz',
     copyright: 'CC BY-NC-SA 4.0 2023-PRESENT © Vincent-the-gamer',
     feedLinks: {
-      json: 'https://vincent-the-gamer.github.io/vincent-me/feed.json',
-      atom: 'https://vincent-the-gamer.github.io/vincent-me/feed.atom',
-      rss: 'https://vincent-the-gamer.github.io/vincent-me/feed.xml',
+      json: 'https://blog.vince-g.xyz/feed.json',
+      atom: 'https://blog.vince-g.xyz/feed.atom',
+      rss: 'https://blog.vince-g.xyz/feed.xml',
     },
   }
   const posts: any[] = (
@@ -71,8 +71,8 @@ async function buildBlogRSS() {
 
 async function writeFeed(name: string, options: FeedOptions, items: Item[]) {
   options.author = AUTHOR
-  options.image = 'https://vincent-the-gamer.github.io/vincent-me/avatar.png'
-  options.favicon = 'https://vincent-the-gamer.github.io/vincent-me/logo.png'
+  options.image = 'https://blog.vince-g.xyz/avatar.png'
+  options.favicon = 'https://blog.vince-g.xyz/logo.png'
 
   const feed = new Feed(options)
 
