@@ -12,7 +12,7 @@ lang: zh
 # 什么是Gemini
 它是谷歌推出的多模态大模型，这意味着它可以处理各种信息，包括文本、代码、音频、图像和视频。你可以把它想象成一个多才多艺的小助手，擅长各种任务。
 
-谷歌将其分为三个版本： Gemini Ultra （能力最强, Gemini Pro（适用于多任务） 、Gemini Nano （适用于特定任务和端侧）。我们要搭建的对话网站基于Gemini Pro API。
+谷歌将其分为三个版本： Gemini Ultra （能力最强）, Gemini Pro（适用于多任务） 、Gemini Nano （适用于特定任务和端侧）。我们要搭建的对话网站基于Gemini Pro API。
 
 # 什么是Gemini Chat
 芝士<sup>（丁真语：这是）</sup>基于Gemini Pro的API所开发的一个前端页面，用于和API交互。
