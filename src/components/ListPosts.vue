@@ -154,7 +154,7 @@ function getGroupName(p: Post) {
           </div>
           <ul>
             <li v-for="route of posts" :key="route.path"
-                class="hover:color-white hover:cursor-pointer"
+                class="hover:cursor-pointer"
                 @click="() => scrollIntoView(route.path)">{{ route.title }}</li>
           </ul>
         </div>

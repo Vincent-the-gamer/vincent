@@ -13,3 +13,11 @@ export interface Post {
   inperson?: boolean
   redirect?: string
 }
+
+
+export interface GameHistory {
+  name: string,
+  date: string,
+  image?: string,
+  id: string
+}

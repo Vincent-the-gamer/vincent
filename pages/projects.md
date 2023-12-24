@@ -10,18 +10,23 @@ projects:
       link: 'https://github.com/Vincent-the-gamer/cardforge'
       desc: 'A HearthStone card maker. 炉石传说卡牌制作器。'
       icon: 'cardforge'
+  
+  好玩的项目:
+    - name: 'Kaomoe (*￣▽￣)b'
+      link: 'https://github.com/Vincent-the-gamer/kaomoe'
+      desc: 'A generator of cute Kaomojis. 颜文字生成器'
+      icon: 'kaomoe'
+    - name: 'Wenyan-lang Backend Server'
+      link: 'https://github.com/Vincent-the-gamer/Wenyan-Backend-Server'
+      desc: 'A server to compile wenyan-lang. 文言文编程语言的API接口服务。'
+      icon: 'wenyan'
 
-  值得提及的项目:
+  工具项目:
     - name: 'Nemassler'
       link: 'https://github.com/Vincent-the-gamer/Nemassler'
       desc: 'Transform Netease Music .ncm audio into .mp3 audio, and support .mp3 BPM calculation。
       <br/>支持WYY音乐.ncm转.mp3，以及音频BPM（每分钟节拍数）计算。'
       icon: 'nemassler'
-    
-    - name: 'Wenyan-lang Backend Server'
-      link: 'https://github.com/Vincent-the-gamer/Wenyan-Backend-Server'
-      desc: 'A server to compile wenyan-lang. 文言文编程语言的API接口服务。'
-      icon: 'wenyan'
 
     - name: 'G-Shock Date Checker'
       link: 'https://github.com/Vincent-the-gamer/g-shock-date-checker'

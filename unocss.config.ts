@@ -12,6 +12,10 @@ export default defineConfig({
     [/^slide-enter-(\d+)$/, ([_, n]) => ({
       '--enter-stage': n,
     })],
+    [
+      /^bg-rgba-([\.\d]+)-([\.\d]+)-([\.\d]+)-([\.\d]+)$/, 
+      ([_, r, g, b, a]) => ({ "background-color": `rgba(${r}, ${g}, ${b}, ${a})` })
+    ],
   ],
   presets: [
     presetIcons({
