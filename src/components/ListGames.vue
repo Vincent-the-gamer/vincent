@@ -4,15 +4,24 @@ import { scrollIntoView } from '~/logics/scrollIntoView';
 
 defineProps<{ games: GameHistory[] }>()
 
+const dark = useDark()
+
 </script>
 
 <template>
     <div class="max-w-300 mx-auto">
-        <div class="hover:bg-rgba-240-240-240-0.8 border-rd-9px hover:cursor-pointer m-5px transition-all-200"
+        <div class="border-rd-9px hover:cursor-pointer m-5px transition-all-200 p-15px"
+             :class="dark ? 'hover:bg-rgba-30-30-30-0.8' : 'hover:bg-rgba-240-240-240-0.8'"
              v-for="game of games" :key="game.id"
              :id="game.id">
-            <span class="border-0 m-0 position-relative top-5px left-5px font-size-16px color-gray">{{ game.date }}</span>
-            <h3 class="m-0 m-l-5px">{{ game.name }}</h3>
+            <span class="border-0 m-0 position-relative top-5px left-5px font-size-16px"
+                  :class="dark ? 'color-white' : 'color-black'">
+                {{ game.date }}
+            </span>
+            <h3 class="m-0 m-l-5px"
+                :class="dark ? 'color-white' : 'color-black'">
+                {{ game.name }}
+            </h3>
             <img v-if="game.image" :src="game.image" class="p-20px"/>
         </div>
     </div>
