@@ -32,7 +32,7 @@ function slug(name: string) {
           <div v-if="item.icon" class="pt-2 pr-5">
             <img v-if="item.icon === 'cardforge'" class="text-4xl w-80px h-60px" src="/images/cardforge-logo.png"/>
             <img v-else-if="item.icon === 'nemassler'" class="text-4xl w-200px h-75px" src="/images/nemassler-logo.png"/>
-            <img v-else-if="item.icon === 'wenyan'" class="text-4xl w-160px h-75px" src="/images/wenyan.png"/>
+            <img v-else-if="item.icon === 'wenyan'" class="text-4xl w-120px h-75px" src="/images/wenyan.png"/>
             <img v-else-if="item.icon === 'g-shock'" class="text-4xl w-160px h-75px" src="/images/g-shock-date-checker.jpg"/>
             <img v-else-if="item.icon === 'yew'" class="text-4xl w-140px h-75px" src="/gifs/yew.gif"/>
             <img v-else-if="item.icon === 'kaomoe'" class="text-4xl w-140px h-75px" src="/gifs/kaomoe.gif"/>

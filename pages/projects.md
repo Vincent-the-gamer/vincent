@@ -16,9 +16,9 @@ projects:
       link: 'https://github.com/Vincent-the-gamer/kaomoe'
       desc: 'A generator of cute Kaomojis. 颜文字生成器'
       icon: 'kaomoe'
-    - name: 'Wenyan-lang Backend Server'
-      link: 'https://github.com/Vincent-the-gamer/Wenyan-Backend-Server'
-      desc: 'A server to compile wenyan-lang. 文言文编程语言的API接口服务。'
+    - name: 'Wenyan API'
+      link: 'https://github.com/Vincent-the-gamer/wenyan-api'
+      desc: 'Wenyan-lang HTTP API.  文言文编程语言HTTP API。'
       icon: 'wenyan'
 
   工具项目:
