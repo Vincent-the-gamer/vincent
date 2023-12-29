@@ -36,6 +36,7 @@ function slug(name: string) {
             <img v-else-if="item.icon === 'g-shock'" class="text-4xl w-160px h-75px" src="/images/g-shock-date-checker.jpg"/>
             <img v-else-if="item.icon === 'yew'" class="text-4xl w-140px h-75px" src="/gifs/yew.gif"/>
             <img v-else-if="item.icon === 'kaomoe'" class="text-4xl w-140px h-75px" src="/gifs/kaomoe.gif"/>
+            <img v-else-if="item.icon === 'n-stars'" class="text-4xl w-140px h-75px" src="/gifs/n-stars.gif"/>
             <div v-else class="text-3xl opacity-50" :class="item.icon || 'i-carbon-unknown'" />
           </div>
           <div class="flex-auto">

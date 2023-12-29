@@ -20,6 +20,10 @@ projects:
       link: 'https://github.com/Vincent-the-gamer/wenyan-api'
       desc: 'Wenyan-lang HTTP API.  文言文编程语言HTTP API。'
       icon: 'wenyan'
+    - name: "This Repo Has N Stars"
+      link: 'https://github.com/search?q=Vincent-the-gamer%2Fthis-repo-has&type=repositories'
+      desc: '这个仓库有N颗星星！Star的数量发生改变时，项目名称会动态更新！'
+      icon: 'n-stars'
 
   工具项目:
     - name: 'Nemassler'
