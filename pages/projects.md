@@ -21,7 +21,7 @@ projects:
       desc: 'Wenyan-lang HTTP API.  文言文编程语言HTTP API。'
       icon: 'wenyan'
     - name: "This Repo Has N Stars"
-      link: 'https://github.com/search?q=Vincent-the-gamer%2Fthis-repo-has&type=repositories'
+      link: 'https://github.com/Vincent-the-gamer/this-repo-has-4-stars'
       desc: '这个仓库有N颗星星！Star的数量发生改变时，项目名称会动态更新！'
       icon: 'n-stars'
 
@@ -31,7 +31,6 @@ projects:
       desc: 'Transform Netease Music .ncm audio into .mp3 audio, and support .mp3 BPM calculation。
       <br/>支持WYY音乐.ncm转.mp3，以及音频BPM（每分钟节拍数）计算。'
       icon: 'nemassler'
-
     - name: 'G-Shock Date Checker'
       link: 'https://github.com/Vincent-the-gamer/g-shock-date-checker'
       desc: 'Check your Casio G-SHOCK production factory & production date. <br/>查询你的卡西欧G-Shock手表的产地和生产日期。'
@@ -42,6 +41,13 @@ projects:
       link: 'https://github.com/Vincent-the-gamer/yew-template'
       desc: 'Yew.rs项目基础模板。Yew.rs是一个Rust WebAssembly前端框架'
       icon: 'yew'
+
+  实用的工具:
+    - name: 'Picdiet'
+      link: 'https://vincent-the-gamer.github.io/Picdiet/'
+      desc: 'Picdiet是一款在线批量压缩图片神器，它不需要后端服务器或者API的支持，仅通过你的浏览器来压缩图片大小。'
+      icon: 'picdiet'
+
 
 ---
 
