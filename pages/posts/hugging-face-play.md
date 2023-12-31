@@ -29,6 +29,7 @@ Hugging Face: [https://huggingface.co/](https://huggingface.co/)
 PS: 小项目如`VITS语音生成`可以用免费的CPU方案，跑不动的可以花钱买独显的算力。
 
 ![huggingface](/images/posts/hugging-face/hugging-face.png)
+![huggingface-login](/images/posts/hugging-face/hugging-face-login.png)
 
 # 如何~~白嫖~~？
 
