@@ -16,6 +16,10 @@ export default defineConfig({
       /^bg-rgba-([\.\d]+)-([\.\d]+)-([\.\d]+)-([\.\d]+)$/, 
       ([_, r, g, b, a]) => ({ "background-color": `rgba(${r}, ${g}, ${b}, ${a})` })
     ],
+    [
+      /^box-shadow-([a-zA-Z\.\d]+)-([a-zA-Z\.\d]+)-([a-zA-Z\.\d]+)-([a-zA-Z]+)$/, 
+      ([_, offsetX, offsetY, blur, color]) => ({ "box-shadow": `${offsetX} ${offsetY} ${blur} ${color}` })
+    ],
   ],
   presets: [
     presetIcons({

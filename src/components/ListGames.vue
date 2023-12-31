@@ -10,7 +10,8 @@ const dark = useDark()
 
 <template>
     <div class="max-w-300 mx-auto">
-        <div class="border-rd-9px hover:cursor-pointer m-5px transition-all-200 p-15px"
+        <div class="border-rd-9px hover:cursor-pointer m-10px transition-all-500 p-15px border-1px border-solid border-gray
+                    hover:scale-102% hover:box-shadow-0-0-15px-gray"
              :class="dark ? 'hover:bg-rgba-30-30-30-0.8' : 'hover:bg-rgba-240-240-240-0.8'"
              v-for="game of games" :key="game.id"
              :id="game.id">
