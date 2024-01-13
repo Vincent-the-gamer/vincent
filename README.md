@@ -14,6 +14,8 @@
 # Router Mode
 
 ## Web History + SSG - Default
+Reverse proxy is required to fix 404 on refreshing. ╭(╯^╰)╮
+
 ```typescript
 export const createApp = ViteSSG(
   App,
@@ -32,7 +34,7 @@ then
 pnpm run build
 ```
 
-## Web Hash History + Client Side Rendering(CSR) - For GitHub Pages
+## Web Hash History + SPA - For GitHub Pages
 ```typescript
 export const createApp = ViteSSG(
   App,
