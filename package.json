@@ -7,7 +7,7 @@
   "scripts": {
     "build": "rimraf temp && cross-env NODE_ENV=production vite-ssg build && esno ./scripts/rss.ts && pnpm run copy-files",
     "client-build": "rimraf temp && cross-env NODE_ENV=production vite build && esno ./scripts/rss.ts && pnpm run copy-files",
-    "copy-files": "cp _dist_redirects dist/_redirects && cp .nojekyll dist/.nojekyll && cp CNAME dist/CNAME",
+    "copy-files": "cp _dist_redirects dist/_redirects",
     "serve": "vite --port 8080 --open",
     "preview": "vite preview",
     "compress": "esno scripts/img-compress-staged.ts",
