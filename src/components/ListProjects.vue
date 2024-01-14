@@ -38,6 +38,9 @@ function slug(name: string) {
             <img v-else-if="item.icon === 'kaomoe'" class="text-4xl w-140px h-75px" src="/gifs/kaomoe.gif"/>
             <img v-else-if="item.icon === 'n-stars'" class="text-4xl w-140px h-75px" src="/gifs/n-stars.gif"/>
             <img v-else-if="item.icon === 'picdiet'" class="text-4xl w-220px h-35px" src="/images/projects/picdiet.png"/>
+            <img v-else-if="item.icon === 'neonheart'" class="text-4xl w-125px h-88px" src="/images/projects/neonheart.png"/>
+            <img v-else-if="item.icon === 'github'" class="text-4xl w-200px h-88px" src="/images/projects/github.png"/>
+            <img v-else-if="item.icon === 'transfonter'" class="text-4xl w-300px h-30px" src="/images/projects/transfonter.png"/>
             <div v-else class="text-3xl opacity-50" :class="item.icon || 'i-carbon-unknown'" />
           </div>
           <div class="flex-auto">
@@ -48,18 +51,6 @@ function slug(name: string) {
       </div>
     </div>
     <div class="prose pb5 mx-auto mt10 text-center">
-      <!-- <p op75>
-        <em>
-          Thanks for getting interested in my works! If like them or find them useful, consider
-          &nbsp;<a
-            href="https://github.com/sponsors/Vincent-the-gamer"
-            target="_blank"
-            rel="nofollow noopener noreferrer"
-          >sponsoring me</a>&nbsp;to support me keeping them sustainable. Cheers! :)
-        </em>
-      </p>
-
-      <SponsorButton /> -->
       <div block mt-5>
         <span>给我点个Star喵~给我点个Star谢谢喵~</span>
       </div>

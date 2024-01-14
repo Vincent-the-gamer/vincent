@@ -42,11 +42,27 @@ projects:
       desc: 'Yew.rs项目基础模板。Yew.rs是一个Rust WebAssembly前端框架'
       icon: 'yew'
 
-  实用的工具:
+  VS Code主题:
+    - name: 'NeonHeart'
+      link: 'https://github.com/Vincent-the-gamer/neonheart'
+      desc: 'An opinionated VS Code theme. 自用的VSCode主题。'
+      icon: 'neonheart'
+
+  实用工具推荐:
     - name: 'Picdiet'
       link: 'https://vincent-the-gamer.github.io/Picdiet/'
       desc: 'Picdiet是一款在线批量压缩图片神器，它不需要后端服务器或者API的支持，仅通过你的浏览器来压缩图片大小。'
       icon: 'picdiet'
+
+    - name: 'GitHub Socialify'
+      link: 'https://socialify.git.ci/'
+      desc: '生成GitHub Repo项目banner图片, 可以展示stars, issues, pull requests等信息'
+      icon: 'github'
+
+    - name: 'Transfonter'
+      link: 'https://transfonter.org/'
+      desc: '字体转换器，可以在TTF, WOFF, WOFF2, SVG字体间互转, 可以导入OTF转成其它格式。'
+      icon: 'transfonter'
 
 
 ---

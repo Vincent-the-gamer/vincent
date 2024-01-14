@@ -1,4 +1,12 @@
 <script setup lang="ts">
+const title = useTitle()
+const defaultTitle = title.value
+
+const isLeft = usePageLeave()
+watch(() => isLeft.value, newVal => {
+  newVal ? title.value = "不要离开人家嘛 ヽ(。>д<)ｐ" : title.value = defaultTitle
+})
+
 const route = useRoute()
 
 const imageModel = ref<HTMLImageElement>()
