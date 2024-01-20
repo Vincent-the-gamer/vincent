@@ -148,6 +148,11 @@ export default defineConfig({
         'vue',
         'vue-router',
         '@vueuse/core',
+        {
+          from: "@vueuse/core",
+          imports: ["Fn"],
+          type: true
+        }
       ],
     }),
 

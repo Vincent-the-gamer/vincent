@@ -53,6 +53,9 @@ const { y: scroll } = useWindowScroll()
         <a href="https://space.bilibili.com/3342738" target="_blank" title="哔哩哔哩">
           <div i-simple-icons-bilibili />
         </a>
+        <a href="https://afdian.net/a/vince-g" target="_blank" title="赞助">
+          <div i-heroicons-outline-heart/>
+        </a>
         <a href="/feed.xml" target="_blank" title="RSS" class="lt-md:hidden">
           <div i-la-rss-square style="font-size:1.25rem; margin: 0 -0.125rem;" />
         </a>

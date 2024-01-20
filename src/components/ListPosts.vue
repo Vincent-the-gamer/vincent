@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useRouter } from 'vue-router'
 import { englishOnly, formatDate } from '~/logics'
 import { scrollIntoView } from "~/logics/scrollIntoView"
 import type { Post } from '~/types'
