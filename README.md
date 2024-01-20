@@ -51,9 +51,11 @@ export const createApp = ViteSSG(
 then
 
 ```shell
-pnpm run client-build
+pnpm run spa-build
 ```
 
-
 # License
-<samp>code is licensed under <a href='./LICENSE'>MIT</a>,<br> words and images are licensed under <a href='https://creativecommons.org/licenses/by-nc-sa/4.0/'>CC BY-NC-SA 4.0</a></samp>.
+
+Code is licensed under [MIT](./LICENSE).
+
+Words and images are licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
