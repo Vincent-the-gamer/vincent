@@ -41,6 +41,10 @@ projects:
       link: 'https://github.com/Vincent-the-gamer/yew-template'
       desc: 'Yew.rs项目基础模板。Yew.rs是一个Rust WebAssembly前端框架'
       icon: 'yew'
+    - name: "VitePress Starter(VitePress起手模板)"
+      link: "https://github.com/Vincent-the-gamer/vitepress-starter"
+      desc: '固执己见的VitePress文档网页起手模板。'
+      icon: 'vitepress'
 
   VS Code主题:
     - name: 'NeonHeart'
