@@ -43,13 +43,13 @@ projects:
       icon: 'yew'
     - name: "VitePress Starter(VitePress起手模板)"
       link: "https://github.com/Vincent-the-gamer/vitepress-starter"
-      desc: '固执己见的VitePress文档网页起手模板。'
+      desc: 'Opinionated VitePress Template. <br/>固执己见的VitePress文档网页起手模板。'
       icon: 'vitepress'
 
   VS Code主题:
     - name: 'NeonHeart'
       link: 'https://github.com/Vincent-the-gamer/neonheart'
-      desc: 'An opinionated VS Code theme. 自用的VSCode主题。'
+      desc: 'An opinionated VS Code theme. 固执己见的VSCode主题。'
       icon: 'neonheart'
 
   实用工具推荐:
