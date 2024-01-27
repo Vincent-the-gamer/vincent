@@ -2,6 +2,7 @@
 title: 如何在前端页面中加入看板娘
 date: 2023-02-26
 lang: zh
+plum: true
 ---
 
 # 演示图片

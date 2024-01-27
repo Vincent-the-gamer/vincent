@@ -2,6 +2,7 @@
 title: 如何使用Vercel部署自己的Gemini Chat对话网站
 date: 2023-12-23
 lang: zh
+plum: true
 ---
 
 # 写在最前

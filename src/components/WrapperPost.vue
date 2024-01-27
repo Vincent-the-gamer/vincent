@@ -69,28 +69,17 @@ onMounted(() => {
       setTimeout(navigate, 1000)
   }, 1)
 })
-
-
-
-
 </script>
 
 <template>
   <ClientOnly v-if="frontmatter.plum">
     <Plum />
   </ClientOnly>
-  <div
-    v-if="frontmatter.display ?? frontmatter.title"
-    class="prose m-auto mb-8"
-    :class="[frontmatter.wrapperClass]"
-  >
+  <div v-if="frontmatter.display ?? frontmatter.title" class="prose m-auto mb-8" :class="[frontmatter.wrapperClass]">
     <h1 class="mb-0 slide-enter-50">
       {{ frontmatter.display ?? frontmatter.title }}
     </h1>
-    <p
-      v-if="frontmatter.date"
-      class="opacity-50 !-mt-6 slide-enter-50"
-    >
+    <p v-if="frontmatter.date" class="opacity-50 !-mt-6 slide-enter-50">
       {{ formatDate(frontmatter.date, false) }} <span v-if="frontmatter.duration">· {{ frontmatter.duration }}</span>
     </p>
     <p v-if="frontmatter.place" class="mt--4!">
@@ -102,16 +91,10 @@ onMounted(() => {
         {{ frontmatter.place }}
       </span>
     </p>
-    <p
-      v-if="frontmatter.subtitle"
-      class="opacity-50 !-mt-6 italic slide-enter"
-    >
+    <p v-if="frontmatter.subtitle" class="opacity-50 !-mt-6 italic slide-enter">
       {{ frontmatter.subtitle }}
     </p>
-    <p
-      v-if="frontmatter.draft"
-      class="slide-enter" bg-orange-4:10 text-orange-4 border="l-3 orange-4" px4 py2
-    >
+    <p v-if="frontmatter.draft" class="slide-enter" bg-orange-4:10 text-orange-4 border="l-3 orange-4" px4 py2>
       This is a draft post, the content may be incomplete. Please check back later.
     </p>
   </div>
@@ -129,11 +112,8 @@ onMounted(() => {
     <br>
     <template v-if="route.path !== '/'">
       <span font-mono op50>> </span>
-      <RouterLink
-        :to="route.path.split('/').slice(0, -1).join('/') || '/'"
-        class="font-mono op50 hover:op75"
-        v-text="'cd ..'"
-      />
+      <RouterLink :to="route.path.split('/').slice(0, -1).join('/') || '/'" class="font-mono op50 hover:op75"
+        v-text="'cd ..'" />
     </template>
   </div>
 </template>

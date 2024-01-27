@@ -2,6 +2,7 @@
 title: 美化macOS默认zsh终端
 date: 2024-01-13
 lang: zh
+plum: true
 ---
 
 # 前言
