@@ -4,7 +4,6 @@
     --c-scrollbar-hover: #bbb;
 }
 
-
 html {
     background: var(--c-bg);
     overflow-x: hidden;
@@ -12,8 +11,8 @@ html {
 }
 
 html.dark {
-    --c-bg: linear-gradient(45deg, rgb(0, 0, 53), rgb(52, 0, 52));
-    --c-scrollbar: linear-gradient(to top, rgb(0, 0, 53), rgb(52, 0, 52));
+    --c-bg: linear-gradient(45deg, rgb(0, 0, 53), rgb(77, 0, 77));
+    --c-scrollbar: linear-gradient(to top, rgb(0, 0, 53), rgb(77, 0, 77));
     --c-scrollbar-hover: #222;
 }
 
