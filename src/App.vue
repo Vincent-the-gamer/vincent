@@ -55,4 +55,5 @@ onKeyStroke('Escape', (e) => {
       <img :src="imageModel.src" :alt="imageModel.alt" w-full h-full object-contain>
     </div>
   </Transition>
+  <PlayStation />
 </template>

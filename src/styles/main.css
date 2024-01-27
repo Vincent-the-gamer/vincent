@@ -1,6 +1,6 @@
 :root {
     --c-bg: linear-gradient(45deg, rgb(227, 255, 255), rgb(255, 201, 255));
-    --c-scrollbar: linear-gradient(to top, rgb(227, 255, 255), rgb(255, 201, 255));
+    --c-scrollbar: rgb(255, 201, 255);
     --c-scrollbar-hover: #bbb;
 }
 
@@ -10,11 +10,13 @@ html {
     overflow-y: scroll;
 }
 
+
 html.dark {
     --c-bg: linear-gradient(45deg, rgb(0, 0, 53), rgb(77, 0, 77));
-    --c-scrollbar: linear-gradient(to top, rgb(0, 0, 53), rgb(77, 0, 77));
+    --c-scrollbar: rgb(77, 0, 77);
     --c-scrollbar-hover: #222;
 }
+
 
 ::selection {
     background: #8884;
