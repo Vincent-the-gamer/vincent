@@ -29,8 +29,8 @@ dependencies:
 
 devDependencies:
   '@iconify/json':
-    specifier: ^2.2.175
-    version: 2.2.175
+    specifier: ^2.2.178
+    version: 2.2.178
   '@octokit/rest':
     specifier: ^20.0.2
     version: 20.0.2
@@ -95,8 +95,8 @@ devDependencies:
     specifier: ^4.0.3
     version: 4.0.3
   lint-staged:
-    specifier: ^15.2.0
-    version: 15.2.0
+    specifier: ^15.2.1
+    version: 15.2.1
   markdown-it:
     specifier: ^14.0.0
     version: 14.0.0
@@ -134,8 +134,8 @@ devDependencies:
     specifier: ^2.9.0
     version: 2.9.0
   taze:
-    specifier: ^0.13.1
-    version: 0.13.1
+    specifier: ^0.13.2
+    version: 0.13.2
   typescript:
     specifier: ^5.3.3
     version: 5.3.3
@@ -742,8 +742,8 @@ packages:
     resolution: {integrity: sha512-9TANp6GPoMtYzQdt54kfAyMmz1+osLlXdg2ENroU7zzrtflTLrrC/lgrIfaSe+Wu0b89GKccT7vxXA0MoAIO+Q==}
     dev: false
 
-  /@iconify/json@2.2.175:
-    resolution: {integrity: sha512-/Ds/BSUv4++rTf0+KoGXHKSapCRXBqqSVG3h2Sci3jEgWxLpgfCZ4bOjOWGa5i+tURgde6VYOaTaX8u0xDnoAw==}
+  /@iconify/json@2.2.178:
+    resolution: {integrity: sha512-AYw9z/Lu9Y0Q5V0DvyhysJA3ohwKMOgXxCJ1AzTnsZizbUqZ7zh5/wnBegv1ikBEISAY0tC/R46j0tJBjliHkw==}
     dependencies:
       '@iconify/types': 2.0.0
       pathe: 1.1.2
@@ -3286,8 +3286,8 @@ packages:
       uc.micro: 2.0.0
     dev: true
 
-  /lint-staged@15.2.0:
-    resolution: {integrity: sha512-TFZzUEV00f+2YLaVPWBWGAMq7So6yQx+GG8YRMDeOEIf95Zn5RyiLMsEiX4KTNl9vq/w+NqRJkLA1kPIo15ufQ==}
+  /lint-staged@15.2.1:
+    resolution: {integrity: sha512-dhwAPnM85VdshybV9FWI/9ghTvMLoQLEXgVMx+ua2DN7mdfzd/tRfoU2yhMcBac0RHkofoxdnnJUokr8s4zKmQ==}
     engines: {node: '>=18.12.0'}
     hasBin: true
     dependencies:
@@ -3296,7 +3296,7 @@ packages:
       debug: 4.3.4
       execa: 8.0.1
       lilconfig: 3.0.0
-      listr2: 8.0.0
+      listr2: 8.0.1
       micromatch: 4.0.5
       pidtree: 0.6.0
       string-argv: 0.3.2
@@ -3305,8 +3305,8 @@ packages:
       - supports-color
     dev: true
 
-  /listr2@8.0.0:
-    resolution: {integrity: sha512-u8cusxAcyqAiQ2RhYvV7kRKNLgUvtObIbhOX2NCXqvp1UU32xIg5CT22ykS2TPKJXZWJwtK3IKLiqAGlGNE+Zg==}
+  /listr2@8.0.1:
+    resolution: {integrity: sha512-ovJXBXkKGfq+CwmKTjluEqFi3p4h8xvkxGQQAQan22YCgef4KZ1mKGjzfGh6PL6AW5Csw0QiQPNuQyH+6Xk3hA==}
     engines: {node: '>=18.0.0'}
     dependencies:
       cli-truncate: 4.0.0
@@ -3867,8 +3867,8 @@ packages:
       aggregate-error: 3.1.0
     dev: true
 
-  /pacote@17.0.5:
-    resolution: {integrity: sha512-TAE0m20zSDMnchPja9vtQjri19X3pZIyRpm2TJVeI+yU42leJBBDTRYhOcWFsPhaMxf+3iwQkFiKz16G9AEeeA==}
+  /pacote@17.0.6:
+    resolution: {integrity: sha512-cJKrW21VRE8vVTRskJo78c/RCvwJCn1f4qgfxL4w77SOWrTCRcmfkYHlHtS0gqpgjv3zhXflRtgsrUCX5xwNnQ==}
     engines: {node: ^16.14.0 || >=18.0.0}
     hasBin: true
     dependencies:
@@ -4645,8 +4645,8 @@ packages:
       yallist: 4.0.0
     dev: true
 
-  /taze@0.13.1:
-    resolution: {integrity: sha512-viIeTWEezE1mtQ9M9dtvIwfF7WkNRXVZP7g/NsGDFxwwzJIVJReSiZiyfsJccdJo6XUe7FaYzvrG1VD6Tnj4Jg==}
+  /taze@0.13.2:
+    resolution: {integrity: sha512-G2S3f4kFjcYu0Xdxv/vgx5NmPuJAhhI16weQs0P8J/pjCo4Ieip37k1/TPg32pgggLq1GQtwlDuAui/LQ+XH9g==}
     hasBin: true
     dependencies:
       '@antfu/ni': 0.21.12
@@ -4655,7 +4655,7 @@ packages:
       deepmerge: 4.3.1
       detect-indent: 7.0.1
       execa: 8.0.1
-      pacote: 17.0.5
+      pacote: 17.0.6
       picocolors: 1.0.0
       prompts: 2.4.2
       semver: 7.5.4
