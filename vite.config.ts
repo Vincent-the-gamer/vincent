@@ -17,7 +17,6 @@ import GitHubAlerts from 'markdown-it-github-alerts'
 import UnoCSS from 'unocss/vite'
 import SVG from 'vite-svg-loader'
 import Shiki from '@shikijs/markdown-it'
-import { rendererRich, transformerTwoslash } from '@shikijs/twoslash'
 
 // @ts-expect-error missing types
 import TOC from 'markdown-it-table-of-contents'
@@ -90,13 +89,7 @@ export default defineConfig({
             light: 'vitesse-light',
           },
           defaultColor: false,
-          cssVariablePrefix: '--s-',
-          transformers: [
-            transformerTwoslash({
-              explicitTrigger: true,
-              renderer: rendererRich(),
-            }),
-          ],
+          cssVariablePrefix: '--s-'
         }))
 
         // md.use(anchor, {
