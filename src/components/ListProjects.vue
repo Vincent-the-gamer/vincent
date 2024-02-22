@@ -42,6 +42,9 @@ function slug(name: string) {
             <img v-else-if="item.icon === 'github'" class="text-4xl w-200px h-88px" src="/images/projects/github.png"/>
             <img v-else-if="item.icon === 'transfonter'" class="text-4xl w-300px h-30px" src="/images/projects/transfonter.png"/>
             <img v-else-if="item.icon === 'vitepress'" class="text-4xl w-100px h-70px" src="/images/projects/vitepress-logo.png"/>
+            <img v-else-if="item.icon === 'utils'" class="text-4xl w-85px h-70px" src="/images/projects/vince-utils.png"/>
+            <img v-else-if="item.icon === 'nemahaizai'" class="text-4xl w-250px h-75px" src="/images/projects/nemahaizai.png"/>
+            <div v-else-if="item.icon === 'vitesse'" class="i-carbon-campsite w-50px h-50px" />
             <div v-else class="text-3xl opacity-50" :class="item.icon || 'i-carbon-unknown'" />
           </div>
           <div class="flex-auto">

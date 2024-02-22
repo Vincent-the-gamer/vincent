@@ -10,6 +10,10 @@ projects:
       link: 'https://github.com/Vincent-the-gamer/cardforge'
       desc: 'A HearthStone card maker. 炉石传说卡牌制作器。'
       icon: 'cardforge'
+    - name: 'Nemahaizai'
+      link: 'https://github.com/Vincent-the-gamer/cardforge'
+      desc: '使用Tauri + Rust重写的Nemassler(WYY音乐.ncm转.mp3，以及音频BPM[每分钟节拍数] 计算), 后续会合并到Nemassler.'
+      icon: 'nemahaizai'
   
   好玩的项目:
     - name: 'Kaomoe (*￣▽￣)b'
@@ -29,12 +33,16 @@ projects:
     - name: 'Nemassler'
       link: 'https://github.com/Vincent-the-gamer/Nemassler'
       desc: 'Transform Netease Music .ncm audio into .mp3 audio, and support .mp3 BPM calculation。
-      <br/>支持WYY音乐.ncm转.mp3，以及音频BPM（每分钟节拍数）计算。'
+      <br/>WYY音乐.ncm转.mp3，以及音频BPM（每分钟节拍数）计算。'
       icon: 'nemassler'
     - name: 'G-Shock Date Checker'
       link: 'https://github.com/Vincent-the-gamer/g-shock-date-checker'
       desc: 'Check your Casio G-SHOCK production factory & production date. <br/>查询你的卡西欧G-Shock手表的产地和生产日期。'
       icon: 'g-shock'
+    - name: '@vincent-the-gamer/utils'
+      link: 'https://github.com/Vincent-the-gamer/utils'
+      desc: '自己编写的JavaScript/TypeScript实用工具'
+      icon: 'utils'
 
   实用的模板:
     - name: 'Yew.rs Template'
@@ -45,6 +53,10 @@ projects:
       link: "https://github.com/Vincent-the-gamer/vitepress-starter"
       desc: 'Opinionated VitePress Template. <br/>固执己见的VitePress文档网页起手模板。'
       icon: 'vitepress'
+    - name: "Vitesse Superslim"
+      link: "https://github.com/Vincent-the-gamer/vitesse-superslim"
+      desc: '极简版Vue + Vite起手模板'
+      icon: 'vitesse'
 
   VS Code主题:
     - name: 'NeonHeart'
