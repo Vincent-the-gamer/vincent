@@ -11,7 +11,7 @@ projects:
       desc: 'A HearthStone card maker. 炉石传说卡牌制作器。'
       icon: 'cardforge'
     - name: 'Nemahaizai'
-      link: 'https://github.com/Vincent-the-gamer/cardforge'
+      link: 'https://github.com/Vincent-the-gamer/nemahaizai'
       desc: '使用Tauri + Rust重写的Nemassler(WYY音乐.ncm转.mp3，以及音频BPM[每分钟节拍数] 计算), 后续会合并到Nemassler.'
       icon: 'nemahaizai'
   
