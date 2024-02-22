@@ -1,6 +1,6 @@
 ---
 title: 安利一些前端的工具
-date: 2024-2-3
+date: 2024-2-22
 lang: zh
 plum: true
 ---
@@ -120,6 +120,60 @@ const { locale } = useI18n()
 // 省略
 </script>
 ```
+
+### unplugin-vue-router
+
+需要配合`unplugin-auto-import`使用，使得你的`vue-router`变成`基于文件的路由(File-based Routing)`。
+
+以`Vite`为例，配置如下：
+
+首先配置`vite.config.ts`:
+```ts
+...
+import AutoImport from "unplugin-auto-import/vite"
+import VueRouter from 'unplugin-vue-router/vite'
+import { VueRouterAutoImports } from 'unplugin-vue-router'
+...
+
+export default defineConfig(async () => ({
+  ...
+  plugins: [
+    vue(),
+    AutoImport({
+      imports: [
+        "vue",
+        VueRouterAutoImports,
+        {
+          'vue-router/auto': ['useLink'],
+        },
+      ],
+      dts: true,
+      vueTemplate: true
+    }),
+    VueRouter(),
+    ...
+  ]
+
+  ...
+}))
+```
+
+然后在`src目录`的入口文件`main.ts`中：
+```ts
+import { createApp } from "vue";
+import App from "./App.vue";
+import { createRouter, createWebHistory } from 'vue-router/auto'
+
+const app = createApp(App)
+const router = createRouter({
+    history: createWebHistory(import.meta.env.BASE_URL),
+})
+app.use(router)
+app.mount("#app")
+```
+
+最后，在`src目录`下创建pages文件夹，然后直接添加组件，即可使用`基于文件的路由(File-based Routing)`了。
+不了解`File-based Routing`的小伙伴，请参考[Nuxt.js文档](https://nuxt.com.cn/)
 
 
 # 未完待续
