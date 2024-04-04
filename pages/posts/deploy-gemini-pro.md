@@ -1,6 +1,6 @@
 ---
-title: 如何使用Vercel部署自己的Gemini Chat对话网站
-date: 2023-12-23
+title: 如何部署自己的Gemini Pro对话服务
+date: 2024-04-04
 lang: zh
 plum: true
 ---
@@ -10,19 +10,7 @@ plum: true
 
 **这里有热心群友提供他部署的Demo，大家可以试玩:** [https://gemini.rin.guru/](https://gemini.rin.guru/)
 
-# 什么是Gemini
-它是谷歌推出的多模态大模型，这意味着它可以处理各种信息，包括文本、代码、音频、图像和视频。你可以把它想象成一个多才多艺的小助手，擅长各种任务。
-
-谷歌将其分为三个版本： Gemini Ultra （能力最强）, Gemini Pro（适用于多任务） 、Gemini Nano （适用于特定任务和端侧）。我们要搭建的对话网站基于Gemini Pro API。
-
-# 什么是Gemini Chat
-芝士<sup>（丁真语：这是）</sup>基于Gemini Pro的API所开发的一个前端页面，用于和API交互。
-
-**GitHub地址：**[https://github.com/babaohuang/GeminiProChat](https://github.com/babaohuang/GeminiProChat)
-
-# 使用Vercel搭建Gemini Chat网站
-
-## 第一步：申请API Key
+# 前置操作：申请API Key
 
 首先，申请自己的API Key: [https://makersuite.google.com/app/apikey](https://makersuite.google.com/app/apikey)
 
@@ -43,6 +31,24 @@ plum: true
 创建完成以后会出现API key，可以复制出来待用。
 
 **注意：API Key保密！API Key保密！API Key保密！**
+
+# 使用Node.js SDK搭建Gemini Pro后端
+
+> [!NOTE]
+> 2024.4月新增
+
+使用我的GitHub项目：[Vincent-the-gamer/gemini-pro-chat-kit](https://github.com/Vincent-the-gamer/gemini-pro-chat-kit)
+
+我已经修改了SDK，使得SDK可以走本地网络代理，拉取项目后，在`proxy.ts`设置好你的本地代理端口后即可启动后端。
+
+这个是纯后端，不包含前端页面，是作为API使用的。
+
+# 使用Vercel搭建Gemini Chat网站
+> [!WARNING]
+> 该方法已过时，不确定是否还能正确使用。
+
+## 第一步：申请API Key
+过程已经写在了前面，此处略。
 
 ## 第二步: 部署到Vercel
 
