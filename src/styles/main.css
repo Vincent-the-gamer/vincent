@@ -44,11 +44,11 @@ html.dark {
 }
 
 ::-webkit-scrollbar {
-    width: 6px;
+    width: 0;
 }
 
 ::-webkit-scrollbar:horizontal {
-    height: 6px;
+    height: 0;
 }
 
 ::-webkit-scrollbar-track,
