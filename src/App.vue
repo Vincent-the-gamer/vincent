@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { isDark } from './logics';
+
 const title = useTitle()
 const defaultTitle = title.value
 
@@ -41,11 +43,15 @@ onKeyStroke('Escape', (e) => {
     e.preventDefault()
   }
 })
+
+const darkStyle = 'bg-rgba-0-0-0-0.5 backdrop-blur-1px'
+const lightStyle = 'bg-rgba-255-255-255-0.5 backdrop-blur-1px'
+
 </script>
 
 <template>
-  <NavBar />
-  <main class="px-7 py-10 of-x-hidden">
+  <NavBar :class="isDark ? darkStyle : lightStyle"/>
+  <main class="px-7 py-10 of-x-hidden" :class="isDark ? darkStyle : lightStyle">
     <RouterView />
     <Footer :key="route.path" />
   </main>

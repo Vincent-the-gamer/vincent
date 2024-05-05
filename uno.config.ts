@@ -20,6 +20,10 @@ export default defineConfig({
       /^box-shadow-([a-zA-Z\.\d]+)-([a-zA-Z\.\d]+)-([a-zA-Z\.\d]+)-([a-zA-Z]+)$/, 
       ([_, offsetX, offsetY, blur, color]) => ({ "box-shadow": `${offsetX} ${offsetY} ${blur} ${color}` })
     ],
+    [
+      /^backdrop-blur-([\.\d]+)$/, 
+      ([_, pixels]) => ({ "backdrop-filter": `blur(${pixels}px)` })
+    ]
   ],
   presets: [
     presetIcons({

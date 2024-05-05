@@ -1,19 +1,22 @@
 :root {
-    --c-bg: linear-gradient(45deg, rgb(227, 255, 255), rgb(255, 201, 255));
-    --c-scrollbar: rgb(255, 201, 255);
+    --c-bg: linear-gradient(45deg, rgb(227, 255, 255), rgb(216, 216, 216));
+    --c-scrollbar: rgb(221, 221, 221);
     --c-scrollbar-hover: #bbb;
 }
 
 html {
-    background: var(--c-bg);
+    background-image: url("/images/backgrounds/murasame-day.jpg");
     overflow-x: hidden;
     overflow-y: scroll;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 
 html.dark {
-    --c-bg: linear-gradient(45deg, rgb(0, 0, 53), rgb(77, 0, 77));
-    --c-scrollbar: rgb(77, 0, 77);
+    background-image: url("/images/backgrounds/murasame-night.jpg");
+    --c-scrollbar: rgb(255, 194, 255);
     --c-scrollbar-hover: #222;
 }
 
