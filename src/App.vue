@@ -44,8 +44,8 @@ onKeyStroke('Escape', (e) => {
   }
 })
 
-const darkStyle = 'bg-rgba-0-0-0-0.5 backdrop-blur-1px'
-const lightStyle = 'bg-rgba-255-255-255-0.5 backdrop-blur-1px'
+const darkStyle = 'bg-rgba-0-0-0-0.8 backdrop-blur-1px'
+const lightStyle = 'bg-rgba-255-255-255-0.8 backdrop-blur-1px'
 
 </script>
 
