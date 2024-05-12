@@ -4,8 +4,8 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "rimraf temp && cross-env NODE_ENV=production vite-ssg build && esno ./scripts/rss.ts && pnpm run copy-files",
-    "spa-build": "rimraf temp && cross-env NODE_ENV=production vite build && esno ./scripts/rss.ts && pnpm run copy-files",
+    "build": "cross-env NODE_ENV=production vite-ssg build && esno ./scripts/rss.ts && pnpm run copy-files",
+    "spa-build": "cross-env NODE_ENV=production vite build && esno ./scripts/rss.ts && pnpm run copy-files",
     "copy-files": "cp _dist_redirects dist/_redirects",
     "serve": "vite --port 8080 --open",
     "preview": "vite preview",
@@ -51,7 +51,6 @@
     "markdown-it-table-of-contents": "^0.6.0",
     "picocolors": "^1.0.0",
     "prompts": "^2.4.2",
-    "rimraf": "^5.0.6",
     "shiki": "1.0.0-beta.0",
     "taze": "^0.13.8",
     "typescript": "^5.4.5",
