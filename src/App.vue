@@ -1,5 +1,41 @@
 <script setup lang="ts">
-import { isDark } from './logics';
+import {
+  DotImageCanvas,
+  getDevice,
+  useRaf
+} from 'lazy-js-utils';
+import nene1 from '/images/nene1.png'
+import nene2 from '/images/nene2.png'
+
+// 背景图
+const imageShow = computed(() => {
+  const { os } = getDevice()
+  return os === 'mac' || os === 'windows' || os === 'macOS'
+})
+
+const dotImage1 = new DotImageCanvas(nene1, '', 3, 'transparent', 'vertical-reverse')
+const dotImage2 = new DotImageCanvas(nene2, '', 3, 'transparent')
+
+onMounted(() => {
+  if (imageShow.value) {
+    dotImage1.append('.dotImage')
+    dotImage2.append('.cloth')
+  }
+  const stop = useRaf(() => {
+    if (dotImage1.status && window.gsap) {
+      stop()
+      window.gsap.to('.dotImage', {
+        rotationY: 360,
+        scrollTrigger: {
+          trigger: 'body',
+          start: 'top center',
+          end: 'bottom center',
+          scrub: true,
+        },
+      })
+    }
+  }, 200)
+})
 
 const title = useTitle()
 const defaultTitle = title.value
@@ -44,14 +80,14 @@ onKeyStroke('Escape', (e) => {
   }
 })
 
-const darkStyle = 'bg-rgba-0-0-0-0.8 backdrop-blur-1px'
-const lightStyle = 'bg-rgba-255-255-255-0.8 backdrop-blur-1px'
 
 </script>
 
 <template>
-  <NavBar :class="isDark ? darkStyle : lightStyle"/>
-  <main class="px-7 py-10 of-x-hidden" :class="isDark ? darkStyle : lightStyle">
+  <span v-if="imageShow" class="dotImage" fixed top-20 left--80 z--1 />
+  <span v-if="imageShow" class="cloth" fixed top-20 right--120 z--1 />
+  <NavBar/>
+  <main class="px-7 py-10 of-x-hidden">
     <RouterView />
     <Footer :key="route.path" />
   </main>
@@ -61,5 +97,4 @@ const lightStyle = 'bg-rgba-255-255-255-0.8 backdrop-blur-1px'
       <img :src="imageModel.src" :alt="imageModel.alt" w-full h-full object-contain>
     </div>
   </Transition>
-  <PlayStation />
 </template>
