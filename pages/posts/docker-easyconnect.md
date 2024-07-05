@@ -9,6 +9,9 @@ plum: true
 
 参考：[https://github.com/docker-easyconnect/docker-easyconnect](https://github.com/docker-easyconnect/docker-easyconnect)
 
+> [!NOTE]
+> 补充：Apple Silicon 芯片的设备需要拉取dev-7.6.3或dev-7.6.7镜像。
+
 以下只给出图形界面版EasyConnect的使用教程，因为命令行版不支持短信验证码的接收。
 
 1. [安装Docker并运行](https://docs.docker.com/get-docker/)
