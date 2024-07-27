@@ -6,6 +6,7 @@ import 'markdown-it-github-alerts/styles/github-base.css'
 import './styles/main.css'
 import './styles/prose.css'
 import './styles/markdown.css'
+import '@snackbar/core/dist/snackbar.css'
 
 import 'uno.css'
 
