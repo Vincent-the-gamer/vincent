@@ -79,8 +79,11 @@ projects:
       link: 'https://transfonter.org/'
       desc: '字体转换器，可以在TTF, WOFF, WOFF2, SVG字体间互转, 可以导入OTF转成其它格式。'
       icon: 'transfonter'
-
-
+    
+    - name: "在线音频处理"
+      link: "https://vocalremover.org/zh/cutter"
+      desc: "可以在线对音频进行各种处理"
+      icon: "music"
 ---
 
 <!-- @layout-full-width -->

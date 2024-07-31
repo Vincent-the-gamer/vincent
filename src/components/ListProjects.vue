@@ -30,13 +30,11 @@ function slug(name: string) {
           :title="item.name"
         >
           <div v-if="item.icon" class="pt-2 pr-5">
+            <!-- pic -->
             <img v-if="item.icon === 'cardforge'" class="text-4xl w-80px h-60px" src="/images/projects/cardforge-logo.png"/>
             <img v-else-if="item.icon === 'nemassler'" class="text-4xl w-200px h-75px" src="/images/projects/nemassler-logo.png"/>
             <img v-else-if="item.icon === 'wenyan'" class="text-4xl w-120px h-75px" src="/images/projects/wenyan.png"/>
             <img v-else-if="item.icon === 'g-shock'" class="text-4xl w-160px h-75px" src="/images/projects/g-shock-date-checker.jpg"/>
-            <img v-else-if="item.icon === 'yew'" class="text-4xl w-140px h-75px" src="/gifs/yew.gif"/>
-            <img v-else-if="item.icon === 'kaomoe'" class="text-4xl w-140px h-75px" src="/gifs/kaomoe.gif"/>
-            <img v-else-if="item.icon === 'n-stars'" class="text-4xl w-140px h-75px" src="/gifs/n-stars.gif"/>
             <img v-else-if="item.icon === 'picdiet'" class="text-4xl w-220px h-35px" src="/images/projects/picdiet.png"/>
             <img v-else-if="item.icon === 'neonheart'" class="text-4xl w-125px h-88px" src="/images/projects/neonheart.png"/>
             <img v-else-if="item.icon === 'github'" class="text-4xl w-200px h-88px" src="/images/projects/github.png"/>
@@ -44,6 +42,14 @@ function slug(name: string) {
             <img v-else-if="item.icon === 'vitepress'" class="text-4xl w-100px h-70px" src="/images/projects/vitepress-logo.png"/>
             <img v-else-if="item.icon === 'utils'" class="text-4xl w-85px h-70px" src="/images/projects/vince-utils.png"/>
             <img v-else-if="item.icon === 'nemahaizai'" class="text-4xl w-250px h-75px" src="/images/projects/nemahaizai.png"/>
+            <img v-else-if="item.icon === 'music'" class="text-4xl w-80px h-75px" src="/images/projects/music.png"/>
+
+            <!-- gif -->
+            <img v-else-if="item.icon === 'yew'" class="text-4xl w-140px h-75px" src="/gifs/yew.gif"/>
+            <img v-else-if="item.icon === 'kaomoe'" class="text-4xl w-140px h-75px" src="/gifs/kaomoe.gif"/>
+            <img v-else-if="item.icon === 'n-stars'" class="text-4xl w-140px h-75px" src="/gifs/n-stars.gif"/>
+
+            <!-- svg -->
             <div v-else-if="item.icon === 'vitesse'" class="i-carbon-campsite w-50px h-50px" />
             <div v-else class="text-3xl opacity-50" :class="item.icon || 'i-carbon-unknown'" />
           </div>
