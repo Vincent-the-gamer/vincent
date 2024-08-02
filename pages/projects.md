@@ -5,16 +5,6 @@ description: 我在GitHub上发布的一些好玩的项目
 plum: true
 wrapperClass: 'text-center'
 projects:
-  目前正在进行:
-    - name: 'CardForge'
-      link: 'https://github.com/Vincent-the-gamer/cardforge'
-      desc: 'A HearthStone card maker. 炉石传说卡牌制作器。'
-      icon: 'cardforge'
-    - name: 'Nemahaizai'
-      link: 'https://github.com/Vincent-the-gamer/nemahaizai'
-      desc: '使用Tauri + Rust重写的Nemassler(WYY音乐.ncm转.mp3，以及音频BPM[每分钟节拍数] 计算), 后续会合并到Nemassler.'
-      icon: 'nemahaizai'
-  
   好玩的项目:
     - name: 'Kaomoe (*￣▽￣)b'
       link: 'https://github.com/Vincent-the-gamer/kaomoe'
@@ -28,6 +18,11 @@ projects:
       link: 'https://github.com/Vincent-the-gamer/this-repo-has-4-stars'
       desc: '这个仓库有N颗星星！Star的数量发生改变时，项目名称会动态更新！'
       icon: 'n-stars'
+    - name: 'CardForge'
+      link: 'https://github.com/Vincent-the-gamer/cardforge'
+      desc: 'A HearthStone card maker. 炉石传说卡牌制作器。'
+      icon: 'cardforge'
+
 
   工具项目:
     - name: 'Nemassler'
@@ -43,6 +38,11 @@ projects:
       link: 'https://github.com/Vincent-the-gamer/utils'
       desc: '自己编写的JavaScript/TypeScript实用工具'
       icon: 'utils'
+    - name: 'modern-html2pdf'
+      link: 'https://github.com/Vincent-the-gamer/modern-html2pdf'
+      desc: '把HTML单/多节点转换为多页PDF'
+      icon: 'html2pdf'
+
 
   实用的模板:
     - name: 'Yew.rs Template'
@@ -84,6 +84,11 @@ projects:
       link: "https://vocalremover.org/zh/cutter"
       desc: "可以在线对音频进行各种处理"
       icon: "music"
+
+    - name: "在线音频可视化"
+      link: "https://vizzy.io/"
+      desc: "在线免费生成音频可视化的视频"
+      icon: "vizzy"
 ---
 
 <!-- @layout-full-width -->
