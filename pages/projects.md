@@ -59,9 +59,14 @@ projects:
       icon: 'vitesse'
 
   VS Code主题:
-    - name: 'NeonHeart'
+    - name: 'VSCode Theme Aya'
+      link: 'https://github.com/Vincent-the-gamer/vscode-theme-aya'
+      desc: 'Murasame-style VSCode theme. 丛雨VSCode主题。'
+      icon: 'aya'
+
+    - name: 'VSCode Theme NeonHeart'
       link: 'https://github.com/Vincent-the-gamer/neonheart'
-      desc: 'An opinionated VS Code theme. 固执己见的VSCode主题。'
+      desc: 'An opinionated VS Code theme. 个人风格向的VSCode主题。'
       icon: 'neonheart'
 
   实用工具推荐:
