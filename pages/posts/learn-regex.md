@@ -71,9 +71,9 @@ plum: true
 正则表达式 `123` 会匹配字符串“123”。通过将正则表达式中的每个字符逐个与要匹配的字符串中的每个字符进行比较，来完成正则匹配。
 正则表达式通常区分大小写，因此正则表达式 `Cat` 与字符串“cat”不匹配。
 
-```
+<pre style="color: gray;">
 "Cat" => The cat sat on the <a href="#learn-regex"><strong>Cat</strong></a>
-```
+</pre>
 
 ## 2. 元字符
 
