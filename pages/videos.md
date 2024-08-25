@@ -10,9 +10,9 @@ videos:
       platform: Bilibili
       lang: 'zh'
   launchpadVideos:
-    - title: "等之后发了再说"
-      date: '2023-12-22'
-      path: 'https://space.bilibili.com/3342738'
+    - title: "One Two - Virtual Riot"
+      date: '2024-06-10'
+      path: 'https://www.bilibili.com/video/BV1UZ421u7yE'
       platform: Bilibili
       lang: 'zh'
 ---
