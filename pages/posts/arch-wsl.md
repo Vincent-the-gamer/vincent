@@ -76,6 +76,11 @@ passwd
 
 ### 添加新用户, 设置新用户密码
 
+设置`sudoers`文件
+```shell
+echo "%wheel ALL=(ALL) ALL" > /etc/sudoers.d/wheel
+```
+
 将新用户添加至wheel组，为后续使用sudo做准备
 
 `{username}`是你要指定的用户名，随便取个名就行
