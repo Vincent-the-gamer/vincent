@@ -21,12 +21,12 @@
     "floating-vue": "2.0.0-beta.24",
     "nprogress": "^0.2.0",
     "sharp": "^0.33.5",
-    "vue": "^3.5.6",
+    "vue": "^3.5.7",
     "vue-router": "4.2.5",
     "vue-router-better-scroller": "^0.0.0"
   },
   "devDependencies": {
-    "@iconify/json": "^2.2.250",
+    "@iconify/json": "^2.2.251",
     "@octokit/rest": "^21.0.2",
     "@shikijs/markdown-it": "1.0.0-beta.0",
     "@types/crypto-js": "^4.2.2",
@@ -63,7 +63,7 @@
     "unplugin-icons": "^0.19.3",
     "unplugin-vue-components": "^0.27.4",
     "unplugin-vue-markdown": "^0.26.2",
-    "vite": "^5.4.6",
+    "vite": "^5.4.7",
     "vite-plugin-inspect": "^0.8.7",
     "vite-plugin-pages": "^0.32.3",
     "vite-ssg": "^0.23.8",
