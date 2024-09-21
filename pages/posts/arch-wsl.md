@@ -28,6 +28,9 @@ WSL: Windows Subsystem for Linux (适用于 Linux 的 Windows 子系统)
 使用powershell
 
 ```shell
+# 更新wsl
+wsl --update
+# 将默认版本设置为2
 wsl --set-default-version 2
 ```
 
@@ -50,7 +53,7 @@ wsl --list
 设置wsl默认发行版
 
 ```shell
-wsl --setdefault Arch
+wsl --set-default Arch
 ```
 
 ## 从终端进入Arch Linux
