@@ -16,7 +16,7 @@ const { y: scroll } = useWindowScroll()
       to="/"
       focusable="false"
     >
-      <img title="Vincent-the-gamer" src="/avatar.png"/>
+      <img title="Vincent-the-gamer" src="/avatar.png">
     </RouterLink>
     <button
       title="Scroll to top"
@@ -54,7 +54,7 @@ const { y: scroll } = useWindowScroll()
           <div i-simple-icons-bilibili />
         </a>
         <a href="https://x.com/Vincent49761417" target="_blank" title="X(Twitter)">
-          <div i-carbon-logo-x/>
+          <div i-carbon-logo-x />
         </a>
         <a href="/feed.xml" target="_blank" title="RSS" class="lt-md:hidden">
           <div i-la-rss-square style="font-size:1.25rem; margin: 0 -0.125rem;" />

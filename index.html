@@ -6,21 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
     <meta name="revisit-after" content="7 days" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <base href="/">
+    <base href="/" />
     <link rel="icon" href="/favicon.ico" type="image/icon" />
-    <link
-      rel="alternate"
-      type="application/rss+xml"
-      title="诡锋的博客"
-      href="/feed.xml"
-    />
+    <link rel="alternate" type="application/rss+xml" title="诡锋的博客" href="/feed.xml" />
     <meta name="msapplication-TileColor" content="#ffffff" />
     <title>诡锋 Vincent</title>
     <script>
       ;(function () {
-        const prefersDark =
-          window.matchMedia &&
-          window.matchMedia('(prefers-color-scheme: dark)').matches
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
         const setting = localStorage.getItem('vueuse-color-scheme') || 'auto'
         if (setting === 'dark' || (prefersDark && setting !== 'light'))
           document.documentElement.classList.toggle('dark', true)
@@ -30,11 +23,7 @@
   <body class="font-sans text-gray-700 dark:text-gray-200 relative">
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
-    <script
-      async
-      src="https://platform.twitter.com/widgets.js"
-      charset="utf-8"
-    ></script>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <!-- Live2D 看板娘 -->
     <script src="https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
   </body>

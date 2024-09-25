@@ -13,17 +13,17 @@ export default defineConfig({
       '--enter-stage': n,
     })],
     [
-      /^bg-rgba-([\.\d]+)-([\.\d]+)-([\.\d]+)-([\.\d]+)$/, 
-      ([_, r, g, b, a]) => ({ "background-color": `rgba(${r}, ${g}, ${b}, ${a})` })
+      /^bg-rgba-([.\d]+)-([.\d]+)-([.\d]+)-([.\d]+)$/,
+      ([_, r, g, b, a]) => ({ 'background-color': `rgba(${r}, ${g}, ${b}, ${a})` }),
     ],
     [
-      /^box-shadow-([a-zA-Z\.\d]+)-([a-zA-Z\.\d]+)-([a-zA-Z\.\d]+)-([a-zA-Z]+)$/, 
-      ([_, offsetX, offsetY, blur, color]) => ({ "box-shadow": `${offsetX} ${offsetY} ${blur} ${color}` })
+      /^box-shadow-([a-zA-Z.\d]+)-([a-zA-Z.\d]+)-([a-zA-Z.\d]+)-([a-zA-Z]+)$/,
+      ([_, offsetX, offsetY, blur, color]) => ({ 'box-shadow': `${offsetX} ${offsetY} ${blur} ${color}` }),
     ],
     [
-      /^backdrop-blur-([\.\d]+)$/, 
-      ([_, pixels]) => ({ "backdrop-filter": `blur(${pixels}px)` })
-    ]
+      /^backdrop-blur-([.\d]+)$/,
+      ([_, pixels]) => ({ 'backdrop-filter': `blur(${pixels}px)` }),
+    ],
   ],
   presets: [
     presetIcons({

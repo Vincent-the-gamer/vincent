@@ -23,7 +23,6 @@ projects:
       desc: 'A HearthStone card maker. 炉石传说卡牌制作器。'
       icon: 'cardforge'
 
-
   工具项目:
     - name: 'Nemassler'
       link: 'https://github.com/Vincent-the-gamer/Nemassler'
@@ -42,7 +41,6 @@ projects:
       link: 'https://github.com/Vincent-the-gamer/modern-html2pdf'
       desc: '把HTML单/多节点转换为多页PDF'
       icon: 'html2pdf'
-
 
   实用的模板:
     - name: 'Yew.rs Template'
@@ -84,7 +82,7 @@ projects:
       link: 'https://transfonter.org/'
       desc: '字体转换器，可以在TTF, WOFF, WOFF2, SVG字体间互转, 可以导入OTF转成其它格式。'
       icon: 'transfonter'
-    
+
     - name: "在线音频处理"
       link: "https://vocalremover.org/zh/cutter"
       desc: "可以在线对音频进行各种处理"

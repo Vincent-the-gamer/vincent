@@ -1,5 +1,15 @@
+import dayjs from 'dayjs'
+import LocalizedFormat from 'dayjs/plugin/localizedFormat.js'
+import FloatingVue from 'floating-vue'
+import NProgress from 'nprogress'
+import autoRoutes from 'pages-generated'
+import { ViteSSG } from 'vite-ssg'
+import { setupRouterScroller } from 'vue-router-better-scroller'
+import App from './App.vue'
 import '@unocss/reset/tailwind.css'
+
 import 'floating-vue/dist/style.css'
+
 import 'markdown-it-github-alerts/styles/github-colors-light.css'
 import 'markdown-it-github-alerts/styles/github-colors-dark-class.css'
 import 'markdown-it-github-alerts/styles/github-base.css'
@@ -7,17 +17,7 @@ import './styles/main.css'
 import './styles/prose.css'
 import './styles/markdown.css'
 import '@snackbar/core/dist/snackbar.css'
-
 import 'uno.css'
-
-import autoRoutes from 'pages-generated'
-import NProgress from 'nprogress'
-import { ViteSSG } from 'vite-ssg'
-import dayjs from 'dayjs'
-import LocalizedFormat from 'dayjs/plugin/localizedFormat.js'
-import { setupRouterScroller } from 'vue-router-better-scroller'
-import FloatingVue from 'floating-vue'
-import App from './App.vue'
 
 const routes = autoRoutes.map((i) => {
   return {
@@ -31,7 +31,7 @@ const routes = autoRoutes.map((i) => {
 export const createApp = ViteSSG(
   App,
   {
-    routes
+    routes,
   },
   ({ router, app, isClient }) => {
     dayjs.extend(LocalizedFormat)

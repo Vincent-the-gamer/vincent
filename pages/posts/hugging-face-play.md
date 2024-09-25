@@ -9,7 +9,7 @@ plum: true
 
 ~~摸了，今年最后发一篇博客了，剩下的明年再发~~ （）
 
-想玩一些简单的AI语言生成，但是不会写代码，或者没有足够强♂劲的硬件来进行模型训练和推理? 
+想玩一些简单的AI语言生成，但是不会写代码，或者没有足够强♂劲的硬件来进行模型训练和推理?
 
 那就用Hugging Face来~~白嫖~~别人的项目吧！
 
@@ -50,6 +50,7 @@ PS: 小项目如`VITS语音生成`可以用免费的CPU方案，跑不动的可�
 # 克隆Space时可能出现的错误
 
 1. TypeError: AsyncConnectionPool.\_\_init\_\_() got an unexpected keyword argument 'socket_options'
+
    ```
     Traceback (most recent call last):
     File "/home/user/app/app.py", line 4, in <module>
@@ -74,9 +75,11 @@ PS: 小项目如`VITS语音生成`可以用免费的CPU方案，跑不动的可�
         self._pool = httpcore.AsyncConnectionPool(
     TypeError: AsyncConnectionPool.__init__() got an unexpected keyword argument 'socket_options'
    ```
+
    这是由于项目前端一般使用huggingface提供的`gradio`，而它依赖的`httpx`版本导致的。
 
    解决方法：在`files`里修改`requirements.txt`,手动加上指定版本的`httpx`
+
    ```
    httpx==0.24.1
    ```

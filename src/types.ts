@@ -14,10 +14,9 @@ export interface Post {
   redirect?: string
 }
 
-
 export interface GameHistory {
-  name: string,
-  date: string,
-  image?: string,
+  name: string
+  date: string
+  image?: string
   id: string
 }

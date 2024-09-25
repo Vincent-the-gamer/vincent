@@ -77,6 +77,7 @@ passwd
 ### 添加新用户, 设置新用户密码
 
 设置`sudoers`文件
+
 ```shell
 echo "%wheel ALL=(ALL) ALL" > /etc/sudoers.d/wheel
 ```
@@ -190,6 +191,7 @@ sudo pacman -Sy --needed base-devel git
 ### 安装其它软件
 
 - zsh + oh-my-zsh: 使用zsh终端加上终端美化可以更爽
+
 ```shell
 sudo pacman -S zsh
 
@@ -203,6 +205,7 @@ sh -c "$(curl -fsSL https://install.ohmyz.sh/)"
 配置oh-my-zsh可以参考我的dotfiles: [Vincent-the-gamer/dotfiles](https://github.com/Vincent-the-gamer/dotfiles)
 
 - fastfetch: neofetch的平替，可以查看系统信息(neofetch仓库已archive，不再维护了)
+
 ```shell
 sudo pacman -Sy fastfetch
 ```

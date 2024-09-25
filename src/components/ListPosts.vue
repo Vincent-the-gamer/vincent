@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { englishOnly, formatDate } from '~/logics'
-import { scrollIntoView } from "~/logics/scrollIntoView"
+import { scrollIntoView } from '~/logics/scrollIntoView'
 import type { Post } from '~/types'
 
 const props = defineProps<{
@@ -13,12 +13,13 @@ const router = useRouter()
 const routes: Post[] = router.getRoutes()
   .filter(i => i.path.startsWith('/posts') && i.meta.frontmatter.date && !i.meta.frontmatter.draft)
   .filter(i => !i.path.endsWith('.html') && (i.meta.frontmatter.type || 'blog').split('+').includes(props.type))
-  .map(i => {
-    let path = ""
-    if(i.meta.frontmatter.redirect) {
-      path = i.meta.frontmatter.redirect.replace("//","/")
-    } else {
-      path = i.path.replace("//","/")
+  .map((i) => {
+    let path = ''
+    if (i.meta.frontmatter.redirect) {
+      path = i.meta.frontmatter.redirect.replace('//', '/')
+    }
+    else {
+      path = i.path.replace('//', '/')
     }
     return {
       path,
@@ -152,9 +153,13 @@ function getGroupName(p: Post) {
             <div class="i-ri-menu-2-fill" />
           </div>
           <ul>
-            <li v-for="route of posts" :key="route.path"
-                class="hover:cursor-pointer"
-                @click="() => scrollIntoView(route.path)">{{ route.title }}</li>
+            <li
+              v-for="route of posts" :key="route.path"
+              class="hover:cursor-pointer"
+              @click="() => scrollIntoView(route.path)"
+            >
+              {{ route.title }}
+            </li>
           </ul>
         </div>
       </div>

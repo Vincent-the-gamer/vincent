@@ -2,8 +2,8 @@
 import {
   DotImageCanvas,
   getDevice,
-  useRaf
-} from 'lazy-js-utils';
+  useRaf,
+} from 'lazy-js-utils'
 import nene1 from '/images/nene1.png'
 import nene2 from '/images/nene2.png'
 
@@ -41,8 +41,8 @@ const title = useTitle()
 const defaultTitle = title.value
 
 const isLeft = usePageLeave()
-watch(() => isLeft.value, newVal => {
-  newVal ? title.value = "不要离开人家嘛 ヽ(。>д<)ｐ" : title.value = defaultTitle
+watch(() => isLeft.value, (newVal) => {
+  newVal ? title.value = '不要离开人家嘛 ヽ(。>д<)ｐ' : title.value = defaultTitle
 })
 
 const route = useRoute()
@@ -79,14 +79,12 @@ onKeyStroke('Escape', (e) => {
     e.preventDefault()
   }
 })
-
-
 </script>
 
 <template>
   <span v-if="imageShow" class="dotImage" fixed top-20 left--80 z--1 />
   <span v-if="imageShow" class="cloth" fixed top-20 right--120 z--1 />
-  <NavBar/>
+  <NavBar />
   <main class="px-7 py-10 of-x-hidden">
     <RouterView />
     <Footer :key="route.path" />

@@ -1,46 +1,24 @@
-<template>
-    <div class="mt-8" flex="~ col justify-center items-center">
-        <h1 class="text-2xl font-bold mb-4">2048 Game</h1>
-        <div class="relative">
-            <div v-if="!gameOver && !gameWon" class="grid grid-cols-4 gap-4 bg-gray-200 p-4 rounded-lg shadow-lg">
-                <div v-for="(value, index) in board" :key="index" :class="getTileClass(value)"
-                    class="w-20 h-20 flex items-center justify-center text-xl font-bold rounded-lg transition-transform duration-300 ease-out transform hover:scale-110">
-                    <transition name="slide-fade" mode="out-in">
-                        <div v-if="value !== 0" :key="value">
-                            {{ value }}
-                        </div>
-                    </transition>
-                </div>
-            </div>
-            <div v-else class="absolute inset-0 flex items-center justify-center bg-gray-200 bg-opacity-75 rounded-lg shadow-lg">
-                <div v-if="gameWon" class="text-center text-2xl font-bold text-green-500">You Win!</div>
-                <div v-else class="text-center text-2xl font-bold text-red-500">Game Over</div>
-            </div>
-        </div>
-        <div class="mt-4 text-center text-xl font-bold">Score: {{ score }}</div>
-    </div>
-</template>
-
 <script setup lang="ts">
-import { ref, onMounted, computed } from 'vue'
 import { useEventListener } from '@vueuse/core'
+import { computed, onMounted, ref } from 'vue'
 
-const board = ref(Array(16).fill(0))
+const board = ref(Array.from({ length: 16 }).fill(0))
 const score = ref(0)
 const gameOver = ref(false)
 const gameWon = ref(false)
 
-const initBoard = () => {
-  board.value = Array(16).fill(0)
+function initBoard() {
+  board.value = Array.from({ length: 16 }).fill(0)
   addNewTile()
   addNewTile()
   gameOver.value = false
   gameWon.value = false
 }
 
-const addNewTile = () => {
+function addNewTile() {
   const emptyTiles = board.value.reduce((acc, val, index) => {
-    if (val === 0) acc.push(index)
+    if (val === 0)
+      acc.push(index)
     return acc
   }, [])
   if (emptyTiles.length > 0) {
@@ -49,7 +27,7 @@ const addNewTile = () => {
   }
 }
 
-const checkGameOver = () => {
+function checkGameOver() {
   if (board.value.includes(2048)) {
     gameWon.value = true
     return
@@ -67,13 +45,13 @@ const checkGameOver = () => {
   }
 }
 
-const move = (direction: 'up' | 'down' | 'left' | 'right') => {
+function move(direction: 'up' | 'down' | 'left' | 'right') {
   const oldBoard = [...board.value]
   let changed = false
 
   const rotateBoard = (board: number[]) => {
     const N = Math.sqrt(board.length)
-    const rotated = Array(16).fill(0)
+    const rotated = Array.from({ length: 16 }).fill(0)
     for (let i = 0; i < N; i++) {
       for (let j = 0; j < N; j++) {
         rotated[i * N + j] = board[(N - j - 1) * N + i]
@@ -98,7 +76,8 @@ const move = (direction: 'up' | 'down' | 'left' | 'right') => {
       row = row.filter(x => x !== 0)
       while (row.length < N) row.push(0)
       for (let j = 0; j < N; j++) {
-        if (board[i * N + j] !== row[j]) changed = true
+        if (board[i * N + j] !== row[j])
+          changed = true
         board[i * N + j] = row[j]
       }
     }
@@ -110,13 +89,16 @@ const move = (direction: 'up' | 'down' | 'left' | 'right') => {
     newBoard = rotateBoard(rotateBoard(rotateBoard(newBoard)))
     newBoard = moveLeft(newBoard)
     newBoard = rotateBoard(newBoard)
-  } else if (direction === 'down') {
+  }
+  else if (direction === 'down') {
     newBoard = rotateBoard(newBoard)
     newBoard = moveLeft(newBoard)
     newBoard = rotateBoard(rotateBoard(rotateBoard(newBoard)))
-  } else if (direction === 'left') {
+  }
+  else if (direction === 'left') {
     newBoard = moveLeft(newBoard)
-  } else if (direction === 'right') {
+  }
+  else if (direction === 'right') {
     newBoard = rotateBoard(rotateBoard(newBoard))
     newBoard = moveLeft(newBoard)
     newBoard = rotateBoard(rotateBoard(newBoard))
@@ -134,12 +116,16 @@ const move = (direction: 'up' | 'down' | 'left' | 'right') => {
   checkGameOver()
 }
 
-const handleKeyDown = (e: KeyboardEvent) => {
+function handleKeyDown(e: KeyboardEvent) {
   e.preventDefault()
-  if (e.key === 'ArrowUp') move('up')
-  else if (e.key === 'ArrowDown') move('down')
-  else if (e.key === 'ArrowLeft') move('left')
-  else if (e.key === 'ArrowRight') move('right')
+  if (e.key === 'ArrowUp')
+    move('up')
+  else if (e.key === 'ArrowDown')
+    move('down')
+  else if (e.key === 'ArrowLeft')
+    move('left')
+  else if (e.key === 'ArrowRight')
+    move('right')
 }
 
 const getTileClass = computed(() => (value: number) => {
@@ -165,6 +151,39 @@ onMounted(() => {
   useEventListener('keydown', handleKeyDown)
 })
 </script>
+
+<template>
+  <div class="mt-8" flex="~ col justify-center items-center">
+    <h1 class="text-2xl font-bold mb-4">
+      2048 Game
+    </h1>
+    <div class="relative">
+      <div v-if="!gameOver && !gameWon" class="grid grid-cols-4 gap-4 bg-gray-200 p-4 rounded-lg shadow-lg">
+        <div
+          v-for="(value, index) in board" :key="index" :class="getTileClass(value)"
+          class="w-20 h-20 flex items-center justify-center text-xl font-bold rounded-lg transition-transform duration-300 ease-out transform hover:scale-110"
+        >
+          <transition name="slide-fade" mode="out-in">
+            <div v-if="value !== 0" :key="value">
+              {{ value }}
+            </div>
+          </transition>
+        </div>
+      </div>
+      <div v-else class="absolute inset-0 flex items-center justify-center bg-gray-200 bg-opacity-75 rounded-lg shadow-lg">
+        <div v-if="gameWon" class="text-center text-2xl font-bold text-green-500">
+          You Win!
+        </div>
+        <div v-else class="text-center text-2xl font-bold text-red-500">
+          Game Over
+        </div>
+      </div>
+    </div>
+    <div class="mt-4 text-center text-xl font-bold">
+      Score: {{ score }}
+    </div>
+  </div>
+</template>
 
 <style scoped>
 .slide-fade-enter-active {

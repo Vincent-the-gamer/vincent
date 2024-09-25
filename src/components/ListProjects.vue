@@ -2,7 +2,7 @@
 defineProps<{ projects: Record<string, any[]> }>()
 
 function slug(name: string) {
-  return name.toLowerCase().replace(/[\s\\\/]+/g, '-')
+  return name.toLowerCase().replace(/[\s\\/]+/g, '-')
 }
 </script>
 
@@ -31,25 +31,25 @@ function slug(name: string) {
         >
           <div v-if="item.icon" class="pt-2 pr-5">
             <!-- pic -->
-            <img v-if="item.icon === 'cardforge'" class="text-4xl w-80px h-60px" src="/images/projects/cardforge-logo.png"/>
-            <img v-else-if="item.icon === 'nemassler'" class="text-4xl w-200px h-75px" src="/images/projects/nemassler.png"/>
-            <img v-else-if="item.icon === 'wenyan'" class="text-4xl w-120px h-75px" src="/images/projects/wenyan.png"/>
-            <img v-else-if="item.icon === 'g-shock'" class="text-4xl w-160px h-75px" src="/images/projects/g-shock-date-checker.jpg"/>
-            <img v-else-if="item.icon === 'picdiet'" class="text-4xl w-220px h-35px" src="/images/projects/picdiet.png"/>
-            <img v-else-if="item.icon === 'neonheart'" class="text-4xl w-125px h-88px" src="/images/projects/neonheart.png"/>
-            <img v-else-if="item.icon === 'github'" class="text-4xl w-200px h-88px" src="/images/projects/github.png"/>
-            <img v-else-if="item.icon === 'transfonter'" class="text-4xl w-300px h-30px" src="/images/projects/transfonter.png"/>
-            <img v-else-if="item.icon === 'vitepress'" class="text-4xl w-100px h-70px" src="/images/projects/vitepress-logo.png"/>
-            <img v-else-if="item.icon === 'utils'" class="text-4xl w-85px h-70px" src="/images/projects/vince-utils.png"/>
-            <img v-else-if="item.icon === 'music'" class="text-4xl w-80px h-75px" src="/images/projects/music.png"/>
-            <img v-else-if="item.icon === 'html2pdf'" class="text-4xl w-80px h-75px" src="/images/projects/html2pdf.jpg"/>
-            <img v-else-if="item.icon === 'vizzy'" class="text-4xl w-80px h-50px" src="/images/projects/vizzy.png"/>
-            <img v-else-if="item.icon === 'aya'" class="text-4xl w-110px h-75px" src="/images/projects/aya.png"/>
+            <img v-if="item.icon === 'cardforge'" class="text-4xl w-80px h-60px" src="/images/projects/cardforge-logo.png">
+            <img v-else-if="item.icon === 'nemassler'" class="text-4xl w-200px h-75px" src="/images/projects/nemassler.png">
+            <img v-else-if="item.icon === 'wenyan'" class="text-4xl w-120px h-75px" src="/images/projects/wenyan.png">
+            <img v-else-if="item.icon === 'g-shock'" class="text-4xl w-160px h-75px" src="/images/projects/g-shock-date-checker.jpg">
+            <img v-else-if="item.icon === 'picdiet'" class="text-4xl w-220px h-35px" src="/images/projects/picdiet.png">
+            <img v-else-if="item.icon === 'neonheart'" class="text-4xl w-125px h-88px" src="/images/projects/neonheart.png">
+            <img v-else-if="item.icon === 'github'" class="text-4xl w-200px h-88px" src="/images/projects/github.png">
+            <img v-else-if="item.icon === 'transfonter'" class="text-4xl w-300px h-30px" src="/images/projects/transfonter.png">
+            <img v-else-if="item.icon === 'vitepress'" class="text-4xl w-100px h-70px" src="/images/projects/vitepress-logo.png">
+            <img v-else-if="item.icon === 'utils'" class="text-4xl w-85px h-70px" src="/images/projects/vince-utils.png">
+            <img v-else-if="item.icon === 'music'" class="text-4xl w-80px h-75px" src="/images/projects/music.png">
+            <img v-else-if="item.icon === 'html2pdf'" class="text-4xl w-80px h-75px" src="/images/projects/html2pdf.jpg">
+            <img v-else-if="item.icon === 'vizzy'" class="text-4xl w-80px h-50px" src="/images/projects/vizzy.png">
+            <img v-else-if="item.icon === 'aya'" class="text-4xl w-110px h-75px" src="/images/projects/aya.png">
 
             <!-- gif -->
-            <img v-else-if="item.icon === 'yew'" class="text-4xl w-140px h-75px" src="/gifs/yew.gif"/>
-            <img v-else-if="item.icon === 'kaomoe'" class="text-4xl w-140px h-75px" src="/gifs/kaomoe.gif"/>
-            <img v-else-if="item.icon === 'n-stars'" class="text-4xl w-140px h-75px" src="/gifs/n-stars.gif"/>
+            <img v-else-if="item.icon === 'yew'" class="text-4xl w-140px h-75px" src="/gifs/yew.gif">
+            <img v-else-if="item.icon === 'kaomoe'" class="text-4xl w-140px h-75px" src="/gifs/kaomoe.gif">
+            <img v-else-if="item.icon === 'n-stars'" class="text-4xl w-140px h-75px" src="/gifs/n-stars.gif">
 
             <!-- svg -->
             <div v-else-if="item.icon === 'vitesse'" class="i-carbon-campsite w-50px h-50px" />

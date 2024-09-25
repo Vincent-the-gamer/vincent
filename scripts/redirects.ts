@@ -1,5 +1,5 @@
-import fs from 'fs-extra'
 import { Octokit } from '@octokit/rest'
+import fs from 'fs-extra'
 
 const pages = 2
 

@@ -1,3 +1,3 @@
 <template>
-    <img src="/live2d-demo.png"/>
+  <img src="/live2d-demo.png">
 </template>

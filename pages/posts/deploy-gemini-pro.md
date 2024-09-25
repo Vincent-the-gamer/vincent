@@ -6,6 +6,7 @@ plum: true
 ---
 
 # 写在最前
+
 需要魔法网络环境，没有的小伙伴就不必浪费时间看了。
 
 **这里有热心群友提供他部署的Demo，大家可以试玩:** [https://gemini.rin.guru/](https://gemini.rin.guru/)
@@ -44,15 +45,18 @@ plum: true
 这个是纯后端，不包含前端页面，是作为API使用的。
 
 # 使用Vercel搭建Gemini Chat网站
+
 > [!WARNING]
 > 该方法已过时，不确定是否还能正确使用。
 
 ## 第一步：申请API Key
+
 过程已经写在了前面，此处略。
 
 ## 第二步: 部署到Vercel
 
 ### 注册GitHub, 使用GitHub账号登录Vercel
+
 通过 Vercel 平台进行一键部署，是完全免费的！
 
 [https://vercel.com/](https://vercel.com/)
@@ -66,6 +70,7 @@ plum: true
 ![vercel-account-1](/images/gemini-guide/create-vercel-account-1.png)
 
 ### 开始部署
+
 进入GitHub项目：[https://github.com/babaohuang/GeminiProChat](https://github.com/babaohuang/GeminiProChat)
 
 点击一键部署按钮：
@@ -84,6 +89,7 @@ plum: true
 到这里，如果你的网站部署好，并且可以正常对话，那么你就完成啦！！！！(\*╹▽╹\*)
 
 ## 可能出现的幺蛾子
+
 如果报错：`User location is not supported for the API use.`，则证明你当前的网络环境无法直接连通API，这也是之前提到的地区问题。
 
 ![error](/images/gemini-guide/gemini-error.png)

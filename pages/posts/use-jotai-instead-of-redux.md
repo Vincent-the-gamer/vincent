@@ -13,30 +13,28 @@ plum: true
 
 于是，咱就在想，React能不能用Pinia，然后, 经过详细的分析，我发现了Jotai。
 
-
-
 ## Pinia和Jotai是啥？
 
 次时代状态管理工具咯，Pinia和Jotai真正实现了完全简单化，只需要定义state，和操作这些state的函数，就可以实现响应式数据
 
-* Pinia的store定义
+- Pinia的store定义
 
   ```typescript
-  import { defineStore } from "pinia"
-  export const use啥啥啥store = defineStore("storeId", {
+  import { defineStore } from 'pinia'
+  export const use啥啥啥store = defineStore('storeId', {
     state: () => {
       return {
-         text: "我去！初音未来！"
+        text: '我去！初音未来！'
       }
     },
     actions: {
-      setText(text: string){
-        this.text = text;
+      setText(text: string) {
+        this.text = text
       }
     },
     getters: {
-      getText(){
-        return this.text;
+      getText() {
+        return this.text
       }
     }
   })
@@ -45,16 +43,14 @@ plum: true
   在组件里使用Pinia创建的store:
 
   ```typescript
-  import { use啥啥啥store } from "你的路径"
-  const 啥啥啥store = use啥啥啥store();
-  
-  // 使用函数和属性
-  const text = 啥啥啥store.text; // 直接访问
-  const text2 = 啥啥啥store.getText; // 使用getter
-  啥啥啥store.setText("女神异闻录5"); // 调用action
-  ```
+  import { use啥啥啥store } from '你的路径'
+  const 啥啥啥store = use啥啥啥store()
 
-  
+  // 使用函数和属性
+  const text = 啥啥啥store.text // 直接访问
+  const text2 = 啥啥啥store.getText // 使用getter
+  啥啥啥store.setText('女神异闻录5') // 调用action
+  ```
 
 * Jotai可以定义Store，也可以不定义，比如你有一个需要共享的状态，只需要
 
@@ -73,6 +69,7 @@ plum: true
   没错，就像是在useState一样，但是这个状态是全局共享的。
 
   当然，你也可以在jotai中创建store:
+
   ```typescript
   const myStore = createStore()
 
@@ -83,6 +80,4 @@ plum: true
   })
   ```
 
-
 只能说，实属很方便了，反正咱再也不想用Vuex和Redux了，哼╭(╯^╰)╮
-

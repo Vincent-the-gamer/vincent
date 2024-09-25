@@ -19,7 +19,6 @@ open -a zenmap
 
 才能打开Zenmap GUI
 
-
 # 卸载
 
 `nmap.dmg`安装的内容：

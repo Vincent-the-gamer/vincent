@@ -1,22 +1,22 @@
-import { basename, dirname, resolve } from 'node:path'
 import { Buffer } from 'node:buffer'
-import { defineConfig } from 'vite'
+import { basename, dirname, resolve } from 'node:path'
+import Shiki from '@shikijs/markdown-it'
+import Vue from '@vitejs/plugin-vue'
 import fs from 'fs-extra'
-import Pages from 'vite-plugin-pages'
-import Inspect from 'vite-plugin-inspect'
-import Icons from 'unplugin-icons/vite'
+import matter from 'gray-matter'
+import anchor from 'markdown-it-anchor'
+import GitHubAlerts from 'markdown-it-github-alerts'
+import LinkAttributes from 'markdown-it-link-attributes'
+import UnoCSS from 'unocss/vite'
+import AutoImport from 'unplugin-auto-import/vite'
 import IconsResolver from 'unplugin-icons/resolver'
+import Icons from 'unplugin-icons/vite'
 import Components from 'unplugin-vue-components/vite'
 import Markdown from 'unplugin-vue-markdown/vite'
-import Vue from '@vitejs/plugin-vue'
-import matter from 'gray-matter'
-import AutoImport from 'unplugin-auto-import/vite'
-import anchor from 'markdown-it-anchor'
-import LinkAttributes from 'markdown-it-link-attributes'
-import GitHubAlerts from 'markdown-it-github-alerts'
-import UnoCSS from 'unocss/vite'
+import { defineConfig } from 'vite'
+import Inspect from 'vite-plugin-inspect'
+import Pages from 'vite-plugin-pages'
 import SVG from 'vite-svg-loader'
-import Shiki from '@shikijs/markdown-it'
 
 // @ts-expect-error missing types
 import TOC from 'markdown-it-table-of-contents'
@@ -88,7 +88,7 @@ export default defineConfig({
             light: 'vitesse-light',
           },
           defaultColor: false,
-          cssVariablePrefix: '--s-'
+          cssVariablePrefix: '--s-',
         }))
 
         md.use(anchor, {
@@ -141,10 +141,10 @@ export default defineConfig({
         'vue-router',
         '@vueuse/core',
         {
-          from: "@vueuse/core",
-          imports: ["Fn"],
-          type: true
-        }
+          from: '@vueuse/core',
+          imports: ['Fn'],
+          type: true,
+        },
       ],
     }),
 
@@ -209,9 +209,8 @@ async function generateOg(title: string, output: string) {
     line2: lines[1],
     line3: lines[2],
   }
-  const svg = ogSVg.replace(/\{\{([^}]+)}}/g, (_, name) => data[name] || '')
+  const svg = ogSVg.replace(/\{\{([^}]+)\}\}/g, (_, name) => data[name] || '')
 
-  // eslint-disable-next-line no-console
   console.log(`Generating ${output}`)
   try {
     await sharp(Buffer.from(svg))

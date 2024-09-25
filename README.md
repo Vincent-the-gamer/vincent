@@ -9,12 +9,12 @@
 <br>
 
 # Visit
+
 [https://blog.vince-g.xyz/](https://blog.vince-g.xyz/)
 
 # Router Mode
 
-## Web History + SSG - Default
-Reverse proxy is required to fix 404 on refreshing. ╭(╯^╰)╮
+## Web History + SSG (Default)
 
 ```typescript
 export const createApp = ViteSSG(
@@ -34,7 +34,8 @@ then
 pnpm run build
 ```
 
-## Web Hash History + SPA - For GitHub Pages
+## Web Hash History + SPA
+
 ```typescript
 export const createApp = ViteSSG(
   App,
