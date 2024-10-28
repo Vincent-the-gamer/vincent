@@ -30,11 +30,11 @@ importers:
         specifier: ^3.5.12
         version: 3.5.12(typescript@5.6.3)
       vue-router:
-        specifier: 4.2.5
-        version: 4.2.5(vue@3.5.12(typescript@5.6.3))
+        specifier: 4.4.5
+        version: 4.4.5(vue@3.5.12(typescript@5.6.3))
       vue-router-better-scroller:
         specifier: ^0.0.0
-        version: 0.0.0(vue-router@4.2.5(vue@3.5.12(typescript@5.6.3)))(vue@3.5.12(typescript@5.6.3))
+        version: 0.0.0(vue-router@4.4.5(vue@3.5.12(typescript@5.6.3)))(vue@3.5.12(typescript@5.6.3))
     devDependencies:
       '@iconify/json':
         specifier: ^2.2.265
@@ -152,10 +152,10 @@ importers:
         version: 0.8.7(rollup@4.21.0)(vite@5.4.10(@types/node@20.11.2)(terser@5.31.2))
       vite-plugin-pages:
         specifier: ^0.32.3
-        version: 0.32.3(@vue/compiler-sfc@3.5.12)(vite@5.4.10(@types/node@20.11.2)(terser@5.31.2))(vue-router@4.2.5(vue@3.5.12(typescript@5.6.3)))
+        version: 0.32.3(@vue/compiler-sfc@3.5.12)(vite@5.4.10(@types/node@20.11.2)(terser@5.31.2))(vue-router@4.4.5(vue@3.5.12(typescript@5.6.3)))
       vite-ssg:
         specifier: ^0.23.8
-        version: 0.23.8(vite@5.4.10(@types/node@20.11.2)(terser@5.31.2))(vue-router@4.2.5(vue@3.5.12(typescript@5.6.3)))(vue@3.5.12(typescript@5.6.3))
+        version: 0.23.8(vite@5.4.10(@types/node@20.11.2)(terser@5.31.2))(vue-router@4.4.5(vue@3.5.12(typescript@5.6.3)))(vue@3.5.12(typescript@5.6.3))
       vite-svg-loader:
         specifier: ^5.1.0
         version: 5.1.0(vue@3.5.12(typescript@5.6.3))
@@ -2564,8 +2564,8 @@ packages:
       vue: ^3.3.4
       vue-router: ^4.2.2
 
-  vue-router@4.2.5:
-    resolution: {integrity: sha512-DIUpKcyg4+PTQKfFPX88UWhlagBEBEfJ5A8XDXRJLUnZOvcpMF8o/dnL90vpVkGaPbjvXazV/rC1qBKrZlFugw==}
+  vue-router@4.4.5:
+    resolution: {integrity: sha512-4fKZygS8cH1yCyuabAXGUAsyi1b2/o/OKgu/RUb+znIYOxPRxdkytJEx+0wGcpBE1pX6vUgh5jwWOKRGvuA/7Q==}
     peerDependencies:
       vue: ^3.2.0
 
@@ -5114,7 +5114,7 @@ snapshots:
       - rollup
       - supports-color
 
-  vite-plugin-pages@0.32.3(@vue/compiler-sfc@3.5.12)(vite@5.4.10(@types/node@20.11.2)(terser@5.31.2))(vue-router@4.2.5(vue@3.5.12(typescript@5.6.3))):
+  vite-plugin-pages@0.32.3(@vue/compiler-sfc@3.5.12)(vite@5.4.10(@types/node@20.11.2)(terser@5.31.2))(vue-router@4.4.5(vue@3.5.12(typescript@5.6.3))):
     dependencies:
       '@types/debug': 4.1.12
       debug: 4.3.5
@@ -5128,11 +5128,11 @@ snapshots:
       yaml: 2.4.5
     optionalDependencies:
       '@vue/compiler-sfc': 3.5.12
-      vue-router: 4.2.5(vue@3.5.12(typescript@5.6.3))
+      vue-router: 4.4.5(vue@3.5.12(typescript@5.6.3))
     transitivePeerDependencies:
       - supports-color
 
-  vite-ssg@0.23.8(vite@5.4.10(@types/node@20.11.2)(terser@5.31.2))(vue-router@4.2.5(vue@3.5.12(typescript@5.6.3)))(vue@3.5.12(typescript@5.6.3)):
+  vite-ssg@0.23.8(vite@5.4.10(@types/node@20.11.2)(terser@5.31.2))(vue-router@4.4.5(vue@3.5.12(typescript@5.6.3)))(vue@3.5.12(typescript@5.6.3)):
     dependencies:
       '@unhead/dom': 1.9.15
       '@unhead/vue': 1.11.10(vue@3.5.12(typescript@5.6.3))
@@ -5146,7 +5146,7 @@ snapshots:
       vue: 3.5.12(typescript@5.6.3)
       yargs: 17.7.2
     optionalDependencies:
-      vue-router: 4.2.5(vue@3.5.12(typescript@5.6.3))
+      vue-router: 4.4.5(vue@3.5.12(typescript@5.6.3))
     transitivePeerDependencies:
       - bufferutil
       - canvas
@@ -5182,12 +5182,12 @@ snapshots:
     dependencies:
       vue: 3.5.12(typescript@5.6.3)
 
-  vue-router-better-scroller@0.0.0(vue-router@4.2.5(vue@3.5.12(typescript@5.6.3)))(vue@3.5.12(typescript@5.6.3)):
+  vue-router-better-scroller@0.0.0(vue-router@4.4.5(vue@3.5.12(typescript@5.6.3)))(vue@3.5.12(typescript@5.6.3)):
     dependencies:
       vue: 3.5.12(typescript@5.6.3)
-      vue-router: 4.2.5(vue@3.5.12(typescript@5.6.3))
+      vue-router: 4.4.5(vue@3.5.12(typescript@5.6.3))
 
-  vue-router@4.2.5(vue@3.5.12(typescript@5.6.3)):
+  vue-router@4.4.5(vue@3.5.12(typescript@5.6.3)):
     dependencies:
       '@vue/devtools-api': 6.6.4
       vue: 3.5.12(typescript@5.6.3)
