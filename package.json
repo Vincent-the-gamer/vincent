@@ -27,6 +27,7 @@
     "vue-router-better-scroller": "^0.0.0"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^3.8.0",
     "@iconify/json": "^2.2.265",
     "@octokit/rest": "^21.0.2",
     "@shikijs/markdown-it": "1.22.1",

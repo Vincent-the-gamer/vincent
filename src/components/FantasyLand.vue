@@ -55,14 +55,7 @@ const blur = computed(() => `blur(${(isSmaller('md') ? 100 : 160) + (isDark ? 10
   width: 65vw;
   height: 50vh;
   animation: scale-in-bottom 2.5s linear;
-  background: linear-gradient(
-    -36deg,
-    #e950d1,
-    #f980d9,
-    #ff55ff,
-    #ff2c55,
-    #ff5e55
-  );
+  background: linear-gradient(-36deg, #e950d1, #f980d9, #ff55ff, #ff2c55, #ff5e55);
   clip-path: polygon(10% 0, 100% 70%, 100% 100%, 5% 90%);
 }
 
