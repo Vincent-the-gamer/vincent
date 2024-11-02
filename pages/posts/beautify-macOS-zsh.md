@@ -38,11 +38,10 @@ plum: true
 
 ![black-bg](/images/posts/macos-zsh/zsh-black-bg.png)
 
-
 ## 第二步：修改`.zshrc`，开启终端CLI的配色
 
 > [!CAUTION]
-> 注意，如果你要安装Oh my zsh，则无需执行这一步! 
+> 注意，如果你要安装Oh my zsh，则无需执行这一步!
 
 默认终端的`主机名，用户名，当前路径, ls命令信息`等内容没有颜色高亮，通过以下配置，即可开启颜色高亮。
 

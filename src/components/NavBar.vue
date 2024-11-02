@@ -14,8 +14,10 @@ const { y: scroll } = useWindowScroll()
     <RouterLink class="w-12 h-12 absolute xl:fixed m-5 select-none outline-none" to="/" focusable="false">
       <img title="Vincent-the-gamer" src="/avatar.png">
     </RouterLink>
-    <button title="Scroll to top" fixed right-3 bottom-3 w-10 h-10 hover:op100 rounded-full hover-bg-hex-8883 transition
-      duration-300 z-100 print:hidden :class="scroll > 300 ? 'op30' : 'op0! pointer-events-none'" @click="toTop()">
+    <button
+      title="Scroll to top" fixed right-3 bottom-3 w-10 h-10 hover:op100 rounded-full hover-bg-hex-8883 transition
+      duration-300 z-100 print:hidden :class="scroll > 300 ? 'op30' : 'op0! pointer-events-none'" @click="toTop()"
+    >
       <div i-ri-arrow-up-line />
     </button>
     <nav class="nav">
@@ -78,7 +80,7 @@ const { y: scroll } = useWindowScroll()
   box-sizing: border-box;
 }
 
-.nav>* {
+.nav > * {
   margin: auto;
 }
 
@@ -106,7 +108,7 @@ const { y: scroll } = useWindowScroll()
   grid-auto-flow: column;
 }
 
-.nav .right>* {
+.nav .right > * {
   margin: auto;
 }
 

@@ -83,12 +83,12 @@ brew install git
 ```
 
 如果你要升级工具，还是以`git`为例，使用
+
 ```shell
 brew upgrade git
 ```
 
 <div pt-10 />
-
 
 # macOS终端美化
 
@@ -96,7 +96,7 @@ brew upgrade git
 
 <div pt-10 />
 
-# Oh my zsh 
+# Oh my zsh
 
 官网：[https://ohmyz.sh/](https://ohmyz.sh/)
 

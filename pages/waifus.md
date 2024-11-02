@@ -23,11 +23,18 @@ waifus:
       avatar: /images/waifus/mitsukasa-ayase.png
       moegirlLink: https://zh.moegirl.org.cn/zh-hans/%E4%B8%89%E5%8F%B8%E7%BB%AB%E6%BF%91
       from: 「Riddle Joker」
+    - name: 朝武芳乃
+      avatar: /images/waifus/tomotake-yoshino.png
+      moegirlLink: https://zh.moegirl.org.cn/%E6%9C%9D%E6%AD%A6%E8%8A%B3%E4%B9%83
+      from: 「千恋万花」
+    - name: 蕾姆
+      avatar: /images/waifus/rem.png
+      moegirlLink: https://zh.moegirl.org.cn/%E9%9B%B7%E5%A7%86(Re:%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%BC%82%E4%B8%96%E7%95%8C%E7%94%9F%E6%B4%BB)#
+      from: 「Re：从零开始的异世界生活」
 ---
 
 <SubNav />
 
 <Waifu :waifus="frontmatter.waifus"/>
-
 
 未完待续...
