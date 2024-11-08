@@ -39,6 +39,11 @@ function linkHref(link: string) {
   cursor: pointer;
 }
 
+h2 {
+  font-size: 18px;
+  padding-top: 6px;
+}
+
 img,
 h2 {
   transition: all, 200ms;

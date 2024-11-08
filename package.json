@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^3.8.0",
-    "@iconify/json": "^2.2.268",
+    "@iconify/json": "^2.2.269",
     "@octokit/rest": "^21.0.2",
     "@shikijs/markdown-it": "1.22.2",
     "@types/diacritics": "^1.3.3",
