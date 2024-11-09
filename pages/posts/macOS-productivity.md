@@ -31,8 +31,7 @@ Raycast 甚至可以自己开发插件。~~(虽然官方对插件的审核比较
 默认使用`Option + 空格`唤醒Raycast窗口, Raycast平时会隐藏在你的任务栏中。
 它的快捷键是可以自行配置的，具体使用方法推荐自己下载研究。
 
-例如：我这里打开的是`cURL`插件，是的，你可以用它来
-发起一个HTTP请求。
+例如：我这里打开的是`cURL`插件，是的，你可以用它来`发起一个HTTP请求`。
 
 ![raycast-1](/images/posts/mac-productivity/raycast-1.png)
 
@@ -134,7 +133,7 @@ Kap是一款能够录制GIF动图的软件，通过录屏，可以导出GIF, MP4
 
 找回你macOS上的“剪切”功能，安装了这个工具后，你就可以使用`Command + X`剪切文件，然后粘贴到其它地方去了。
 
-下载：直接在App Store搜索`Command X即可`
+下载：直接在App Store搜索`Command X`即可
 
 ![command-x](/images/posts/mac-productivity/command-x.png)
 
