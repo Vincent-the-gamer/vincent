@@ -13,6 +13,6 @@ plum: true
 
 # 游戏
 
-<div >
+<div>
     <Game2048 />
 </div>

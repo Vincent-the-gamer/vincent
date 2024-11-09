@@ -55,6 +55,14 @@ projects:
       link: "https://github.com/Vincent-the-gamer/vitesse-superslim"
       desc: '极简版Vue + Vite起手模板'
       icon: 'vitesse'
+    - name: "slidev-resume"
+      link: "https://github.com/Vincent-the-gamer/slidev-resume"
+      desc: "Slidev简历模板，支持Web端部署和pdf/pptx导出"
+      icon: "slidev"
+    - name: "nitro-starter"
+      link: "https://github.com/Vincent-the-gamer/nitro-starter"
+      desc: "基于Node.js，使用Nitro框架进行快速后端项目构建的模板"
+      icon: "nitro"
 
   VS Code主题:
     - name: 'VSCode Theme Aya'

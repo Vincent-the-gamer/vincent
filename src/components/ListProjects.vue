@@ -45,6 +45,7 @@ function slug(name: string) {
             <img v-else-if="item.icon === 'html2pdf'" class="text-4xl w-80px h-75px" src="/images/projects/html2pdf.jpg">
             <img v-else-if="item.icon === 'vizzy'" class="text-4xl w-80px h-50px" src="/images/projects/vizzy.png">
             <img v-else-if="item.icon === 'aya'" class="text-4xl w-110px h-75px" src="/images/projects/aya.png">
+            <img v-else-if="item.icon === 'slidev'" class="text-4xl w-110px h-75px" src="/images/projects/slidev.png">
 
             <!-- gif -->
             <img v-else-if="item.icon === 'yew'" class="text-4xl w-140px h-75px" src="/gifs/yew.gif">
@@ -53,6 +54,7 @@ function slug(name: string) {
 
             <!-- svg -->
             <div v-else-if="item.icon === 'vitesse'" class="i-carbon-campsite w-50px h-50px" />
+            <img v-else-if="item.icon === 'nitro'" class="w-80px h-55px" src="/images/projects/nitro.svg">
             <div v-else class="text-3xl opacity-50" :class="item.icon || 'i-carbon-unknown'" />
           </div>
           <div class="flex-auto">

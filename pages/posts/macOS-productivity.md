@@ -1,6 +1,6 @@
 ---
 title: 一个程序员的macOS生产力工具推荐
-date: 2024-10-31
+date: 2024-11-9
 lang: zh
 plum: true
 ---
@@ -119,6 +119,24 @@ Oh my zsh是对`zsh`的加强配置，其中包含了主题和插件，zsh同时
 这些功能和主题都可以从社区下载，如果你想要我的配置，可以从这里获取：
 
 [我的.zshrc配置](https://github.com/Vincent-the-gamer/dotfiles/blob/main/zsh/.zshrc-oh-my-zsh)
+
+<div pt-10 />
+
+# Kap
+
+Kap是一款能够录制GIF动图的软件，通过录屏，可以导出GIF, MP4, WebM, APNG格式
+
+官网：[https://getkap.co/](https://getkap.co/)
+
+![kap](/images/posts/mac-productivity/kap.png)
+
+# Command X
+
+找回你macOS上的“剪切”功能，安装了这个工具后，你就可以使用`Command + X`剪切文件，然后粘贴到其它地方去了。
+
+下载：直接在App Store搜索`Command X即可`
+
+![command-x](/images/posts/mac-productivity/command-x.png)
 
 <div pt-10 />
 
