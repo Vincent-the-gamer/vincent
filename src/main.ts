@@ -19,23 +19,6 @@ import './styles/markdown.css'
 import '@snackbar/core/dist/snackbar.css'
 import 'uno.css'
 
-import 'aplayer/dist/APlayer.min.css';
-
-// @ts-expect-error missing types
-import APlayer from 'aplayer';
-
-// 音乐播放器
-const ap = new APlayer({
-    container: document.getElementById('aplayer'),
-    fixed: true,
-    audio: [{
-        name: '恋のうた',
-        artist: 'Yunomi,鬼頭明里',
-        url: '/music/恋のうた.mp3',
-        cover: '/music/cover.jpg'
-    }]
-});
-
 const routes = autoRoutes.map((i) => {
   return {
     ...i,
@@ -54,7 +37,6 @@ export const createApp = ViteSSG(
     dayjs.extend(LocalizedFormat)
 
     app.use(FloatingVue)
-    app.use(ap)
 
     if (isClient) {
       const html = document.querySelector('html')!

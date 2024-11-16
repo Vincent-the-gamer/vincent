@@ -96,4 +96,8 @@ onKeyStroke('Escape', (e) => {
     </div>
   </Transition>
   <FantasyLand />
+  <!-- music player, client only -->
+  <client-only>
+    <APlayer />
+  </client-only>
 </template>

@@ -1,31 +1,50 @@
 <!doctype html>
 <html lang="zh">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="author" content="Vincent-the-gamer" />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="revisit-after" content="7 days" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="/favicon.ico" type="image/icon" />
-    <link rel="alternate" type="application/rss+xml" title="诡锋的博客" href="/feed.xml" />
-    <meta name="msapplication-TileColor" content="#ffffff" />
-    <title>诡锋 Vincent</title>
-    <script>
-      ;(function () {
-        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
-        const setting = localStorage.getItem('vueuse-color-scheme') || 'auto'
-        if (setting === 'dark' || (prefersDark && setting !== 'light'))
-          document.documentElement.classList.toggle('dark', true)
-      })()
-    </script>
-  </head>
-  <body class="font-sans text-gray-700 dark:text-gray-200 relative">
-    <div id="app"></div>
-    <!-- 播放器 -->
-    <div id="aplayer"></div>
-    <script type="module" src="/src/main.ts"></script>
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    <!-- 樱花 -->
-    <script src="https://api.vvhan.com/api/script/yinghua"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="author" content="Vincent-the-gamer" />
+  <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+  <meta name="revisit-after" content="7 days" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/favicon.ico" type="image/icon" />
+  <link rel="alternate" type="application/rss+xml" title="诡锋的博客" href="/feed.xml" />
+  <meta name="msapplication-TileColor" content="#ffffff" />
+  <link rel="stylesheet" href="/node_modules/aplayer/dist/APlayer.min.css">
+  <title>诡锋 Vincent</title>
+  <script>
+    ; (function () {
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+      const setting = localStorage.getItem('vueuse-color-scheme') || 'auto'
+      if (setting === 'dark' || (prefersDark && setting !== 'light'))
+        document.documentElement.classList.toggle('dark', true)
+    })()
+  </script>
+</head>
+
+<body class="font-sans text-gray-700 dark:text-gray-200 relative">
+  <div id="app"></div>
+  <!-- 播放器 -->
+  <div id="aplayer"></div>
+  <script type="module" src="/src/main.ts"></script>
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <!-- 樱花 -->
+  <script src="https://api.vvhan.com/api/script/yinghua"></script>
+  <script type="module">
+    // 播放器JS，含有window对象，无法SSR
+    import APlayer from "aplayer"
+    // 无法SSR
+    const ap = new APlayer({
+      container: document.getElementById('aplayer'),
+      fixed: true,
+      audio: [{
+        name: '恋のうた',
+        artist: 'Yunomi,鬼頭明里',
+        url: '/music/恋のうた.mp3',
+        cover: '/music/cover.jpg',
+      }],
+    })
+  </script>
+</body>
+
 </html>
