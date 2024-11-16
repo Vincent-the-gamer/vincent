@@ -2,7 +2,7 @@
 title: 如何学习正则表达式
 date: 2024-08-12
 lang: zh
-plum: true
+plum: false
 ---
 
 > [!NOTE]

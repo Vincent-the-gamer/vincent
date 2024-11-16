@@ -2,7 +2,7 @@
 title: 如何部署自己的Gemini Pro对话服务
 date: 2024-04-04
 lang: zh
-plum: true
+plum: false
 ---
 
 # 写在最前

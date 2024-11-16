@@ -2,7 +2,7 @@
 title: 解密Navicat导出的数据库链接密码，以防遗忘
 date: 2024-07-27
 lang: zh
-plum: true
+plum: false
 ---
 
 ## 前言

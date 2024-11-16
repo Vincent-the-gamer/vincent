@@ -1,7 +1,7 @@
 ---
 title: 诡锋的老婆们(迫真)
 description: 诡锋的老婆们(迫真)
-plum: true
+plum: false
 waifus:
     - name: 丛雨(有地绫)
       avatar: /images/waifus/murasame.png

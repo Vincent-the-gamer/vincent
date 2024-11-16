@@ -2,7 +2,7 @@
 title: 项目 - Vincent
 display: 项目
 description: 我在GitHub上发布的一些好玩的项目
-plum: true
+plum: false
 wrapperClass: 'text-center'
 projects:
   好玩的项目:

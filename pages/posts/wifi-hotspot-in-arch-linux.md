@@ -2,7 +2,7 @@
 title: 在Linux设备中开启Wifi热点
 date: 2023-12-25
 lang: zh
-plum: true
+plum: false
 ---
 
 # 前言

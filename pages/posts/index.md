@@ -1,7 +1,7 @@
 ---
 title: 博客 - Vincent
 display: ''
-plum: true
+plum: false
 ---
 
 <SubNav />

@@ -2,7 +2,7 @@
 title: 如何使用ArchWSL来快速为WSL安装Arch Linux系统
 date: 2024-09-20
 lang: zh
-plum: true
+plum: false
 ---
 
 # WSL是个啥？

@@ -2,7 +2,7 @@
 title: 如何使用迷你主机搭建自己的私有云服务器
 date: 2023-12-24
 lang: zh
-plum: true
+plum: false
 ---
 
 # 起因

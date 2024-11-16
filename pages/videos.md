@@ -1,7 +1,7 @@
 ---
 title: 视频专区 - Vincent
 display: 视频专区
-plum: true
+plum: false
 videos:
   gameVideos:
     - title: "视频 -【攻略向】诡锋《零：濡鸦之巫女》全收集，全难度SS评价，全剧情攻略向流程大合集"

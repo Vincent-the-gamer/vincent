@@ -2,7 +2,7 @@
 title: 使用Guii AI生成的2048游戏
 date: 2024-09-06
 lang: zh
-plum: true
+plum: false
 ---
 
 # 啥是Guii AI?
