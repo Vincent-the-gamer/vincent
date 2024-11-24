@@ -21,7 +21,6 @@ plum: false
 <p flex="~ gap-3 wrap" m-0>
   <a href="https://github.com/Vincent-the-gamer" target="_blank"><span op75 i-simple-icons-github /> GitHub</a>
   <a href="https://discord.gg/qZBVS8yyyY" target="_blank"><span op75 i-simple-icons-discord /> Discord</a>
-  <a href="https://space.bilibili.com/3342738" target="_blank"><span op75 i-simple-icons-bilibili /> 哔哩哔哩</a>
   <a href="https://x.com/Vincent49761417" target="_blank">
     <div i-carbon-logo-x/> Twitter
   </a>

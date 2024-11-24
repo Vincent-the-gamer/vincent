@@ -46,9 +46,6 @@ const { y: scroll } = useWindowScroll()
         <a href="https://discord.gg/qZBVS8yyyY" target="_blank" title="Discord">
           <div i-simple-icons-discord />
         </a>
-        <a href="https://space.bilibili.com/3342738" target="_blank" title="哔哩哔哩">
-          <div i-simple-icons-bilibili />
-        </a>
         <a href="https://x.com/Vincent49761417" target="_blank" title="X(Twitter)">
           <div i-carbon-logo-x />
         </a>
