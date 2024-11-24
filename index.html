@@ -37,12 +37,19 @@
     const ap = new APlayer({
       container: document.getElementById('aplayer'),
       fixed: true,
-      audio: [{
-        name: '恋のうた',
-        artist: 'Yunomi,鬼頭明里',
-        url: '/music/恋のうた.mp3',
-        cover: '/music/cover.jpg',
-      }],
+      audio: [
+        {
+          name: '恋のうた',
+          artist: 'Yunomi,鬼頭明里',
+          url: '/music/恋のうた.mp3',
+          cover: '/music/cover/恋のうた-cover.jpg',
+        }, {
+          name: 'ファッション',
+          artist: 'Yunomi,苺りなはむ',
+          url: '/music/ファッション.mp3',
+          cover: "/music/cover/ファッション-cover.jpg"
+        }
+      ],
     })
   </script>
 </body>
