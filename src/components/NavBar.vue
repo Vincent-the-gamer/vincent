@@ -29,16 +29,19 @@ const { y: scroll } = useWindowScroll()
         </RouterLink>
         <RouterLink to="/projects" title="项目">
           <span class="lt-md:hidden">项目</span>
-          <div i-ri-lightbulb-line class="md:hidden" />
+          <div i-ri-lightbulb-line md:hidden />
         </RouterLink>
-        <RouterLink to="/videos" class="lt-md:hidden" title="视频专区">
-          视频专区
+        <RouterLink to="/videos" title="视频专区">
+          <span lt-md:hidden>视频专区</span>
+          <div i-material-symbols-auto-videocam-outline md:hidden />
         </RouterLink>
-        <RouterLink to="/games" class="lt-md:hidden" title="游戏奖杯">
-          游戏历程
+        <RouterLink to="/games" title="游戏历程">
+          <span lt-md:hidden>游戏历程</span>
+          <div i-solar-gameboy-linear md:hidden />
         </RouterLink>
-        <RouterLink to="/waifus" class="lt-md:hidden" title="老婆列表">
-          <span class="gradient-text">老婆列表</span>
+        <RouterLink to="/waifus" title="老婆列表">
+          <span class="gradient-text" lt-md:hidden>老婆列表</span>
+          <div i-icon-park-outline-girl md:hidden />
         </RouterLink>
         <a href="https://github.com/Vincent-the-gamer" target="_blank" title="GitHub" class="lt-md:hidden">
           <div i-uil-github-alt />
