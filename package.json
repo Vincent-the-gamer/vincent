@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@snackbar/core": "^1.7.0",
-    "@vueuse/core": "^12.2.0",
+    "@vueuse/core": "^12.3.0",
     "aplayer": "^1.10.1",
     "dayjs": "^1.11.13",
     "floating-vue": "^5.2.2",
