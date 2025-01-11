@@ -51,6 +51,18 @@ waifus:
       avatar: /images/waifus/hinatsuru-ai.png
       moegirlLink: https://zh.moegirl.org.cn/%E9%9B%8F%E9%B9%A4%E7%88%B1
       from: 「龙王的工作」
+    - name: 久慈川理世
+      avatar: /images/waifus/kujikawa-rise.png
+      moegirlLink: https://zh.moegirl.org.cn/%E4%B9%85%E6%85%88%E5%B7%9D%E7%90%86%E4%B8%96
+      from: 「女神异闻录4」
+    - name: 天城雪子
+      avatar: /images/waifus/amagi-yukiko.png
+      moegirlLink: https://zh.moegirl.org.cn/%E5%A4%A9%E5%9F%8E%E9%9B%AA%E5%AD%90
+      from: 「女神异闻录4」
+    - name: 岳羽由加莉
+      avatar: /images/waifus/takeba-yukari.png
+      moegirlLink: https://zh.moegirl.org.cn/%E5%B2%B3%E7%BE%BD%E7%94%B1%E5%8A%A0%E8%8E%89
+      from: 「女神异闻录3」
 ---
 
 <SubNav />
