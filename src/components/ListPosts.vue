@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import type { Post } from '~/types'
 import { englishOnly, formatDate } from '~/logics'
 import { scrollIntoView } from '~/logics/scrollIntoView'
-import type { Post } from '~/types'
 
 const props = defineProps<{
   type?: string

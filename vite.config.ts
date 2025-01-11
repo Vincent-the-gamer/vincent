@@ -7,6 +7,9 @@ import matter from 'gray-matter'
 import anchor from 'markdown-it-anchor'
 import GitHubAlerts from 'markdown-it-github-alerts'
 import LinkAttributes from 'markdown-it-link-attributes'
+// @ts-expect-error missing types
+import TOC from 'markdown-it-table-of-contents'
+import sharp from 'sharp'
 import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import IconsResolver from 'unplugin-icons/resolver'
@@ -15,12 +18,9 @@ import Components from 'unplugin-vue-components/vite'
 import Markdown from 'unplugin-vue-markdown/vite'
 import { defineConfig } from 'vite'
 import Inspect from 'vite-plugin-inspect'
+
 import Pages from 'vite-plugin-pages'
 import SVG from 'vite-svg-loader'
-
-// @ts-expect-error missing types
-import TOC from 'markdown-it-table-of-contents'
-import sharp from 'sharp'
 import { slugify } from './scripts/slugify'
 
 const promises: Promise<any>[] = []

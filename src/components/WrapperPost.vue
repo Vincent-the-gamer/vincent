@@ -12,6 +12,18 @@ const router = useRouter()
 const route = useRoute()
 const content = ref<HTMLDivElement>()
 
+function formatDateString(dateString: string): string {
+  const date = new Date(dateString)
+  const year = date.getUTCFullYear()
+  const month = String(date.getUTCMonth() + 1).padStart(2, '0') // 月份从 0 开始，所以加 1
+  const day = String(date.getUTCDate()).padStart(2, '0')
+  const hours = String(date.getUTCHours()).padStart(2, '0')
+  const minutes = String(date.getUTCMinutes()).padStart(2, '0')
+  const seconds = String(date.getUTCSeconds()).padStart(2, '0')
+
+  return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`
+}
+
 onMounted(() => {
   const navigate = () => {
     if (location.hash) {
@@ -97,6 +109,9 @@ onMounted(() => {
     <p v-if="frontmatter.draft" class="slide-enter" bg-orange-4:10 text-orange-4 border="l-3 orange-4" px4 py2>
       This is a draft post, the content may be incomplete. Please check back later.
     </p>
+    <ClientOnly v-if="frontmatter.lastModified">
+      <span m="0 auto relative" opacity-50>最后更新时间：{{ formatDateString(frontmatter.lastModified) }}</span>
+    </ClientOnly>
   </div>
   <article ref="content" :class="[frontmatter.tocAlwaysOn ? 'toc-always-on' : '', frontmatter.class]">
     <slot />
@@ -105,10 +120,8 @@ onMounted(() => {
     <br>
     <template v-if="route.path !== '/'">
       <span font-mono op50>> </span>
-      <RouterLink
-        :to="route.path.split('/').slice(0, -1).join('/') || '/'" class="font-mono op50 hover:op75"
-        v-text="'cd ..'"
-      />
+      <RouterLink :to="route.path.split('/').slice(0, -1).join('/') || '/'" class="font-mono op50 hover:op75"
+        v-text="'cd ..'" />
     </template>
   </div>
 </template>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { scrollIntoView } from '~/logics/scrollIntoView'
 import type { GameHistory } from '~/types'
+import { scrollIntoView } from '~/logics/scrollIntoView'
 
 defineProps<{ games: GameHistory[] }>()
 
