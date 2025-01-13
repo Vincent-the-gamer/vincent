@@ -37,7 +37,7 @@
     "@types/markdown-it": "^14.1.2",
     "@types/markdown-it-link-attributes": "^3.0.5",
     "@types/nprogress": "^0.2.3",
-    "@unhead/vue": "^1.11.15",
+    "@unhead/vue": "^1.11.16",
     "@unocss/reset": "^65.4.0",
     "@vitejs/plugin-vue": "^5.2.1",
     "cross-env": "^7.0.3",
