@@ -1,19 +1,36 @@
 ---
 title: 安利一些前端的工具
-date: 2024-2-22
+date: 2025-1-15
 lang: zh
 plum: false
+lastModified: 2025-1-15 10:02:00
 ---
 
 > **注意:** 该篇博客会**陆陆续续更新**，记得经常回来看看喵~(๑•̀ㅂ•́)و✧
 
-# Unplugin系列
+# 包管理器
 
-Unplugin(The Unified Plugin System)是前端开源社区搞出来的一套为各种构建工具提供统一插件系统的库。它扩展了 Rollup 插件 API，作为标准插件接口，并提供多个前端构建工具(Vite, Webpack, esbuild, Rspack, _未来还会支持更多_ )的兼容层。
+## pnpm
+
+pnpm是一个比npm更快的node包管理器 **(官方号称快2倍)**，并且提供了内置的monorepo(一个项目中含有多个node package)支持。 用法类似于npm, yarn，这里不详述。
+
+官方文档: 
+
+[pnpm英文](https://pnpm.io/)
+
+[pnpm中文](https://pnpm.io/zh/)
+
+# 工具包
+
+## Unplugin系列
+
+Unplugin(The Unified Plugin System)是前端开源社区搞出来的一套为各种构建工具提供统一插件系统的库。它扩展了 Rollup 插件 API，作为标准插件接口，并提供多个前端构建工具(Vite, Webpack, esbuild, Rspack)的兼容层。
+
+> [!NOTE]
+> 未来还会支持更多
 
 [https://unplugin.vercel.app/](https://unplugin.vercel.app/)
 
-## 我目前用到的
 
 ### unplugin-auto-import
 
@@ -29,7 +46,7 @@ Unplugin(The Unified Plugin System)是前端开源社区搞出来的一套为各
 
 [https://github.com/unplugin/unplugin-vue-components](https://github.com/unplugin/unplugin-vue-components)
 
-## 举个栗子🌰
+**举个栗子🌰**
 
 以我的Vue项目: [CardForge](https://github.com/Vincent-the-gamer/cardforge) 作为例子:
 
