@@ -5,24 +5,6 @@ description: 我在GitHub上发布的一些好玩的项目
 plum: false
 wrapperClass: 'text-center'
 projects:
-  好玩的项目:
-    - name: 'Kaomoe (*￣▽￣)b'
-      link: 'https://github.com/Vincent-the-gamer/kaomoe'
-      desc: 'A generator of cute Kaomojis. 颜文字生成器'
-      icon: 'kaomoe'
-    - name: 'Wenyan API'
-      link: 'https://github.com/Vincent-the-gamer/wenyan-api'
-      desc: 'Wenyan-lang HTTP API.  文言文编程语言HTTP API。'
-      icon: 'wenyan'
-    - name: "This Repo Has N Stars"
-      link: 'https://github.com/Vincent-the-gamer/this-repo-has-4-stars'
-      desc: '这个仓库有N颗星星！Star的数量发生改变时，项目名称会动态更新！'
-      icon: 'n-stars'
-    - name: 'CardForge'
-      link: 'https://github.com/Vincent-the-gamer/cardforge'
-      desc: 'A HearthStone card maker. 炉石传说卡牌制作器。'
-      icon: 'cardforge'
-
   工具项目:
     - name: 'Nemassler'
       link: 'https://github.com/Vincent-the-gamer/Nemassler'
@@ -74,6 +56,24 @@ projects:
       link: 'https://github.com/Vincent-the-gamer/neonheart'
       desc: 'An opinionated VS Code theme. 个人风格向的VSCode主题。'
       icon: 'neonheart'
+
+  好玩的项目:
+    - name: 'Kaomoe (*￣▽￣)b'
+      link: 'https://github.com/Vincent-the-gamer/kaomoe'
+      desc: 'A generator of cute Kaomojis. 颜文字生成器'
+      icon: 'kaomoe'
+    - name: 'Wenyan API'
+      link: 'https://github.com/Vincent-the-gamer/wenyan-api'
+      desc: 'Wenyan-lang HTTP API.  文言文编程语言HTTP API。'
+      icon: 'wenyan'
+    - name: "This Repo Has N Stars"
+      link: 'https://github.com/Vincent-the-gamer/this-repo-has-4-stars'
+      desc: '这个仓库有N颗星星！Star的数量发生改变时，项目名称会动态更新！'
+      icon: 'n-stars'
+    - name: 'CardForge'
+      link: 'https://github.com/Vincent-the-gamer/cardforge'
+      desc: 'A HearthStone card maker. 炉石传说卡牌制作器。'
+      icon: 'cardforge'
 
   实用工具推荐:
     - name: 'Picdiet'
