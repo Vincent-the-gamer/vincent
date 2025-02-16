@@ -31,7 +31,7 @@
     "@antfu/eslint-config": "^4.2.1",
     "@iconify/json": "^2.2.307",
     "@octokit/rest": "^21.1.1",
-    "@shikijs/markdown-it": "2.2.0",
+    "@shikijs/markdown-it": "2.4.1",
     "@types/diacritics": "^1.3.3",
     "@types/fs-extra": "^11.0.4",
     "@types/markdown-it": "^14.1.2",
