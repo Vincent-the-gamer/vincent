@@ -3,7 +3,7 @@ title: 小米路由器Mesh组网 + ShellClash科学上网折腾记
 date: 2025-2-4
 lang: zh
 plum: false
-lastModified: 2025-2-14 13:53
+lastModified: 2025-2-17 14:00
 ---
 
 # 前言
@@ -450,3 +450,62 @@ ShellCrash配置文件管理
 安装完成后，通过[http://192.168.31.1:9999/ui](http://192.168.31.1:9999/ui)访问面板。
 
 建议您将面板**收藏到浏览器书签**，之后就可以方便管理路由器代理了。
+
+## 将梯子环境打通至整个网络
+
+如果梯子在**主路由节点**的路由器，无需任何配置。
+
+如果梯子在**Mesh中继节点**的路由器，需要**修改防火墙允许LAN转发**。
+
+### 修改防火墙配置，允许LAN转发
+
+使用ssh连接到路由器，并且修改防火墙配置
+
+```shell
+# 连接到路由器
+ssh -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa root@192.168.31.1
+
+# 使用vim编辑防火墙配置
+vim /etc/config/firewall
+```
+
+
+防火墙配置大致如下， 将`name`为`lan`的`forward`选项那里**改为ACCEPT**
+```
+config defaults
+        option syn_flood '0'
+        option input 'ACCEPT'
+        option output 'ACCEPT'
+        option forward 'ACCEPT'
+        option drop_invalid 'o'
+        option disable_ipv6 '1'
+
+
+config zone
+        option name 'lan'
+        option network 'lan'
+        option input 'ACCEPT'
+        option output 'ACCEPT'
+        option forward 'ACCEPT'
+
+config zone
+        option name 'wan'
+        list network 'wan'
+        list network 'wan6'
+        option input 'REJECT'
+        option output 'ACCEPT'
+        option forward 'REJECT'
+```
+
+保存，重启防火墙：
+```shell
+/etc/init.d/firewall restart
+```
+
+然后重启ShellCrash: 输入`crash`命令打开菜单，输入数字**1**重启服务:
+
+
+### 配置主路由器的DHCP，设置路由地址为安装了ShellCrash的路由器（代理服务器）
+
+修改主路由器DHCP中的Router(路由器，也有的叫Gateway，即网关)，改为安装了ShellCrash的路由器的局域网IP，同时，
+主DNS地址也改为该IP，副DNS可以自由指定，保存后等待主路由器响应，然后就可以通过主路由器来爬梯子了。
