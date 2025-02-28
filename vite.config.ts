@@ -18,10 +18,10 @@ import Components from 'unplugin-vue-components/vite'
 import Markdown from 'unplugin-vue-markdown/vite'
 import { defineConfig } from 'vite'
 import Inspect from 'vite-plugin-inspect'
-
 import Pages from 'vite-plugin-pages'
 import SVG from 'vite-svg-loader'
 import { slugify } from './scripts/slugify'
+import { templateCompilerOptions } from '@tresjs/core'
 
 const promises: Promise<any>[] = []
 
@@ -49,6 +49,7 @@ export default defineConfig({
       script: {
         defineModel: true,
       },
+      ...templateCompilerOptions,
     }),
 
     Pages({
@@ -176,7 +177,7 @@ export default defineConfig({
       async closeBundle() {
         await Promise.all(promises)
       },
-    },
+    }
   ],
 
   build: {

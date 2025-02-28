@@ -6,6 +6,9 @@ import {
 } from 'lazy-js-utils'
 import nene1 from '/images/nene1.png'
 import nene2 from '/images/nene2.png'
+import { TresCanvas } from '@tresjs/core';
+import { OrbitControls } from '@tresjs/cientos'
+import Girl3D from './components/Girl3D.vue';
 
 // 背景图
 const imageShow = computed(() => {
@@ -96,8 +99,18 @@ onKeyStroke('Escape', (e) => {
     </div>
   </Transition>
   <FantasyLand />
-  <!-- music player, client only -->
-  <client-only>
+  <ClientOnly>
+    <!-- music player, client only -->
     <APlayer />
-  </client-only>
+    <!-- 3D Model -->
+    <div w-80 h-80 fixed right-0 bottom-0 z-0>
+      <TresCanvas shadow alpha >
+        <TresPerspectiveCamera :position="[3, 4, 5]" />
+        <OrbitControls :target="[0, 3, 0]"/>
+        <Suspense>
+          <Girl3D />
+        </Suspense>
+      </TresCanvas>
+    </div>
+  </ClientOnly>
 </template>
