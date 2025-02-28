@@ -7,7 +7,7 @@ function slug(name: string) {
 </script>
 
 <template>
-  <div class="max-w-300 mx-auto">
+  <div max-w-300 mx-auto>
     <div
       v-for="key, cidx in Object.keys(projects)" :key="key" slide-enter
       :style="{ '--enter-stage': cidx + 1 }"

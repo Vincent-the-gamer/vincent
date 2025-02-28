@@ -7,7 +7,7 @@ import {
 import nene1 from '/images/nene1.png'
 import nene2 from '/images/nene2.png'
 import { TresCanvas } from '@tresjs/core';
-import { OrbitControls } from '@tresjs/cientos'
+import { OrbitControls, MouseParallax } from '@tresjs/cientos'
 import Girl3D from './components/Girl3D.vue';
 
 // 背景图
@@ -104,12 +104,13 @@ onKeyStroke('Escape', (e) => {
     <APlayer />
     <!-- 3D Model -->
     <div w-80 h-80 fixed right-0 bottom-0 z-0>
-      <TresCanvas shadow alpha >
-        <TresPerspectiveCamera :position="[3, 4, 5]" />
-        <OrbitControls :target="[0, 3, 0]"/>
+      <TresCanvas alpha>
+        <TresPerspectiveCamera :position="[0, 15, 25]"/>
+        <OrbitControls :target="[1, 10, 0]" />
         <Suspense>
           <Girl3D />
         </Suspense>
+        <!-- <MouseParallax :factor="5" :ease="[3, 0.1]" /> -->
       </TresCanvas>
     </div>
   </ClientOnly>
