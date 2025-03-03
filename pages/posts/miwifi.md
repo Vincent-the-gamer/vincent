@@ -159,7 +159,8 @@ Mesh组网的目的是：使该路由器**作为中继节点加入主网络的�
 
 ### 安装
 
-> [!CAUTION] > `clash`等相似关键词已被屏蔽，所以软件库名称的`clash`被改为了`crash`，我们安装的是`ShellCrash`。
+> [!CAUTION] 
+> `clash`等相似关键词已被屏蔽，所以软件库名称的`clash`被改为了`crash`，我们安装的是`ShellCrash`。
 
 ```shell
 sh -c "$(curl -kfsSl https://cdn.jsdelivr.net/gh/juewuy/ShellClash@master/install.sh)" && source /etc/profile &> /dev/null
