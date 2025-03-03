@@ -10,10 +10,10 @@ lastModified: 2025-2-17 14:00
 
 前段时间白嫖了一台**小米路由器BE3600**，今天在尝试折腾ssh，为了装科学上网工具（你懂的）。然后因为家里本身有一个主网络，所以打算尝试以中继模式配合ShellClash实现家庭网络科学上网。
 
-
 # 准备工作
 
 需要准备的东西：
+
 - 小米路由器 + 自带的网线 + 电源 ~~（废话）~~
 - 另准备至少1根网线（**非必须**，看你是否有设备需要连接有线网络）
 - 一台可以科学上网的电脑（用于配置路由器和ssh，同时方便访问GitHub等网站）
@@ -159,8 +159,7 @@ Mesh组网的目的是：使该路由器**作为中继节点加入主网络的�
 
 ### 安装
 
-> [!CAUTION]
-> `clash`等相似关键词已被屏蔽，所以软件库名称的`clash`被改为了`crash`，我们安装的是`ShellCrash`。
+> [!CAUTION] > `clash`等相似关键词已被屏蔽，所以软件库名称的`clash`被改为了`crash`，我们安装的是`ShellCrash`。
 
 ```shell
 sh -c "$(curl -kfsSl https://cdn.jsdelivr.net/gh/juewuy/ShellClash@master/install.sh)" && source /etc/profile &> /dev/null
@@ -169,11 +168,13 @@ sh -c "$(curl -kfsSl https://cdn.jsdelivr.net/gh/juewuy/ShellClash@master/instal
 如果安装失败，可以尝试不同的安装源。
 
 - fastgit.org
+
   ```shell
   export url='https://raw.fastgit.org/juewuy/ShellClash/master' && sh -c "$(curl -kfsSl $url/install.sh)" && source /etc/profile &> /dev/null
   ```
 
 - GitHub
+
   ```shell
   export url='https://raw.githubusercontent.com/juewuy/ShellClash/master' && sh -c "$(curl -kfsSl $url/install.sh)" && source /etc/profile &> /dev/null
   ```
@@ -194,7 +195,7 @@ sh -c "$(curl -kfsSl https://cdn.jsdelivr.net/gh/juewuy/ShellClash@master/instal
 -------------------------------------------------------------------
 
 请输入相应数字
-> 
+>
 ```
 
 推荐安装**公测版**，输入**1**
@@ -243,7 +244,6 @@ root@XiaoQiang:~ crash
 
 安装完毕后，使用命令`crash`打开。
 
-
 ### 配置
 
 1. 配置代理模式
@@ -267,15 +267,12 @@ TG频道:https://t.me/ShellClash
 > 1
 ```
 
-> [!NOTE]
-> **全局代理**可以让当前设备下连接的所有设备均实现科学上网。
+> [!NOTE] > **全局代理**可以让当前设备下连接的所有设备均实现科学上网。
 > 若你的设备是**主路由**，同时mesh组网了多台路由器，则全屋网络均可实现科学上网。
 
-> [!NOTE]
-> **本机代理**仅使当前设备及与当前设备连接的设备实现科学上网，若子域下连接其他设备，则科学规则无效。
+> [!NOTE] > **本机代理**仅使当前设备及与当前设备连接的设备实现科学上网，若子域下连接其他设备，则科学规则无效。
 > 如：Mesh组网的局域网络，子路由及连接子路由的设备均无法科学上网。
 > 如：WiFi信号扩大器下的设备无法实现科学上网。
-
 
 2. 存储空间配置
 
@@ -295,7 +292,6 @@ TG频道:https://t.me/ShellClash
 **如果你的设备可以扩展闪存，如小米路由器AX9000、小米万兆路由器，这里可以选择0；**
 
 **若你的设备无法扩展闪存，建议选择1。**
-
 
 3. 自动（定时）任务配置
 
@@ -469,8 +465,8 @@ ssh -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa root@192.16
 vim /etc/config/firewall
 ```
 
-
 防火墙配置大致如下， 将`name`为`lan`的`forward`选项那里**改为ACCEPT**
+
 ```
 config defaults
         option syn_flood '0'
@@ -479,7 +475,6 @@ config defaults
         option forward 'ACCEPT'
         option drop_invalid 'o'
         option disable_ipv6 '1'
-
 
 config zone
         option name 'lan'
@@ -498,12 +493,12 @@ config zone
 ```
 
 保存，重启防火墙：
+
 ```shell
 /etc/init.d/firewall restart
 ```
 
 然后重启ShellCrash: 输入`crash`命令打开菜单，输入数字**1**重启服务:
-
 
 ### 配置主路由器的DHCP，设置路由地址为安装了ShellCrash的路由器（代理服务器）
 

@@ -1,6 +1,9 @@
 import { Buffer } from 'node:buffer'
 import { basename, dirname, resolve } from 'node:path'
-import Shiki from '@shikijs/markdown-it'
+import MarkdownItShiki from '@shikijs/markdown-it'
+import { transformerNotationDiff, transformerNotationHighlight, transformerNotationWordHighlight } from '@shikijs/transformers'
+import { rendererRich, transformerTwoslash } from '@shikijs/twoslash'
+import { templateCompilerOptions } from '@tresjs/core'
 import Vue from '@vitejs/plugin-vue'
 import fs from 'fs-extra'
 import matter from 'gray-matter'
@@ -18,17 +21,17 @@ import Components from 'unplugin-vue-components/vite'
 import Markdown from 'unplugin-vue-markdown/vite'
 import { defineConfig } from 'vite'
 import Inspect from 'vite-plugin-inspect'
+import Exclude from 'vite-plugin-optimize-exclude'
 import Pages from 'vite-plugin-pages'
 import SVG from 'vite-svg-loader'
 import { slugify } from './scripts/slugify'
-import { templateCompilerOptions } from '@tresjs/core'
 
 const promises: Promise<any>[] = []
 
 export default defineConfig({
   server: {
-    host: "localhost",
-    port: 8080
+    host: 'localhost',
+    port: 8080,
   },
   resolve: {
     alias: [
@@ -87,13 +90,22 @@ export default defineConfig({
         quotes: '""\'\'',
       },
       async markdownItSetup(md) {
-        md.use(await Shiki({
+        md.use(await MarkdownItShiki({
           themes: {
             dark: 'synthwave-84',
             light: 'vitesse-light',
           },
           defaultColor: false,
           cssVariablePrefix: '--s-',
+          transformers: [
+            transformerTwoslash({
+              explicitTrigger: true,
+              renderer: rendererRich(),
+            }),
+            transformerNotationDiff(),
+            transformerNotationHighlight(),
+            transformerNotationWordHighlight(),
+          ],
         }))
 
         md.use(anchor, {
@@ -176,12 +188,14 @@ export default defineConfig({
       defaultImport: 'url',
     }),
 
+    Exclude(),
+
     {
       name: 'await',
       async closeBundle() {
         await Promise.all(promises)
       },
-    }
+    },
   ],
 
   build: {

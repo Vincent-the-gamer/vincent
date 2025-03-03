@@ -31,7 +31,7 @@ const routes: Post[] = router.getRoutes()
       upcoming: i.meta.frontmatter.upcoming,
       redirect: i.meta.frontmatter.redirect,
       place: i.meta.frontmatter.place,
-      lastModified: i.meta.frontmatter.lastModified
+      lastModified: i.meta.frontmatter.lastModified,
     }
   })
 

@@ -3,6 +3,7 @@ title: 如何实现一个简单的基于Node.js的代码运行方法
 date: 2025-2-26
 lang: zh
 plum: false
+lastModified: 2025-3-3 16:27
 ---
 
 # 需要的工具
@@ -38,11 +39,12 @@ export function run(lang: Language, code: string): Promise<string> {
   switch (lang) {
     case Language.JavaScript:
       return new Promise((resolve, reject) => {
-        fs.writeFile(`${__dirname}/main.js`, code, (err) => {
+        fs.writeFile(`${__dirname}/main.js`, code, (err) => { // [!code hl]
           if (err)
             reject('Write file error!')
 
-          exec(`node ${__dirname}/main.js`, (err, stdout, stderr) => {
+          exec(`node ${__dirname}/main.js`, (err, stdout, stderr) => { // [!code hl]
+            //         ^
             if (stdout) {
               resolve(stdout)
             }

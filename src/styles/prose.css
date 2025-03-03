@@ -133,15 +133,14 @@
   margin-top: 0.8571429em;
 }
 .prose code {
+  --uno: font-mono;
   color: var(--fg-deep);
-  font-weight: 600;
+  font-weight: 500;
   font-size: 0.875em;
-}
-.prose code::before {
-  content: '`';
-}
-.prose code::after {
-  content: '`';
+  background-color: #aaa1;
+  border-radius: 0.25rem;
+  padding: 0.2em 0.3em;
+  margin: -0.2em 0;
 }
 .prose a code {
   color: #111827;
@@ -189,7 +188,7 @@
   color: var(--fg-deep);
   font-weight: 600;
   border-bottom-width: 1px;
-  border-bottom-color: #d1d5db;
+  border-bottom-color: #8882;
 }
 .prose thead th {
   vertical-align: bottom;
@@ -199,7 +198,7 @@
 }
 .prose tbody tr {
   border-bottom-width: 1px;
-  border-bottom-color: #e5e7eb;
+  border-bottom-color: #8882;
 }
 .prose tbody tr:last-child {
   border-bottom-width: 0;

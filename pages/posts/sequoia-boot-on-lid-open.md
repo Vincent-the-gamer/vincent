@@ -16,11 +16,13 @@ plum: false
 输入以下命令：
 
 - 阻止开盖和连接电源自动启动：
+
   ```shell
   sudo nvram BootPreference=%00
   ```
 
 - 仅阻止开盖自动启动：
+
   ```shell
   sudo nvram BootPreference=%01
   ```
@@ -34,7 +36,7 @@ plum: false
 
 # 还原设置
 
-如果想撤销更改，在终端输入 
+如果想撤销更改，在终端输入
 
 ```shell
 sudo nvram -d BootPreference

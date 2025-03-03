@@ -14,7 +14,7 @@ lastModified: 2025-1-15 10:02:00
 
 pnpm是一个比npm更快的node包管理器 **(官方号称快2倍)**，并且提供了内置的monorepo(一个项目中含有多个node package)支持。 用法类似于npm, yarn，这里不详述。
 
-官方文档: 
+官方文档:
 
 [pnpm英文](https://pnpm.io/)
 
@@ -30,7 +30,6 @@ Unplugin(The Unified Plugin System)是前端开源社区搞出来的一套为各
 > 未来还会支持更多
 
 [https://unplugin.vercel.app/](https://unplugin.vercel.app/)
-
 
 ### unplugin-auto-import
 

@@ -1,14 +1,14 @@
 <script setup lang="ts">
+import { OrbitControls } from '@tresjs/cientos'
+import { TresCanvas } from '@tresjs/core'
 import {
   DotImageCanvas,
   getDevice,
   useRaf,
 } from 'lazy-js-utils'
+import Girl3D from './components/Girl3D.vue'
 import nene1 from '/images/nene1.png'
 import nene2 from '/images/nene2.png'
-import { TresCanvas } from '@tresjs/core';
-import { OrbitControls } from '@tresjs/cientos'
-import Girl3D from './components/Girl3D.vue';
 
 // 背景图
 const imageShow = computed(() => {
@@ -105,7 +105,7 @@ onKeyStroke('Escape', (e) => {
     <!-- 3D Model -->
     <div w-80 h-80 fixed right-0 bottom-0 z-0>
       <TresCanvas alpha>
-        <TresPerspectiveCamera :position="[0, 15, 25]"/>
+        <TresPerspectiveCamera :position="[0, 15, 25]" />
         <OrbitControls :target="[1, 10, 0]" />
         <Suspense>
           <Girl3D />
