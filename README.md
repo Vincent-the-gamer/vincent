@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="./.github/avatar.png" style="height: 80px;"/>
+    <img src="./public/avatar.png" style="height: 80px;"/>
 </p>
 
 <h1 align="center">vincent</h1>

@@ -1,28 +1,36 @@
 import antfu from '@antfu/eslint-config'
 
-export default antfu({
-  typescript: true,
-  vue: true,
-  ignores: [
-    'dist',
-    'node_modules',
-  ],
-  formatters: {
-    /**
-     * Format CSS, LESS, SCSS files, also the `<style>` blocks in Vue
-     * By default uses Prettier
-     */
-    css: true,
-    /**
-     * Format HTML files
-     * By default uses Prettier
-     */
-    html: true,
-    /**
-     * Format Markdown files
-     * Supports Prettier and dprint
-     * By default uses Prettier
-     */
-    markdown: 'prettier',
-  },
-})
+export default antfu(
+  {
+    typescript: true,
+    vue: true,
+    ignores: [
+      'dist',
+      'node_modules',
+    ],
+    formatters: {
+      css: true,
+      html: true,
+      markdown:  {
+        overrides: {
+          'ts/no-empty-object-type': 'off',
+        },
+      },
+    },
+  }, {
+    rules: {
+      'no-labels': 'off',
+      'no-lone-blocks': 'off',
+      'no-restricted-syntax': 'off',
+      'node/prefer-global/buffer': 'off',
+      'node/prefer-global/process': 'off',
+      'prefer-rest-params': 'off',
+      'symbol-description': 'off',
+      'ts/ban-types': 'off',
+      'ts/no-invalid-this': 'off',
+      'ts/no-unnecessary-type-constraint': 'off',
+      'vue/no-template-shadow': 'off',
+      'vue/no-v-text-v-html-on-component': 'off',
+    },
+  }
+)
