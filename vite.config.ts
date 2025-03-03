@@ -26,6 +26,10 @@ import { templateCompilerOptions } from '@tresjs/core'
 const promises: Promise<any>[] = []
 
 export default defineConfig({
+  server: {
+    host: "localhost",
+    port: 8080
+  },
   resolve: {
     alias: [
       { find: '~/', replacement: `${resolve(__dirname, 'src')}/` },
