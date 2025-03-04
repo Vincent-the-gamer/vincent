@@ -6,7 +6,7 @@ import {
   getDevice,
   useRaf,
 } from 'lazy-js-utils'
-import Girl3D from './components/Girl3D.vue'
+import Girl3D from './components/tresjs/Girl3D.vue'
 import nene1 from '/images/nene1.png'
 import nene2 from '/images/nene2.png'
 
@@ -102,7 +102,7 @@ onKeyStroke('Escape', (e) => {
   <ClientOnly>
     <!-- music player, client only -->
     <APlayer />
-    <!-- 3D Model -->
+    <!-- 3D Girl -->
     <div w-80 h-80 fixed right-0 bottom-0 z-0>
       <TresCanvas alpha>
         <TresPerspectiveCamera :position="[0, 15, 25]" />
