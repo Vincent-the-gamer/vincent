@@ -3,7 +3,7 @@
   "type": "module",
   "version": "1.1.0",
   "private": true,
-  "packageManager": "pnpm@10.5.2",
+  "packageManager": "pnpm@10.6.2",
   "scripts": {
     "build": "cross-env NODE_ENV=production vite-ssg build && tsx ./scripts/copy-fonts.ts && tsx ./scripts/rss.ts && pnpm run copy-files",
     "spa-build": "cross-env NODE_ENV=production vite build && tsx ./scripts/copy-fonts.ts && tsx ./scripts/rss.ts && pnpm run copy-files",
@@ -17,9 +17,9 @@
   },
   "dependencies": {
     "@snackbar/core": "^1.7.0",
-    "@tresjs/cientos": "^4.1.0",
+    "@tresjs/cientos": "^4.2.0",
     "@tresjs/core": "^4.3.3",
-    "@vueuse/core": "^12.7.0",
+    "@vueuse/core": "^13.0.0",
     "aplayer": "^1.10.1",
     "dayjs": "^1.11.13",
     "floating-vue": "^5.2.2",
@@ -31,12 +31,12 @@
     "vue-router-better-scroller": "^0.0.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^4.4.0",
-    "@iconify/json": "^2.2.312",
+    "@antfu/eslint-config": "^4.8.1",
+    "@iconify/json": "^2.2.315",
     "@octokit/rest": "^21.1.1",
     "@shikijs/markdown-it": "^3.1.0",
-    "@shikijs/transformers": "^3.1.0",
-    "@shikijs/twoslash": "^3.1.0",
+    "@shikijs/transformers": "^3.2.0",
+    "@shikijs/twoslash": "^3.2.0",
     "@types/diacritics": "^1.3.3",
     "@types/fs-extra": "^11.0.4",
     "@types/markdown-it": "^14.1.2",
@@ -49,13 +49,13 @@
     "@vitejs/plugin-vue": "^5.2.1",
     "cross-env": "^7.0.3",
     "diacritics": "^1.3.0",
-    "eslint": "^9.21.0",
+    "eslint": "^9.22.0",
     "eslint-plugin-format": "^1.0.1",
     "fast-glob": "^3.3.3",
     "feed": "^4.2.2",
     "fs-extra": "^11.3.0",
     "gray-matter": "^4.0.3",
-    "lazy-js-utils": "^0.1.31",
+    "lazy-js-utils": "^0.1.32",
     "lint-staged": "^15.4.3",
     "markdown-it": "^14.1.0",
     "markdown-it-anchor": "^9.2.0",
@@ -64,9 +64,9 @@
     "markdown-it-table-of-contents": "^0.9.0",
     "picocolors": "^1.1.1",
     "prompts": "^2.4.2",
-    "shiki": "^3.1.0",
+    "shiki": "^3.2.0",
     "simple-git-hooks": "^2.11.1",
-    "taze": "^18.6.0",
+    "taze": "^19.0.1",
     "tsx": "^4.19.3",
     "typescript": "^5.8.2",
     "unocss": "^66.0.0",
@@ -74,8 +74,8 @@
     "unplugin-icons": "^22.1.0",
     "unplugin-vue-components": "^28.4.1",
     "unplugin-vue-markdown": "^28.3.1",
-    "unplugin-vue-router": "^0.11.2",
-    "vite": "^6.2.0",
+    "unplugin-vue-router": "^0.12.0",
+    "vite": "^6.2.1",
     "vite-plugin-inspect": "^11.0.0",
     "vite-plugin-optimize-exclude": "^0.0.1",
     "vite-plugin-pages": "^0.32.5",
@@ -92,7 +92,7 @@
     ]
   },
   "resolutions": {
-    "vite": "^6.2.0"
+    "vite": "^6.2.1"
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"
