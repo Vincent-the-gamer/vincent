@@ -1,6 +1,6 @@
 ---
 title: 安利一些前端的工具
-date: 2025-1-15
+date: 2025-01-15
 lang: zh
 plum: false
 lastModified: 2025-1-15 10:02:00

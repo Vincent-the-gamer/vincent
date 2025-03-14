@@ -1,6 +1,6 @@
 ---
 title: 在macOS Sequoia (15.x) 中阻止开盖/连接电源自动开机的方法
-date: 2025-1-31
+date: 2025-01-31
 lang: zh
 plum: false
 ---
