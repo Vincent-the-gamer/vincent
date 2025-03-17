@@ -100,6 +100,12 @@ projects:
       link: "https://vizzy.io/"
       desc: "在线免费生成音频可视化的视频"
       icon: "vizzy"
+
+    - name: "特殊符号集"
+      link: "https://cn.piliapp.com/symbol/"
+      desc: "快速寻找特殊符号"
+      icon: "special-symbol"
+
 ---
 
 <!-- @layout-full-width -->
