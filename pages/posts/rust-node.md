@@ -56,8 +56,8 @@ use neon::{
 pub fn echo(mut cx: FunctionContext) -> JsResult<JsString> {
     // read the first param of function
     let get_str: String = cx.argument::<JsString>(0)?.value(&mut cx); // [!code hl]
-    let result: String = format!("Echoed text: {}", &get_str); // [!code hl]
-    Ok(cx.string(result))
+    let result: String = format!("Echoed text: {}", &get_str); 
+    Ok(cx.string(result)) // [!code hl]
 }
 ```
 
@@ -68,9 +68,9 @@ pub fn echo(mut cx: FunctionContext) -> JsResult<JsString> {
 `Napi-rs`会自动生成TS类型声明文件`*.d.ts`，为TypeScript提供更好的支持，而`Neon`默认没有提供这样的功能。
 
 
-### Neon比Napi-rs更轻量化
+### Neon比Napi-rs的工作空间更轻量化
 
-通过脚手架初始化两个框架的项目，你会发现，`Napi-rs`的项目里面文件很多，而`Neon`极度轻量化，可以对比[Napi-rs官方文档](https://napi.rs/cn/docs/introduction/simple-package)以及[Neon官方文档](https://neon-rs.dev/docs/hello-world)中两者项目结构的区别。如果你只想开发一个轻量级库，推荐使用`Neon`，大型项目或者较为正式的项目推荐`Napi-rs`。
+通过脚手架初始化两个框架的项目，你会发现，`Napi-rs`的工作空间里面文件很多，而`Neon`则比较轻量化，可以对比[Napi-rs官方文档](https://napi.rs/cn/docs/introduction/simple-package)以及[Neon官方文档](https://neon-rs.dev/docs/hello-world)中两者项目结构的区别。如果你只想开发一个轻量级库，推荐使用`Neon`，大型项目或者较为正式的项目推荐`Napi-rs`。
 
 > [!TIP] 提示
 > 如果您更喜欢pnpm, `npm init` 命令可以用 `pnpm create` 命令代替。
