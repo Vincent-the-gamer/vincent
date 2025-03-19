@@ -12,18 +12,19 @@ plum: false
 
 除此之外，我喜欢玩游戏，包括但不限于Steam, 炉石传说和索尼PlayStation的一些主机游戏，并对主机游戏收集奖杯有浓厚的兴趣。在我的<a href="/games" target="_blank">游戏历程</a>板块中，可以查看我曾经获得过的白金奖杯游戏截图。
 
+<a href="./posts">
+  <div i-cib-micro-blog />
+  进入我的博客
+</a>
+
 <div flex-auto />
 
 ---
 
-关注诡锋喵~，关注诡锋谢谢喵~
+发现我：
 
 <p flex="~ gap-3 wrap" m-0>
   <a href="https://github.com/Vincent-the-gamer" target="_blank"><span op75 i-simple-icons-github /> GitHub</a>
-  <a href="https://discord.gg/qZBVS8yyyY" target="_blank"><span op75 i-simple-icons-discord /> Discord</a>
-  <a href="https://x.com/Vincent49761417" target="_blank">
-    <div i-carbon-logo-x/> Twitter
-  </a>
 </p>
 
 <div h-1 />

@@ -63,6 +63,14 @@ waifus:
       avatar: /images/waifus/takeba-yukari.png
       moegirlLink: https://zh.moegirl.org.cn/%E5%B2%B3%E7%BE%BD%E7%94%B1%E5%8A%A0%E8%8E%89
       from: 「女神异闻录3」
+    - name: 爱丽丝·盖恩斯巴勒
+      avatar: /images/waifus/aerith.png
+      moegirlLink: https://zh.moegirl.org.cn/%E7%88%B1%E4%B8%BD%E4%B8%9D%C2%B7%E7%9B%96%E6%81%A9%E6%96%AF%E5%B7%B4%E5%8B%92
+      from: 「最终幻想7」
+    - name: 蒂法·洛克哈特
+      avatar: /images/waifus/tifa.png
+      moegirlLink: https://zh.moegirl.org.cn/%E8%92%82%E6%B3%95%C2%B7%E6%B4%9B%E5%85%8B%E5%93%88%E7%89%B9
+      from: 「最终幻想7」
 ---
 
 <SubNav />
