@@ -3,7 +3,7 @@ title: 如何实现一个简单的基于Node.js的代码运行方法
 date: 2025-02-26
 lang: zh
 plum: false
-lastModified: 2025-03-03 16:27
+lastModified: 2025-03-19 14:56
 ---
 
 # 需要的工具
@@ -44,7 +44,6 @@ export function run(lang: Language, code: string): Promise<string> {
             reject('Write file error!')
 
           exec(`node ${__dirname}/main.js`, (err, stdout, stderr) => { // [!code hl]
-            //         ^
             if (stdout) {
               resolve(stdout)
             }
