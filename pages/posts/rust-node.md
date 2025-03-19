@@ -9,6 +9,7 @@ plum: false
 > 如果你懒得看这篇博客，我准备了两个模板项目，直接克隆到本地就可以使用：
 > - 使用Rust开发Node.js模块：[neon-starter](https://github.com/Vincent-the-gamer/neon-starter), 基于Neon框架，用于编写一些小型模块，如果你需要编写大型项目，更推荐[napi-rs](https://github.com/napi-rs/napi-rs)
 > - 使用Rust开发浏览器可用的方法，基于WebAssembly技术：[rust-wasm-starter](https://github.com/Vincent-the-gamer/rust-wasm-starter)
+>
 > 推荐使用node的工具`degit`进行克隆，这样不会克隆.git目录，方便自己初始化新的git项目。
 > ```shell
 > npx degit <仓库地址>
@@ -17,7 +18,7 @@ plum: false
 
 # 引言
 
-不知道为啥，互联网上掀起了一股<a href="https://github.com/ansuz/RIIR" target="_blank"><Ruby content="R" rt="Rewrite"/><Ruby content="I" rt="It"/><Ruby content="I" rt="In"/><Ruby content="R" rt="Rust"/></a>的风潮。顾名思义就是把一些比较依赖运行效率的软件通过Rust重写，由于Rust的静态编译特性，使得代码运行速度会快于大多数动态语言 ~~(虽然编译速度很慢)~~。所以我也在不久前(23年底大概)开始学习Rust语言。由于平时本来就和`Node.js`打交道比较多，再加上Evan You（尤雨溪）团队开始使用`Rust`开发新的前端构建工具`rolldown`，所以就想研究下能不能用Rust来编写Node.js和在浏览器中可用的函数。 ~~（其实就是想多写写Rust熟悉一下）~~
+不知道为啥，互联网上掀起了一股<a href="https://github.com/ansuz/RIIR" target="_blank"><Ruby content="R" rt="Rewrite"/><Ruby content="I" rt="It"/><Ruby content="I" rt="In"/><Ruby content="R" rt="Rust"/></a>的风潮。顾名思义就是把一些比较依赖运行效率的软件通过Rust重写，由于Rust的静态编译特性，使得代码运行速度会快于大多数动态语言 ~~(虽然编译速度很慢)~~，所以我也在不久前(23年底大概)开始学习Rust语言。由于平时本来就和`Node.js`打交道比较多，再加上Evan You（尤雨溪）团队开始使用`Rust`开发新的前端构建工具`rolldown`，所以就想研究下能不能用Rust来编写Node.js和在浏览器中可用的函数。 ~~（其实就是想多写写Rust熟悉一下）~~
 
 # 与Node.js的交互
 
