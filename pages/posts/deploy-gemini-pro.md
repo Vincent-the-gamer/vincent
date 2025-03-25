@@ -9,8 +9,6 @@ plum: false
 
 需要魔法网络环境，没有的小伙伴就不必浪费时间看了。
 
-**这里有热心群友提供他部署的Demo，大家可以试玩:** [https://gemini.rin.guru/](https://gemini.rin.guru/)
-
 # 前置操作：申请API Key
 
 首先，申请自己的API Key: [https://makersuite.google.com/app/apikey](https://makersuite.google.com/app/apikey)

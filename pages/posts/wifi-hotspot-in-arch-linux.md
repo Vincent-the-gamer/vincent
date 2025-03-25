@@ -3,6 +3,7 @@ title: 在Linux设备中开启Wifi热点
 date: 2023-12-25
 lang: zh
 plum: false
+lastModified: 2025-03-25 15:40
 ---
 
 # 前言
@@ -43,8 +44,7 @@ GitHub项目地址：[https://github.com/lakinduakash/linux-wifi-hotspot](https:
 
 ## Debian/Ubuntu（或基于它们的下游发行版）
 
-- Debian：[在Release中找安装包即可](https://github.com/lakinduakash/linux-wifi-hotspot/releases)
-- Ubuntu: 目前包已过时，等待作者修复
+[在Release中找安装包即可](https://github.com/lakinduakash/linux-wifi-hotspot/releases)
 
 ```shell
 # For ubuntu - package outdated due to lost GPG keys
