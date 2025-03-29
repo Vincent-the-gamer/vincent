@@ -52,11 +52,17 @@ function slug(name: string) {
             <img v-else-if="item.icon === 'kaomoe'" class="text-4xl w-140px h-75px" src="/gifs/kaomoe.gif">
             <img v-else-if="item.icon === 'n-stars'" class="text-4xl w-140px h-75px" src="/gifs/n-stars.gif">
 
+            <!-- ico -->
+            <img v-else-if="item.icon === 'mio-bt'" src="https://miobt.com/images/favicon/miobt.ico" text-4xl w-75px h-75px />
+            <img v-else-if="item.icon === 'mikan'" src="https://www.acgbox.link/wp-content/uploads/2023/09/mikanani.me_.png" text-4xl w-75px h-75px />
+            <img v-else-if="item.icon === 'nyaa'" src="https://www.acgbox.link/wp-content/uploads/favicon/nyaa.si.png" text-4xl w-145px h-55px />
+
             <!-- svg -->
             <div v-else-if="item.icon === 'vitesse'" class="i-carbon-campsite w-50px h-50px" />
             <img v-else-if="item.icon === 'nitro'" class="w-80px h-55px" src="/images/projects/nitro.svg">
             <div v-else-if="item.icon === 'special-symbol'" i-material-symbols-emoji-symbols-rounded w-70px h-70px/>
             <div v-else class="text-3xl opacity-50" :class="item.icon || 'i-carbon-unknown'" />
+
           </div>
           <div class="flex-auto">
             <div class="text-normal">{{ item.name }}</div>

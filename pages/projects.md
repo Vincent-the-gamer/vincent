@@ -1,6 +1,6 @@
 ---
-title: 项目 - Vincent
-display: 项目
+title: 项目/工具 - Vincent
+display: 项目/工具
 description: 我在GitHub上发布的一些好玩的项目
 plum: false
 wrapperClass: 'text-center'
@@ -105,6 +105,22 @@ projects:
       link: "https://cn.piliapp.com/symbol/"
       desc: "快速寻找特殊符号"
       icon: "special-symbol"
+  
+  动漫下载站:
+    - name: "MioBT"
+      link: "https://miobt.com/"
+      desc: "＊MioBT＊★就是＊MioBT＊喵～"
+      icon: "mio-bt"
+
+    - name: "蜜柑计划"
+      link: "https://mikanani.me/"
+      desc: "蜜柑计划：新一代的动漫下载站"
+      icon: "mikan"
+    
+    - name: "Nyaa.si"
+      link: "https://nyaa.si/"
+      desc: "A BitTorrent community focused on Eastern Asian media including anime, manga, music, and more"
+      icon: "nyaa"
 
 ---
 

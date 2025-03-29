@@ -27,8 +27,8 @@ const { y: scroll } = useWindowScroll()
           <span class="lt-md:hidden">博客</span>
           <div i-ri-article-line md:hidden />
         </RouterLink>
-        <RouterLink to="/projects" title="项目">
-          <span class="lt-md:hidden">项目</span>
+        <RouterLink to="/projects" title="项目/工具">
+          <span class="lt-md:hidden">项目/工具</span>
           <div i-ri-lightbulb-line md:hidden />
         </RouterLink>
         <RouterLink to="/videos" title="视频专区">

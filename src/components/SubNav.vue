@@ -19,7 +19,7 @@ const route = useRoute()
         博客
       </RouterLink>
       <RouterLink to="/projects" class="!border-none" :class="route.path === `/projects` ? activeStyle : inactiveStyle">
-        项目
+        项目/工具
       </RouterLink>
       <RouterLink to="/videos" class="!border-none" :class="route.path === `/videos` ? activeStyle : inactiveStyle">
         视频专区
