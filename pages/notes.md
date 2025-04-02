@@ -1,6 +1,6 @@
 ---
 title: 笔记 - Vincent
-display: 笔记
+display: ''
 art: dots
 ---
 
