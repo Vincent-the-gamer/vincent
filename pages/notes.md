@@ -1,6 +1,7 @@
 ---
-title: Notes - Anthony Fu
-display: ''
+title: 笔记 - Vincent
+display: 笔记
+art: dots
 ---
 
 <SubNav />

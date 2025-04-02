@@ -12,9 +12,14 @@ art: dots
 
 除此之外，我喜欢玩游戏，包括但不限于Steam, 炉石传说和索尼PlayStation的一些主机游戏，并对主机游戏收集奖杯有浓厚的兴趣。在我的<a href="/games" target="_blank">游戏历程</a>板块中，可以查看我曾经获得过的白金奖杯游戏截图。
 
-<a href="./posts" font-size-18px>
+<a href="./posts" font-size-18px mr-4>
   <div i-cib-micro-blog />
   进入我的博客
+</a>
+
+<a href="./notes" font-size-18px>
+  <div i-material-symbols-event-note-outline />
+  进入我的笔记
 </a>
 
 <div flex-auto />

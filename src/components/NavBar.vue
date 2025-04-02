@@ -25,7 +25,7 @@ const { y: scroll } = useWindowScroll()
       <div class="right" print:op0>
         <RouterLink to="/posts" title="博客">
           <span class="lt-md:hidden">博客</span>
-          <div i-ri-article-line md:hidden />
+          <div i-cib-micro-blog md:hidden />
         </RouterLink>
         <RouterLink to="/projects" title="项目/工具">
           <span class="lt-md:hidden">项目/工具</span>
@@ -41,7 +41,7 @@ const { y: scroll } = useWindowScroll()
         </RouterLink>
         <RouterLink to="/notes" title="笔记">
           <span lt-md:hidden>笔记</span>
-          <div i-solar-gameboy-linear md:hidden />
+          <div i-material-symbols-event-note-outline md:hidden />
         </RouterLink>
         <RouterLink to="/waifus" title="老婆列表">
           <span class="gradient-text" lt-md:hidden>老婆列表</span>
@@ -49,12 +49,6 @@ const { y: scroll } = useWindowScroll()
         </RouterLink>
         <a href="https://github.com/Vincent-the-gamer" target="_blank" title="GitHub" class="lt-md:hidden">
           <div i-uil-github-alt />
-        </a>
-        <a href="https://discord.gg/qZBVS8yyyY" target="_blank" title="Discord">
-          <div i-simple-icons-discord />
-        </a>
-        <a href="https://x.com/Vincent49761417" target="_blank" title="X(Twitter)">
-          <div i-carbon-logo-x />
         </a>
         <a href="/feed.xml" target="_blank" title="RSS" class="lt-md:hidden">
           <div i-la-rss-square style="font-size:1.25rem; margin: 0 -0.125rem;" />

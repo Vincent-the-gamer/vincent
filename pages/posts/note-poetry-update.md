@@ -2,6 +2,7 @@
 title: 记录一次poetry版本更新问题解决方案
 date: 2025-01-18
 lang: zh
+type: note
 art: dots
 ---
 
