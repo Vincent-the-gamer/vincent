@@ -2,7 +2,7 @@
 title: My Steam Deck config and customization.
 date: 2024-10-28
 lang: en
-plum: false
+art: dots
 ---
 
 <p align="center">

@@ -2,7 +2,8 @@
 title: 在Hugging Face上寻找一些好玩的项目
 date: 2023-12-31
 lang: zh
-plum: false
+art: dots
+type: note
 ---
 
 # 序

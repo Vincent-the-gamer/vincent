@@ -2,7 +2,7 @@
 title: 小米路由器Mesh组网 + ShellClash科学上网折腾记
 date: 2025-02-04
 lang: zh
-plum: false
+art: dots
 lastModified: 2025-2-17 14:00
 ---
 

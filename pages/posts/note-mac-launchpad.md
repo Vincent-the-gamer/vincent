@@ -2,7 +2,8 @@
 title: 如何删除macOS启动台残留图标
 date: 2025-02-25
 lang: zh
-plum: false
+art: dots
+type: note
 ---
 
 # 方法

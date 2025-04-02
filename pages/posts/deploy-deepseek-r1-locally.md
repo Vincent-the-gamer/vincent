@@ -2,7 +2,7 @@
 title: 在Mac Mini M4丐版中本地化部署DeepSeek-R1(通过Ollama)
 date: 2025-02-01
 lang: zh
-plum: false
+art: dots
 ---
 
 # 前言

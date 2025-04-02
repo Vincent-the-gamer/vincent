@@ -2,7 +2,7 @@
 title: 一个程序员的macOS生产力工具推荐
 date: 2024-11-09
 lang: zh
-plum: false
+art: dots
 ---
 
 # Raycast

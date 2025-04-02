@@ -27,6 +27,9 @@ const route = useRoute()
       <RouterLink to="/games" class="!border-none" :class="route.path === `/games` ? activeStyle : inactiveStyle">
         游戏历程
       </RouterLink>
+      <RouterLink to="/notes" class="!border-none" :class="route.path === `/notes` ? activeStyle : inactiveStyle">
+        笔记
+      </RouterLink>
       <RouterLink to="/waifus" class="!border-none" :class="route.path === `/waifus` ? activeStyle : inactiveStyle">
         <span class="gradient-text">老婆列表</span>
       </RouterLink>

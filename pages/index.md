@@ -1,7 +1,7 @@
 ---
 title: 诡锋 Vincent
 description: 诡锋的博客
-plum: false
+art: dots
 ---
 
 大家好，我是诡锋。

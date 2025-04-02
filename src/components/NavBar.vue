@@ -39,6 +39,10 @@ const { y: scroll } = useWindowScroll()
           <span lt-md:hidden>游戏历程</span>
           <div i-solar-gameboy-linear md:hidden />
         </RouterLink>
+        <RouterLink to="/notes" title="笔记">
+          <span lt-md:hidden>笔记</span>
+          <div i-solar-gameboy-linear md:hidden />
+        </RouterLink>
         <RouterLink to="/waifus" title="老婆列表">
           <span class="gradient-text" lt-md:hidden>老婆列表</span>
           <div i-icon-park-outline-girl md:hidden />

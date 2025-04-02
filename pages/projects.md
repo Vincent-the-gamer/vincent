@@ -2,7 +2,7 @@
 title: 项目/工具 - Vincent
 display: 项目/工具
 description: 我在GitHub上发布的一些好玩的项目
-plum: false
+art: dots
 wrapperClass: 'text-center'
 projects:
   工具项目:

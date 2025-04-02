@@ -2,7 +2,7 @@
 title: 如何使用Docker来运行EasyConnect
 date: 2024-07-01
 lang: zh
-plum: false
+art: dots
 ---
 
 # 拉取Docker镜像并启动

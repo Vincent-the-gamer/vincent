@@ -2,7 +2,7 @@
 title: 使用ssh config文件来配置和管理ssh连接
 date: 2025-03-26
 lang: zh
-plum: false
+art: dots
 ---
 
 # 配置文件

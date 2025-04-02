@@ -1,7 +1,7 @@
 ---
 title: 游戏历程 - Vincent
 display: ''
-plum: false
+art: dots
 games:
     - name: "PS4《战神3》白金奖杯"
       date: "2018-08-03"

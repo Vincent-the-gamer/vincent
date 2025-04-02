@@ -2,7 +2,8 @@
 title: 如何完全卸载macOS端的暴雪战网客户端
 date: 2025-01-01
 lang: zh
-plum: false
+art: dots
+type: note
 lastModified: 2025-01-11 12:48:00
 ---
 

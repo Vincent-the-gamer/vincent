@@ -2,7 +2,7 @@
 title: 探究Rust和Node.js以及浏览器环境的交互
 date: 2025-03-19
 lang: zh
-plum: false
+art: dots
 ---
 
 > [!NOTE] 省流

@@ -2,7 +2,7 @@
 title: 抛弃Vuex和Redux, 使用Pinia和Jotai
 date: 2023-12-21
 lang: zh
-plum: false
+art: dots
 ---
 
 # Vuex和Redux恶心人的地方

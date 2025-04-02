@@ -1,44 +1,7 @@
 <script setup lang="ts">
 import { OrbitControls } from '@tresjs/cientos'
 import { TresCanvas } from '@tresjs/core'
-import {
-  DotImageCanvas,
-  getDevice,
-  useRaf,
-} from 'lazy-js-utils'
 import Girl3D from './components/tresjs/Girl3D.vue'
-import nene1 from '/images/nene1.png'
-import nene2 from '/images/nene2.png'
-
-// 背景图
-const imageShow = computed(() => {
-  const { os } = getDevice()
-  return os === 'mac' || os === 'windows' || os === 'macOS'
-})
-
-const dotImage1 = new DotImageCanvas(nene1, '', 3, 'transparent', 'vertical-reverse')
-const dotImage2 = new DotImageCanvas(nene2, '', 3, 'transparent')
-
-onMounted(() => {
-  if (imageShow.value) {
-    dotImage1.append('.dotImage')
-    dotImage2.append('.cloth')
-  }
-  const stop = useRaf(() => {
-    if (dotImage1.status && window.gsap) {
-      stop()
-      window.gsap.to('.dotImage', {
-        rotationY: 360,
-        scrollTrigger: {
-          trigger: 'body',
-          start: 'top center',
-          end: 'bottom center',
-          scrub: true,
-        },
-      })
-    }
-  }, 200)
-})
 
 const title = useTitle()
 const defaultTitle = title.value
@@ -85,8 +48,6 @@ onKeyStroke('Escape', (e) => {
 </script>
 
 <template>
-  <span v-if="imageShow" class="dotImage" fixed top-20 left--80 z--1 />
-  <span v-if="imageShow" class="cloth" fixed top-20 right--120 z--1 />
   <NavBar />
   <main class="px-7 py-10 of-x-hidden">
     <RouterView />

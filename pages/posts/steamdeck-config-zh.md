@@ -2,7 +2,7 @@
 title: 我的Steam Deck环境配置和个性化设置
 date: 2024-10-28
 lang: zh
-plum: false
+art: dots
 ---
 
 <p align="center">

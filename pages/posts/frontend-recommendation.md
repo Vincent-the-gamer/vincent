@@ -1,12 +1,13 @@
 ---
 title: 安利一些前端的工具
-date: 2025-01-15
+date: 2025-04-02
 lang: zh
-plum: false
-lastModified: 2025-1-15 10:02:00
+art: dots
+lastModified: 2025-04-02 14:52:00
 ---
 
-> **注意:** 该篇博客会**陆陆续续更新**，记得经常回来看看喵~(๑•̀ㅂ•́)و✧
+> [!IMPORTANT] 重要
+> 该篇博客会**陆陆续续更新**，记得经常回来看看喵~(๑•̀ㅂ•́)و✧
 
 # 包管理器
 
@@ -200,6 +201,59 @@ app.mount('#app')
 最后，在`src目录`下创建pages文件夹，然后直接添加组件，即可使用`基于文件的路由(File-based Routing)`了。
 不了解`File-based Routing`的小伙伴，请参考[Nuxt.js文档](https://nuxt.com.cn/)
 
-# 未完待续
+# UnJS系列
 
-记得常回来看看(\*^▽^\*)
+## Unconfig
+
+[Unconfig](https://github.com/antfu-collective/unconfig)是用于开发Node.js模块时，为你提供配置文件读取的功能库。如果你想为自己的Library提供一个用户自定义配置文件的功能，那么这个库会为你省去「编写加载对应配置文件的代码」这一步骤。
+
+一般来说，你可以在项目中定义一个`resolveConfig`方法，然后处理配置。我们的配置一般会有三份：默认配置，用户配置文件(xx.config)，函数传入的配置对象，权重排序一般为：
+
+```
+函数传入的配置对象 > 用户配置文件(xx.config) > 默认配置
+```
+
+如果调用者在使用了配置文件的同时，还在函数传入了配置，我们通常应该在解析配置时，按照权重将相同属性覆盖为权重更高的值，而其余属性继续取配置文件的值，而配置文件如果不存在或者缺少部分属性，则取默认属性，默认属性为空则为`undefined`。
+
+一般来说，使用`unconfig`来定义一个配置解析方法可以这样做：
+
+```ts
+import { loadConfig } from 'unconfig'
+import deepmerge from 'deepmerge'
+
+// 默认配置
+export const default: Config = {
+  name: "纯黑"
+}
+
+// config: 传入的配置
+async function resolveConfig(incomingConfig: Config) {
+  ...
+
+  // 读取你的配置文件
+  const { config, sources } = await loadConfig({
+    sources: [
+      // 定义：配置将从当前目录的 `my.config.xx` 中读取
+      {
+        files: 'my.config',
+        // 允许的默认文件后缀
+        extensions: ['ts', 'mts', 'cts', 'js', 'mjs', 'cjs', 'json', ''],
+      },
+    ]
+    // false: 读取sources第一个配置
+    // true: 混合多个配置文件的配置信息
+    merge: false,
+  })
+ 
+  // 如果没有读取到配置文件(sources.length不存在)，直接将传入的配置与默认配置混合（并覆盖对应属性）
+  if (!sources.length)
+    // 使用deepmerge库可以简单实现覆盖功能，注意，第二个参数覆盖第一个参数里的对象
+    return deepmerge(default, incomingConfig)
+
+  // 如果读取到了配置文件，注意权重，需要先把配置文件覆盖到默认配置，然后将传入的配置继续覆盖
+  return deepmerge(deepmerge(default, config), incomingConfig)
+}
+```
+
+这样就可以在你的代码中优雅地读取配置了。具体案例可以参考我的库：[fast-dirpy](https://github.com/Vincent-the-gamer/fast-dirpy).
+

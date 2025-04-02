@@ -2,7 +2,7 @@
 title: 在macOS上安装/卸载nmap网络扫描工具
 date: 2024-08-24
 lang: zh
-plum: false
+art: dots
 ---
 
 # 安装
