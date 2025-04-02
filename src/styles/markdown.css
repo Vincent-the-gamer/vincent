@@ -182,7 +182,7 @@ h6:focus .header-anchor {
   bottom: 0;
   font-size: 0.8em;
   left: 20px;
-  z-index: 200;
+  z-index: 40;
   overflow: hidden;
   --uno: hidden lg-flex flex-col w-100px lg-w-200px xl-w-300px;
 }
