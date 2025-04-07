@@ -91,8 +91,8 @@ importers:
         specifier: ^0.175.0
         version: 0.175.0
       '@unhead/vue':
-        specifier: ^2.0.2
-        version: 2.0.2(vue@3.5.13(typescript@5.8.2))
+        specifier: ^2.0.5
+        version: 2.0.5(vue@3.5.13(typescript@5.8.2))
       '@unocss/preset-web-fonts':
         specifier: 66.1.0-beta.8
         version: 66.1.0-beta.8
@@ -200,7 +200,7 @@ importers:
         version: 0.33.0(@vue/compiler-sfc@3.5.13)(vite@6.2.4(@types/node@22.13.8)(jiti@2.4.2)(terser@5.39.0)(tsx@4.19.3)(yaml@2.7.0))(vue-router@4.5.0(vue@3.5.13(typescript@5.8.2)))
       vite-ssg:
         specifier: ^26.1.1
-        version: 26.1.1(prettier@3.5.3)(unhead@2.0.2)(vite@6.2.4(@types/node@22.13.8)(jiti@2.4.2)(terser@5.39.0)(tsx@4.19.3)(yaml@2.7.0))(vue-router@4.5.0(vue@3.5.13(typescript@5.8.2)))(vue@3.5.13(typescript@5.8.2))
+        version: 26.1.1(prettier@3.5.3)(unhead@2.0.5)(vite@6.2.4(@types/node@22.13.8)(jiti@2.4.2)(terser@5.39.0)(tsx@4.19.3)(yaml@2.7.0))(vue-router@4.5.0(vue@3.5.13(typescript@5.8.2)))(vue@3.5.13(typescript@5.8.2))
       vite-svg-loader:
         specifier: ^5.1.0
         version: 5.1.0(vue@3.5.13(typescript@5.8.2))
@@ -1146,8 +1146,8 @@ packages:
     peerDependencies:
       unhead: 2.0.2
 
-  '@unhead/vue@2.0.2':
-    resolution: {integrity: sha512-pUGcbmPNCALOVWnQRtIjJ5ubNaZus3nHfCBDPEVwhbiLzeLF6wbhgTakwksZ1EegKNOZwRAkmVbV6i+23OYEUQ==}
+  '@unhead/vue@2.0.5':
+    resolution: {integrity: sha512-csjNmBHvJGzSestlpApOpgxqaTdXSN2zwNIPFuWB+C4rtLX4x3+Tm7C5rQwU0iYy3CNJGjJT9cCcSyV55Jg4EQ==}
     peerDependencies:
       vue: '>=3.5.13'
 
@@ -3429,8 +3429,8 @@ packages:
   undici-types@6.20.0:
     resolution: {integrity: sha512-Ny6QZ2Nju20vw1SRHe3d9jVu6gJ+4e3+MMpqu7pqE5HT6WsTSlce++GQmK5UXS8mzV8DSYHrQH+Xrf2jVcuKNg==}
 
-  unhead@2.0.2:
-    resolution: {integrity: sha512-1pcK/rSA70sezpdgmupQPd/yrul8pVFJRwMvWjEthbsXoTXMqjNQlV7NBXWeWt5r2uje1lZJsvRTHF7IvdOhcg==}
+  unhead@2.0.5:
+    resolution: {integrity: sha512-bG4wyp+KuW+ivQYtTQvnvtMM55ziIrQ9Yq1/VAm099buBgH0CoBWgu39jkSUoE4oZ4Qki8SsnMbq2gL0h3/sUA==}
 
   unicorn-magic@0.1.0:
     resolution: {integrity: sha512-lRfVq8fE8gz6QMBuDM6a+LO3IAzTi05H6gCVaUpir2E1Rwpo4ZUog45KpNXKC/Mn3Yb9UDuHumeFTo9iV/D9FQ==}
@@ -4725,14 +4725,14 @@ snapshots:
 
   '@ungap/structured-clone@1.3.0': {}
 
-  '@unhead/dom@2.0.2(unhead@2.0.2)':
+  '@unhead/dom@2.0.2(unhead@2.0.5)':
     dependencies:
-      unhead: 2.0.2
+      unhead: 2.0.5
 
-  '@unhead/vue@2.0.2(vue@3.5.13(typescript@5.8.2))':
+  '@unhead/vue@2.0.5(vue@3.5.13(typescript@5.8.2))':
     dependencies:
       hookable: 5.5.3
-      unhead: 2.0.2
+      unhead: 2.0.5
       vue: 3.5.13(typescript@5.8.2)
 
   '@unocss/astro@66.0.0(vite@6.2.4(@types/node@22.13.8)(jiti@2.4.2)(terser@5.39.0)(tsx@4.19.3)(yaml@2.7.0))(vue@3.5.13(typescript@5.8.2))':
@@ -7368,7 +7368,7 @@ snapshots:
 
   undici-types@6.20.0: {}
 
-  unhead@2.0.2:
+  unhead@2.0.5:
     dependencies:
       hookable: 5.5.3
 
@@ -7608,10 +7608,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  vite-ssg@26.1.1(prettier@3.5.3)(unhead@2.0.2)(vite@6.2.4(@types/node@22.13.8)(jiti@2.4.2)(terser@5.39.0)(tsx@4.19.3)(yaml@2.7.0))(vue-router@4.5.0(vue@3.5.13(typescript@5.8.2)))(vue@3.5.13(typescript@5.8.2)):
+  vite-ssg@26.1.1(prettier@3.5.3)(unhead@2.0.5)(vite@6.2.4(@types/node@22.13.8)(jiti@2.4.2)(terser@5.39.0)(tsx@4.19.3)(yaml@2.7.0))(vue-router@4.5.0(vue@3.5.13(typescript@5.8.2)))(vue@3.5.13(typescript@5.8.2)):
     dependencies:
-      '@unhead/dom': 2.0.2(unhead@2.0.2)
-      '@unhead/vue': 2.0.2(vue@3.5.13(typescript@5.8.2))
+      '@unhead/dom': 2.0.2(unhead@2.0.5)
+      '@unhead/vue': 2.0.5(vue@3.5.13(typescript@5.8.2))
       ansis: 3.17.0
       cac: 6.7.14
       html-minifier-terser: 7.2.0
