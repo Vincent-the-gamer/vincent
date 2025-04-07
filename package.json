@@ -56,7 +56,7 @@
     "feed": "^4.2.2",
     "fs-extra": "^11.3.0",
     "gray-matter": "^4.0.3",
-    "lazy-js-utils": "^0.1.39",
+    "lazy-js-utils": "^0.1.40",
     "lint-staged": "^15.5.0",
     "markdown-it": "^14.1.0",
     "markdown-it-anchor": "^9.2.0",

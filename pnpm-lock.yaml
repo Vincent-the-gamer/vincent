@@ -127,8 +127,8 @@ importers:
         specifier: ^4.0.3
         version: 4.0.3
       lazy-js-utils:
-        specifier: ^0.1.39
-        version: 0.1.39
+        specifier: ^0.1.40
+        version: 0.1.40
       lint-staged:
         specifier: ^15.5.0
         version: 15.5.0
@@ -2486,8 +2486,8 @@ packages:
   kolorist@1.8.0:
     resolution: {integrity: sha512-Y+60/zizpJ3HRH8DCss+q95yr6145JXZo46OTpFvDZWLfRCE4qChOyk1b26nMaNpfHHgxagk9dXT5OP0Tfe+dQ==}
 
-  lazy-js-utils@0.1.39:
-    resolution: {integrity: sha512-HyIgDEZFVDEeaf68IS8aVUpy5bNmseV0QeKKslEVt3RxIy1vbP6nrY8g3q7Q5y04tfaDaLOn+HMcb4A2ikfGOA==}
+  lazy-js-utils@0.1.40:
+    resolution: {integrity: sha512-Y4kxCxbGukfDXQjH4QeUmGGGXVHf8qZdqIUHTzrQ0IaEKZAWPHiihd8M43cSNhKfCSb7ATukVx5R+MQcbIDjZA==}
 
   levn@0.4.1:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
@@ -6195,7 +6195,7 @@ snapshots:
 
   kolorist@1.8.0: {}
 
-  lazy-js-utils@0.1.39:
+  lazy-js-utils@0.1.40:
     dependencies:
       htmlparser2: 8.0.2
       qrcode: 1.5.4
