@@ -23,19 +23,27 @@ projects:
       link: 'https://github.com/Vincent-the-gamer/modern-html2pdf'
       desc: '把HTML单/多节点转换为多页PDF'
       icon: 'html2pdf'
+    - name: 'fast-dirpy'
+      link: 'https://github.com/Vincent-the-gamer/fast-dirpy'
+      desc: 'YouTube视频直链解析'
+      icon: 'fast-dirpy'
+    - name: 'API'
+      link: 'https://github.com/Vincent-the-gamer/api'
+      desc: '我的自建API，部署在Vercel'
+      icon: 'api'
 
   实用的模板:
-    - name: 'Yew.rs Template'
-      link: 'https://github.com/Vincent-the-gamer/yew-template'
-      desc: 'Yew.rs项目基础模板。Yew.rs是一个Rust WebAssembly前端框架'
-      icon: 'yew'
-    - name: "VitePress Starter(VitePress起手模板)"
+    - name: 'ts-starter'
+      link: 'https://github.com/Vincent-the-gamer/ts-starter'
+      desc: '快速开始「使用TypeScript开发Node.js模块」的项目模板'
+      icon: 'typescript'
+    - name: "VitePress Starter"
       link: "https://github.com/Vincent-the-gamer/vitepress-starter"
-      desc: 'Opinionated VitePress Template. <br/>固执己见的VitePress文档网页起手模板。'
+      desc: '用于快速创建网页版文档的Vitepress模板'
       icon: 'vitepress'
     - name: "Vitesse Superslim"
       link: "https://github.com/Vincent-the-gamer/vitesse-superslim"
-      desc: '极简版Vue + Vite起手模板'
+      desc: '极简版Vue + Vite前端项目起手模板'
       icon: 'vitesse'
     - name: "slidev-resume"
       link: "https://github.com/Vincent-the-gamer/slidev-resume"
@@ -43,8 +51,12 @@ projects:
       icon: "slidev"
     - name: "nitro-starter"
       link: "https://github.com/Vincent-the-gamer/nitro-starter"
-      desc: "基于Node.js，使用Nitro框架进行快速后端项目构建的模板"
+      desc: "基于Node.js，使用Nitro框架进行快速http服务端项目构建的模板"
       icon: "nitro"
+    - name: 'Yew.rs Template'
+      link: 'https://github.com/Vincent-the-gamer/yew-template'
+      desc: 'Yew.rs项目基础模板。Yew.rs是一个Rust WebAssembly前端框架'
+      icon: 'yew'
 
   VS Code主题:
     - name: 'VSCode Theme Aya'
@@ -66,10 +78,6 @@ projects:
       link: 'https://github.com/Vincent-the-gamer/wenyan-api'
       desc: 'Wenyan-lang HTTP API.  文言文编程语言HTTP API。'
       icon: 'wenyan'
-    - name: "This Repo Has N Stars"
-      link: 'https://github.com/Vincent-the-gamer/this-repo-has-4-stars'
-      desc: '这个仓库有N颗星星！Star的数量发生改变时，项目名称会动态更新！'
-      icon: 'n-stars'
     - name: 'CardForge'
       link: 'https://github.com/Vincent-the-gamer/cardforge'
       desc: 'A HearthStone card maker. 炉石传说卡牌制作器。'
@@ -105,6 +113,11 @@ projects:
       link: "https://cn.piliapp.com/symbol/"
       desc: "快速寻找特殊符号"
       icon: "special-symbol"
+    
+    - name: "Markdown在线生成PDF"
+      link: "https://cn.piliapp.com/symbol/"
+      desc: "可以用于使用Markdown快速编写并导出文档/简历等PDF文件"
+      icon: "markdown"
   
   动漫下载站:
     - name: "MioBT"

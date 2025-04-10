@@ -46,11 +46,11 @@ function slug(name: string) {
             <img v-else-if="item.icon === 'vizzy'" class="text-4xl w-80px h-50px" src="/images/projects/vizzy.png">
             <img v-else-if="item.icon === 'aya'" class="text-4xl w-110px h-75px" src="/images/projects/aya.png">
             <img v-else-if="item.icon === 'slidev'" class="text-4xl w-110px h-75px" src="/images/projects/slidev.png">
+            <img v-else-if="item.icon === 'fast-dirpy'" class="text-4xl w-80px h-75px" src="/images/projects/lightning.png">
 
             <!-- gif -->
             <img v-else-if="item.icon === 'yew'" class="text-4xl w-140px h-75px" src="/gifs/yew.gif">
             <img v-else-if="item.icon === 'kaomoe'" class="text-4xl w-140px h-75px" src="/gifs/kaomoe.gif">
-            <img v-else-if="item.icon === 'n-stars'" class="text-4xl w-140px h-75px" src="/gifs/n-stars.gif">
 
             <!-- ico -->
             <img v-else-if="item.icon === 'mio-bt'" src="https://miobt.com/images/favicon/miobt.ico" text-4xl w-75px h-75px />
@@ -60,7 +60,10 @@ function slug(name: string) {
             <!-- svg -->
             <div v-else-if="item.icon === 'vitesse'" class="i-carbon-campsite w-50px h-50px" />
             <img v-else-if="item.icon === 'nitro'" class="w-80px h-55px" src="/images/projects/nitro.svg">
-            <div v-else-if="item.icon === 'special-symbol'" i-material-symbols-emoji-symbols-rounded w-70px h-70px/>
+            <div v-else-if="item.icon === 'special-symbol'" i-material-symbols-emoji-symbols-rounded w-70px h-70px />
+            <div v-else-if="item.icon === 'api'" i-material-symbols-api w-70px h-70px />
+            <div v-else-if="item.icon === 'markdown'" i-famicons-logo-markdown w-70px h-70px />
+            <div v-else-if="item.icon === 'typescript'" i-logos-typescript-icon w-70px h-70px />
             <div v-else class="text-3xl opacity-50" :class="item.icon || 'i-carbon-unknown'" />
 
           </div>
