@@ -115,7 +115,7 @@ projects:
       icon: "special-symbol"
     
     - name: "Markdown在线生成PDF"
-      link: "https://cn.piliapp.com/symbol/"
+      link: "https://resumd.t9t.io/"
       desc: "可以用于使用Markdown快速编写并导出文档/简历等PDF文件"
       icon: "markdown"
   
