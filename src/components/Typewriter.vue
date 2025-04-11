@@ -10,7 +10,7 @@ const props = defineProps<{
     strings: string[]
 }>()
 
-const typedEl = ref<HTMLElement>(null)
+const typedEl = ref<HTMLElement>()
 
 let typed: any = null
 
@@ -19,14 +19,14 @@ onMounted(() => {
         strings: props.strings,
         typeSpeed: 100,
         backSpeed: 60,
-        typeDelay: 500,
+        startDelay: 500,
         backDelay: 500,
         loop: true
     })
 })
 
 onUnmounted(() => {
-    if(typed) {
+    if (typed) {
         typed.destroy()
     }
 })
