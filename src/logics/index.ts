@@ -57,3 +57,10 @@ export function formatDate(d: string | Date, onlyDate = true) {
     return date.format('MMM D')
   return date.format('MMM D, YYYY')
 }
+
+function useIsMobile(): boolean {
+  const userAgent = navigator.userAgent
+  return /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(userAgent)
+}
+
+export const isMobile = useIsMobile()

@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.12.0",
-    "@iconify/json": "^2.2.325",
+    "@iconify/json": "^2.2.326",
     "@octokit/rest": "^21.1.1",
     "@shikijs/markdown-it": "^3.2.2",
     "@shikijs/transformers": "^3.2.2",
@@ -58,7 +58,7 @@
     "fs-extra": "^11.3.0",
     "gray-matter": "^4.0.3",
     "lazy-js-utils": "^0.1.40",
-    "lint-staged": "^15.5.0",
+    "lint-staged": "^15.5.1",
     "markdown-it": "^14.1.0",
     "markdown-it-anchor": "^9.2.0",
     "markdown-it-github-alerts": "^1.0.0",

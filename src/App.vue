@@ -45,6 +45,7 @@ onKeyStroke('Escape', (e) => {
     e.preventDefault()
   }
 })
+
 </script>
 
 <template>
@@ -64,7 +65,7 @@ onKeyStroke('Escape', (e) => {
     <!-- music player, client only -->
     <APlayer />
     <!-- 3D Girl -->
-    <div w-80 h-80 fixed right-0 bottom-0 z-0>
+    <div w-80 h-80 fixed right-0 bottom-0 z-0 v-if="!isMobile">
       <TresCanvas alpha>
         <TresPerspectiveCamera :position="[0, 15, 25]" />
         <OrbitControls :target="[1, 10, 0]" />
