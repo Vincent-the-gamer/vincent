@@ -2,6 +2,7 @@
 import { OrbitControls } from '@tresjs/cientos'
 import { TresCanvas } from '@tresjs/core'
 import Girl3D from './components/tresjs/Girl3D.vue'
+import { isMobile } from '~/logics'
 
 const title = useTitle()
 const defaultTitle = title.value
