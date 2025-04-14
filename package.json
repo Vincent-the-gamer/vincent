@@ -46,7 +46,7 @@
     "@types/nprogress": "^0.2.3",
     "@types/three": "^0.175.0",
     "@unhead/vue": "^2.0.5",
-    "@unocss/preset-web-fonts": "66.1.0-beta.8",
+    "@unocss/preset-web-fonts": "66.1.0-beta.11",
     "@unocss/reset": "^66.0.0",
     "@vitejs/plugin-vue": "^5.2.3",
     "cross-env": "^7.0.3",
