@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.12.0",
-    "@iconify/json": "^2.2.326",
+    "@iconify/json": "^2.2.329",
     "@octokit/rest": "^21.1.1",
     "@shikijs/markdown-it": "^3.2.2",
     "@shikijs/transformers": "^3.2.2",
