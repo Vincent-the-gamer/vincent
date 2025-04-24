@@ -47,6 +47,7 @@ function slug(name: string) {
             <img v-else-if="item.icon === 'aya'" class="text-4xl w-110px h-75px" src="/images/projects/aya.png">
             <img v-else-if="item.icon === 'slidev'" class="text-4xl w-110px h-75px" src="/images/projects/slidev.png">
             <img v-else-if="item.icon === 'fast-dirpy'" class="text-4xl w-80px h-75px" src="/images/projects/lightning.png">
+            <img v-else-if="item.icon === 'jinx'" class="text-4xl w-100px h-50px" src="/images/projects/jinx.png">
 
             <!-- gif -->
             <img v-else-if="item.icon === 'yew'" class="text-4xl w-140px h-75px" src="/gifs/yew.gif">

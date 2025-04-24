@@ -59,6 +59,11 @@ projects:
       icon: 'yew'
 
   VS Code主题:
+    - name: 'VSCode Theme Jinx'
+      link: 'https://github.com/Vincent-the-gamer/vscode-theme-jinx'
+      desc: 'Yet another glowing VSCode theme. 又一个发光的VSCode主题。'
+      icon: 'jinx'
+
     - name: 'VSCode Theme Aya'
       link: 'https://github.com/Vincent-the-gamer/vscode-theme-aya'
       desc: 'Murasame-style VSCode theme. 丛雨VSCode主题。'
