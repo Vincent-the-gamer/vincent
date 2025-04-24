@@ -174,7 +174,6 @@ games:
 <p>注意：部分游戏采用<b>玩家更常用的名称来称呼</b>，而不使用官方名称。</p>
 
 <p>
-  <span>如有<b>游戏截图对不上号，或者日期标注错误</b>等情况，请反馈至</span>
   <span>
     <a href="https://github.com/Vincent-the-gamer/vincent/issues" target="_blank">issues</a>。
   </span>
