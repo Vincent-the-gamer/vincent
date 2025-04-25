@@ -3,7 +3,6 @@ title: 如何学习正则表达式
 date: 2024-08-12
 lang: zh
 art: dots
-type: note
 ---
 
 > [!NOTE]
