@@ -254,7 +254,7 @@ EmuDeck is a collection of retro game emulators.
 > [!IMPORTANT]
 If there's some internet issue at some place, you will need proxy!
 
-#### Prepare proxy（if needed）
+#### **Prepare proxy（if needed）**
 
 Install Clash:
 
@@ -273,7 +273,7 @@ If MMDB initialization failed, download `Country.mmdb` file in [this link](https
 
 Re-run `clash` command。
 
-#### Download EmuDeck installer and configure.
+#### **Download EmuDeck installer and configure**
 
 Download:
 [https://www.emudeck.com/#downloads](https://www.emudeck.com/#downloads)
@@ -312,7 +312,7 @@ Exec=export https_proxy="http://127.0.0.1:7890" && sh -c 'curl -L https://raw.gi
 
 Save file and run it.
 
-#### BIOS download and copy
+#### **BIOS download and copy**
 
 > [!IMPORTANT]
 > Due to copyright, the emulators don't provide BIOS.

@@ -252,7 +252,7 @@ EmuDeck是一个怀旧游戏模拟器合集，包含多个中古游戏机的模�
 > [!IMPORTANT] 重要
 如果有网络问题，则需要科学上网！！！请提前准备好环境！
 
-#### 准备科学上网环境（根据情况判断是否需要）
+#### **准备科学上网环境（根据情况判断是否需要）**
 
 安装Clash:
 
@@ -271,7 +271,7 @@ clash
 
 最后重新运行`clash`命令。
 
-#### 下载EmuDeck安装器，配置并安装
+#### **下载EmuDeck安装器，配置并安装**
 
 在这里下载：
 [https://www.emudeck.com/#downloads](https://www.emudeck.com/#downloads)
@@ -310,7 +310,7 @@ Exec=export https_proxy="http://127.0.0.1:7890" && sh -c 'curl -L https://raw.gi
 
 然后保存文件并运行即可开始安装。
 
-#### BIOS下载及拷贝
+#### **BIOS下载及拷贝**
 
 > [!IMPORTANT]
 > 由于版权原因，模拟器不自带BIOS，需要手动下载。
