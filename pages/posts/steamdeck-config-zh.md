@@ -241,7 +241,7 @@ curl -L http://dl.ohmydeck.net | sh
 > [!NOTE]
 > PSN base64 ID在这里获取，请复制Chiaki的结果： [https://psn.flipscreen.games/](https://psn.flipscreen.games/)
 
-# 可以安装的项目
+# 额外内容
 
 ## EmuDeck 
 
@@ -265,7 +265,7 @@ sudo pacman -S clash
 clash
 ```
 
-然后将你的节点配置文件拷贝到Steam Deck的`~/.config/clash`文件夹中，
+然后将你的节点配置文件拷贝到Steam Deck的`~/.config/clash`文件夹中，文件名改为`config.yaml`（覆盖原文件即可）。
 
 如果有报错无法初始化`Country.mmdb`数据库文件，请在[这个链接](https://gitee.com/mirrors/Pingtunnel/blob/master/GeoLite2-Country.mmdb)下载，然后重命名为: `Country.mmdb`，将该文件放到`~/.config/clash`文件夹中。
 
@@ -276,8 +276,7 @@ clash
 在这里下载：
 [https://www.emudeck.com/#downloads](https://www.emudeck.com/#downloads)
 
-选择`SteamOS`，会得到一个`Install Emudeck.desktop`
-文件
+选择`SteamOS`，会得到一个`Install Emudeck.desktop`文件。
 
 用文本编辑器打开该文件，如下：
 

@@ -241,3 +241,103 @@ Change the bitrate to 10000 if your connection is unstable or slow.
 
 > [!NOTE]
 > To get your base64 PSN account for chiaki, See [https://psn.flipscreen.games/](https://psn.flipscreen.games/)
+
+# Extra
+
+## EmuDeck 
+
+EmuDeck is a collection of retro game emulators.
+
+### Installation
+
+> [!IMPORTANT]
+If there's some internet issue at some place, you will need proxy!
+
+#### Prepare proxy（if needed）
+
+Install Clash:
+
+```shell
+sudo pacman -S clash
+```
+
+Initialize the config file firstly, run this command in Konsole:
+```shell
+clash
+```
+
+Then, copy your config file to your Deck, in `~/.config/clash` folder, and name it `config.yaml`(overwrite original file).
+
+If MMDB initialization failed, download `Country.mmdb` file in [this link](https://gitee.com/mirrors/Pingtunnel/blob/master/GeoLite2-Country.mmdb), then rename it to: `Country.mmdb`, put it in `~/.config/clash` folder.
+
+Re-run `clash` command。
+
+#### Download EmuDeck installer and configure.
+
+Download:
+[https://www.emudeck.com/#downloads](https://www.emudeck.com/#downloads)
+
+Choose `SteamOS`, then get a `Install Emudeck.desktop` file.
+
+Open it with any text editor:
+
+```desktop
+[Desktop Entry]
+Comment[en_US]=
+Comment=
+Exec=sh -c 'curl -L https://raw.githubusercontent.com/dragoonDorise/EmuDeck/main/install.sh | bash'
+GenericName[en_US]=
+GenericName=
+MimeType=
+Name[en]=Install EmuDeck
+Name[es]=Instalar EmuDeck
+Name=Install EmuDeck
+Path=
+StartupNotify=false
+Terminal=true
+TerminalOptions=
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=
+```
+
+Modify `Exec` command to use proxy：
+
+```desktop
+Exec=export https_proxy="http://127.0.0.1:7890" && sh -c 'curl -L https://raw.githubusercontent.com/dragoonDorise/EmuDeck/main/install.sh | bash'
+```
+
+Save file and run it.
+
+#### BIOS download and copy
+
+> [!IMPORTANT]
+> Due to copyright, the emulators don't provide BIOS.
+
+BIOS Download：
+
+Link：[Baidu Net Disk](https://pan.baidu.com/s/1w5mjFxAYr6dPA6pSuc8lbg?pwd=arte)
+
+Extract Code：arte
+
+**BIOS location：**
+- Internal Disk: `/home/deck/Emulation/bios`
+- SD/TF Card: `/run/media/你卡的名字/Emulation/bios`
+
+**Game rom location：**
+- Internal Disk: `/home/deck/Emulation/roms`
+- SD/TF Card`/run/media/你卡的名字/Emulation/roms`
+
+> [!CAUTION]
+> For BIOS, copy `What's in system folder`, not the folder itself.
+> `Keys-16-by-Prodkeys.net.zip` and `Firmware_16.0.0.zip` is for `Switch Emulator`，if you use Ryujinx or download Switch emulator from Steam Store, you will need them.
+
+**Emudeck Shortcuts**：
+- Quick leave: `SELECT + START`
+- Accelerate game: `SELECT + R2`
+- Quick save: `SELECT + R1`
+- Quick load: `SELECT + L1`
+
+（SELECT is the button above the left analog stick.）
