@@ -189,7 +189,7 @@ curl -L https://github.com/SteamDeckHomebrew/decky-installer/releases/latest/dow
 curl -L http://dl.ohmydeck.net | sh
 
 # Local Script
-# Find `install_decky_loader.sh` in this repo, and download or copy it.
+# Find `install_decky_loader.sh` in https://github.com/Vincent-the-gamer/steamdeck-config, and download or copy it.
 ./install_decky_loader.sh
 ```
 
@@ -203,7 +203,7 @@ If you installed it with `shell script`, run:
 
 ```shell
 # Local Script
-# Find `uninstall_decky_loader.sh` in this repo, and download or copy it.
+# Find `uninstall_decky_loader.sh` in https://github.com/Vincent-the-gamer/steamdeck-config, and download or copy it.
 ./uninstall_decky_loader.sh
 ```
 
