@@ -1,8 +1,9 @@
 ---
 title: 我的Steam Deck环境配置和个性化设置
-date: 2024-10-28
+date: 2025-04-26
 lang: zh
 art: dots
+lastModified: 2025-04-26 14:41
 ---
 
 <p align="center">
@@ -185,7 +186,7 @@ curl -L https://github.com/SteamDeckHomebrew/decky-installer/releases/latest/dow
 curl -L http://dl.ohmydeck.net | sh
 
 # 本地脚本
-# 在该代码仓库中找到 `install_decky_loader.sh`，并且下载或者直接拷贝，然后本地运行
+# 在https://github.com/Vincent-the-gamer/steamdeck-config中找到 `install_decky_loader.sh`，并且下载或者直接拷贝，然后本地运行
 ./install_decky_loader.sh
 ```
 
@@ -201,7 +202,7 @@ curl -L http://dl.ohmydeck.net | sh
 
 ```shell
 # 本地脚本
-# 在该代码仓库中找到 `uninstall_decky_loader.sh`，并且下载或者直接拷贝，然后本地运行
+# 在https://github.com/Vincent-the-gamer/steamdeck-config中找到 `uninstall_decky_loader.sh`，并且下载或者直接拷贝，然后本地运行
 ./uninstall_decky_loader.sh
 ```
 
@@ -239,3 +240,106 @@ curl -L http://dl.ohmydeck.net | sh
 
 > [!NOTE]
 > PSN base64 ID在这里获取，请复制Chiaki的结果： [https://psn.flipscreen.games/](https://psn.flipscreen.games/)
+
+# 可以安装的项目
+
+## EmuDeck 
+
+EmuDeck是一个怀旧游戏模拟器合集，包含多个中古游戏机的模拟器
+
+### 下载安装
+
+> [!IMPORTANT] 重要
+如果有网络问题，则需要科学上网！！！请提前准备好环境！
+
+#### 准备科学上网环境（根据情况判断是否需要）
+
+安装Clash:
+
+```shell
+sudo pacman -S clash
+```
+
+首先初始化配置文件，在Konsole中运行命令：
+```shell
+clash
+```
+
+然后将你的节点配置文件拷贝到Steam Deck的`~/.config/clash`文件夹中，
+
+如果有报错无法初始化`Country.mmdb`数据库文件，请在[这个链接](https://gitee.com/mirrors/Pingtunnel/blob/master/GeoLite2-Country.mmdb)下载，然后重命名为: `Country.mmdb`，将该文件放到`~/.config/clash`文件夹中。
+
+最后重新运行`clash`命令。
+
+#### 下载EmuDeck安装器，配置并安装
+
+在这里下载：
+[https://www.emudeck.com/#downloads](https://www.emudeck.com/#downloads)
+
+选择`SteamOS`，会得到一个`Install Emudeck.desktop`
+文件
+
+用文本编辑器打开该文件，如下：
+
+```desktop
+[Desktop Entry]
+Comment[en_US]=
+Comment=
+Exec=sh -c 'curl -L https://raw.githubusercontent.com/dragoonDorise/EmuDeck/main/install.sh | bash'
+GenericName[en_US]=
+GenericName=
+MimeType=
+Name[en]=Install EmuDeck
+Name[es]=Instalar EmuDeck
+Name=Install EmuDeck
+Path=
+StartupNotify=false
+Terminal=true
+TerminalOptions=
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=
+```
+
+将`Exec`的命令前指定终端使用本地代理：
+
+```desktop
+Exec=export https_proxy="http://127.0.0.1:7890" && sh -c 'curl -L https://raw.githubusercontent.com/dragoonDorise/EmuDeck/main/install.sh | bash'
+```
+
+然后保存文件并运行即可开始安装。
+
+#### BIOS下载及拷贝
+
+> [!IMPORTANT]
+> 由于版权原因，模拟器不自带BIOS，需要手动下载。
+
+BIOS下载：
+
+链接：[百度网盘](https://pan.baidu.com/s/1w5mjFxAYr6dPA6pSuc8lbg?pwd=arte)
+
+提取码：arte
+
+**BIOS安放位置：**
+- 内置硬盘是`/home/deck/Emulation/bios`
+- TF卡是`/run/media/你卡的名字/Emulation/bios`
+
+**游戏安放位置：**
+- 内置硬盘是`/home/deck/Emulation/roms`
+- TF卡是`/run/media/你卡的名字/Emulation/roms`
+
+网盘里有个游戏对照表，搜索你要玩的游戏ROM格式，把他放到对应的roms文件夹里的
+
+> [!CAUTION] 注意
+> BIOS是要复制压缩包里system里面的文件，不是复制system这个文件夹哈
+> 里面还有一个`Keys-16-by-Prodkeys.net.zip`和`Firmware_16.0.0.zip`是`Switch模拟器`的秘钥和固件，如果你用龙神模拟器或者下载商店版的Switch模拟器要用到的。
+
+**Emudeck官方模拟器快捷键**：
+- 快速离开：`SELECT + START`
+- 游戏加速：`SELECT + R2`
+- 快速存档：`SELECT + R1`
+- 读取快速存档：`SELECT + L1`
+
+（SELECT就是左摇杆上面的那个小按键）
