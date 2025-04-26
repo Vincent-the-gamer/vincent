@@ -1,8 +1,9 @@
 ---
 title: My Steam Deck config and customization.
-date: 2024-10-28
+date: 2025-04-26
 lang: en
 art: dots
+lastModified: 2025-04-26 16:46
 ---
 
 <p align="center">
@@ -332,6 +333,7 @@ Extract Code：arte
 
 > [!CAUTION]
 > For BIOS, copy `What's in system folder`, not the folder itself.
+>
 > `Keys-16-by-Prodkeys.net.zip` and `Firmware_16.0.0.zip` is for `Switch Emulator`，if you use Ryujinx or download Switch emulator from Steam Store, you will need them.
 
 **Emudeck Shortcuts**：

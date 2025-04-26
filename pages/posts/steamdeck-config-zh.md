@@ -3,7 +3,7 @@ title: 我的Steam Deck环境配置和个性化设置
 date: 2025-04-26
 lang: zh
 art: dots
-lastModified: 2025-04-26 14:41
+lastModified: 2025-04-26 16:46
 ---
 
 <p align="center">
@@ -332,7 +332,8 @@ BIOS下载：
 网盘里有个游戏对照表，搜索你要玩的游戏ROM格式，把他放到对应的roms文件夹里的
 
 > [!CAUTION] 注意
-> BIOS是要复制压缩包里system里面的文件，不是复制system这个文件夹哈
+> BIOS是要复制压缩包里system里面的文件，不是复制system这个文件夹哈。
+>
 > 里面还有一个`Keys-16-by-Prodkeys.net.zip`和`Firmware_16.0.0.zip`是`Switch模拟器`的秘钥和固件，如果你用龙神模拟器或者下载商店版的Switch模拟器要用到的。
 
 **Emudeck官方模拟器快捷键**：
