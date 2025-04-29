@@ -11,22 +11,27 @@ projects:
       desc: 'Transform Netease Music .ncm audio into .mp3 audio, and support .mp3 BPM calculation。
       <br/>WYY音乐.ncm转.mp3，以及音频BPM（每分钟节拍数）计算。'
       icon: 'nemassler'
+
     - name: 'G-Shock Date Checker'
       link: 'https://github.com/Vincent-the-gamer/g-shock-date-checker'
       desc: 'Check your Casio G-SHOCK production factory & production date. <br/>查询你的卡西欧G-Shock手表的产地和生产日期。'
       icon: 'g-shock'
+
     - name: '@vincent-the-gamer/utils'
       link: 'https://github.com/Vincent-the-gamer/utils'
       desc: '自己编写的JavaScript/TypeScript实用工具'
       icon: 'utils'
+
     - name: 'modern-html2pdf'
       link: 'https://github.com/Vincent-the-gamer/modern-html2pdf'
       desc: '把HTML单/多节点转换为多页PDF'
       icon: 'html2pdf'
+      
     - name: 'fast-dirpy'
       link: 'https://github.com/Vincent-the-gamer/fast-dirpy'
       desc: 'YouTube视频直链解析'
       icon: 'fast-dirpy'
+
     - name: 'API'
       link: 'https://github.com/Vincent-the-gamer/api'
       desc: '我的自建API，部署在Vercel'
@@ -79,14 +84,22 @@ projects:
       link: 'https://github.com/Vincent-the-gamer/kaomoe'
       desc: 'A generator of cute Kaomojis. 颜文字生成器'
       icon: 'kaomoe'
+
     - name: 'Wenyan API'
       link: 'https://github.com/Vincent-the-gamer/wenyan-api'
       desc: 'Wenyan-lang HTTP API.  文言文编程语言HTTP API。'
       icon: 'wenyan'
+
     - name: 'CardForge'
       link: 'https://github.com/Vincent-the-gamer/cardforge'
       desc: 'A HearthStone card maker. 炉石传说卡牌制作器。'
       icon: 'cardforge'
+  
+  游戏补丁:
+    - name: '柚子社游戏补丁'
+      link: 'https://yuzupatch.vince-g.xyz/'
+      desc: '收录Steam版柚子社游戏补丁'
+      icon: 'meguru'
 
   实用工具推荐:
     - name: 'Picdiet'
