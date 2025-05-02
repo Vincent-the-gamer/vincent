@@ -24,7 +24,7 @@
     "dayjs": "^1.11.13",
     "floating-vue": "^5.2.2",
     "nprogress": "^0.2.0",
-    "pixi.js": "^8.9.1",
+    "pixi.js": "^8.9.2",
     "sharp": "^0.34.1",
     "simplex-noise": "^4.0.3",
     "three": "^0.176.0",
@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.12.0",
-    "@iconify/json": "^2.2.333",
+    "@iconify/json": "^2.2.334",
     "@octokit/rest": "^21.1.1",
     "@shikijs/markdown-it": "^3.3.0",
     "@shikijs/transformers": "^3.3.0",
@@ -58,7 +58,7 @@
     "feed": "^4.2.2",
     "fs-extra": "^11.3.0",
     "gray-matter": "^4.0.3",
-    "lazy-js-utils": "^0.1.41",
+    "lazy-js-utils": "0.1.41",
     "lint-staged": "^15.5.1",
     "markdown-it": "^14.1.0",
     "markdown-it-anchor": "^9.2.0",
@@ -70,7 +70,7 @@
     "shiki": "^3.3.0",
     "simple-git-hooks": "^2.13.0",
     "taze": "^19.0.4",
-    "tsx": "^4.19.3",
+    "tsx": "^4.19.4",
     "typescript": "^5.8.3",
     "unocss": "^66.0.0",
     "unplugin-auto-import": "^19.1.2",
@@ -78,7 +78,7 @@
     "unplugin-vue-components": "^28.5.0",
     "unplugin-vue-markdown": "^28.3.1",
     "unplugin-vue-router": "^0.12.0",
-    "vite": "^6.3.3",
+    "vite": "^6.3.4",
     "vite-plugin-inspect": "^11.0.1",
     "vite-plugin-optimize-exclude": "^0.0.1",
     "vite-plugin-pages": "^0.33.0",
@@ -96,7 +96,7 @@
     ]
   },
   "resolutions": {
-    "vite": "^6.3.3"
+    "vite": "^6.3.4"
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"
