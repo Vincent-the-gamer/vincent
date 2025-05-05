@@ -78,7 +78,7 @@
     "unplugin-vue-components": "^28.5.0",
     "unplugin-vue-markdown": "^28.3.1",
     "unplugin-vue-router": "^0.12.0",
-    "vite": "^6.3.4",
+    "vite": "^6.3.5",
     "vite-plugin-inspect": "^11.0.1",
     "vite-plugin-optimize-exclude": "^0.0.1",
     "vite-plugin-pages": "^0.33.0",
