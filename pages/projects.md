@@ -62,6 +62,10 @@ projects:
       link: 'https://github.com/Vincent-the-gamer/yew-template'
       desc: 'Yew.rs项目基础模板。Yew.rs是一个Rust WebAssembly前端框架'
       icon: 'yew'
+    - name: 'napi-rs-template'
+      link: 'https://github.com/Vincent-the-gamer/napi-rs-template'
+      desc: '使用Rust语言构建Node.js模块的项目模板'
+      icon: 'napi'
 
   VS Code主题:
     - name: 'VSCode Theme Jinx'
