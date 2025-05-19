@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@snackbar/core": "^1.7.0",
-    "@tresjs/cientos": "^4.3.0",
+    "@tresjs/cientos": "^4.3.1",
     "@tresjs/core": "^4.3.3",
     "@vueuse/core": "^13.1.0",
     "aplayer": "^1.10.1",
