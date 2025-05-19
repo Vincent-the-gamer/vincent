@@ -19,7 +19,7 @@
     "@snackbar/core": "^1.7.0",
     "@tresjs/cientos": "^4.3.0",
     "@tresjs/core": "^4.3.3",
-    "@vueuse/core": "^13.1.0",
+    "@vueuse/core": "^13.2.0",
     "aplayer": "^1.10.1",
     "dayjs": "^1.11.13",
     "floating-vue": "^5.2.2",
