@@ -46,6 +46,8 @@ function slug(name: string) {
             <img v-else-if="item.icon === 'jinx'" class="text-4xl w-100px h-50px" src="/images/projects/jinx.png">
             <img v-else-if="item.icon === 'meguru'" class="text-4xl w-80px h-80px" src="/images/projects/meguru.jpg">
             <img v-else-if="item.icon === 'napi'" class="text-4xl w-90px h-80px" src="/images/projects/napi.png">
+            <img v-else-if="item.icon === 'electron'" class="text-4xl w-90px h-80px" i-ion-logo-electron />
+            <img v-else-if="item.icon === 'mayu'" class="text-4xl w-100px h-60px" src="/images/projects/mayu.png">
 
             <!-- gif -->
             <img v-else-if="item.icon === 'yew'" class="text-4xl w-140px h-75px" src="/gifs/yew.gif">
@@ -74,11 +76,6 @@ function slug(name: string) {
             <div class="desc text-sm opacity-50 font-normal" v-html="item.desc" />
           </div>
         </a>
-      </div>
-    </div>
-    <div class="prose pb5 mx-auto mt10 text-center">
-      <div block mt-5>
-        <span>给我点个Star喵~给我点个Star谢谢喵~</span>
       </div>
     </div>
   </div>

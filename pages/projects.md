@@ -6,6 +6,11 @@ art: dots
 wrapperClass: 'text-center'
 projects:
   工具项目:
+    - name: 'Mayu'
+      link: 'https://github.com/Vincent-the-gamer/mayu'
+      desc: '一个多功能工具项目，可以在网页中使用，或者调用后端接口'
+      icon: 'mayu'
+
     - name: 'Nemassler'
       link: 'https://github.com/Vincent-the-gamer/Nemassler'
       desc: 'Transform Netease Music .ncm audio into .mp3 audio, and support .mp3 BPM calculation。
@@ -16,11 +21,6 @@ projects:
       link: 'https://github.com/Vincent-the-gamer/g-shock-date-checker'
       desc: 'Check your Casio G-SHOCK production factory & production date. <br/>查询你的卡西欧G-Shock手表的产地和生产日期。'
       icon: 'g-shock'
-
-    - name: '@vincent-the-gamer/utils'
-      link: 'https://github.com/Vincent-the-gamer/utils'
-      desc: '自己编写的JavaScript/TypeScript实用工具'
-      icon: 'utils'
 
     - name: 'modern-html2pdf'
       link: 'https://github.com/Vincent-the-gamer/modern-html2pdf'
@@ -38,7 +38,11 @@ projects:
       icon: 'api'
 
   实用的模板:
-    - name: 'ts-starter'
+    - name: 'Vitesse Electron'
+      link: 'https://github.com/Vincent-the-gamer/vitesse-electron'
+      desc: 'Electron + Vite + Vue开发跨平台客户端的项目模板'
+      icon: 'electron'
+    - name: 'TS Starter'
       link: 'https://github.com/Vincent-the-gamer/ts-starter'
       desc: '快速开始「使用TypeScript开发Node.js模块」的项目模板'
       icon: 'typescript'
@@ -84,16 +88,6 @@ projects:
       icon: 'neonheart'
 
   好玩的项目:
-    - name: 'Kaomoe (*￣▽￣)b'
-      link: 'https://github.com/Vincent-the-gamer/kaomoe'
-      desc: 'A generator of cute Kaomojis. 颜文字生成器'
-      icon: 'kaomoe'
-
-    - name: 'Wenyan API'
-      link: 'https://github.com/Vincent-the-gamer/wenyan-api'
-      desc: 'Wenyan-lang HTTP API.  文言文编程语言HTTP API。'
-      icon: 'wenyan'
-
     - name: 'CardForge'
       link: 'https://github.com/Vincent-the-gamer/cardforge'
       desc: 'A HearthStone card maker. 炉石传说卡牌制作器。'
