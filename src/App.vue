@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import { OrbitControls } from '@tresjs/cientos'
-import { TresCanvas } from '@tresjs/core'
-import Girl3D from './components/tresjs/Girl3D.vue'
 import { isMobile } from '~/logics'
 
 const title = useTitle()
@@ -65,15 +62,5 @@ onKeyStroke('Escape', (e) => {
   <ClientOnly>
     <!-- music player, client only -->
     <APlayer />
-    <!-- 3D Girl -->
-    <div w-80 h-80 fixed right-0 bottom-0 z-0 v-if="!isMobile">
-      <TresCanvas alpha>
-        <TresPerspectiveCamera :position="[0, 15, 25]" />
-        <OrbitControls :target="[1, 10, 0]" />
-        <Suspense>
-          <Girl3D />
-        </Suspense>
-      </TresCanvas>
-    </div>
   </ClientOnly>
 </template>
