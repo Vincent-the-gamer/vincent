@@ -36,6 +36,11 @@ projects:
       link: 'https://github.com/Vincent-the-gamer/api'
       desc: '我的自建API，部署在Vercel'
       icon: 'api'
+    
+    - name: "Raizensu"
+      link: "https://github.com/Vincent-the-gamer/raizensu"
+      desc: "用来生成开源证书(License)的Node.js库"
+      icon: "license"
 
   实用的模板:
     - name: 'Vitesse Electron'
