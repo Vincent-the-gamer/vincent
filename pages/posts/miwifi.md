@@ -1,10 +1,13 @@
 ---
 title: 小米路由器Mesh组网 + ShellClash科学上网折腾记
-date: 2025-02-04
+date: 2025-06-28
 lang: zh
 art: dots
-lastModified: 2025-2-17 14:00
+lastModified: 2025-06-28 18:47
 ---
+
+> [!IMPORTANT]
+> 解锁SSH的方法已经大大改变了，而且很简单（
 
 # 前言
 
@@ -36,20 +39,53 @@ lastModified: 2025-2-17 14:00
 同时，降级需要一个[小米路由器降级工具](https://bigota.miwifi.com/xiaoqiang/tools/MIWIFIRepairTool.x86.zip)，
 可能会被浏览器下载报告不安全，如果你实在无法信任所下载文件的安全性，可以考虑**在虚拟机里下载使用该工具**。
 
-## 第二步：运行命令解锁SSH
+## 第二步：解锁并固化SSH
 
-Windows用户可使用`命令提示符(cmd)` 、macOS用户可使用`终端(Terminal)`，输入下列代码开启小米路由器BE3600的SSH功能:
+去GitHub克隆/下载工具：[xmir-patcher](https://github.com/openwrt-xiaomi/xmir-patcher)
 
-```shell
-# 请将 <STOK> 替换成 stok 码, stok码可以通过登录路由器后台管理页面，在浏览器URL中复制
-# 注意：每次登录路由器后台 stok 码会改变。
-curl -X POST http://192.168.31.1/cgi-bin/luci/;stok=<STOK>/api/misystem/arn_switch -d "open=1&model=1&level=%0Anvram%20set%20ssh_en%3D1%0A"
+### 环境要求
 
-curl -X POST http://192.168.31.1/cgi-bin/luci/;stok=<STOK>/api/misystem/arn_switch -d "open=1&model=1&level=%0Anvram%20commit%0A"
+**Windows**：
 
-curl -X POST http://192.168.31.1/cgi-bin/luci/;stok=<STOK>/api/misystem/arn_switch -d "open=1&model=1&level=%0Ased%20-i%20's%2Fchannel%3D.*%2Fchannel%3D%22debug%22%2Fg'%20%2Fetc%2Finit.d%2Fdropbear%0A"
+- 运行 `run.bat`
 
-curl -X POST http://192.168.31.1/cgi-bin/luci/;stok=<STOK>/api/misystem/arn_switch -d "open=1&model=1&level=%0A%2Fetc%2Finit.d%2Fdropbear%20start%0A"
+**Linux / Mac OS**:
+
+- 安装 `python 3.8+` 和 `openssl`
+- 运行 `run.sh`
+
+### 解锁，固化SSH
+
+运行工具后，可以进入菜单：
+
+```
+Xiaomi MiR Patcher
+1 - Set IP-address (current value: 192.168.0.75)
+2 - Connect to device (install exploit)
+3 - Read full device info
+4 - Create full backup
+5 - Install EN/RU languages
+6 - Install permanent SSH
+7 - Install firmvare (from directory "firmware")
+8 - {{{ Other functions }}}
+9 - [[ Reboot device ]]
+0 - Exit
+
+Select: 0
+```
+
+如果你的路由器IP**不是**默认IP: `192.168.31.1`, 选择`1`修改IP
+
+选择`2`，直接解锁SSH，
+
+选择`6`，固化SSH
+
+SSH默认：
+
+```
+端口: 22
+用户名: root
+密码: root
 ```
 
 ## 第三步：ssh登录路由器，进行相关配置，并且修改默认密码
@@ -65,22 +101,6 @@ ssh -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa root@192.16
 - 默认用户名：root
 - 默认密码：使用[密码计算网站](https://miwifi.dev/ssh)，将路由器的SN码复制进去计算密码，SN码可以在路由器机身或后台页面查看。
 
-### 配置重启后自动开启SSH
-
-```shell
-nvram set ssh_en=1
-nvram set telnet_en=1
-nvram set uart_en=1
-nvram set boot_wait=on
-nvram commit
-sed -i 's/channel=.*/channel="debug"/g' /etc/init.d/dropbear
-/etc/init.d/dropbear restart
-mkdir /data/auto_ssh && cd /data/auto_ssh
-curl -O https://fastly.jsdelivr.net/gh/lemoeo/AX6S@main/auto_ssh.sh
-chmod +x auto_ssh.sh
-./auto_ssh.sh install
-```
-
 ### 修改密码
 
 运行以下命令修改root用户默认密码（Linux基操）
@@ -92,44 +112,6 @@ passwd root
 
 > [!WARNING]
 > 此时会提示输入新密码，输入的内容**不会显示**，然后会提示二次确认密码，两次输入正确后密码修改成功。
-
-## 第四步：固化SSH
-
-> [!CAUTION]
-> 注意，以下命令每一个reboot都会使路由器重启一次。
-
-```shell
-zz=$(dd if=/dev/zero bs=1 count=2 2>/dev/null) ; printf '\xA5\x5A%c%c' $zz $zz | mtd write - crash
-
-reboot
-```
-
-此处等待路由器重启完毕，重新连接上路由器Wifi，再运行以下命令。
-
-```shell
-nvram set ssh_en=1
-nvram set telnet_en=1
-nvram set uart_en=1
-nvram set boot_wait=on
-nvram commit
-bdata set ssh_en=1
-bdata set telnet_en=1
-bdata set uart_en=1
-bdata set boot_wait=on
-bdata commit
-
-reboot
-```
-
-此处<font color="red" style="font-weight: bold;">继续</font>等待路由器重启完毕，重新连接上路由器Wifi，再运行以下命令。
-
-```shell
-mtd erase crash
-
-reboot
-```
-
-执行指令后路由器会重启，重启后固化完成。
 
 # Mesh组网 + ShellClash安装配置
 
@@ -268,10 +250,12 @@ TG频道:https://t.me/ShellClash
 > 1
 ```
 
-> [!NOTE] > **全局代理**可以让当前设备下连接的所有设备均实现科学上网。
+> [!NOTE] 
+> **全局代理**可以让当前设备下连接的所有设备均实现科学上网。
 > 若你的设备是**主路由**，同时mesh组网了多台路由器，则全屋网络均可实现科学上网。
 
-> [!NOTE] > **本机代理**仅使当前设备及与当前设备连接的设备实现科学上网，若子域下连接其他设备，则科学规则无效。
+> [!NOTE] 
+> **本机代理**仅使当前设备及与当前设备连接的设备实现科学上网，若子域下连接其他设备，则科学规则无效。
 > 如：Mesh组网的局域网络，子路由及连接子路由的设备均无法科学上网。
 > 如：WiFi信号扩大器下的设备无法实现科学上网。
 
