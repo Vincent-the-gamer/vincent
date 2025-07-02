@@ -10,6 +10,9 @@ lastModified: 2025-04-26 16:46
     <img src="/images/posts/steamdeck/steamdeck.png" style="border: none;"/>
 </p>
 
+> [!TIP] 小贴士
+> 查看英文版，点[这里](/posts/steamdeck-config)
+
 # 准备工作
 
 大多数情况下，我们会在`桌面模式`下进行环境配置, 所以我强烈推荐您使用`USB 扩展坞`，外接键盘鼠标进行操作，当然，`蓝牙`鼠标和键盘也可以。
@@ -322,12 +325,12 @@ BIOS下载：
 提取码：arte
 
 **BIOS安放位置：**
-- 内置硬盘是`/home/deck/Emulation/bios`
-- TF卡是`/run/media/你卡的名字/Emulation/bios`
+- 内置硬盘是: `/home/deck/Emulation/bios`
+- TF卡是: `/run/media/你卡的名字/Emulation/bios`
 
 **游戏安放位置：**
-- 内置硬盘是`/home/deck/Emulation/roms`
-- TF卡是`/run/media/你卡的名字/Emulation/roms`
+- 内置硬盘是: `/home/deck/Emulation/roms`
+- TF卡是: `/run/media/你卡的名字/Emulation/roms`
 
 网盘里有个游戏对照表，搜索你要玩的游戏ROM格式，把他放到对应的roms文件夹里的
 

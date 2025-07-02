@@ -10,6 +10,9 @@ lastModified: 2025-04-26 16:46
     <img src="/images/posts/steamdeck/steamdeck.png" style="border: none;"/>
 </p>
 
+> [!TIP] Tip
+> Chinese version: [Click here](/posts/steamdeck-config-zh)
+
 # Preparation
 
 Mostly, we config our Steam Deck in `Desktop Mode`, so I highly recommend you connect your device with
@@ -325,11 +328,11 @@ Extract Code：arte
 
 **BIOS location：**
 - Internal Disk: `/home/deck/Emulation/bios`
-- SD/TF Card: `/run/media/你卡的名字/Emulation/bios`
+- SD/TF Card: `/run/media/<your_sd_card>/Emulation/bios`
 
 **Game rom location：**
 - Internal Disk: `/home/deck/Emulation/roms`
-- SD/TF Card`/run/media/你卡的名字/Emulation/roms`
+- SD/TF Card: `/run/media/<your_sd_card>/Emulation/roms`
 
 > [!CAUTION]
 > For BIOS, copy `What's in system folder`, not the folder itself.
