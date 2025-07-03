@@ -20,7 +20,7 @@ Nuxt是一个[服务端渲染（SSR）](https://cn.vuejs.org/guide/scaling-up/ss
 
 这里只做简单介绍，诸如**如何初始化项目**等基础知识，请查阅文档进行学习，本文不再赘述。
 
-注意，在使用Nuxt前，请明确你的需求，如果你只是希望在你的Vue项目中加入**基于文件的路由(File-based Routing)**功能，那么大可不必为了该功能而起一个Nuxt项目，你可以使用[unplugin-vue-router](https://github.com/posva/unplugin-vue-router)插件来实现这个功能。
+注意，在使用Nuxt前，请明确你的需求，如果你只是希望在你的Vue项目中加入 **基于文件的路由(File-based Routing)** 功能，那么大可不必为了该功能而起一个Nuxt项目，你可以使用[unplugin-vue-router](https://github.com/posva/unplugin-vue-router)插件来实现这个功能。
 
 # 项目结构
 
@@ -198,7 +198,7 @@ runtimeConfig是在`生产环境中`，即项目构建后，你能够读取的�
 
 而在`开发环境`中，可以通过`.env`文件来配置：
 
-```conf
+```
 # 注意，nuxt中前缀是NUXT_，而nitro中是NITRO_
 NUXT_BASE_URL=http://localhost:8500
 ```
