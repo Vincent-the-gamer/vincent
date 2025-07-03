@@ -7,8 +7,8 @@ wrapperClass: 'text-center'
 projects:
   工具项目:
     - name: 'Mayu'
-      link: 'https://github.com/Vincent-the-gamer/mayu'
-      desc: '一个多功能工具项目，可以在网页中使用，或者调用后端接口'
+      link: 'https://mayu.vince-g.xyz'
+      desc: '我的多功能Web工具, 还可作为API使用'
       icon: 'mayu'
 
     - name: 'Nemassler'
@@ -31,11 +31,6 @@ projects:
       link: 'https://github.com/Vincent-the-gamer/fast-dirpy'
       desc: 'YouTube视频直链解析'
       icon: 'fast-dirpy'
-
-    - name: 'API'
-      link: 'https://github.com/Vincent-the-gamer/api'
-      desc: '我的自建API，部署在Vercel'
-      icon: 'api'
     
     - name: "Raizensu"
       link: "https://github.com/Vincent-the-gamer/raizensu"
@@ -47,18 +42,21 @@ projects:
       link: 'https://github.com/Vincent-the-gamer/vitesse-electron'
       desc: 'Electron + Vite + Vue开发跨平台客户端的项目模板'
       icon: 'electron'
+
     - name: 'TS Starter'
       link: 'https://github.com/Vincent-the-gamer/ts-starter'
       desc: '快速开始「使用TypeScript开发Node.js模块」的项目模板'
-      icon: 'typescript'
+      icon: 'i-logos-typescript-icon'
+
     - name: "VitePress Starter"
       link: "https://github.com/Vincent-the-gamer/vitepress-starter"
       desc: '用于快速创建网页版文档的Vitepress模板'
       icon: 'vitepress'
+
     - name: "Vitesse Superslim"
       link: "https://github.com/Vincent-the-gamer/vitesse-superslim"
       desc: '极简版Vue + Vite前端项目起手模板'
-      icon: 'vitesse'
+      icon: 'i-carbon-campsite'
     - name: "slidev-resume"
       link: "https://github.com/Vincent-the-gamer/slidev-resume"
       desc: "Slidev简历模板，支持Web端部署和pdf/pptx导出"
@@ -97,11 +95,16 @@ projects:
       link: 'https://github.com/Vincent-the-gamer/cardforge'
       desc: 'A HearthStone card maker. 炉石传说卡牌制作器。'
       icon: 'cardforge'
+
+    - name: 'Eat What'
+      link: 'https://today-eat-what.netlify.app'
+      desc: '今天早上/中午/晚上到底吃啥？随机Roll一个吧'
+      icon: 'i-hugeicons-serving-food'
   
   游戏补丁:
     - name: '柚子社游戏补丁'
-      link: 'https://yuzupatch.vince-g.xyz/'
-      desc: '收录Steam版柚子社游戏补丁'
+      link: 'https://yuzupatch.vince-g.xyz'
+      desc: '收录Steam版柚子社游戏补丁，部分PC/移动端游戏'
       icon: 'meguru'
 
   实用工具推荐:
@@ -133,12 +136,12 @@ projects:
     - name: "特殊符号集"
       link: "https://cn.piliapp.com/symbol/"
       desc: "快速寻找特殊符号"
-      icon: "special-symbol"
+      icon: "i-material-symbols-emoji-symbols-rounded"
     
     - name: "Markdown在线生成PDF"
       link: "https://resumd.t9t.io/"
       desc: "可以用于使用Markdown快速编写并导出文档/简历等PDF文件"
-      icon: "markdown"
+      icon: "i-famicons-logo-markdown"
   
   动漫下载站:
     - name: "MioBT"

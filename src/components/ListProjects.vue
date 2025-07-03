@@ -31,7 +31,7 @@ function slug(name: string) {
             <img v-else-if="item.icon === 'github'" class="text-4xl w-200px h-88px" src="/images/projects/github.png">
             <img v-else-if="item.icon === 'transfonter'" class="text-4xl w-300px h-30px"
               src="/images/projects/transfonter.png">
-            <img v-else-if="item.icon === 'vitepress'" class="text-4xl w-100px h-70px"
+            <img v-else-if="item.icon === 'vitepress'" class="text-4xl w-80px h-70px"
               src="/images/projects/vitepress-logo.png">
             <img v-else-if="item.icon === 'utils'" class="text-4xl w-85px h-70px"
               src="/images/projects/vince-utils.png">
@@ -47,7 +47,7 @@ function slug(name: string) {
             <img v-else-if="item.icon === 'meguru'" class="text-4xl w-80px h-80px" src="/images/projects/meguru.jpg">
             <img v-else-if="item.icon === 'napi'" class="text-4xl w-90px h-80px" src="/images/projects/napi.png">
             <img v-else-if="item.icon === 'electron'" class="text-4xl w-90px h-80px" i-ion-logo-electron />
-            <img v-else-if="item.icon === 'mayu'" class="text-4xl w-100px h-60px" src="/images/projects/mayu.png">
+            <img v-else-if="item.icon === 'mayu'" class="text-4xl w-80px h-80px" src="/images/projects/mayu.png">
             <img v-else-if="item.icon === 'license'" class="text-4xl w-100px h-60px" src="/images/projects/license.png">
 
             <!-- gif -->
@@ -63,12 +63,7 @@ function slug(name: string) {
               text-4xl w-145px h-55px />
 
             <!-- svg -->
-            <div v-else-if="item.icon === 'vitesse'" class="i-carbon-campsite w-50px h-50px" />
             <img v-else-if="item.icon === 'nitro'" class="w-80px h-55px" src="/images/projects/nitro.svg">
-            <div v-else-if="item.icon === 'special-symbol'" i-material-symbols-emoji-symbols-rounded w-70px h-70px />
-            <div v-else-if="item.icon === 'api'" i-material-symbols-api w-70px h-70px />
-            <div v-else-if="item.icon === 'markdown'" i-famicons-logo-markdown w-70px h-70px />
-            <div v-else-if="item.icon === 'typescript'" i-logos-typescript-icon w-70px h-70px />
             <div v-else class="text-3xl opacity-50" :class="item.icon || 'i-carbon-unknown'" />
 
           </div>
