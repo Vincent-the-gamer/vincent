@@ -22,7 +22,7 @@
     "dayjs": "^1.11.13",
     "floating-vue": "^5.2.2",
     "nprogress": "^0.2.0",
-    "pixi.js": "^8.10.2",
+    "pixi.js": "^8.11.0",
     "sharp": "^0.34.2",
     "simplex-noise": "^4.0.3",
     "typed.js": "^2.1.0",
@@ -73,7 +73,7 @@
     "unplugin-vue-components": "^28.8.0",
     "unplugin-vue-markdown": "^29.1.0",
     "unplugin-vue-router": "^0.14.0",
-    "vite": "^7.0.0",
+    "vite": "^7.0.1",
     "vite-plugin-inspect": "^11.3.0",
     "vite-plugin-optimize-exclude": "^0.0.1",
     "vite-plugin-pages": "^0.33.1",
@@ -91,7 +91,7 @@
     ]
   },
   "resolutions": {
-    "vite": "^7.0.0"
+    "vite": "^7.0.1"
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"
