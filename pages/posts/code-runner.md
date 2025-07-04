@@ -3,7 +3,7 @@ title: 如何实现一个简单的基于Node.js的代码运行方法
 date: 2025-02-26
 lang: zh
 art: dots
-lastModified: 2025-03-19 14:56
+lastModified: 2025-07-04 14:56
 ---
 
 # 需要的工具
@@ -18,8 +18,6 @@ lastModified: 2025-03-19 14:56
 昨天研究了半天，发现JS很难拿到`process.stdout`流中输出的文本，所以就只能曲线救国了：
 
 **将编译后的JS写入一个`.js`后缀的文件，然后使用node的`exec`函数运行文件，即可获得stdout的文本。** 这个方法的灵感来源于[glot.io](https://glot.io/)这个在线运行代码的网站。通过对网站核心模块代码(开源，可以在[这里](https://github.com/glotcode)找到)的观察，发现也是通过文件的方式拿到输出流文本的。
-
-所以就有了以下的代码：（目前该代码已经集成到[我的私人API](https://github.com/Vincent-the-gamer/api/blob/main/tools/codeRunner.ts)上）
 
 ```ts
 import { exec } from 'node:child_process'
@@ -44,11 +42,11 @@ export function run(lang: Language, code: string): Promise<string> {
             reject('Write file error!')
 
           exec(`node ${__dirname}/main.js`, (err, stdout, stderr) => { // [!code hl]
-            if (stdout) {
-              resolve(stdout)
+            if (err) {
+              reject({ stdout, stderr })
+            } else {
+              resolve({ stdout, stderr })
             }
-            if (stderr)
-              reject(stderr)
           })
         })
       })
