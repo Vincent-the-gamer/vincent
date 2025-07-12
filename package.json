@@ -43,7 +43,7 @@
     "@types/markdown-it-link-attributes": "^3.0.5",
     "@types/nprogress": "^0.2.3",
     "@unhead/vue": "^2.0.12",
-    "@unocss/preset-web-fonts": "66.3.2",
+    "@unocss/preset-web-fonts": "66.3.3",
     "@unocss/reset": "^66.3.3",
     "@vitejs/plugin-vue": "^6.0.0",
     "cross-env": "^7.0.3",
