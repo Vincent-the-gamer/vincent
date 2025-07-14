@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { isMobile } from '~/logics'
-
 const title = useTitle()
 const defaultTitle = title.value
 
