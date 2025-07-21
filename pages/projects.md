@@ -91,6 +91,11 @@ projects:
       icon: 'neonheart'
 
   好玩的项目:
+    - name: 'PyCN'
+      link: 'https://github.com/Vincent-the-gamer/pycn'
+      desc: '用中文写Python代码'
+      icon: 'i-devicon-python'
+
     - name: 'CardForge'
       link: 'https://github.com/Vincent-the-gamer/cardforge'
       desc: 'A HearthStone card maker. 炉石传说卡牌制作器。'

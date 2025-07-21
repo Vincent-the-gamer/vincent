@@ -44,7 +44,7 @@ function slug(name: string) {
             <img v-else-if="item.icon === 'fast-dirpy'" class="text-4xl w-80px h-75px"
               src="/images/projects/lightning.png">
             <img v-else-if="item.icon === 'jinx'" class="text-4xl w-100px h-50px" src="/images/projects/jinx.png">
-            <img v-else-if="item.icon === 'meguru'" class="text-4xl w-80px h-80px" src="/images/projects/meguru.jpg">
+            <img v-else-if="item.icon === 'meguru'" class="text-4xl w-100px h-80px" src="/images/projects/meguru.jpg">
             <img v-else-if="item.icon === 'napi'" class="text-4xl w-90px h-80px" src="/images/projects/napi.png">
             <img v-else-if="item.icon === 'electron'" class="text-4xl w-90px h-80px" i-ion-logo-electron />
             <img v-else-if="item.icon === 'mayu'" class="text-4xl w-80px h-80px" src="/images/projects/mayu.png">
@@ -101,5 +101,9 @@ function slug(name: string) {
 
 .project-grid a.item:hover {
   background: #88888811;
+}
+
+.table-of-contents {
+  width: 100px;
 }
 </style>
