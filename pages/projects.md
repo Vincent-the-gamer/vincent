@@ -113,6 +113,11 @@ projects:
       icon: 'meguru'
 
   实用工具推荐:
+    - name: 'Text to SVG Path'
+      link: 'https://text-to-svg.com/birthstone-font-to-svg'
+      desc: '把文字转成SVG矢量图，可以通过下载图片提取SVG代码来加动画'
+      icon: 'i-hugeicons-svg-01'
+
     - name: 'Picdiet'
       link: 'https://vincent-the-gamer.github.io/Picdiet/'
       desc: 'Picdiet是一款在线批量压缩图片神器，它不需要后端服务器或者API的支持，仅通过你的浏览器来压缩图片大小。'

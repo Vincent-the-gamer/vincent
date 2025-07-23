@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import SvgAvatar from './icons/SvgAvatar.vue';
+
 function toTop() {
   window.scrollTo({
     top: 0,
@@ -12,7 +14,7 @@ const { y: scroll } = useWindowScroll()
 <template>
   <header class="header z-40">
     <RouterLink class="w-12 h-12 absolute xl:fixed m-5 select-none outline-none" to="/" focusable="false">
-      <img title="Vincent-the-gamer" src="/avatar.png">
+      <SvgAvatar />
     </RouterLink>
     <button
       title="Scroll to top" fixed right-3 bottom-3 w-10 h-10 hover:op100 rounded-full hover-bg-hex-8883 transition
