@@ -12,9 +12,9 @@ art: dots
 - 我使用的是[`Hyprland`](https://wiki.hypr.land/Getting-Started/Installation/)图形化界面，如果您更喜欢其它界面，请无视我的`Hyprland`安装过程。
 - 我是在单硬盘安装**Arch Linux单系统**，如果您需要安装**Arch + Windows双系统**，请在分区这个环节，查看：[这篇文章](https://arch.icekylin.online/guide/rookie/basic-install.html#_7-%E5%88%86%E5%8C%BA%E5%92%8C%E6%A0%BC%E5%BC%8F%E5%8C%96-%E4%BD%BF%E7%94%A8-btrfs-%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F)
 
-预览：~~原谅我没有截张预览图，只好用之前拍的屏了~~ 。
+预览：
 
-![arch-preview](/images/posts/arch-installation/arch-preview.jpg)
+![arch-preview](/images/posts/arch-installation/arch-preview.png)
 
 # 前置准备工作
 
