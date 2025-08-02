@@ -1,5 +1,6 @@
 import { Buffer } from 'node:buffer'
 import { basename, dirname, resolve } from 'node:path'
+import { bundledLanguages } from 'shiki/bundle/full'
 import MarkdownItShiki from '@shikijs/markdown-it'
 import { transformerNotationDiff, transformerNotationHighlight, transformerNotationWordHighlight } from '@shikijs/transformers'
 import { rendererRich, transformerTwoslash } from '@shikijs/twoslash'
@@ -26,6 +27,8 @@ import SVG from 'vite-svg-loader'
 import { slugify } from './scripts/slugify'
 
 const promises: Promise<any>[] = []
+
+const pycnLang = JSON.parse(fs.readFileSync('./shiki/pycn.json', 'utf-8'))
 
 export default defineConfig({
   server: {
@@ -93,6 +96,10 @@ export default defineConfig({
             dark: 'synthwave-84',
             light: 'vitesse-light',
           },
+          langs: [
+            ...Object.keys(bundledLanguages),
+            pycnLang
+          ],
           defaultColor: false,
           cssVariablePrefix: '--s-',
           transformers: [
