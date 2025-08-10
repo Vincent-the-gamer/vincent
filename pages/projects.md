@@ -113,6 +113,21 @@ projects:
       icon: 'meguru'
 
   实用工具推荐:
+    - name: '临时邮箱'
+      link: 'https://mail.tm/zh/'
+      desc: '用于临时接收邮件'
+      icon: 'i-material-symbols-light-mail-rounded'
+
+    - name: '前端调色板'
+      link: 'https://www.sojson.com/web/panel.html'
+      desc: '快速获取颜色的RGB，HSL等值'
+      icon: 'i-material-symbols-colors'
+
+    - name: '视频片头制作'
+      link: 'https://panzoid.com/creations'
+      desc: '可以在线白嫖别人的模板制作自己的视频片头'
+      icon: 'i-material-symbols-video-library-rounded'
+
     - name: 'Text to SVG Path'
       link: 'https://text-to-svg.com/birthstone-font-to-svg'
       desc: '把文字转成SVG矢量图，可以通过下载图片提取SVG代码来加动画'
