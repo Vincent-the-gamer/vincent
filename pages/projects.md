@@ -114,7 +114,7 @@ projects:
 
   实用工具推荐:
     - name: '临时邮箱'
-      link: 'https://mail.tm/zh/'
+      link: 'https://temp-mail.org/zh/'
       desc: '用于临时接收邮件'
       icon: 'i-material-symbols-light-mail-rounded'
 
