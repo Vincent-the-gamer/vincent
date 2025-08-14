@@ -38,6 +38,11 @@ projects:
       icon: "license"
 
   实用的模板:
+    - name: "slidev-template"
+      link: "https://github.com/Vincent-the-gamer/slidev-template"
+      desc: "使用Markdown做演示幻灯片的工具模板，支持PPTX导出"
+      icon: "slidev"
+
     - name: 'Vitesse Electron'
       link: 'https://github.com/Vincent-the-gamer/vitesse-electron'
       desc: 'Electron + Vite + Vue开发跨平台客户端的项目模板'
@@ -57,10 +62,7 @@ projects:
       link: "https://github.com/Vincent-the-gamer/vitesse-superslim"
       desc: '极简版Vue + Vite前端项目起手模板'
       icon: 'i-carbon-campsite'
-    - name: "slidev-resume"
-      link: "https://github.com/Vincent-the-gamer/slidev-resume"
-      desc: "Slidev简历模板，支持Web端部署和pdf/pptx导出"
-      icon: "slidev"
+
     - name: "nitro-starter"
       link: "https://github.com/Vincent-the-gamer/nitro-starter"
       desc: "基于Node.js，使用Nitro框架进行快速http服务端项目构建的模板"
