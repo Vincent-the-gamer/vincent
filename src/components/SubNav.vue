@@ -33,6 +33,9 @@ const route = useRoute()
       <RouterLink to="/waifus" class="!border-none" :class="route.path === `/waifus` ? activeStyle : inactiveStyle">
         <span class="gradient-text">老婆列表</span>
       </RouterLink>
+      <RouterLink to="/downloads" class="!border-none" :class="route.path === `/downloads` ? activeStyle : inactiveStyle">
+        文件下载
+      </RouterLink>
     </div>
   </div>
 </template>
