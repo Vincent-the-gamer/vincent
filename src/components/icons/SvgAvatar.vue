@@ -34,6 +34,11 @@
     stroke-linejoin: round;
 }
 
+.dark .path {
+  stroke: white;
+  fill: white;
+}
+
 @keyframes path-animation {
   0% {
     stroke-dasharray: 4917;
