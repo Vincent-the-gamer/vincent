@@ -1,5 +1,14 @@
 <script lang="ts" setup>
 import config from '../../package.json'
+
+onMounted(() => {
+  // 不蒜子 - 访问计数
+  // @ts-expect-error missing types
+  import("busuanzi.pure.js").then((module) => {
+    module.default.fetch()
+  })
+})
+
 </script>
 
 <template>
