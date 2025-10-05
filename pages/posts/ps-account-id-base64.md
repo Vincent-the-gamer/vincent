@@ -14,3 +14,7 @@ art: dots
 16位Hex ID是指这个：
 
 ![chiaki](/images/posts/chiaki.png)
+
+如果是正版机，直接访问：https://psn.flipscreen.games/
+
+然后用你的PSN ID直接生成Chiaki ID。
