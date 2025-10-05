@@ -2,7 +2,7 @@
 const accountId = ref<string>("")
 const chiaki = ref<string>("")
 
-async function accountToBase64() {
+function accountToBase64() {
     // 16位字母ID
     try {
         const bigIntAccountId = BigInt("0x" + accountId.value);
