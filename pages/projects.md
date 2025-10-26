@@ -6,6 +6,11 @@ art: dots
 wrapperClass: 'text-center'
 projects:
   工具项目:
+    - name: 'GPT-SoVITS语音推理包'
+      link: 'https://github.com/Vincent-the-gamer/GPT-SoVITS-Inference-Pack'
+      desc: '从GPT-SoVITS Fork而来的仓库，用于推理我训练的语音模型'
+      icon: 'i-hugeicons-artificial-intelligence-02'
+
     - name: 'Mayu'
       link: 'https://mayu.vince-g.xyz'
       desc: '我的多功能Web工具, 还可作为API使用'
@@ -38,11 +43,6 @@ projects:
       icon: "license"
 
   实用的模板:
-    - name: "slidev-template"
-      link: "https://github.com/Vincent-the-gamer/slidev-template"
-      desc: "使用Markdown做演示幻灯片的工具模板，支持PPTX导出"
-      icon: "slidev"
-
     - name: 'Vitesse Electron'
       link: 'https://github.com/Vincent-the-gamer/vitesse-electron'
       desc: 'Electron + Vite + Vue开发跨平台客户端的项目模板'
