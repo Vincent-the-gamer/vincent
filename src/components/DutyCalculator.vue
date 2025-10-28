@@ -55,6 +55,7 @@ const dayOfWeekMap = {
 
 // 演算
 function predict() {
+    result.value = []
     if (!date.value) {
         createSnackbar('日期不能为空!', {
             timeout: 2000, // 2秒

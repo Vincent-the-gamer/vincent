@@ -58,8 +58,8 @@ importers:
         specifier: ^6.1.0
         version: 6.1.0(@vue/compiler-sfc@3.5.22)(eslint-plugin-format@1.0.2(eslint@9.38.0(jiti@2.5.1)))(eslint@9.38.0(jiti@2.5.1))(typescript@5.9.3)
       '@iconify/json':
-        specifier: ^2.2.400
-        version: 2.2.400
+        specifier: ^2.2.401
+        version: 2.2.401
       '@octokit/rest':
         specifier: ^22.0.0
         version: 22.0.0
@@ -629,8 +629,8 @@ packages:
     resolution: {integrity: sha512-xeO57FpIu4p1Ri3Jq/EXq4ClRm86dVF2z/+kvFnyqVYRavTZmaFaUBbWCOuuTh0o/g7DSsk6kc2vrS4Vl5oPOQ==}
     engines: {node: '>=18.18'}
 
-  '@iconify/json@2.2.400':
-    resolution: {integrity: sha512-L8cy1YE/H0LFO4Pu7hfyylkrQmawL8sTOCH2PcBDydWA1FpoKijeIzweRJ6e9grvn2li9Yu+Pe32Jq9x4MKpaw==}
+  '@iconify/json@2.2.401':
+    resolution: {integrity: sha512-pBz8s09X2Aac6EhpfH1eWcu0Wqwuhgh3gmcoFgkrr6qUR1V2qZyz/TKo2hwGEEyyWqH2kc9t50qHRb0hxoG1/g==}
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
@@ -3988,7 +3988,7 @@ snapshots:
 
   '@humanwhocodes/retry@0.4.2': {}
 
-  '@iconify/json@2.2.400':
+  '@iconify/json@2.2.401':
     dependencies:
       '@iconify/types': 2.0.0
       pathe: 2.0.3
