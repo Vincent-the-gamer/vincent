@@ -1,8 +1,6 @@
 <template>
     <!-- HLS直播间 -->
-    <div id="dplayer" class="dplayer">
-        <p font-size-15>未开播</p>
-    </div>
+    <div id="dplayer" />
 </template>
 
 <script setup lang="ts">
@@ -28,13 +26,4 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-.dplayer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    background-color: black;
-    width: auto;
-    min-height: 300px;
-}
 </style>
