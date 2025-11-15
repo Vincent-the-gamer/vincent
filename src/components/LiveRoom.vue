@@ -1,14 +1,17 @@
 <template>
     <!-- HLS直播间 -->
-    <div id="dplayer" />
+    <div id="dplayer" class="dplayer">
+        <p font-size-15>未开播</p>
+    </div>
 </template>
 
 <script setup lang="ts">
-import DPlayer from 'dplayer'
 
-let dp: DPlayer
+let dp: any
 
-onMounted(() => {
+onMounted(async () => {
+    const res = await import("dplayer")
+    const DPlayer = res.default
     dp = new DPlayer({
         container: document.getElementById('dplayer'),
         live: true,
@@ -20,8 +23,18 @@ onMounted(() => {
 })
 
 onUnmounted(() => {
-    dp.destroy()
+    dp && dp.destroy()
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+.dplayer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: black;
+    width: auto;
+    min-height: 300px;
+}
+</style>
