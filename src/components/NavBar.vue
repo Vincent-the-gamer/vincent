@@ -33,8 +33,8 @@ const { y: scroll } = useWindowScroll()
           <span class="lt-md:hidden">项目/工具</span>
           <div i-ri-lightbulb-line md:hidden />
         </RouterLink>
-        <RouterLink to="/videos" title="视频专区">
-          <span lt-md:hidden>视频专区</span>
+        <RouterLink to="/live" title="直播间">
+          <span lt-md:hidden>直播间</span>
           <div i-material-symbols-auto-videocam-outline md:hidden />
         </RouterLink>
         <RouterLink to="/games" title="游戏历程">

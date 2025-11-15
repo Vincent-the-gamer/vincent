@@ -21,8 +21,8 @@ const route = useRoute()
       <RouterLink to="/projects" class="!border-none" :class="route.path === `/projects` ? activeStyle : inactiveStyle">
         项目/工具
       </RouterLink>
-      <RouterLink to="/videos" class="!border-none" :class="route.path === `/videos` ? activeStyle : inactiveStyle">
-        视频专区
+      <RouterLink to="/live" class="!border-none" :class="route.path === `/live` ? activeStyle : inactiveStyle">
+        直播间
       </RouterLink>
       <RouterLink to="/games" class="!border-none" :class="route.path === `/games` ? activeStyle : inactiveStyle">
         游戏历程
