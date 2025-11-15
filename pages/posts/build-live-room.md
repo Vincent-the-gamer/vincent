@@ -84,7 +84,7 @@ password = "well"
 其中：
 1. 推流地址使用`rtmp`协议，端口为你配置的`rtmp端口`，后面的app_name和stream_name可以自定义，分别为app名称和流名称。
 token为你配置的鉴权参数，根据文档，鉴权方式有`md5`和`simple`，我这里使用`simple`，鉴权方式就是直接传token参数，值为你的配置。
-2. 拉流地址使用`http`协议，实则为HLS服务，端口为你配置的`HLS端口`, 注意，**此处的app_name和stream_name必须与您的推流地址相同！！**
+2. 拉流地址使用`http`协议，实则为HLS服务，端口为你配置的`HLS端口`, 注意，**此处的`app_name`和`stream_name`必须与您的推流地址相同！！**
 然后鉴权token也需要一致。
 
 ## 直播间前端搭建
