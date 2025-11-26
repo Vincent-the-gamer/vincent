@@ -14,7 +14,7 @@ onMounted(async () => {
         container: document.getElementById('dplayer'),
         live: true,
         video: {
-            url: 'https://www.r8xkv0ew9.nyat.app:12323/live/vince/vince.m3u8?token=qidong',
+            url: 'https://www.r8xkv0ew9.nyat.app:12323/live/vince/vince.m3u8',
             type: 'hls'
         },
     })
