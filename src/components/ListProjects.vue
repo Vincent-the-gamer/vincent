@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { it } from 'node:test';
+
 defineProps<{ projects: Record<string, any[]> }>()
 
 function slug(name: string) {
@@ -64,6 +66,9 @@ function slug(name: string) {
 
             <!-- svg -->
             <img v-else-if="item.icon === 'nitro'" class="w-80px h-55px" src="/images/projects/nitro.svg">
+            
+            <!-- else -->
+            <img v-else-if="item.icon.includes('http')" class="text-3xl opacity-50" :src="item.icon"/>
             <div v-else class="text-3xl opacity-50" :class="item.icon || 'i-carbon-unknown'" />
 
           </div>

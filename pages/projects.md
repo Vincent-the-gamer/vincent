@@ -186,6 +186,11 @@ projects:
       desc: "A BitTorrent community focused on Eastern Asian media including anime, manga, music, and more"
       icon: "nyaa"
 
+    - name: "末日动漫资源库"
+      link: "https://share.acgnx.se/"
+      desc: "可以获取种子文件，挂BT下载动漫"
+      icon: "https://www.acgbox.link/wp-content/uploads/favicon/share.acgnx.se.ico"
+
 ---
 
 <!-- @layout-full-width -->
