@@ -41,10 +41,6 @@ const { y: scroll } = useWindowScroll()
           <span lt-md:hidden>游戏历程</span>
           <div i-solar-gameboy-linear md:hidden />
         </RouterLink>
-        <RouterLink to="/notes" title="笔记">
-          <span lt-md:hidden>笔记</span>
-          <div i-material-symbols-event-note-outline md:hidden />
-        </RouterLink>
         <RouterLink to="/waifus" title="老婆列表">
           <span class="gradient-text" lt-md:hidden>老婆列表</span>
           <div i-icon-park-outline-girl md:hidden />
@@ -55,9 +51,6 @@ const { y: scroll } = useWindowScroll()
         </RouterLink>
         <a href="https://github.com/Vincent-the-gamer" target="_blank" title="GitHub" class="lt-md:hidden">
           <div i-uil-github-alt />
-        </a>
-        <a href="/feed.xml" target="_blank" title="RSS" class="lt-md:hidden">
-          <div i-la-rss-square style="font-size:1.25rem; margin: 0 -0.125rem;" />
         </a>
         <ToggleTheme />
       </div>

@@ -29,11 +29,6 @@ const typewriterStrs = [
   进入我的博客
 </a>
 
-<a href="./notes" font-size-18px>
-  <div i-material-symbols-event-note-outline />
-  进入我的笔记
-</a>
-
 <div flex-auto />
 
 ---
