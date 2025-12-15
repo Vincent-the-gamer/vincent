@@ -77,6 +77,11 @@ projects:
       icon: 'napi'
 
   VS Code主题:
+    - name: 'VSCode Theme Sakura'
+      link: 'https://github.com/Vincent-the-gamer/vscode-theme-sakura'
+      desc: 'Cherry blossom style VSCode Theme. 樱花风格的VSCode主题。'
+      icon: 'sakura'
+
     - name: 'VSCode Theme Jinx'
       link: 'https://github.com/Vincent-the-gamer/vscode-theme-jinx'
       desc: 'Yet another glowing VSCode theme. 又一个发光的VSCode主题。'
@@ -171,6 +176,11 @@ projects:
       icon: "i-famicons-logo-markdown"
   
   动漫下载站:
+    - name: "ACG盒子"
+      link: "https://www.acgbox.link/"
+      desc: "大型动漫下载站整合"
+      icon: "https://www.acgbox.link/wp-content/uploads/logo/86742914_p0.png"
+
     - name: "MioBT"
       link: "https://miobt.com/"
       desc: "＊MioBT＊★就是＊MioBT＊喵～"
