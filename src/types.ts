@@ -21,3 +21,11 @@ export interface GameHistory {
   image?: string
   id: string
 }
+
+export interface LaunchpadItem {
+  id: string,
+  name: string,
+  date: string
+  image?: string,
+  link?: string
+}

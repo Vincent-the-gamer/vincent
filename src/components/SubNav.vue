@@ -21,6 +21,9 @@ const route = useRoute()
       <RouterLink to="/projects" class="!border-none" :class="route.path === `/projects` ? activeStyle : inactiveStyle">
         项目/工具
       </RouterLink>
+      <RouterLink to="/lpd" class="!border-none" :class="route.path === `/lpd` ? activeStyle : inactiveStyle">
+        <span class="gradient-text">Launchpad</span>
+      </RouterLink>
       <RouterLink to="/live" class="!border-none" :class="route.path === `/live` ? activeStyle : inactiveStyle">
         直播间
       </RouterLink>
@@ -28,7 +31,7 @@ const route = useRoute()
         游戏历程
       </RouterLink>
       <RouterLink to="/waifus" class="!border-none" :class="route.path === `/waifus` ? activeStyle : inactiveStyle">
-        <span class="gradient-text">老婆列表</span>
+        老婆列表
       </RouterLink>
       <RouterLink to="/downloads" class="!border-none" :class="route.path === `/downloads` ? activeStyle : inactiveStyle">
         文件下载

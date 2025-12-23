@@ -33,6 +33,10 @@ const { y: scroll } = useWindowScroll()
           <span class="lt-md:hidden">项目/工具</span>
           <div i-ri-lightbulb-line md:hidden />
         </RouterLink>
+        <RouterLink to="/lpd" title="Launchpad">
+          <span class="gradient-text" lt-md:hidden>Launchpad</span>
+          <div i-ri-lightbulb-line md:hidden />
+        </RouterLink>
         <RouterLink to="/live" title="直播间">
           <span lt-md:hidden>直播间</span>
           <div i-material-symbols-auto-videocam-outline md:hidden />
@@ -42,7 +46,7 @@ const { y: scroll } = useWindowScroll()
           <div i-solar-gameboy-linear md:hidden />
         </RouterLink>
         <RouterLink to="/waifus" title="老婆列表">
-          <span class="gradient-text" lt-md:hidden>老婆列表</span>
+          <span lt-md:hidden>老婆列表</span>
           <div i-icon-park-outline-girl md:hidden />
         </RouterLink>
         <RouterLink to="/downloads" title="文件下载">
