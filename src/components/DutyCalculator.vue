@@ -35,7 +35,7 @@ import { createSnackbar } from '@snackbar/core'
 // 任意一次值班日起
 const date = ref<string>("")
 // 周期
-const period = ref<number>(19)
+const period = ref<number>(22)
 // 需要推算的天数
 const daysToPredict = ref<number>(10)
 
