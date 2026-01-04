@@ -3,6 +3,10 @@ title: 诡锋的老婆们(迫真)
 description: 诡锋的老婆们(迫真)
 art: dots
 waifus:
+    - name: 艾丝蒂尔·布莱特
+      avatar: /images/waifus/estelle.png
+      moegirlLink: https://zh.moegirl.org.cn/%E8%89%BE%E4%B8%9D%E8%92%82%E5%B0%94%C2%B7%E5%B8%83%E8%8E%B1%E7%89%B9
+      from: 「空之轨迹」
     - name: 丛雨(有地绫)
       avatar: /images/waifus/murasame.png
       moegirlLink: https://zh.moegirl.org.cn/%E4%B8%9B%E9%9B%A8
