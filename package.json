@@ -24,7 +24,7 @@
     "dplayer": "^1.27.1",
     "floating-vue": "^5.2.2",
     "nprogress": "^0.2.0",
-    "pixi.js": "^8.14.3",
+    "pixi.js": "^8.15.0",
     "sharp": "^0.34.5",
     "simplex-noise": "^4.0.3",
     "typed.js": "^2.1.0",
@@ -36,9 +36,9 @@
     "@antfu/eslint-config": "^6.7.3",
     "@iconify/json": "^2.2.417",
     "@octokit/rest": "^22.0.1",
-    "@shikijs/markdown-it": "^3.20.0",
-    "@shikijs/transformers": "^3.20.0",
-    "@shikijs/twoslash": "^3.20.0",
+    "@shikijs/markdown-it": "^3.21.0",
+    "@shikijs/transformers": "^3.21.0",
+    "@shikijs/twoslash": "^3.21.0",
     "@types/diacritics": "^1.3.3",
     "@types/dplayer": "^1.25.5",
     "@types/fs-extra": "^11.0.4",
@@ -52,7 +52,7 @@
     "cross-env": "^10.1.0",
     "diacritics": "^1.3.0",
     "eslint": "^9.39.2",
-    "eslint-plugin-format": "^1.1.0",
+    "eslint-plugin-format": "^1.2.0",
     "fast-glob": "^3.3.3",
     "feed": "^5.1.0",
     "fs-extra": "^11.3.3",
@@ -65,7 +65,7 @@
     "markdown-it-table-of-contents": "^1.1.0",
     "picocolors": "^1.1.1",
     "prompts": "^2.4.2",
-    "shiki": "^3.20.0",
+    "shiki": "^3.21.0",
     "simple-git-hooks": "^2.13.1",
     "taze": "^19.9.2",
     "tsx": "^4.21.0",
@@ -76,7 +76,7 @@
     "unplugin-vue-components": "^30.0.0",
     "unplugin-vue-markdown": "^29.2.0",
     "unplugin-vue-router": "^0.19.2",
-    "vite": "^7.3.0",
+    "vite": "^7.3.1",
     "vite-plugin-inspect": "^11.3.3",
     "vite-plugin-optimize-exclude": "^0.0.1",
     "vite-plugin-pages": "^0.33.2",
@@ -94,7 +94,7 @@
     ]
   },
   "resolutions": {
-    "vite": "^7.3.0"
+    "vite": "^7.3.1"
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"

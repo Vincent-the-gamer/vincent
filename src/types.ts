@@ -23,9 +23,17 @@ export interface GameHistory {
 }
 
 export interface LaunchpadItem {
-  id: string,
-  name: string,
+  id: string
+  name: string
   date: string
-  image?: string,
+  image?: string
   link?: string
+  title?: string
+  artist?: string
+  difficulty?: string
+  video?: string
+  baiduLink?: string
+  googleDriveLink?: string
+  liveVersion?: string
+  requirements?: string[]
 }
