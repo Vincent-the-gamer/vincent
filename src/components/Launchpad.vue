@@ -9,15 +9,18 @@ const dark = useDark();
 function buildLink(lpd: LaunchpadItem): string {
     let link = lpd.link || "#";
     if (link !== "#") {
-        const title = encodeURIComponent(lpd.title as string);
+        const name = encodeURIComponent(lpd.name as string);
         const image = encodeURIComponent(lpd.image as string);
         const artist = encodeURIComponent(lpd.artist as string);
         const video = encodeURIComponent(lpd.video as string);
         const baiduLink = encodeURIComponent(lpd.baiduLink as string);
+        const minAbletonLiveVersion = encodeURIComponent(
+            lpd.minAbletonLiveVersion as string,
+        );
         const googleDriveLink = encodeURIComponent(
             lpd.googleDriveLink as string,
         );
-        link = `${lpd.link}?title=${title}&image=${image}&artist=${artist}&difficulty=${lpd.difficulty}&video=${video}&baiduLink=${baiduLink}&googleDriveLink=${googleDriveLink}`;
+        link = `${lpd.link}?title=${name}&image=${image}&artist=${artist}&difficulty=${lpd.difficulty}&video=${video}&baiduLink=${baiduLink}&googleDriveLink=${googleDriveLink}&minAbletonLiveVersion=${minAbletonLiveVersion}`;
     }
     return link;
 }

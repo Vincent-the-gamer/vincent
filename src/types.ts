@@ -35,5 +35,6 @@ export interface LaunchpadItem {
   baiduLink?: string
   googleDriveLink?: string
   liveVersion?: string
+  minAbletonLiveVersion?: string
   requirements?: string[]
 }
