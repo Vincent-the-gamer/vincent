@@ -41,10 +41,11 @@ const { query } = useRoute();
             </p>
         </div>
         <p>下载/Download:</p>
-        <div v-if="!query.baiduLink && !query.googleDriveLink">
-            等待上传/To be upload soon.
-        </div>
-        <div v-else flex="~ row gap-2" mt-1>
+        <div
+            v-if="query.baiduLink || query.googleDriveLink"
+            flex="~ row gap-2"
+            mt-1
+        >
             <a id="dld" target="_blank" :href="query.baiduLink?.toString()">
                 <div
                     title="百度网盘"
@@ -82,6 +83,7 @@ const { query } = useRoute();
                 </div>
             </a>
         </div>
+        <div v-else>等待上传/To be upload soon.</div>
     </div>
 </template>
 
