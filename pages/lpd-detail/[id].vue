@@ -1,5 +1,11 @@
 <script setup lang="ts">
 const { query } = useRoute();
+
+function difficultyColor(difficulty: number): Record<string, string> {
+    if (difficulty > 7) return { color: "red" };
+    else if (difficulty >= 5 && difficulty < 7) return { color: "yellow" };
+    else return { color: "rgb(65, 255, 51)" };
+}
 </script>
 
 <template>
@@ -15,7 +21,10 @@ const { query } = useRoute();
         <div mb-2 flex="~ col items-center">
             <p>难度/Difficulty:</p>
             <div flex="~ items-center">
-                <div font-size-6 color-red>
+                <div
+                    font-size-6
+                    :style="difficultyColor(Number(query.difficulty))"
+                >
                     {{ query.difficulty }}
                 </div>
                 <span>/10</span>

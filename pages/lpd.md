@@ -28,4 +28,4 @@ lpds:
     googleDriveLink: https://drive.google.com/file/d/11465F57UIyheZTCy2Ok2DK9H5Y0XKyZ1/view?usp=drive_link
 ---
 
-<Launchpad :lpds="frontmatter.lpds"/>
+<Launchpad :lpds="frontmatter.lpds.reverse()"/>
