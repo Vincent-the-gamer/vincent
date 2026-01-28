@@ -115,6 +115,11 @@ projects:
       icon: 'meguru'
 
   实用工具推荐:
+    - name: "免费Stable Diffusion"
+      link: "https://stablediffusion3.net/zh-CN/app"
+      desc: "可以免费在线使用的Stable Diffusion"
+      icon: "i-hugeicons-artificial-intelligence-02"
+    
     - name: '临时邮箱'
       link: 'https://temp-mail.org/zh/'
       desc: '用于临时接收邮件'

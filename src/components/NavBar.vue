@@ -54,10 +54,6 @@ const { y: scroll } = useWindowScroll();
                     <span class="gradient-text" lt-md:hidden>Launchpad</span>
                     <div i-material-symbols-grid-on-sharp md:hidden />
                 </RouterLink>
-                <RouterLink to="/live" title="直播间">
-                    <span lt-md:hidden>直播间</span>
-                    <div i-material-symbols-auto-videocam-outline md:hidden />
-                </RouterLink>
                 <RouterLink to="/games" title="游戏历程">
                     <span lt-md:hidden>游戏历程</span>
                     <div i-solar-gameboy-linear md:hidden />
