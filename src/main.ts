@@ -1,3 +1,4 @@
+import VueLuckyCanvas from '@lucky-canvas/vue'
 import dayjs from 'dayjs'
 import LocalizedFormat from 'dayjs/plugin/localizedFormat.js'
 import FloatingVue from 'floating-vue'
@@ -36,6 +37,7 @@ export const createApp = ViteSSG(
     dayjs.extend(LocalizedFormat)
 
     app.use(FloatingVue)
+    app.use(VueLuckyCanvas)
 
     if (isClient) {
       const html = document.querySelector('html')!
