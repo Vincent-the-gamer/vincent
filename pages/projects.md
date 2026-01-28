@@ -31,11 +31,6 @@ projects:
       link: 'https://github.com/Vincent-the-gamer/modern-html2pdf'
       desc: '把HTML单/多节点转换为多页PDF'
       icon: 'html2pdf'
-      
-    - name: 'fast-dirpy'
-      link: 'https://github.com/Vincent-the-gamer/fast-dirpy'
-      desc: 'YouTube视频直链解析'
-      icon: 'fast-dirpy'
     
     - name: "Raizensu"
       link: "https://github.com/Vincent-the-gamer/raizensu"
