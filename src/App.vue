@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import BgBalls from "./components/BgBalls.vue";
+
 const title = useTitle();
 const defaultTitle = title.value;
 
@@ -28,14 +30,16 @@ useEventListener("click", async (e) => {
                 el instanceof HTMLElement &&
                 ["A", "BUTTON"].includes(el.tagName),
         )
-    )
+    ) {
         return;
+    }
     if (
         !path.some(
             (el) => el instanceof HTMLElement && el.classList.contains("prose"),
         )
-    )
+    ) {
         return;
+    }
 
     // Do not open image when they are moving. Mainly for mobile to avoid conflict with hovering behavior.
     const pos = first.getBoundingClientRect();
@@ -83,6 +87,7 @@ onKeyStroke("Escape", (e) => {
         </div>
     </Transition>
     <FantasyLand />
+    <BgBalls />
     <ClientOnly>
         <!-- music player, client only -->
         <APlayer />
