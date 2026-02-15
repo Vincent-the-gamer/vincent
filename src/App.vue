@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import BgBalls from "./components/BgBalls.vue";
-
 const title = useTitle();
 const defaultTitle = title.value;
 
@@ -86,8 +84,9 @@ onKeyStroke("Escape", (e) => {
             />
         </div>
     </Transition>
-    <FantasyLand />
-    <BgBalls />
+    <!-- <FantasyLand /> -->
+    <Persona />
+    <NewYear />
     <ClientOnly>
         <!-- music player, client only -->
         <APlayer />
