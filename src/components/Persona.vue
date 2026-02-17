@@ -1,6 +1,6 @@
 <template>
     <div class="persona">
-        <img src="/gifs/persona3.gif" />
+        <div></div>
     </div>
 </template>
 
@@ -8,6 +8,7 @@
 
 <style lang="css" scoped>
 .persona {
+    background-image: url("/gifs/persona3.gif");
     will-change: auto;
     position: fixed;
     left: 0;
@@ -17,5 +18,7 @@
     z-index: -1;
     overflow: hidden;
     opacity: 20%;
+    object-fit: cover;
+    background-size: cover;
 }
 </style>
