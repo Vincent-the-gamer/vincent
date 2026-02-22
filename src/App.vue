@@ -86,7 +86,7 @@ onKeyStroke("Escape", (e) => {
     </Transition>
     <!-- <FantasyLand /> -->
     <Persona />
-    <NewYear />
+    <!-- <NewYear /> -->
     <ClientOnly>
         <!-- music player, client only -->
         <APlayer />
