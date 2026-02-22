@@ -5,6 +5,13 @@ lang: zh
 art: dots
 ---
 
+## AI
+
+我主要使用 ComfyUI 进行AI工作流的运行
+
+- 动漫插图制作工作流：https://www.runninghub.cn/post/2010926888553811969
+- 图片超分工作流：https://www.runninghub.cn/post/1981316602547396610
+
 ## 生产力
 
 - Raycast: 万能工具，快速搜索文件，集成插件可实现多功能，代替Spotlight.
