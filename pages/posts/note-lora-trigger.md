@@ -11,9 +11,9 @@ art: dots
 
 ## Illustrious LoRA
 
-| 模型                        | 触发词                            | 说明                                                                                                                        |
-| --------------------------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| 朽木露琪亚 (死神Bleach)     | `bcrka`                           | [模型下载](https://civitai.com/models/1411562/rukia-kuchiki-bleach-sdxl-lora-illustrious)                                   |
-| 堂岛菜菜子 (女神异闻录4)    | `Doujima Nanako`                  | [模型下载](https://civitai.com/models/918660/illustrious-lora-doujima-nanako-persona-4-4)                                   |
-| 艾莉 - 成年版 (最后生还者2) | `ellie`, `The Last of Us Part II` | [模型下载](https://civitai.com/models/1635337/ellie-the-last-of-us-part-ii-remastered-illustrious-lora)                     |
-| 绫地宁宁 (魔女的夜宴)       | `ayachi_nene`,`sanoba_witch`      | [模型下载](https://civitai.com/models/1465347/illustrious-lora-ayachi-nenesanoba-witchsabbat-of-the-witch-illustrious-lora) |
+| 模型                        | 触发词                                                                                                     | 说明                                                                                                                        |
+| --------------------------- | ---------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| 朽木露琪亚 (死神Bleach)     | `bcrka, black hair, short hair, hair between eyes, dark purple eyes`                                       | [模型下载](https://civitai.com/models/1411562/rukia-kuchiki-bleach-sdxl-lora-illustrious)                                   |
+| 堂岛菜菜子 (女神异闻录4)    | `Doujima Nanako`                                                                                           | [模型下载](https://civitai.com/models/918660/illustrious-lora-doujima-nanako-persona-4-4)                                   |
+| 艾莉 - 成年版 (最后生还者2) | `ellie`, `The Last of Us Part II`                                                                          | [模型下载](https://civitai.com/models/1635337/ellie-the-last-of-us-part-ii-remastered-illustrious-lora)                     |
+| 绫地宁宁 (魔女的夜宴)       | `ayachi_nene,sanoba_witch,1girl,solo,white_hair,very_long_hair,purple_eyes,ahoge,hair_between_eyes,ribbon` | [模型下载](https://civitai.com/models/1465347/illustrious-lora-ayachi-nenesanoba-witchsabbat-of-the-witch-illustrious-lora) |
