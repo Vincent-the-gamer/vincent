@@ -9,8 +9,20 @@ art: dots
 
 我主要使用 ComfyUI 进行AI工作流的运行
 
-- 动漫插图制作工作流：https://www.runninghub.cn/post/2010926888553811969
-- 图片超分工作流：https://www.runninghub.cn/post/1981316602547396610
+### ComfyUI工作流
+
+> [!IMPORTANT]
+>
+> 1. 在本地ComfyUI跑RunningHub工作流时，需注意有没有独占节点，这些节点ComfyUI是没有的，比如RH开头的一些，可以尝试寻找替代品。本篇文章在挑选工作流时，会规避这类工作流。
+> 2. 在本地跑视频生成，您的本地显存最好大于24G，且尽量使用英伟达显卡。
+> 3. 下载模型时，`HuggingFace`的请使用`hf-mirror.com`镜像站，而`civitai.com`的，在开启科学上网的条件下点击下载，然后**立即**关闭科学，下载不会断，别问我为什么要这样，血的教训，小心你的机场流量跑光！！
+
+- [动漫插图制作](https://www.runninghub.cn/post/2010926888553811969): Illustrious模型, 配合[Lora](./note-lora-trigger)使用，根据底模不同，可以生成纯动漫，半写实，纯写实。
+- [图片超分](https://www.runninghub.cn/post/1981316602547396610)
+- [动漫转真人](https://www.runninghub.cn/post/2009908341815906305)
+- [真人转动漫](https://www.runninghub.cn/post/2009866929703489537)
+- [静态图生成动图](https://www.runninghub.cn/post/1984282159491989505)
+- [数字人（语音驱动图片对口型说话）](https://www.runninghub.cn/post/1988165359964438530)：Bypass掉手动提示词的RunningHub Translator节点就可以本地跑了。
 
 ## 生产力
 
