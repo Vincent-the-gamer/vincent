@@ -61,6 +61,11 @@ export function formatDate(d: string | Date, onlyDate = true) {
 }
 
 function useIsMobile(): boolean {
+  // 检查是否在浏览器环境
+  if (typeof window === 'undefined' || typeof navigator === 'undefined') {
+    return false
+  }
+
   const userAgent = navigator.userAgent
   const uaCondition = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(userAgent)
   const touchEventCondition = 'ontouchstart' in document.documentElement
