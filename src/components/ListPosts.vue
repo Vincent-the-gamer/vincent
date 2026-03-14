@@ -1,147 +1,285 @@
 <script setup lang="ts">
-import type { Post } from '~/types'
-import { englishOnly, formatDate } from '~/logics'
-import { scrollIntoView } from '~/logics/scrollIntoView'
+import type { Post } from "~/types";
+import { englishOnly, formatDate, showNoteOnly, showToolsOnly } from "~/logics";
+import { scrollIntoView } from "~/logics/scrollIntoView";
 
 const props = defineProps<{
-  posts?: Post[]
-  extra?: Post[]
-}>()
+    posts?: Post[];
+    extra?: Post[];
+}>();
 
-const router = useRouter()
-const routes: Post[] = router.getRoutes()
-  .filter(i => i.path.startsWith('/posts') && i.meta.frontmatter.date && !i.meta.frontmatter.draft)
-  .filter(i => !i.path.endsWith('.html') && (i.meta.frontmatter.type || 'blog').split('+'))
-  .map((i) => {
-    let path = ''
-    if (i.meta.frontmatter.redirect) {
-      path = i.meta.frontmatter.redirect.replace('//', '/')
-    }
-    else {
-      path = i.path.replace('//', '/')
-    }
-    return {
-      path,
-      title: i.meta.frontmatter.title,
-      type: i.meta.frontmatter.type || 'blog',
-      date: i.meta.frontmatter.date,
-      lang: i.meta.frontmatter.lang,
-      duration: i.meta.frontmatter.duration,
-      recording: i.meta.frontmatter.recording,
-      upcoming: i.meta.frontmatter.upcoming,
-      redirect: i.meta.frontmatter.redirect,
-      place: i.meta.frontmatter.place,
-      lastModified: i.meta.frontmatter.lastModified,
-    }
-  })
+const router = useRouter();
+const routes: Post[] = router
+    .getRoutes()
+    .filter(
+        (i) =>
+            i.path.startsWith("/posts") &&
+            i.meta.frontmatter.date &&
+            !i.meta.frontmatter.draft,
+    )
+    .filter(
+        (i) =>
+            !i.path.endsWith(".html") &&
+            (i.meta.frontmatter.type || "blog").split("+"),
+    )
+    .map((i) => {
+        let path = "";
+        if (i.meta.frontmatter.redirect) {
+            path = i.meta.frontmatter.redirect.replace("//", "/");
+        } else {
+            path = i.path.replace("//", "/");
+        }
+        return {
+            path,
+            title: i.meta.frontmatter.title,
+            type: i.meta.frontmatter.type || "blog",
+            date: i.meta.frontmatter.date,
+            lang: i.meta.frontmatter.lang,
+            duration: i.meta.frontmatter.duration,
+            recording: i.meta.frontmatter.recording,
+            upcoming: i.meta.frontmatter.upcoming,
+            redirect: i.meta.frontmatter.redirect,
+            place: i.meta.frontmatter.place,
+            lastModified: i.meta.frontmatter.lastModified,
+        };
+    });
 
 const posts = computed(() => {
-  return [...(props.posts || routes), ...props.extra || []]
-    .sort((a, b) => +new Date(b.date) - +new Date(a.date))
-    .filter(i => !englishOnly.value || i.lang !== 'zh')
-})
+    return [...(props.posts || routes), ...(props.extra || [])]
+        .sort((a, b) => +new Date(b.date) - +new Date(a.date))
+        .filter((i) => {
+            return (
+                (!englishOnly.value || i.lang !== "zh") &&
+                (!showNoteOnly.value || i.type === "note") &&
+                (!showToolsOnly.value || i.type === "tool")
+            );
+        });
+});
 
-const getYear = (a: Date | string | number) => new Date(a).getFullYear()
-const isFuture = (a?: Date | string | number) => a && new Date(a) > new Date()
-const isSameYear = (a?: Date | string | number, b?: Date | string | number) => a && b && getYear(a) === getYear(b)
+const getYear = (a: Date | string | number) => new Date(a).getFullYear();
+const isFuture = (a?: Date | string | number) => a && new Date(a) > new Date();
+const isSameYear = (a?: Date | string | number, b?: Date | string | number) =>
+    a && b && getYear(a) === getYear(b);
 function isSameGroup(a: Post, b?: Post) {
-  return (isFuture(a.date) === isFuture(b?.date)) && isSameYear(a.date, b?.date)
+    return (
+        isFuture(a.date) === isFuture(b?.date) && isSameYear(a.date, b?.date)
+    );
 }
 
 function getGroupName(p: Post) {
-  if (isFuture(p.date))
-    return 'Upcoming'
-  return getYear(p.date)
+    if (isFuture(p.date)) return "Upcoming";
+    return getYear(p.date);
 }
 </script>
 
 <template>
-  <ul>
-    <template v-if="!posts.length">
-      <div py2 op50>
-        { nothing here yet }
-      </div>
-    </template>
+    <ul>
+        <template v-if="!posts.length">
+            <div py2 op50>{ nothing here yet }</div>
+        </template>
 
-    <template v-for="route, idx in posts" :key="route.path">
-      <div v-if="!isSameGroup(route, posts[idx - 1])" select-none relative h20 pointer-events-none slide-enter :style="{
-        '--enter-stage': idx - 2,
-        '--enter-step': '60ms',
-      }">
-        <span text-8em color-transparent absolute left--3rem top--2rem font-bold text-stroke-2 text-stroke-hex-aaa
-          op10>{{ getGroupName(route) }}</span>
-      </div>
-      <div class="slide-enter" :style="{
-        '--enter-stage': idx,
-        '--enter-step': '60ms',
-      }">
-        <component :is="route.path.includes('://') ? 'a' : 'RouterLink'" v-bind="route.path.includes('://') ? {
-          href: route.path,
-          target: '_blank',
-          rel: 'noopener noreferrer',
-        } : {
-          to: route.path,
-        }
-          " class="item block font-normal mb-6 mt-2 no-underline">
-          <li :id="route.path" class="no-underline" flex="~ col md:row gap-2 md:items-center">
-            <div class="title text-lg leading-1.2em" flex="~ gap-2 wrap">
-              <template v-if="route.lang === 'zh'">
-                <span align-middle flex-none v-if="route.type === 'note'"
-                  class="text-xs bg-zinc:15 text-zinc5 rounded px-1 py-0.5 ml--12 mr2 my-auto hidden md:block">中文/笔记</span>
-                <span align-middle flex-none v-else
-                  class="text-xs bg-zinc:15 text-zinc5 rounded px-1 py-0.5 ml--12 mr2 my-auto hidden md:block">中文</span>
-              </template>
-              <template v-else>
-                <span align-middle flex-none v-if="route.type === 'note'"
-                  class="text-xs bg-zinc:15 text-zinc5 rounded px-1 py-0.5 ml--12 mr2 my-auto hidden md:block">Note</span>
-              </template>
-              <span align-middle>{{ route.title }}</span>
+        <template v-for="(route, idx) in posts" :key="route.path">
+            <div
+                v-if="!isSameGroup(route, posts[idx - 1])"
+                select-none
+                relative
+                h20
+                pointer-events-none
+                slide-enter
+                :style="{
+                    '--enter-stage': idx - 2,
+                    '--enter-step': '60ms',
+                }"
+            >
+                <span
+                    text-8em
+                    color-transparent
+                    absolute
+                    left--3rem
+                    top--2rem
+                    font-bold
+                    text-stroke-2
+                    text-stroke-hex-aaa
+                    op10
+                    >{{ getGroupName(route) }}</span
+                >
             </div>
+            <div
+                class="slide-enter"
+                :style="{
+                    '--enter-stage': idx,
+                    '--enter-step': '60ms',
+                }"
+            >
+                <component
+                    :is="route.path.includes('://') ? 'a' : 'RouterLink'"
+                    v-bind="
+                        route.path.includes('://')
+                            ? {
+                                  href: route.path,
+                                  target: '_blank',
+                                  rel: 'noopener noreferrer',
+                              }
+                            : {
+                                  to: route.path,
+                              }
+                    "
+                    class="item block font-normal mb-6 mt-2 no-underline"
+                >
+                    <li
+                        :id="route.path"
+                        class="no-underline"
+                        flex="~ col md:row gap-2 md:items-center"
+                    >
+                        <div
+                            class="title text-lg leading-1.2em"
+                            flex="~ gap-2 wrap"
+                        >
+                            <template v-if="route.lang === 'zh'">
+                                <span
+                                    align-middle
+                                    flex-none
+                                    v-if="route.type === 'note'"
+                                    class="text-xs bg-zinc:15 text-zinc5 rounded px-1 py-0.5 ml--12 mr2 my-auto hidden md:block"
+                                    >中文/笔记</span
+                                >
+                                <span
+                                    align-middle
+                                    flex-none
+                                    v-else-if="route.type === 'tool'"
+                                    class="text-xs bg-zinc:15 text-zinc5 rounded px-1 py-0.5 ml--12 mr2 my-auto hidden md:block"
+                                    >中文/工具</span
+                                >
+                                <span
+                                    align-middle
+                                    flex-none
+                                    v-else
+                                    class="text-xs bg-zinc:15 text-zinc5 rounded px-1 py-0.5 ml--12 mr2 my-auto hidden md:block"
+                                    >中文</span
+                                >
+                            </template>
+                            <template v-else>
+                                <span
+                                    align-middle
+                                    flex-none
+                                    v-if="route.type === 'note'"
+                                    class="text-xs bg-zinc:15 text-zinc5 rounded px-1 py-0.5 ml--12 mr2 my-auto hidden md:block"
+                                    >Note</span
+                                >
+                                <span
+                                    align-middle
+                                    flex-none
+                                    v-else-if="route.type === 'tool'"
+                                    class="text-xs bg-zinc:15 text-zinc5 rounded px-1 py-0.5 ml--12 mr2 my-auto hidden md:block"
+                                    >Tool</span
+                                >
+                            </template>
+                            <span align-middle>{{ route.title }}</span>
+                        </div>
 
-            <div flex="~ gap-2 items-center">
-              <span v-if="route.redirect" align-middle op50 flex-none text-xs ml--1 mt--1 i-carbon-arrow-up-right
-                title="External" />
-              <span v-if="route.inperson" align-middle op50 flex-none i-ri:group-2-line title="In person" />
-              <span v-if="route.recording || route.video" align-middle op50 flex-none i-ri:film-line
-                title="Provided in video" />
-              <span v-if="route.radio" align-middle op50 flex-none i-ri:radio-line title="Provided in radio" />
+                        <div flex="~ gap-2 items-center">
+                            <span
+                                v-if="route.redirect"
+                                align-middle
+                                op50
+                                flex-none
+                                text-xs
+                                ml--1
+                                mt--1
+                                i-carbon-arrow-up-right
+                                title="External"
+                            />
+                            <span
+                                v-if="route.inperson"
+                                align-middle
+                                op50
+                                flex-none
+                                i-ri:group-2-line
+                                title="In person"
+                            />
+                            <span
+                                v-if="route.recording || route.video"
+                                align-middle
+                                op50
+                                flex-none
+                                i-ri:film-line
+                                title="Provided in video"
+                            />
+                            <span
+                                v-if="route.radio"
+                                align-middle
+                                op50
+                                flex-none
+                                i-ri:radio-line
+                                title="Provided in radio"
+                            />
 
-              <span text-sm op50 ws-nowrap>
-                {{ formatDate(route.date, true) }}
-              </span>
-              <span v-if="route.duration" text-sm op40 ws-nowrap>· {{ route.duration }}</span>
-              <span v-if="route.platform" text-sm op40 ws-nowrap>· {{ route.platform }}</span>
-              <span v-if="route.place" text-sm op40 ws-nowrap md:hidden>· {{ route.place }}</span>
-              <template v-if="route.lang === 'zh'">
-                <span v-if="route.type === 'note'" align-middle flex-none
-                  class="text-xs bg-zinc:15 text-zinc5 rounded px-1 py-0.5 my-auto md:hidden">中文/笔记</span>
-                <span v-else align-middle flex-none
-                  class="text-xs bg-zinc:15 text-zinc5 rounded px-1 py-0.5 my-auto md:hidden">中文</span>
-              </template>
-              <template v-else>
-                <span v-if="route.type === 'note'" align-middle flex-none
-                  class="text-xs bg-zinc:15 text-zinc5 rounded px-1 py-0.5 my-auto md:hidden">Note</span>
-              </template>
+                            <span text-sm op50 ws-nowrap>
+                                {{ formatDate(route.date, true) }}
+                            </span>
+                            <span v-if="route.duration" text-sm op40 ws-nowrap
+                                >· {{ route.duration }}</span
+                            >
+                            <span v-if="route.platform" text-sm op40 ws-nowrap
+                                >· {{ route.platform }}</span
+                            >
+                            <span
+                                v-if="route.place"
+                                text-sm
+                                op40
+                                ws-nowrap
+                                md:hidden
+                                >· {{ route.place }}</span
+                            >
+                            <template v-if="route.lang === 'zh'">
+                                <span
+                                    v-if="route.type === 'note'"
+                                    align-middle
+                                    flex-none
+                                    class="text-xs bg-zinc:15 text-zinc5 rounded px-1 py-0.5 my-auto md:hidden"
+                                    >中文/笔记</span
+                                >
+                                <span
+                                    v-else
+                                    align-middle
+                                    flex-none
+                                    class="text-xs bg-zinc:15 text-zinc5 rounded px-1 py-0.5 my-auto md:hidden"
+                                    >中文</span
+                                >
+                            </template>
+                            <template v-else>
+                                <span
+                                    v-if="route.type === 'note'"
+                                    align-middle
+                                    flex-none
+                                    class="text-xs bg-zinc:15 text-zinc5 rounded px-1 py-0.5 my-auto md:hidden"
+                                    >Note</span
+                                >
+                            </template>
+                        </div>
+                    </li>
+                    <div v-if="route.place" op50 text-sm hidden mt--2 md:block>
+                        {{ route.place }}
+                    </div>
+                </component>
             </div>
-          </li>
-          <div v-if="route.place" op50 text-sm hidden mt--2 md:block>
-            {{ route.place }}
-          </div>
-        </component>
-      </div>
-      <div>
-        <div class="table-of-contents">
-          <div class="table-of-contents-anchor">
-            <div class="i-ri-menu-2-fill" />
-          </div>
-          <ul>
-            <li v-for="route of posts" :key="route.path" class="hover:cursor-pointer"
-              @click="() => scrollIntoView(route.path)">
-              {{ route.title }}
-            </li>
-          </ul>
-        </div>
-      </div>
-    </template>
-  </ul>
+            <div>
+                <div class="table-of-contents">
+                    <div class="table-of-contents-anchor">
+                        <div class="i-ri-menu-2-fill" />
+                    </div>
+                    <ul>
+                        <li
+                            v-for="route of posts"
+                            :key="route.path"
+                            class="hover:cursor-pointer"
+                            @click="() => scrollIntoView(route.path)"
+                        >
+                            {{ route.title }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </template>
+    </ul>
 </template>

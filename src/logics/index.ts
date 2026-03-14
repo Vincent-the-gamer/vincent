@@ -2,6 +2,8 @@ import dayjs from 'dayjs'
 
 export const isDark = useDark()
 export const englishOnly = useStorage('vincent-english-only', false)
+export const showNoteOnly = useStorage('vincent-show-note-only', false)
+export const showToolsOnly = useStorage('vincent-show-tools-only', false)
 
 /**
  * Credit to [@hooray](https://github.com/hooray)

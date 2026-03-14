@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { englishOnly } from "../logics";
+import { englishOnly, showToolsOnly, showNoteOnly } from "../logics";
 
 const inactiveStyle = "opacity-20 hover:opacity-50";
 const activeStyle = "opacity-100 underline";
@@ -13,7 +13,7 @@ const route = useRoute();
             flex="~ gap1"
             items-center
             mb2
-            op30
+            op60
             text-sm
             @click="englishOnly = !englishOnly"
         >
@@ -21,6 +21,40 @@ const route = useRoute();
                 :i="englishOnly ? 'carbon-checkbox-checked' : 'carbon-checkbox'"
             />
             English Only
+        </button>
+
+        <button
+            flex="~ gap1"
+            items-center
+            mb2
+            op60
+            text-sm
+            @click="showNoteOnly = !showNoteOnly"
+        >
+            <div
+                :i="
+                    showNoteOnly ? 'carbon-checkbox-checked' : 'carbon-checkbox'
+                "
+            />
+            Show Only Notes/仅展示笔记
+        </button>
+
+        <button
+            flex="~ gap1"
+            items-center
+            mb2
+            op60
+            text-sm
+            @click="showToolsOnly = !showToolsOnly"
+        >
+            <div
+                :i="
+                    showToolsOnly
+                        ? 'carbon-checkbox-checked'
+                        : 'carbon-checkbox'
+                "
+            />
+            Show Only Tools/仅展示工具
         </button>
 
         <div mb-0 flex="~ col gap-1 sm:row sm:gap-3 wrap" text-3xl>
