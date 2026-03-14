@@ -100,7 +100,7 @@ function getGroupName(p: Post) {
                     font-bold
                     text-stroke-2
                     text-stroke-hex-aaa
-                    op10
+                    op20
                     >{{ getGroupName(route) }}</span
                 >
             </div>
