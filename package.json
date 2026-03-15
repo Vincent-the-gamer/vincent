@@ -13,7 +13,8 @@
     "redirects": "tsx scripts/redirects.ts",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "dep": "taze major -I"
+    "dep": "taze major -I",
+    "tsx": "tsx"
   },
   "dependencies": {
     "@lucky-canvas/vue": "^0.1.11",
@@ -56,7 +57,7 @@
     "feed": "^5.2.0",
     "fs-extra": "^11.3.4",
     "gray-matter": "^4.0.3",
-    "lint-staged": "^16.3.4",
+    "lint-staged": "^16.4.0",
     "markdown-it": "^14.1.1",
     "markdown-it-anchor": "^9.2.0",
     "markdown-it-github-alerts": "^1.0.1",
