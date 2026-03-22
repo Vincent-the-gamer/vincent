@@ -40,7 +40,7 @@ sudo xattr -rd com.apple.quarantine "/Applications/Burp Suite Professional.app"
 然后启动学习器：
 
 ```bash
-"/Applications/Burp Suite Professional.app/Contents/Resources/jre.bundle/Contents/Home/bin/java" -jar "/Applications/Burp Suite Professional.app/Contents/Resources/app/BurpSuiteKeygen.jar"
+"/Applications/Burp Suite Professional.app/Contents/Resources/jre.bundle/Contents/Home/bin/java" -jar "/Applications/Burp Suite Professional.app/Contents/Resources/app/BurpLoaderKeygen.jar"
 ```
 
 **接下来这步非常关键**：使用学习器运行BurpSuite。
@@ -63,6 +63,30 @@ sudo xattr -rd com.apple.quarantine "/Applications/Burp Suite Professional.app"
 之后，点击**Manual Activation**，在Keygen填入Request码，然后复制Response码到Burp，点击验证即可完成「学习」流程。
 
 ![activate](/images/posts/burp-suite/activate.jpg)
+
+学习完毕后，macOS版修改`/Applications/Burp Suite Professional.app/Contents/vmoptions.txt`，Win版应该也要改相同的jre配置，但是我没有去研究是哪个文件。
+
+macOS修改`vmoptions.txt`为：
+
+```
+# Enter one VM parameter per line
+# For example, to adjust the maximum memory usage to 512 MB, uncomment the following line:
+# -Xmx512m
+# To include another file, uncomment the following line:
+# -include-options [path to other .vmoption file]
+
+-XX:MaxRAMPercentage=50
+-include-options user.vmoptions
+-javaagent:BurpLoaderKeygen.jar
+-javaagent:BurpSuiteChs.jar
+--add-opens=java.base/java.lang=ALL-UNNAMED
+--add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED
+--add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED
+--add-opens=java.base/jdk.internal.org.objectweb.asm.Opcodes=ALL-UNNAMED
+-noverify
+```
+
+这样就完成了学习和汉化过程。
 
 ## 浏览器配置
 
