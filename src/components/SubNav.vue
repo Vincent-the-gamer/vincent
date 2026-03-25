@@ -5,6 +5,16 @@ const inactiveStyle = "opacity-20 hover:opacity-50";
 const activeStyle = "opacity-100 underline";
 
 const route = useRoute();
+
+function toggleShowNote() {
+    showToolsOnly.value = false;
+    showNoteOnly.value = !showNoteOnly.value;
+}
+
+function toggleShowTools() {
+    showNoteOnly.value = false;
+    showToolsOnly.value = !showToolsOnly.value;
+}
 </script>
 
 <template>
@@ -29,7 +39,7 @@ const route = useRoute();
             mb2
             op60
             text-sm
-            @click="showNoteOnly = !showNoteOnly"
+            @click="toggleShowNote"
         >
             <div
                 :i="
@@ -45,7 +55,7 @@ const route = useRoute();
             mb2
             op60
             text-sm
-            @click="showToolsOnly = !showToolsOnly"
+            @click="toggleShowTools"
         >
             <div
                 :i="
