@@ -29,13 +29,13 @@
     "sharp": "^0.34.5",
     "simplex-noise": "^4.0.3",
     "typed.js": "^3.0.0",
-    "vue": "^3.5.31",
+    "vue": "^3.5.32",
     "vue-router": "^5.0.4",
     "vue-router-better-scroller": "^0.0.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^8.0.0",
-    "@iconify/json": "^2.2.458",
+    "@iconify/json": "^2.2.460",
     "@octokit/rest": "^22.0.1",
     "@shikijs/markdown-it": "^4.0.2",
     "@shikijs/transformers": "^4.0.2",
@@ -45,13 +45,13 @@
     "@types/markdown-it": "^14.1.2",
     "@types/markdown-it-link-attributes": "^3.0.5",
     "@types/nprogress": "^0.2.3",
-    "@unhead/vue": "^2.1.12",
+    "@unhead/vue": "^2.1.13",
     "@unocss/preset-web-fonts": "66.3.2",
     "@unocss/reset": "^66.6.7",
     "@vitejs/plugin-vue": "^6.0.5",
     "cross-env": "^10.1.0",
     "diacritics": "^1.3.0",
-    "eslint": "^10.1.0",
+    "eslint": "^10.2.0",
     "eslint-plugin-format": "^2.0.1",
     "fast-glob": "^3.3.3",
     "feed": "^5.2.0",
@@ -76,7 +76,7 @@
     "unplugin-vue-components": "^32.0.0",
     "unplugin-vue-markdown": "^30.0.0",
     "unplugin-vue-router": "^0.19.2",
-    "vite": "^8.0.3",
+    "vite": "^8.0.5",
     "vite-plugin-inspect": "^11.3.3",
     "vite-plugin-optimize-exclude": "^0.0.1",
     "vite-plugin-pages": "^0.33.3",
@@ -95,7 +95,7 @@
     ]
   },
   "resolutions": {
-    "vite": "^8.0.3"
+    "vite": "^8.0.5"
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"
