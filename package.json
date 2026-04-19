@@ -25,7 +25,7 @@
     "dayjs": "^1.11.20",
     "floating-vue": "^5.2.2",
     "nprogress": "^0.2.0",
-    "pixi.js": "^8.17.1",
+    "pixi.js": "^8.18.1",
     "sharp": "^0.34.5",
     "simplex-noise": "^4.0.3",
     "typed.js": "^3.0.0",
@@ -34,8 +34,8 @@
     "vue-router-better-scroller": "^0.0.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^8.0.0",
-    "@iconify/json": "^2.2.460",
+    "@antfu/eslint-config": "^8.2.0",
+    "@iconify/json": "^2.2.462",
     "@octokit/rest": "^22.0.1",
     "@shikijs/markdown-it": "^4.0.2",
     "@shikijs/transformers": "^4.0.2",
@@ -45,13 +45,13 @@
     "@types/markdown-it": "^14.1.2",
     "@types/markdown-it-link-attributes": "^3.0.5",
     "@types/nprogress": "^0.2.3",
-    "@unhead/vue": "^2.1.13",
+    "@unhead/vue": "^3.0.4",
     "@unocss/preset-web-fonts": "66.3.2",
-    "@unocss/reset": "^66.6.7",
-    "@vitejs/plugin-vue": "^6.0.5",
+    "@unocss/reset": "^66.6.8",
+    "@vitejs/plugin-vue": "^6.0.6",
     "cross-env": "^10.1.0",
     "diacritics": "^1.3.0",
-    "eslint": "^10.2.0",
+    "eslint": "^10.2.1",
     "eslint-plugin-format": "^2.0.1",
     "fast-glob": "^3.3.3",
     "feed": "^5.2.0",
@@ -69,14 +69,14 @@
     "simple-git-hooks": "^2.13.1",
     "taze": "^19.11.0",
     "tsx": "^4.21.0",
-    "typescript": "^6.0.2",
-    "unocss": "^66.6.7",
+    "typescript": "^6.0.3",
+    "unocss": "^66.6.8",
     "unplugin-auto-import": "^21.0.0",
     "unplugin-icons": "^23.0.1",
     "unplugin-vue-components": "^32.0.0",
     "unplugin-vue-markdown": "^30.0.0",
     "unplugin-vue-router": "^0.19.2",
-    "vite": "^8.0.5",
+    "vite": "^8.0.8",
     "vite-plugin-inspect": "^11.3.3",
     "vite-plugin-optimize-exclude": "^0.0.1",
     "vite-plugin-pages": "^0.33.3",
@@ -95,7 +95,7 @@
     ]
   },
   "resolutions": {
-    "vite": "^8.0.5"
+    "vite": "^8.0.8"
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"

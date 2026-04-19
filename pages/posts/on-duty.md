@@ -1,13 +1,10 @@
 ---
-title: 【牛马专用】周期值班计算器
+title: 周期值班计算器
 date: 2025-10-19
 lang: zh
 art: dots
 type: tool
 ---
-
-> [!NOTE] 吐槽
-> 值班太牛马了，有点难绷。
 
 # 说明
 
