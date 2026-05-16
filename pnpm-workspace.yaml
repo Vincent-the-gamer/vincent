@@ -1,0 +1,9 @@
+shellEmulator: true
+
+trustPolicy: no-downgrade
+
+allowBuilds:
+  esbuild: false
+  sharp: false
+  simple-git-hooks: true
+  vue-demi: false
