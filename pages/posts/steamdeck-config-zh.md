@@ -3,7 +3,6 @@ title: 我的Steam Deck环境配置和个性化设置
 date: 2025-04-26
 lang: zh
 art: dots
-lastModified: 2025-04-26 16:46
 ---
 
 <p align="center">
@@ -246,14 +245,14 @@ curl -L http://dl.ohmydeck.net | sh
 
 # 额外内容
 
-## EmuDeck 
+## EmuDeck
 
 EmuDeck是一个怀旧游戏模拟器合集，包含多个中古游戏机的模拟器
 
 ### 下载安装
 
 > [!IMPORTANT] 重要
-如果有网络问题，则需要科学上网！！！请提前准备好环境！
+> 如果有网络问题，则需要科学上网！！！请提前准备好环境！
 
 #### **准备科学上网环境（根据情况判断是否需要）**
 
@@ -264,6 +263,7 @@ sudo pacman -S clash
 ```
 
 首先初始化配置文件，在Konsole中运行命令：
+
 ```shell
 clash
 ```
@@ -325,10 +325,12 @@ BIOS下载：
 提取码：arte
 
 **BIOS安放位置：**
+
 - 内置硬盘是: `/home/deck/Emulation/bios`
 - TF卡是: `/run/media/你卡的名字/Emulation/bios`
 
 **游戏安放位置：**
+
 - 内置硬盘是: `/home/deck/Emulation/roms`
 - TF卡是: `/run/media/你卡的名字/Emulation/roms`
 
@@ -340,6 +342,7 @@ BIOS下载：
 > 里面还有一个`Keys-16-by-Prodkeys.net.zip`和`Firmware_16.0.0.zip`是`Switch模拟器`的秘钥和固件，如果你用龙神模拟器或者下载商店版的Switch模拟器要用到的。
 
 **Emudeck官方模拟器快捷键**：
+
 - 快速离开：`SELECT + START`
 - 游戏加速：`SELECT + R2`
 - 快速存档：`SELECT + R1`

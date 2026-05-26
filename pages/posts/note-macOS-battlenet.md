@@ -4,7 +4,6 @@ date: 2025-01-01
 lang: zh
 art: dots
 type: note
-lastModified: 2025-01-11 12:48:00
 ---
 
 首先使用清理工具对客户端进行卸载，然后查看并删除：

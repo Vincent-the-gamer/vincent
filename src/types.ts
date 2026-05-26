@@ -13,6 +13,7 @@ export interface Post {
   video?: boolean
   inperson?: boolean
   redirect?: string
+  lastModified?: string
 }
 
 export interface GameHistory {

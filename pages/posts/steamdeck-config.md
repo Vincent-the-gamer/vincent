@@ -3,7 +3,6 @@ title: My Steam Deck config and customization.
 date: 2025-04-26
 lang: en
 art: dots
-lastModified: 2025-04-26 16:46
 ---
 
 <p align="center">
@@ -248,14 +247,14 @@ Change the bitrate to 10000 if your connection is unstable or slow.
 
 # Extra
 
-## EmuDeck 
+## EmuDeck
 
 EmuDeck is a collection of retro game emulators.
 
 ### Installation
 
 > [!IMPORTANT]
-If there's some internet issue at some place, you will need proxy!
+> If there's some internet issue at some place, you will need proxy!
 
 #### **Prepare proxy（if needed）**
 
@@ -266,6 +265,7 @@ sudo pacman -S clash
 ```
 
 Initialize the config file firstly, run this command in Konsole:
+
 ```shell
 clash
 ```
@@ -327,10 +327,12 @@ Link：[Baidu Net Disk](https://pan.baidu.com/s/1w5mjFxAYr6dPA6pSuc8lbg?pwd=arte
 Extract Code：arte
 
 **BIOS location：**
+
 - Internal Disk: `/home/deck/Emulation/bios`
 - SD/TF Card: `/run/media/<your_sd_card>/Emulation/bios`
 
 **Game rom location：**
+
 - Internal Disk: `/home/deck/Emulation/roms`
 - SD/TF Card: `/run/media/<your_sd_card>/Emulation/roms`
 
@@ -340,6 +342,7 @@ Extract Code：arte
 > `Keys-16-by-Prodkeys.net.zip` and `Firmware_16.0.0.zip` is for `Switch Emulator`，if you use Ryujinx or download Switch emulator from Steam Store, you will need them.
 
 **Emudeck Shortcuts**：
+
 - Quick leave: `SELECT + START`
 - Accelerate game: `SELECT + R2`
 - Quick save: `SELECT + R1`

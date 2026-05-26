@@ -1,6 +1,5 @@
 import { Buffer } from 'node:buffer'
 import { basename, dirname, resolve } from 'node:path'
-import { bundledLanguages } from 'shiki/bundle/full'
 import MarkdownItShiki from '@shikijs/markdown-it'
 import { transformerNotationDiff, transformerNotationHighlight, transformerNotationWordHighlight } from '@shikijs/transformers'
 import { rendererRich, transformerTwoslash } from '@shikijs/twoslash'
@@ -13,6 +12,7 @@ import LinkAttributes from 'markdown-it-link-attributes'
 // @ts-expect-error missing types
 import TOC from 'markdown-it-table-of-contents'
 import sharp from 'sharp'
+import { bundledLanguages } from 'shiki/bundle/full'
 import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import IconsResolver from 'unplugin-icons/resolver'
@@ -47,6 +47,7 @@ export default defineConfig({
       '@vueuse/core',
       'dayjs',
       'dayjs/plugin/localizedFormat',
+      'mermaid',
     ],
   },
   plugins: [
@@ -69,6 +70,11 @@ export default defineConfig({
         if (!path.includes('projects.md') && path.endsWith('.md')) {
           const md = fs.readFileSync(path, 'utf-8')
           const { data } = matter(md)
+          // Auto-populate lastModified from file modification time if not manually set
+          if (!data.lastModified) {
+            const stat = fs.statSync(path)
+            data.lastModified = stat.mtime.toISOString()
+          }
           route.meta = Object.assign(route.meta || {}, { frontmatter: data })
         }
 
@@ -98,7 +104,7 @@ export default defineConfig({
           },
           langs: [
             ...Object.keys(bundledLanguages),
-            pycnLang
+            pycnLang,
           ],
           defaultColor: false,
           cssVariablePrefix: '--s-',
@@ -112,6 +118,17 @@ export default defineConfig({
             transformerNotationWordHighlight(),
           ],
         }))
+
+        // Mermaid: render via Vue component on client side
+        // Must be after Shiki to avoid being overwritten
+        const shikiFence = md.renderer.rules.fence!
+        md.renderer.rules.fence = (tokens, idx, options, env, self) => {
+          const token = tokens[idx]
+          if (token.info.trim() === 'mermaid') {
+            return `<MermaidBlock code="${encodeURIComponent(token.content)}" />`
+          }
+          return shikiFence(tokens, idx, options, env, self)
+        }
 
         md.use(anchor, {
           slugify,
@@ -204,9 +221,10 @@ export default defineConfig({
   ],
 
   build: {
+    chunkSizeWarningLimit: 1000,
     rollupOptions: {
       onwarn(warning, next) {
-        if (warning.code !== 'UNUSED_EXTERNAL_IMPORT')
+        if (warning.code !== 'UNUSED_EXTERNAL_IMPORT' && warning.code !== 'INVALID_ANNOTATION')
           next(warning)
       },
     },

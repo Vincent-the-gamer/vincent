@@ -6,15 +6,20 @@ art: dots
 wrapperClass: 'text-center'
 projects:
   工具项目:
+    - name: '琉璃 Ruri'
+      link: 'https://github.com/Vincent-the-gamer/ruri'
+      desc: '我开发的AI Agent'
+      icon: 'ruri'
+
+    - name: 'Skills'
+      link: 'https://github.com/Vincent-the-gamer/skills'
+      desc: '我的Agent Skills'
+      icon: 'i-hugeicons-artificial-intelligence-04'
+    
     - name: 'GPT-SoVITS语音推理包'
       link: 'https://github.com/Vincent-the-gamer/GPT-SoVITS-Inference-Pack'
       desc: '从GPT-SoVITS Fork而来的仓库，用于推理我训练的语音模型'
       icon: 'i-hugeicons-artificial-intelligence-02'
-
-    - name: 'Mayu'
-      link: 'https://mayu.vince-g.xyz'
-      desc: '我的多功能Web工具, 还可作为API使用'
-      icon: 'mayu'
 
     - name: 'Nemassler'
       link: 'https://github.com/Vincent-the-gamer/Nemassler'
@@ -31,11 +36,6 @@ projects:
       link: 'https://github.com/Vincent-the-gamer/modern-html2pdf'
       desc: '把HTML单/多节点转换为多页PDF'
       icon: 'html2pdf'
-    
-    - name: "Raizensu"
-      link: "https://github.com/Vincent-the-gamer/raizensu"
-      desc: "用来生成开源证书(License)的Node.js库"
-      icon: "license"
 
   实用的模板:
     - name: 'Vitesse Electron'

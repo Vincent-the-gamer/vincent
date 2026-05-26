@@ -58,8 +58,9 @@ const posts = computed(() => {
 
 const getYear = (a: Date | string | number) => new Date(a).getFullYear();
 const isFuture = (a?: Date | string | number) => a && new Date(a) > new Date();
-const isSameYear = (a?: Date | string | number, b?: Date | string | number) =>
-    a && b && getYear(a) === getYear(b);
+function isSameYear(a?: Date | string | number, b?: Date | string | number) {
+    return a && b && getYear(a) === getYear(b);
+}
 function isSameGroup(a: Post, b?: Post) {
     return (
         isFuture(a.date) === isFuture(b?.date) && isSameYear(a.date, b?.date)
@@ -137,39 +138,39 @@ function getGroupName(p: Post) {
                         >
                             <template v-if="route.lang === 'zh'">
                                 <span
+                                    v-if="route.type === 'note'"
                                     align-middle
                                     flex-none
-                                    v-if="route.type === 'note'"
                                     class="text-xs bg-zinc:15 text-zinc5 rounded px-1 py-0.5 ml--12 mr2 my-auto hidden md:block"
                                     >中文/笔记</span
                                 >
                                 <span
+                                    v-else-if="route.type === 'tool'"
                                     align-middle
                                     flex-none
-                                    v-else-if="route.type === 'tool'"
                                     class="text-xs bg-zinc:15 text-zinc5 rounded px-1 py-0.5 ml--12 mr2 my-auto hidden md:block"
                                     >中文/工具</span
                                 >
                                 <span
+                                    v-else
                                     align-middle
                                     flex-none
-                                    v-else
                                     class="text-xs bg-zinc:15 text-zinc5 rounded px-1 py-0.5 ml--12 mr2 my-auto hidden md:block"
                                     >中文</span
                                 >
                             </template>
                             <template v-else>
                                 <span
+                                    v-if="route.type === 'note'"
                                     align-middle
                                     flex-none
-                                    v-if="route.type === 'note'"
                                     class="text-xs bg-zinc:15 text-zinc5 rounded px-1 py-0.5 ml--12 mr2 my-auto hidden md:block"
                                     >Note</span
                                 >
                                 <span
+                                    v-else-if="route.type === 'tool'"
                                     align-middle
                                     flex-none
-                                    v-else-if="route.type === 'tool'"
                                     class="text-xs bg-zinc:15 text-zinc5 rounded px-1 py-0.5 ml--12 mr2 my-auto hidden md:block"
                                     >Tool</span
                                 >
@@ -222,6 +223,21 @@ function getGroupName(p: Post) {
                             >
                             <span v-if="route.platform" text-sm op40 ws-nowrap
                                 >· {{ route.platform }}</span
+                            >
+                            <span
+                                v-if="
+                                    route.lastModified &&
+                                    new Date(
+                                        route.lastModified,
+                                    ).toDateString() !==
+                                        new Date(route.date).toDateString()
+                                "
+                                text-sm
+                                op40
+                                ws-nowrap
+                                title="最后更新"
+                                >· 更新于
+                                {{ formatDate(route.lastModified, true) }}</span
                             >
                             <span
                                 v-if="route.place"

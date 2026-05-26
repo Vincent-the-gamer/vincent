@@ -3,7 +3,6 @@ title: 安利一些前端的工具
 date: 2025-04-02
 lang: zh
 art: dots
-lastModified: 2025-04-02 14:52:00
 ---
 
 > [!IMPORTANT] 重要
@@ -55,16 +54,23 @@ Unplugin(The Unified Plugin System)是前端开源社区搞出来的一套为各
 引入插件前，在组件文件中需要引入`vue`相关的API, 引入自己封装的`.ts`文件等
 
 ```ts
-import ArcText from '@/components/ArcText.vue'
-import CardFace from '@/components/CardFace.vue'
-import Number from '@/components/Number.vue'
-import { CardType, ClassType, Flag, KindType, Rarity, WaterMark } from '@/datatypes/card'
-import useStyledDescription from '@/hooks/useStyledDescription'
-import { useStore } from '@/store/useStore'
-import { computed } from 'vue'
-import { useI18n } from 'vue-i18n'
-import Mask from './Mask.vue'
-import Watermark from './Watermark.vue'
+import ArcText from "@/components/ArcText.vue";
+import CardFace from "@/components/CardFace.vue";
+import Number from "@/components/Number.vue";
+import {
+  CardType,
+  ClassType,
+  Flag,
+  KindType,
+  Rarity,
+  WaterMark,
+} from "@/datatypes/card";
+import useStyledDescription from "@/hooks/useStyledDescription";
+import { useStore } from "@/store/useStore";
+import { computed } from "vue";
+import { useI18n } from "vue-i18n";
+import Mask from "./Mask.vue";
+import Watermark from "./Watermark.vue";
 
 // 此处省略一万字...
 ```
@@ -81,32 +87,29 @@ export default defineConfig({
   plugins: [
     // ...
     AutoImport({
-      imports: [ // 配置需要自动导入的包，这里是一些官方提供可选项的包
-        'vue',
-        '@vueuse/core',
-        'vue-i18n',
+      imports: [
+        // 配置需要自动导入的包，这里是一些官方提供可选项的包
+        "vue",
+        "@vueuse/core",
+        "vue-i18n",
         // 引入类型
         {
-          from: '@vueuse/core',
-          imports: ['Fn'],
+          from: "@vueuse/core",
+          imports: ["Fn"],
           type: true,
         },
       ],
       dts: true, // 生成.d.ts声明文件
       // 引入自己封装的一些.ts文件，记得把模块统一使用index.ts导出
-      dirs: [
-        './src/hooks',
-        './src/datatypes',
-        './src/store'
-      ],
-      vueTemplate: true // 允许 vue 单文件组件中自动引入
+      dirs: ["./src/hooks", "./src/datatypes", "./src/store"],
+      vueTemplate: true, // 允许 vue 单文件组件中自动引入
     }),
     // 组件自动引入，默认引入src/components下，可以自己配置其它后缀文件的自动引入
     Components({
       dts: true,
-    })
+    }),
   ],
-})
+});
 ```
 
 这样，我们在写前端的时候就不用手动import啦（づ￣3￣）づ╭❤～
@@ -117,19 +120,26 @@ export default defineConfig({
 
 ```vue
 <script lang="ts" setup>
-import ArcText from '@/components/ArcText.vue'
-import CardFace from '@/components/CardFace.vue'
-import Number from '@/components/Number.vue'
-import { CardType, ClassType, Flag, KindType, Rarity, WaterMark } from '@/datatypes/card'
-import useStyledDescription from '@/hooks/useStyledDescription'
-import { useStore } from '@/store/useStore'
-import { computed } from 'vue'
-import { useI18n } from 'vue-i18n'
-import Mask from './Mask.vue'
-import Watermark from './Watermark.vue'
+import ArcText from "@/components/ArcText.vue";
+import CardFace from "@/components/CardFace.vue";
+import Number from "@/components/Number.vue";
+import {
+  CardType,
+  ClassType,
+  Flag,
+  KindType,
+  Rarity,
+  WaterMark,
+} from "@/datatypes/card";
+import useStyledDescription from "@/hooks/useStyledDescription";
+import { useStore } from "@/store/useStore";
+import { computed } from "vue";
+import { useI18n } from "vue-i18n";
+import Mask from "./Mask.vue";
+import Watermark from "./Watermark.vue";
 
-const store = useStore()
-const { locale } = useI18n()
+const store = useStore();
+const { locale } = useI18n();
 // 省略
 </script>
 ```
@@ -138,8 +148,8 @@ const { locale } = useI18n()
 
 ```vue
 <script lang="ts" setup>
-const store = useStore()
-const { locale } = useI18n()
+const store = useStore();
+const { locale } = useI18n();
 
 // 省略
 </script>
@@ -186,16 +196,16 @@ export default defineConfig(async () => ({
 然后在`src目录`的入口文件`main.ts`中：
 
 ```ts
-import { createApp } from 'vue'
-import { createRouter, createWebHistory } from 'vue-router/auto'
-import App from './App.vue'
+import { createApp } from "vue";
+import { createRouter, createWebHistory } from "vue-router/auto";
+import App from "./App.vue";
 
-const app = createApp(App)
+const app = createApp(App);
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-})
-app.use(router)
-app.mount('#app')
+});
+app.use(router);
+app.mount("#app");
 ```
 
 最后，在`src目录`下创建pages文件夹，然后直接添加组件，即可使用`基于文件的路由(File-based Routing)`了。
@@ -244,7 +254,7 @@ async function resolveConfig(incomingConfig: Config) {
     // true: 混合多个配置文件的配置信息
     merge: false,
   })
- 
+
   // 如果没有读取到配置文件(sources.length不存在)，直接将传入的配置与默认配置混合（并覆盖对应属性）
   if (!sources.length)
     // 使用deepmerge库可以简单实现覆盖功能，注意，第二个参数覆盖第一个参数里的对象
@@ -256,4 +266,3 @@ async function resolveConfig(incomingConfig: Config) {
 ```
 
 这样就可以在你的代码中优雅地读取配置了。具体案例可以参考我的库：[fast-dirpy](https://github.com/Vincent-the-gamer/fast-dirpy).
-

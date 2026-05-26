@@ -8,11 +8,7 @@ export default antfu(
     formatters: {
       css: true,
       html: true,
-      markdown: {
-        overrides: {
-          "ts/no-empty-object-type": "off",
-        },
-      },
+      markdown: true,
     },
   },
   {
@@ -29,6 +25,7 @@ export default antfu(
       "ts/no-unnecessary-type-constraint": "off",
       "vue/no-template-shadow": "off",
       "vue/no-v-text-v-html-on-component": "off",
+      "format/ts/no-empty-object-type": "off",
     },
   },
 );
