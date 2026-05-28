@@ -99,7 +99,7 @@ projects:
       icon: 'i-devicon-python'
 
     - name: 'CardForge'
-      link: 'https://github.com/Vincent-the-gamer/cardforge'
+      link: 'https://cardforge.vince-g.xyz'
       desc: 'A HearthStone card maker. 炉石传说卡牌制作器。'
       icon: 'cardforge'
 
