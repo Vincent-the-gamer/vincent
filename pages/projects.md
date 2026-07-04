@@ -102,11 +102,6 @@ projects:
       link: 'https://cardforge.vince-g.xyz'
       desc: 'A HearthStone card maker. 炉石传说卡牌制作器。'
       icon: 'cardforge'
-
-    - name: 'Eat What'
-      link: 'https://today-eat-what.netlify.app'
-      desc: '今天早上/中午/晚上到底吃啥？随机Roll一个吧'
-      icon: 'i-hugeicons-serving-food'
   
   游戏补丁:
     - name: '柚子社游戏补丁'
@@ -195,6 +190,11 @@ projects:
       link: "https://mikanani.me/"
       desc: "蜜柑计划：新一代的动漫下载站"
       icon: "mikan"
+
+    - name: "萌番组"
+      link: "https://bangumi.moe/"
+      desc: "也是种子动漫下载站"
+      icon: "https://static.bangumi.moe/avatar/09d1dc53c5e3666ab8b7c872cdff4357"
     
     - name: "Nyaa.si"
       link: "https://nyaa.si/"
