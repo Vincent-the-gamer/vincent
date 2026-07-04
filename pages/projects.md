@@ -181,6 +181,11 @@ projects:
       desc: "大型动漫下载站整合"
       icon: "https://www.acgbox.link/wp-content/uploads/logo/86742914_p0.png"
 
+    - name: "ANi Open"
+      link: "https://openani.an-i.workers.dev/"
+      desc: "网页直链动漫下载站"
+      icon: "https://cdn.jsdelivr.net/gh/RyanL-29/aniopen/favicon.ico"
+
     - name: "MioBT"
       link: "https://miobt.com/"
       desc: "＊MioBT＊★就是＊MioBT＊喵～"
