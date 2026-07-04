@@ -84,8 +84,7 @@ onKeyStroke("Escape", (e) => {
             />
         </div>
     </Transition>
-    <!-- <FantasyLand /> -->
-    <Persona />
+    <GifContainer />
     <!-- <NewYear /> -->
     <ClientOnly>
         <!-- music player, client only -->

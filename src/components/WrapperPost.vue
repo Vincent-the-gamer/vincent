@@ -64,6 +64,48 @@ onMounted(async () => {
         }
     };
 
+    // Add copy buttons to code blocks
+    const pres = content.value?.querySelectorAll<HTMLPreElement>("pre");
+    pres?.forEach((pre) => {
+        // Skip if already wrapped or inside mermaid
+        if (pre.parentElement?.classList.contains("code-block-wrapper")) return;
+
+        const wrapper = document.createElement("div");
+        wrapper.className = "code-block-wrapper";
+        pre.parentNode?.insertBefore(wrapper, pre);
+        wrapper.appendChild(pre);
+
+        const btn = document.createElement("button");
+        btn.className = "copy-code-btn";
+        btn.setAttribute("aria-label", "Copy code");
+        btn.innerHTML =
+            '<span class="copy-code-icon i-carbon-copy"></span>' +
+            '<span class="copy-code-done i-carbon-checkmark"></span>' +
+            '<span class="copy-code-label">Copy</span>';
+        btn.addEventListener("click", async () => {
+            const code =
+                pre.querySelector("code")?.textContent || pre.textContent || "";
+            try {
+                await navigator.clipboard.writeText(code);
+                btn.classList.add("copied");
+                setTimeout(() => btn.classList.remove("copied"), 2000);
+            } catch {
+                // Fallback for older browsers
+                const textarea = document.createElement("textarea");
+                textarea.value = code;
+                textarea.style.position = "fixed";
+                textarea.style.opacity = "0";
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand("copy");
+                document.body.removeChild(textarea);
+                btn.classList.add("copied");
+                setTimeout(() => btn.classList.remove("copied"), 2000);
+            }
+        });
+        wrapper.appendChild(btn);
+    });
+
     useEventListener(window, "hashchange", navigate);
     useEventListener(content.value!, "click", handleAnchors, {
         passive: false,
