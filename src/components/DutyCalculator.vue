@@ -88,6 +88,13 @@ function predict() {
 
 <style scoped>
 input {
-    border-radius: 3px;
+    border-radius: 5px;
+    border: 1px solid deeppink;
+    color: black;
+
+    .dark & {
+        color: white;
+        background-color: rgb(55, 55, 55);
+    }
 }
 </style>

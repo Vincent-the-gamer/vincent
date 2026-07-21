@@ -2,7 +2,6 @@ import { Buffer } from 'node:buffer'
 import { basename, dirname, resolve } from 'node:path'
 import MarkdownItShiki from '@shikijs/markdown-it'
 import { transformerNotationDiff, transformerNotationHighlight, transformerNotationWordHighlight } from '@shikijs/transformers'
-import { rendererRich, transformerTwoslash } from '@shikijs/twoslash'
 import Vue from '@vitejs/plugin-vue'
 import fs from 'fs-extra'
 import matter from 'gray-matter'
@@ -109,10 +108,6 @@ export default defineConfig({
           defaultColor: false,
           cssVariablePrefix: '--s-',
           transformers: [
-            transformerTwoslash({
-              explicitTrigger: true,
-              renderer: rendererRich(),
-            }),
             transformerNotationDiff(),
             transformerNotationHighlight(),
             transformerNotationWordHighlight(),
