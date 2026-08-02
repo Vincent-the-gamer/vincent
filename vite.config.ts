@@ -23,7 +23,7 @@ import Inspect from 'vite-plugin-inspect'
 import Exclude from 'vite-plugin-optimize-exclude'
 import Pages from 'vite-plugin-pages'
 import SVG from 'vite-svg-loader'
-import { slugify } from './scripts/slugify'
+import { slugify } from './scripts/slugify.ts'
 
 const promises: Promise<any>[] = []
 
@@ -36,7 +36,7 @@ export default defineConfig({
   },
   resolve: {
     alias: [
-      { find: '~/', replacement: `${resolve(__dirname, 'src')}/` },
+      { find: '~/', replacement: `${resolve(import.meta.dirname, 'src')}/` },
     ],
   },
   optimizeDeps: {
@@ -64,7 +64,7 @@ export default defineConfig({
       extensions: ['vue', 'md'],
       dirs: 'pages',
       extendRoute(route) {
-        const path = resolve(__dirname, route.component.slice(1))
+        const path = resolve(import.meta.dirname, route.component.slice(1))
 
         if (!path.includes('projects.md') && path.endsWith('.md')) {
           const md = fs.readFileSync(path, 'utf-8')

@@ -110,6 +110,16 @@ projects:
       icon: 'meguru'
 
   实用工具推荐:
+    - name: "汉典"
+      link: "https://www.zdic.net"
+      desc: "可以使用部首搜索特殊文字、异体字等"
+      icon: "i-material-symbols-light-format-color-text-rounded"
+    
+    - name: "字统网"
+      link: "https://zi.tools/"
+      desc: "另一个搜字网站，可以使用部首搜索特殊文字、异体字等"
+      icon: "i-material-symbols-format-color-text"
+    
     - name: "免费Stable Diffusion"
       link: "https://stablediffusion3.net/zh-CN/app"
       desc: "可以免费在线使用的Stable Diffusion"
