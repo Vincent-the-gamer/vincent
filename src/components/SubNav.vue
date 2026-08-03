@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { englishOnly, showToolsOnly, showNoteOnly } from "../logics";
 
-const inactiveStyle = "opacity-20 hover:opacity-50";
-const activeStyle = "opacity-100 underline";
+const inactiveStyle = "opacity-35 hover:opacity-70 hover:color-red";
+const activeStyle = "opacity-100";
 
 const route = useRoute();
 

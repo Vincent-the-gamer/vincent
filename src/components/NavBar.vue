@@ -136,5 +136,10 @@ const { y: scroll } = useWindowScroll();
     background: linear-gradient(120deg, #ff006a, #4c00ff);
     color: transparent;
     background-clip: text;
+    .dark & {
+        background: linear-gradient(120deg, #00ffff, #ffff00);
+        color: transparent;
+        background-clip: text;
+    }
 }
 </style>

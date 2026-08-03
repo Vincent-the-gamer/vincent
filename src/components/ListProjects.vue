@@ -214,9 +214,11 @@ function slug(name: string) {
                         />
                     </div>
                     <div class="flex-auto">
-                        <div class="text-normal">{{ item.name }}</div>
+                        <div class="text-normal color-black">
+                            {{ item.name }}
+                        </div>
                         <div
-                            class="desc text-sm opacity-50 font-normal"
+                            class="desc text-sm opacity-90 font-normal"
                             v-html="item.desc"
                         />
                     </div>

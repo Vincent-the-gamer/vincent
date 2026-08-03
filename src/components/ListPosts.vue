@@ -141,21 +141,21 @@ function getGroupName(p: Post) {
                                     v-if="route.type === 'note'"
                                     align-middle
                                     flex-none
-                                    class="text-xs bg-zinc:15 text-zinc5 rounded px-1 py-0.5 ml--12 mr2 my-auto hidden md:block"
+                                    class="text-xs bg-zinc:55 text-black dark:text-white rounded px-1 py-0.5 ml--12 mr2 my-auto hidden md:block"
                                     >中文/笔记</span
                                 >
                                 <span
                                     v-else-if="route.type === 'tool'"
                                     align-middle
                                     flex-none
-                                    class="text-xs bg-zinc:15 text-zinc5 rounded px-1 py-0.5 ml--12 mr2 my-auto hidden md:block"
+                                    class="text-xs bg-zinc:55 text-black dark:text-white rounded px-1 py-0.5 ml--12 mr2 my-auto hidden md:block"
                                     >中文/工具</span
                                 >
                                 <span
                                     v-else
                                     align-middle
                                     flex-none
-                                    class="text-xs bg-zinc:15 text-zinc5 rounded px-1 py-0.5 ml--12 mr2 my-auto hidden md:block"
+                                    class="text-xs bg-zinc:55 text-black dark:text-white rounded px-1 py-0.5 ml--12 mr2 my-auto hidden md:block"
                                     >中文</span
                                 >
                             </template>
@@ -164,14 +164,14 @@ function getGroupName(p: Post) {
                                     v-if="route.type === 'note'"
                                     align-middle
                                     flex-none
-                                    class="text-xs bg-zinc:15 text-zinc5 rounded px-1 py-0.5 ml--12 mr2 my-auto hidden md:block"
+                                    class="text-xs bg-zinc:55 text-black dark:text-white rounded px-1 py-0.5 ml--12 mr2 my-auto hidden md:block"
                                     >Note</span
                                 >
                                 <span
                                     v-else-if="route.type === 'tool'"
                                     align-middle
                                     flex-none
-                                    class="text-xs bg-zinc:15 text-zinc5 rounded px-1 py-0.5 ml--12 mr2 my-auto hidden md:block"
+                                    class="text-xs bg-zinc:55 text-black dark:text-white rounded px-1 py-0.5 ml--12 mr2 my-auto hidden md:block"
                                     >Tool</span
                                 >
                             </template>
