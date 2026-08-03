@@ -115,6 +115,67 @@ const cssHsl = computed(
     () => `hsl(${hue.value}, ${saturation.value}%, ${lightness.value}%)`,
 );
 
+// ==================== Color Harmonies ====================
+function mod360(h: number): number {
+    return ((h % 360) + 360) % 360;
+}
+
+function clamp100(v: number): number {
+    return Math.max(0, Math.min(100, v));
+}
+
+interface HarmonyColor {
+    hue: number;
+    saturation: number;
+    lightness: number;
+    alpha: number;
+}
+
+interface HarmonyGroup {
+    label: string;
+    colors: HarmonyColor[];
+}
+
+const harmonies = computed<HarmonyGroup[]>(() => {
+    const h = hue.value;
+    const s = saturation.value;
+    const l = lightness.value;
+    const a = alpha.value;
+
+    const mk = (hOffset: number, sMult = 1, lMult = 1): HarmonyColor => ({
+        hue: mod360(h + hOffset),
+        saturation: clamp100(s * sMult),
+        lightness: clamp100(l * lMult),
+        alpha: a,
+    });
+
+    return [
+        {
+            label: "同类色",
+            colors: [mk(-30), mk(-15), mk(15), mk(30)],
+        },
+        {
+            label: "邻近色",
+            colors: [mk(-60), mk(60)],
+        },
+        {
+            label: "对比色",
+            colors: [mk(-120), mk(120)],
+        },
+        {
+            label: "互补色",
+            colors: [mk(180)],
+        },
+    ];
+});
+
+function selectHarmony(c: HarmonyColor) {
+    hue.value = c.hue;
+    saturation.value = c.saturation;
+    lightness.value = c.lightness;
+    alpha.value = c.alpha;
+}
+
 // ==================== Drawing ====================
 function drawPalette() {
     const canvas = paletteCanvas.value;
@@ -518,6 +579,29 @@ watch([hue, saturation, lightness], () => {
                 </div>
             </div>
 
+            <!-- Color harmony swatches -->
+            <div class="palette-harmonies">
+                <div
+                    v-for="group in harmonies"
+                    :key="group.label"
+                    class="harmony-group"
+                >
+                    <span class="harmony-label">{{ group.label }}</span>
+                    <div class="harmony-swatches">
+                        <button
+                            v-for="(c, i) in group.colors"
+                            :key="i"
+                            class="harmony-swatch"
+                            :style="{
+                                background: `hsla(${c.hue}, ${c.saturation}%, ${c.lightness}%, ${c.alpha})`,
+                            }"
+                            :title="`H:${Math.round(c.hue)} S:${Math.round(c.saturation)} L:${Math.round(c.lightness)}`"
+                            @click="selectHarmony(c)"
+                        />
+                    </div>
+                </div>
+            </div>
+
             <!-- Numeric inputs for precise control -->
             <div class="palette-inputs">
                 <div class="input-group">
@@ -766,5 +850,54 @@ watch([hue, saturation, lightness], () => {
 
 .input-group input:focus {
     border-color: var(--c-accent, #617df2);
+}
+
+.palette-harmonies {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.harmony-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.harmony-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #888;
+    min-width: 42px;
+}
+
+.harmony-swatches {
+    display: flex;
+    gap: 4px;
+    flex: 1;
+}
+
+.harmony-swatch {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    border: 1.5px solid #8883;
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+    position: relative;
+    transition:
+        transform 0.12s,
+        border-color 0.12s;
+}
+
+.harmony-swatch:hover {
+    transform: scale(1.3);
+    border-color: var(--c-accent, #617df2);
+    z-index: 1;
+}
+
+.harmony-swatch:active {
+    transform: scale(1.1);
 }
 </style>
