@@ -7,10 +7,10 @@ art: dots
 <script setup>
 const typewriterStyles = `color: deeppink; font-size: 18px;`
 const typewriterStrs = [
-  `我是一个<span style="${typewriterStyles}">Web全栈开发者</span>`,
   `我是一个<span style="${typewriterStyles}">主机游戏玩家</span>`,
-  `我是一个<span style="${typewriterStyles}">编程爱好者</span>`,
-  `我是一个<span style="${typewriterStyles}">二次元狂热者</span>`,
+  `我是一个<span style="${typewriterStyles}">个人爱好程序员</span>`,
+  `我是一个<span style="${typewriterStyles}">悲催打工人</span>`,
+  `我是一个<span style="${typewriterStyles}">游泳爱好者</span>`,
 ]
 </script>
 
@@ -18,11 +18,12 @@ const typewriterStrs = [
 
 <Typewriter :strings="typewriterStrs" />
 
-我会使用<a href="https://www.rust-lang.org/zh-CN" target="_blank"><span i-devicon-rust /> Rust</a>, <a href="https://www.java.com/zh-CN/" target="_blank"><span i-devicon-java /> Java</a>，<a href="https://www.python.org/" target="_blank"><span i-devicon-python /> Python</a>, <a href="https://www.typescriptlang.org/" target="_blank"><span i-devicon-typescript /> TypeScript</a>等语言来开发，平时喜欢写一些好玩的代码，在<a href="https://github.com/Vincent-the-gamer" target="_blank"><span op75 i-simple-icons-github /> GitHub</a> 发布。
+作为一个娱乐向程序员（现在主业竟然不是敲代码了哈哈），我主要使用<a href="https://www.typescriptlang.org/" target="_blank"><span i-devicon-typescript /> TypeScript</a>开发一些小工具库，网页，脚本等，主要都是自己用就是啦，也没什么含金量。此外，会使用<a href="https://www.java.com/zh-CN/" target="_blank"><span i-devicon-java /> Java</a>，<a href="https://www.python.org/" target="_blank"><span i-devicon-python /> Python</a>, <a href="https://www.rust-lang.org/zh-CN" target="_blank"><span i-devicon-rust /> Rust</a>等语言，平时喜欢写一些好玩的代码，在<a href="https://github.com/Vincent-the-gamer" target="_blank"><span op75 i-simple-icons-github /> GitHub</a> 发布。
 
-作为一个 ~~「臭写代码的」~~ 「软件开发者」，有必要每日精进自己的技术，并且掌握更多工具的使用方法。目前在学习各种Node.js项目的**架构设计**，**所用到的工具**等，并且结合实际运用在自己的项目中。同时打算尝试更多的开发方向，如**移动端开发**等。
+除了写代码，主要就是玩玩游戏，在我工作前，有很多时间来收集游戏的全成就。在我的<a href="/games" target="_blank">游戏历程</a>板块中，可以查看我曾经获得过的白金奖杯游戏截图。
+现在没什么空来收集游戏奖杯了（悲），所以就主打一个通关吧，悲催打工人一个，没有多少个人时间。
 
-除此之外，我喜欢玩游戏，包括但不限于Steam, 炉石传说和索尼PlayStation的一些主机游戏，并对主机游戏收集奖杯有浓厚的兴趣。在我的<a href="/games" target="_blank">游戏历程</a>板块中，可以查看我曾经获得过的白金奖杯游戏截图。
+然后，趁休息日去游下泳，也是非常舒服的，游泳使人快乐（嘻嘻），游泳不仅使我快乐，还能适当活动活动身体，毕竟平时上班就坐着，周末写代码还是坐着哈哈哈。
 
 <a href="./posts" font-size-18px mr-4>
   <div i-cib-micro-blog />

@@ -105,15 +105,6 @@ function toggleShowTools() {
             >
                 老婆列表
             </RouterLink>
-            <RouterLink
-                to="/downloads"
-                class="!border-none"
-                :class="
-                    route.path === `/downloads` ? activeStyle : inactiveStyle
-                "
-            >
-                文件下载
-            </RouterLink>
         </div>
     </div>
 </template>

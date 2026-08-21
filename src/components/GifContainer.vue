@@ -8,7 +8,7 @@
 
 <style lang="css" scoped>
 .persona {
-    background-image: url("/gifs/persona3-2.gif");
+    background-image: url("/gifs/meizi.gif");
     will-change: auto;
     position: fixed;
     left: 0;
@@ -17,7 +17,7 @@
     bottom: 0;
     z-index: -1;
     overflow: hidden;
-    opacity: 30%;
+    opacity: 45%;
     object-fit: cover;
     background-size: cover;
 }

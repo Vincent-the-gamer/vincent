@@ -62,10 +62,6 @@ const { y: scroll } = useWindowScroll();
                     <span lt-md:hidden>老婆列表</span>
                     <div i-icon-park-outline-girl md:hidden />
                 </RouterLink>
-                <RouterLink to="/downloads" title="文件下载">
-                    <span lt-md:hidden>文件下载</span>
-                    <div i-material-symbols-cloud-download-rounded md:hidden />
-                </RouterLink>
                 <a
                     href="https://github.com/Vincent-the-gamer"
                     target="_blank"

@@ -165,11 +165,6 @@ function slug(name: string) {
                             class="text-4xl w-140px h-75px"
                             src="/gifs/yew.gif"
                         />
-                        <img
-                            v-else-if="item.icon === 'kaomoe'"
-                            class="text-4xl w-140px h-75px"
-                            src="/gifs/kaomoe.gif"
-                        />
 
                         <!-- ico -->
                         <img
@@ -214,7 +209,7 @@ function slug(name: string) {
                         />
                     </div>
                     <div class="flex-auto">
-                        <div class="text-normal color-black">
+                        <div class="text-normal color-black dark:color-white">
                             {{ item.name }}
                         </div>
                         <div
