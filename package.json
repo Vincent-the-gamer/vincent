@@ -5,9 +5,8 @@
   "private": true,
   "packageManager": "pnpm@12.6.0",
   "scripts": {
-    "build": "cross-env NODE_ENV=production vite-ssg build && tsx ./scripts/copy-fonts.ts && tsx ./scripts/rss.ts && pnpm run copy-files",
-    "spa-build": "cross-env NODE_ENV=production vite build && tsx ./scripts/copy-fonts.ts && tsx ./scripts/rss.ts && pnpm run copy-files",
-    "copy-files": "cp _dist_redirects dist/_redirects",
+    "build": "cross-env NODE_ENV=production vite-ssg build && tsx ./scripts/copy-fonts.ts && tsx ./scripts/rss.ts",
+    "spa-build": "cross-env NODE_ENV=production vite build && tsx ./scripts/copy-fonts.ts && tsx ./scripts/rss.ts",
     "dev": "vite --open",
     "preview": "vite preview",
     "redirects": "tsx scripts/redirects.ts",
