@@ -158,6 +158,13 @@ function slug(name: string) {
                             class="text-4xl w-90px h-80px"
                             src="/images/projects/ruri.png"
                         />
+                        <img
+                            v-else-if="item.icon === 'estelle'"
+                            src="/images/projects/estelle.png"
+                            text-4xl
+                            w-80px
+                            h-80px
+                        />
 
                         <!-- gif -->
                         <img

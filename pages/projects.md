@@ -103,7 +103,11 @@ projects:
       desc: 'A HearthStone card maker. 炉石传说卡牌制作器。'
       icon: 'cardforge'
   
-  游戏补丁:
+  游戏相关:
+    - name: '轨迹系列'
+      link: 'https://trails-game.com/'
+      desc: '收集轨迹系列相关资讯'
+      icon: 'estelle'
     - name: '柚子社游戏补丁'
       link: 'https://yuzupatch.vince-g.xyz'
       desc: '收录Steam版柚子社游戏补丁，部分PC/移动端游戏'
