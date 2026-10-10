@@ -4,6 +4,32 @@ defineProps<{ projects: Record<string, any[]> }>();
 function slug(name: string) {
     return name.toLowerCase().replace(/[\s\\/]+/g, "-");
 }
+
+// Peak tilt, in degrees, applied to each axis at the card's edges.
+const TILT_MAX = 8;
+
+// Track the cursor inside a card: drives both the glow position and the 3D tilt.
+// Written to CSS custom properties so all motion stays on the compositor.
+function handleCardTilt(e: MouseEvent) {
+    const el = e.currentTarget as HTMLElement;
+    const rect = el.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width;
+    const y = (e.clientY - rect.top) / rect.height;
+
+    el.style.setProperty("--mx", `${x * 100}%`);
+    el.style.setProperty("--my", `${y * 100}%`);
+    el.style.setProperty("--ry", `${(x - 0.5) * TILT_MAX * 2}deg`);
+    el.style.setProperty("--rx", `${(0.5 - y) * TILT_MAX * 2}deg`);
+}
+
+// Ease the card back to rest once the pointer leaves.
+function resetCardTilt(e: MouseEvent) {
+    const el = e.currentTarget as HTMLElement;
+    el.style.setProperty("--mx", "50%");
+    el.style.setProperty("--my", "50%");
+    el.style.setProperty("--rx", "0deg");
+    el.style.setProperty("--ry", "0deg");
+}
 </script>
 
 <template>
@@ -34,6 +60,8 @@ function slug(name: string) {
                     class="item relative flex items-center"
                     :href="item.link"
                     target="_blank"
+                    @mousemove="handleCardTilt"
+                    @mouseleave="resetCardTilt"
                     :class="
                         !item.link
                             ? 'opacity-0 pointer-events-none h-0 -mt-8 -mb-4'
@@ -244,16 +272,89 @@ function slug(name: string) {
 
 <style scoped>
 .project-grid a.item {
+    --mx: 50%;
+    --my: 50%;
+    --rx: 0deg;
+    --ry: 0deg;
+    position: relative;
+    isolation: isolate;
     background: transparent;
     font-size: 1.1rem;
     width: 350px;
     max-width: 100%;
     padding: 0.5rem 0.875rem 0.875rem;
-    border-radius: 6px;
+    border-radius: 10px;
+    transform-style: preserve-3d;
+    transform: perspective(1000px) rotateX(var(--rx)) rotateY(var(--ry));
+    transition:
+        transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.4s ease,
+        background-color 0.4s ease;
+}
+
+/* Soft aura under the content that follows the cursor. */
+.project-grid a.item::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background: radial-gradient(
+        300px circle at var(--mx) var(--my),
+        color-mix(in srgb, var(--c-accent) 24%, transparent),
+        transparent 72%
+    );
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+}
+
+/* Spotlight border: a hairline ring lit only where the cursor is. */
+.project-grid a.item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: radial-gradient(
+        240px circle at var(--mx) var(--my),
+        color-mix(in srgb, var(--c-accent) 80%, transparent),
+        transparent 68%
+    );
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
 }
 
 .project-grid a.item:hover {
     background: #88888811;
+    box-shadow: 0 12px 34px -14px
+        color-mix(in srgb, var(--c-accent) 60%, transparent);
+}
+
+.project-grid a.item:hover::before,
+.project-grid a.item:hover::after {
+    opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .project-grid a.item,
+    .project-grid a.item::before,
+    .project-grid a.item::after {
+        transition: none;
+    }
+
+    .project-grid a.item {
+        transform: none;
+    }
 }
 
 .table-of-contents {

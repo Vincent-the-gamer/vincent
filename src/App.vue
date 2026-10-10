@@ -57,11 +57,13 @@ onKeyStroke("Escape", (e) => {
 </script>
 
 <template>
-    <ClientOnly>
+    <ArtBackground />
+    <!-- <ClientOnly>
         <FluidCursor />
-    </ClientOnly>
+    </ClientOnly> -->
+    <a class="skip-link" href="#main">跳到主要内容</a>
     <NavBar />
-    <main class="px-7 py-10 of-x-hidden">
+    <main id="main" tabindex="-1" class="px-7 py-10 of-x-hidden outline-none">
         <RouterView />
         <Footer :key="route.path" />
     </main>
@@ -87,7 +89,7 @@ onKeyStroke("Escape", (e) => {
             />
         </div>
     </Transition>
-    <GifContainer />
+    <!-- <GifContainer /> -->
     <!-- <NewYear /> -->
     <ClientOnly>
         <!-- music player, client only -->

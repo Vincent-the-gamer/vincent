@@ -1,5 +1,6 @@
 import { Buffer } from 'node:buffer'
-import { basename, dirname, resolve } from 'node:path'
+import { execFileSync } from 'node:child_process'
+import { basename, dirname, relative, resolve, sep } from 'node:path'
 import MarkdownItShiki from '@shikijs/markdown-it'
 import { transformerNotationDiff, transformerNotationHighlight, transformerNotationWordHighlight } from '@shikijs/transformers'
 import Vue from '@vitejs/plugin-vue'
@@ -28,6 +29,56 @@ import { slugify } from './scripts/slugify.ts'
 const promises: Promise<any>[] = []
 
 const pycnLang = JSON.parse(fs.readFileSync('./shiki/pycn.json', 'utf-8'))
+
+const ROOT = import.meta.dirname
+
+/**
+ * Repo-relative path -> last commit author date (ISO).
+ * Derived from git instead of the filesystem mtime, because a fresh checkout
+ * (CI, or a new clone) resets every file's mtime to checkout time, which would
+ * make every post report the same "last updated" date.
+ */
+let gitLastModified: Map<string, string> | null | undefined
+
+function getGitLastModified(): Map<string, string> | null {
+  if (gitLastModified !== undefined)
+    return gitLastModified
+
+  try {
+    const output = execFileSync(
+      'git',
+      ['--no-optional-locks', 'log', '--no-renames', '--pretty=format:\u001E%aI', '--name-only'],
+      { cwd: ROOT, encoding: 'utf-8', maxBuffer: 64 * 1024 * 1024 },
+    )
+    const map = new Map<string, string>()
+    let date = ''
+    // git log is newest-first, so the first sighting of a file wins.
+    for (const line of output.split('\n')) {
+      if (line.startsWith('\u001E')) {
+        date = line.slice(1).trim()
+        continue
+      }
+      const name = line.trim()
+      if (name && date && !map.has(name))
+        map.set(name, date)
+    }
+    gitLastModified = map
+  }
+  catch {
+    // Not a git repo, git missing, etc. - fall back to file mtime.
+    gitLastModified = null
+  }
+
+  return gitLastModified
+}
+
+function getLastModified(absPath: string) {
+  const repoRelativePath = relative(ROOT, absPath).split(sep).join('/')
+  const fromGit = getGitLastModified()?.get(repoRelativePath)
+  if (fromGit)
+    return new Date(fromGit).toISOString()
+  return fs.statSync(absPath).mtime.toISOString()
+}
 
 export default defineConfig({
   server: {
@@ -69,11 +120,10 @@ export default defineConfig({
         if (!path.includes('projects.md') && path.endsWith('.md')) {
           const md = fs.readFileSync(path, 'utf-8')
           const { data } = matter(md)
-          // Auto-populate lastModified from file modification time if not manually set
-          if (!data.lastModified) {
-            const stat = fs.statSync(path)
-            data.lastModified = stat.mtime.toISOString()
-          }
+          // Auto-populate lastModified from the file's last git commit if not
+          // manually set (falls back to file mtime outside a git checkout).
+          if (!data.lastModified)
+            data.lastModified = getLastModified(path)
           route.meta = Object.assign(route.meta || {}, { frontmatter: data })
         }
 

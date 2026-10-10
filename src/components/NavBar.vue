@@ -104,6 +104,7 @@ const { y: scroll } = useWindowScroll();
 }
 
 .nav a {
+    position: relative;
     cursor: pointer;
     text-decoration: none;
     color: inherit;
@@ -115,6 +116,52 @@ const { y: scroll } = useWindowScroll();
 .nav a:hover {
     opacity: 1;
     text-decoration-color: inherit;
+}
+
+/* Current page indicator */
+.nav a.router-link-active {
+    opacity: 1;
+}
+
+.nav a.router-link-active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -0.35rem;
+    height: 2px;
+    border-radius: 2px;
+    background: currentColor;
+    transform-origin: center;
+    animation: nav-underline 0.3s ease both;
+}
+
+@keyframes nav-underline {
+    from {
+        transform: scaleX(0);
+        opacity: 0;
+    }
+    to {
+        transform: scaleX(1);
+        opacity: 0.55;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .nav a.router-link-active::after {
+        animation: none;
+        transform: scaleX(1);
+        opacity: 0.55;
+    }
+}
+
+/* Keyboard focus stays clearly visible even where outline:none is set. */
+.header a:focus-visible,
+.header button:focus-visible {
+    outline: 2px solid var(--c-accent);
+    outline-offset: 3px;
+    border-radius: 6px;
+    opacity: 1;
 }
 
 .nav .right {

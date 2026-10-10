@@ -24,7 +24,7 @@ Posts live in `pages/posts/`. Frontmatter drives listing and SEO:
 - `art` — `dots` or `plum` renders the animated page background.
 - `display` — overrides the rendered `<h1>` (use `''` to hide it).
 - `desc`, `redirect`, `draft` — excerpt, external link, and hiding from listings.
-- `lastModified` — auto-filled from file mtime when unset.
+- `lastModified` — auto-filled from the file's last git commit date when unset (falls back to file mtime outside a git checkout); set it explicitly in frontmatter to override. Requires full git history at build time (Netlify clones fully; disable shallow fetches in any other CI).
 
 The build generates an Open Graph image from `title` into `og/<route>.png`; drop a sibling `<name>.png` next to the post to override it.
 
