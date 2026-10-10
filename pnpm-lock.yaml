@@ -187,9 +187,6 @@ importers:
       floating-vue:
         specifier: ^5.4.0
         version: 5.4.0(vue@3.5.43(typescript@7.0.2))
-      markdown-it-magic-link:
-        specifier: ^0.1.4
-        version: 0.1.4
       mermaid:
         specifier: ^12.1.0
         version: 12.1.0
@@ -296,6 +293,9 @@ importers:
       markdown-it-link-attributes:
         specifier: ^4.0.1
         version: 4.0.1
+      markdown-it-magic-link:
+        specifier: ^0.1.4
+        version: 0.1.4
       markdown-it-table-of-contents:
         specifier: ^1.2.0
         version: 1.2.0
