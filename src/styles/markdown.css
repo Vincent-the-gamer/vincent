@@ -90,10 +90,35 @@ html:not(.dark) .shiki span {
 }
 
 html.dark .prose {
-    --fg-light: #888;
-    --fg: #bbb;
-    --fg-deep: #ddd;
-    --fg-deeper: #fff;
+    --fg-light: #9ca3af;
+    --fg: #d1d5db;
+    --fg-deep: #e5e7eb;
+    --fg-deeper: #fafafa;
+}
+
+/*
+ * The default opacity dimming for sub-headings, quotes, strikethrough and
+ * captions is tuned for dark-on-light. On a dark surface it drops the text
+ * below a comfortable contrast, so ease it back for dark mode only.
+ */
+html.dark .prose h3 {
+    opacity: 0.88;
+}
+
+html.dark .prose h6 {
+    opacity: 0.72;
+}
+
+html.dark .prose blockquote > * {
+    opacity: 0.85;
+}
+
+html.dark .prose s {
+    opacity: 0.6;
+}
+
+html.dark .prose figure figcaption {
+    color: #9ca3af;
 }
 
 a.item {
@@ -104,6 +129,15 @@ a.item {
 }
 
 a.item:hover {
+    opacity: 1;
+}
+
+/* Listing items are dimmed to 0.6 globally; on dark that leaves titles faint. */
+html.dark a.item {
+    opacity: 0.78;
+}
+
+html.dark a.item:hover {
     opacity: 1;
 }
 

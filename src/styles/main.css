@@ -13,9 +13,12 @@ html {
 }
 
 html.dark {
-    --c-bg: #050505;
-    --c-scrollbar: #111;
-    --c-scrollbar-hover: #222;
+    /* Off-black with a faint cool tint instead of pure/near-black: a #000-ish
+       surface makes light glyphs halo and read as fuzzy, and the slight tint
+       keeps the dark palette in the same gray family as the light surface. */
+    --c-bg: #0a0b0e;
+    --c-scrollbar: #1c1e22;
+    --c-scrollbar-hover: #303338;
     --c-accent: #2dd4bf;
 }
 
@@ -127,6 +130,11 @@ h2 + p > em:first-child {
     display: block;
     margin-top: -20px;
     font-size: 0.9em;
+}
+
+/* The light-mode dimming above reads as muddy on a dark surface. */
+html.dark h2 + p > em:first-child {
+    opacity: 0.65;
 }
 
 .dark [img-light] {

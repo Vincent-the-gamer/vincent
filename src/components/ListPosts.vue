@@ -252,14 +252,14 @@ function getGroupName(p: Post) {
                                     v-if="route.type === 'note'"
                                     align-middle
                                     flex-none
-                                    class="text-xs bg-zinc:15 text-zinc5 rounded px-1 py-0.5 my-auto md:hidden"
+                                    class="text-xs bg-zinc:15 text-zinc6 dark:text-zinc4 rounded px-1 py-0.5 my-auto md:hidden"
                                     >中文/笔记</span
                                 >
                                 <span
                                     v-else
                                     align-middle
                                     flex-none
-                                    class="text-xs bg-zinc:15 text-zinc5 rounded px-1 py-0.5 my-auto md:hidden"
+                                    class="text-xs bg-zinc:15 text-zinc6 dark:text-zinc4 rounded px-1 py-0.5 my-auto md:hidden"
                                     >中文</span
                                 >
                             </template>
@@ -268,7 +268,7 @@ function getGroupName(p: Post) {
                                     v-if="route.type === 'note'"
                                     align-middle
                                     flex-none
-                                    class="text-xs bg-zinc:15 text-zinc5 rounded px-1 py-0.5 my-auto md:hidden"
+                                    class="text-xs bg-zinc:15 text-zinc6 dark:text-zinc4 rounded px-1 py-0.5 my-auto md:hidden"
                                     >Note</span
                                 >
                             </template>

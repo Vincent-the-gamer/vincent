@@ -118,6 +118,16 @@ const { y: scroll } = useWindowScroll();
     text-decoration-color: inherit;
 }
 
+/* 0.6 is comfortable on a light surface but too faint on dark. */
+html.dark .nav a {
+    opacity: 0.72;
+}
+
+html.dark .nav a:hover,
+html.dark .nav a.router-link-active {
+    opacity: 1;
+}
+
 /* Current page indicator */
 .nav a.router-link-active {
     opacity: 1;

@@ -13,8 +13,8 @@ import {
 export default defineConfig({
   shortcuts: [
     {
-      'bg-base': 'bg-white dark:bg-black',
-      'color-base': 'text-black dark:text-white',
+      'bg-base': 'bg-white dark:bg-[#101014]',
+      'color-base': 'text-black dark:text-gray-100',
       'border-base': 'border-[#8884]',
       'btn': 'px-4 py-1 rounded inline-block bg-teal-600 text-white cursor-pointer hover:bg-teal-700 active:scale-98 disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50',
     },
