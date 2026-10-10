@@ -22,6 +22,7 @@
     "busuanzi.pure.js": "^1.0.3",
     "dayjs": "^1.11.23",
     "floating-vue": "^5.4.0",
+    "markdown-it-magic-link": "^0.1.4",
     "mermaid": "^12.1.0",
     "nprogress": "^0.2.0",
     "pixi.js": "^8.22.0",
