@@ -5,8 +5,9 @@
 
 // Recommended to use absolute path for live2d_path parameter
 // live2d_path 参数建议使用绝对路径
-const live2d_path = '/live2d/';
-// const live2d_path = '/dist/';
+const live2d_path =
+  "https://fastly.jsdelivr.net/npm/live2d-widgets@1.0.1/dist/";
+const local_live2d_path = "/live2d/";
 
 // Method to encapsulate asynchronous resource loading
 // 封装异步加载资源的方法
@@ -14,14 +15,13 @@ function loadExternalResource(url, type) {
   return new Promise((resolve, reject) => {
     let tag;
 
-    if (type === 'css') {
-      tag = document.createElement('link');
-      tag.rel = 'stylesheet';
+    if (type === "css") {
+      tag = document.createElement("link");
+      tag.rel = "stylesheet";
       tag.href = url;
-    }
-    else if (type === 'js') {
-      tag = document.createElement('script');
-      tag.type = 'module';
+    } else if (type === "js") {
+      tag = document.createElement("script");
+      tag.type = "module";
       tag.src = url;
     }
     if (tag) {
@@ -40,32 +40,47 @@ function loadExternalResource(url, type) {
   // Avoid cross-origin issues with image resources
   // 避免图片资源跨域问题
   const OriginalImage = window.Image;
-  window.Image = function(...args) {
+  window.Image = function (...args) {
     const img = new OriginalImage(...args);
     img.crossOrigin = "anonymous";
     return img;
   };
   window.Image.prototype = OriginalImage.prototype;
   // Load waifu.css and waifu-tips.js
-  // 加载 waifu.css 和 waifu-tips.js
+  // 加载 waifu.css 和 waifu-tips.js，样式使用本地文件以自定义看板娘位置
   await Promise.all([
-    loadExternalResource(live2d_path + 'waifu.css', 'css'),
-    loadExternalResource(live2d_path + 'waifu-tips.js', 'js')
+    loadExternalResource("/live2d/waifu.css", "css"),
+    loadExternalResource(live2d_path + "waifu-tips.js", "js"),
   ]);
   // For detailed usage of configuration options, see README.en.md
   // 配置选项的具体用法见 README.md
   initWidget({
-    waifuPath: live2d_path + 'waifu-tips.json',
+    // waifuPath: live2d_path + "waifu-tips.json",
+    waifuPath: local_live2d_path + "waifu-tips.json",
     // cdnPath: 'https://fastly.jsdelivr.net/gh/fghrsh/live2d_api/',
-    cubism2Path: live2d_path + 'live2d.min.js',
-    cubism5Path: 'https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js',
-    tools: ['hitokoto', 'asteroids', 'switch-model', 'switch-texture', 'photo', 'info', 'quit'],
-    logLevel: 'warn',
+    cubism2Path: live2d_path + "live2d.min.js",
+    cubism5Path:
+      "https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js",
+    tools: [
+      "hitokoto",
+      "asteroids",
+      "switch-model",
+      "switch-texture",
+      "photo",
+      "info",
+      "quit",
+    ],
+    logLevel: "warn",
     drag: false,
   });
 })();
 
-console.log(`\n%cLive2D%cWidget%c\n`, 'padding: 8px; background: #cd3e45; font-weight: bold; font-size: large; color: white;', 'padding: 8px; background: #ff5450; font-size: large; color: #eee;', '');
+console.log(
+  `\n%cLive2D%cWidget%c\n`,
+  "padding: 8px; background: #cd3e45; font-weight: bold; font-size: large; color: white;",
+  "padding: 8px; background: #ff5450; font-size: large; color: #eee;",
+  "",
+);
 
 /*
 く__,.ヘヽ.        /  ,ー､ 〉
