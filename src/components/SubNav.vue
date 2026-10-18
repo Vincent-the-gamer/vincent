@@ -82,7 +82,7 @@ function toggleShowTools() {
                     route.path === `/projects` ? activeStyle : inactiveStyle
                 "
             >
-                项目/工具
+                工具合集
             </RouterLink>
             <RouterLink
                 to="/lpd"

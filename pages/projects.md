@@ -1,108 +1,42 @@
 ---
-title: 项目/工具 - Vincent
-display: 项目/工具
-description: 我在GitHub上发布的一些好玩的项目
+title: 工具合集 - Vincent
+display: 工具合集
+description: 收集那些我使用到的项目和工具
 art: dots
 wrapperClass: 'text-center'
 projects:
-  工具项目:
-    - name: '琉璃 Ruri'
-      link: 'https://github.com/Vincent-the-gamer/ruri'
-      desc: '我开发的AI Agent'
-      icon: 'ruri'
+  AI项目:
+    - name: 'MOSS-Image'
+      link: 'https://github.com/OpenMOSS/MOSS-Image'
+      desc: '开源版 MOSS 文生图模型'
+      icon: 'i-hugeicons-artificial-intelligence-04'
+    
+    - name: 'See Through'
+      link: 'https://github.com/shitagaki-lab/see-through'
+      desc: '将动漫角色图片拆分成分层PSD文件'
+      icon: 'i-hugeicons-artificial-intelligence-04'
 
+    - name: 'ComfyUI'
+      link: 'https://comfy.org/'
+      desc: '使用工作流形式编排AI推理任务'
+      icon: 'comfy'
+  
+  Agent Skills:
     - name: 'Skills'
       link: 'https://github.com/Vincent-the-gamer/skills'
       desc: '我的Agent Skills'
-      icon: 'i-hugeicons-artificial-intelligence-04'
+      icon: 'i-pajamas-agent-ai'
     
-    - name: 'GPT-SoVITS语音推理包'
-      link: 'https://github.com/Vincent-the-gamer/GPT-SoVITS-Inference-Pack'
-      desc: '从GPT-SoVITS Fork而来的仓库，用于推理我训练的语音模型'
-      icon: 'i-hugeicons-artificial-intelligence-02'
+    - name: 'Matt Pocock的Skills'
+      link: 'https://github.com/mattpocock/skills'
+      desc: '为软件工程师设计的一套Agent Skill'
+      icon: 'i-pajamas-agent-ai'  
+    
+    - name: 'Qwen Image 2.1 Skill'
+      link: 'https://github.com/iamyoki/qwen-image-2.1-skill'
+      desc: '用于生成Qwen Image 2.1提示词的Skill'
+      icon: 'i-pajamas-agent-ai'  
 
-    - name: 'Nemassler'
-      link: 'https://github.com/Vincent-the-gamer/Nemassler'
-      desc: 'Transform Netease Music .ncm audio into .mp3 audio, and support .mp3 BPM calculation。
-      <br/>WYY音乐.ncm转.mp3，以及音频BPM（每分钟节拍数）计算。'
-      icon: 'nemassler'
-
-    - name: 'G-Shock Date Checker'
-      link: 'https://github.com/Vincent-the-gamer/g-shock-date-checker'
-      desc: 'Check your Casio G-SHOCK production factory & production date. <br/>查询你的卡西欧G-Shock手表的产地和生产日期。'
-      icon: 'g-shock'
-
-    - name: 'modern-html2pdf'
-      link: 'https://github.com/Vincent-the-gamer/modern-html2pdf'
-      desc: '把HTML单/多节点转换为多页PDF'
-      icon: 'html2pdf'
-
-  实用的模板:
-    - name: 'Vitesse Electron'
-      link: 'https://github.com/Vincent-the-gamer/vitesse-electron'
-      desc: 'Electron + Vite + Vue开发跨平台客户端的项目模板'
-      icon: 'electron'
-
-    - name: 'TS Starter'
-      link: 'https://github.com/Vincent-the-gamer/ts-starter'
-      desc: '快速开始「使用TypeScript开发Node.js模块」的项目模板'
-      icon: 'i-logos-typescript-icon'
-
-    - name: "VitePress Starter"
-      link: "https://github.com/Vincent-the-gamer/vitepress-starter"
-      desc: '用于快速创建网页版文档的Vitepress模板'
-      icon: 'vitepress'
-
-    - name: "Vitesse Superslim"
-      link: "https://github.com/Vincent-the-gamer/vitesse-superslim"
-      desc: '极简版Vue + Vite前端项目起手模板'
-      icon: 'i-carbon-campsite'
-
-    - name: "nitro-starter"
-      link: "https://github.com/Vincent-the-gamer/nitro-starter"
-      desc: "基于Node.js，使用Nitro框架进行快速http服务端项目构建的模板"
-      icon: "nitro"
-    - name: 'Yew.rs Template'
-      link: 'https://github.com/Vincent-the-gamer/yew-template'
-      desc: 'Yew.rs项目基础模板。Yew.rs是一个Rust WebAssembly前端框架'
-      icon: 'yew'
-    - name: 'napi-rs-template'
-      link: 'https://github.com/Vincent-the-gamer/napi-rs-template'
-      desc: '使用Rust语言构建Node.js模块的项目模板'
-      icon: 'napi'
-
-  VS Code主题:
-    - name: 'VSCode Theme Sakura'
-      link: 'https://github.com/Vincent-the-gamer/vscode-theme-sakura'
-      desc: 'Cherry blossom style VSCode Theme. 樱花风格的VSCode主题。'
-      icon: 'sakura'
-
-    - name: 'VSCode Theme Jinx'
-      link: 'https://github.com/Vincent-the-gamer/vscode-theme-jinx'
-      desc: 'Yet another glowing VSCode theme. 又一个发光的VSCode主题。'
-      icon: 'jinx'
-
-    - name: 'VSCode Theme Aya'
-      link: 'https://github.com/Vincent-the-gamer/vscode-theme-aya'
-      desc: 'Murasame-style VSCode theme. 丛雨VSCode主题。'
-      icon: 'aya'
-
-    - name: 'VSCode Theme NeonHeart'
-      link: 'https://github.com/Vincent-the-gamer/neonheart'
-      desc: 'An opinionated VS Code theme. 个人风格向的VSCode主题。'
-      icon: 'neonheart'
-
-  好玩的项目:
-    - name: 'PyCN'
-      link: 'https://github.com/Vincent-the-gamer/pycn'
-      desc: '用中文写Python代码'
-      icon: 'i-devicon-python'
-
-    - name: 'CardForge'
-      link: 'https://cardforge.vince-g.xyz'
-      desc: 'A HearthStone card maker. 炉石传说卡牌制作器。'
-      icon: 'cardforge'
-  
   游戏相关:
     - name: '轨迹系列'
       link: 'https://trails-game.com/'
@@ -111,7 +45,7 @@ projects:
     - name: '柚子社游戏补丁'
       link: 'https://yuzupatch.vince-g.xyz'
       desc: '收录Steam版柚子社游戏补丁，部分PC/移动端游戏'
-      icon: 'meguru'
+      icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUY2sdc1maSyq5zDpca20o281dn2RIMqbPWigkkpoKiA&s'
 
   实用工具推荐:
     - name: "汉典"
@@ -167,7 +101,7 @@ projects:
     - name: "在线音频处理"
       link: "https://vocalremover.org/zh/cutter"
       desc: "可以在线对音频进行各种处理"
-      icon: "music"
+      icon: "https://vocalremover.org/favicon.ico"
 
     - name: "在线音频可视化"
       link: "https://vizzy.io/"
@@ -223,5 +157,7 @@ projects:
 ---
 
 <!-- @layout-full-width -->
+
+<p text-center>主要展示我日常使用到的一些工具和项目</p>
 
 <ListProjects :projects="frontmatter.projects" />

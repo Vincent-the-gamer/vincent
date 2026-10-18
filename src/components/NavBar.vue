@@ -46,8 +46,8 @@ const { y: scroll } = useWindowScroll();
                     <span class="lt-md:hidden">博客</span>
                     <div i-cib-micro-blog md:hidden />
                 </RouterLink>
-                <RouterLink to="/projects" title="项目/工具">
-                    <span class="lt-md:hidden">项目/工具</span>
+                <RouterLink to="/projects" title="工具合集">
+                    <span class="lt-md:hidden">工具合集</span>
                     <div i-ri-lightbulb-line md:hidden />
                 </RouterLink>
                 <RouterLink to="/lpd" title="Launchpad">

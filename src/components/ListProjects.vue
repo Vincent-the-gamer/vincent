@@ -72,34 +72,9 @@ function resetCardTilt(e: MouseEvent) {
                     <div v-if="item.icon" class="pt-2 pr-5">
                         <!-- pic -->
                         <img
-                            v-if="item.icon === 'cardforge'"
-                            class="text-4xl w-80px h-60px"
-                            src="/images/projects/cardforge-logo.png"
-                        />
-                        <img
-                            v-else-if="item.icon === 'nemassler'"
-                            class="text-4xl w-200px h-75px"
-                            src="/images/projects/nemassler.png"
-                        />
-                        <img
-                            v-else-if="item.icon === 'wenyan'"
-                            class="text-4xl w-120px h-75px"
-                            src="/images/projects/wenyan.png"
-                        />
-                        <img
-                            v-else-if="item.icon === 'g-shock'"
-                            class="text-4xl w-160px h-75px"
-                            src="/images/projects/g-shock-date-checker.jpg"
-                        />
-                        <img
-                            v-else-if="item.icon === 'picdiet'"
+                            v-if="item.icon === 'picdiet'"
                             class="text-4xl w-220px h-35px"
                             src="/images/projects/picdiet.png"
-                        />
-                        <img
-                            v-else-if="item.icon === 'neonheart'"
-                            class="text-4xl w-125px h-88px"
-                            src="/images/projects/neonheart.png"
                         />
                         <img
                             v-else-if="item.icon === 'github'"
@@ -117,29 +92,9 @@ function resetCardTilt(e: MouseEvent) {
                             src="/images/projects/vitepress-logo.png"
                         />
                         <img
-                            v-else-if="item.icon === 'utils'"
-                            class="text-4xl w-85px h-70px"
-                            src="/images/projects/vince-utils.png"
-                        />
-                        <img
-                            v-else-if="item.icon === 'music'"
-                            class="text-4xl w-80px h-75px"
-                            src="/images/projects/music.png"
-                        />
-                        <img
-                            v-else-if="item.icon === 'html2pdf'"
-                            class="text-4xl w-80px h-75px"
-                            src="/images/projects/html2pdf.jpg"
-                        />
-                        <img
                             v-else-if="item.icon === 'vizzy'"
                             class="text-4xl w-80px h-50px"
                             src="/images/projects/vizzy.png"
-                        />
-                        <img
-                            v-else-if="item.icon === 'aya'"
-                            class="text-4xl w-110px h-75px"
-                            src="/images/projects/aya.png"
                         />
                         <img
                             v-else-if="item.icon === 'slidev'"
@@ -147,58 +102,11 @@ function resetCardTilt(e: MouseEvent) {
                             src="/images/projects/slidev.png"
                         />
                         <img
-                            v-else-if="item.icon === 'jinx'"
-                            class="text-4xl w-100px h-50px"
-                            src="/images/projects/jinx.png"
-                        />
-                        <img
-                            v-else-if="item.icon === 'meguru'"
-                            class="text-4xl w-100px h-80px"
-                            src="/images/projects/meguru.jpg"
-                        />
-                        <img
-                            v-else-if="item.icon === 'napi'"
-                            class="text-4xl w-90px h-80px"
-                            src="/images/projects/napi.png"
-                        />
-                        <img
-                            v-else-if="item.icon === 'electron'"
-                            class="text-4xl w-90px h-80px"
-                            i-ion-logo-electron
-                        />
-                        <img
-                            v-else-if="item.icon === 'mayu'"
-                            class="text-4xl w-80px h-80px"
-                            src="/images/projects/mayu.png"
-                        />
-                        <img
-                            v-else-if="item.icon === 'license'"
-                            class="text-4xl w-100px h-60px"
-                            src="/images/projects/license.png"
-                        />
-                        <img
-                            v-else-if="item.icon === 'sakura'"
-                            class="text-4xl w-150px h-80px"
-                            src="/images/projects/sakura.png"
-                        />
-                        <img
-                            v-else-if="item.icon === 'ruri'"
-                            class="text-4xl w-90px h-80px"
-                            src="/images/projects/ruri.png"
-                        />
-                        <img
                             v-else-if="item.icon === 'estelle'"
                             src="/images/projects/estelle.png"
                             text-4xl
                             w-80px
                             h-80px
-                        />
-
-                        <!-- gif -->
-                        <img
-                            v-else-if="item.icon === 'yew'"
-                            class="text-4xl w-140px h-75px"
-                            src="/gifs/yew.gif"
                         />
 
                         <!-- ico -->
@@ -229,6 +137,11 @@ function resetCardTilt(e: MouseEvent) {
                             v-else-if="item.icon === 'nitro'"
                             class="w-80px h-55px"
                             src="/images/projects/nitro.svg"
+                        />
+                        <img
+                            v-else-if="item.icon === 'comfy'"
+                            class="w-80px h-55px"
+                            src="/images/projects/comfy.svg"
                         />
 
                         <!-- else -->
