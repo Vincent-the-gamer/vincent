@@ -463,7 +463,7 @@
     {
       "name": "DeepSeek-Dafeiyu",
       "paths": [
-        "https://cdn.jsdelivr.net/gh/Vincent-the-gamer/static@main/live2d/dafeiyu/index.json"
+        "https://fastly.jsdelivr.net/gh/Vincent-the-gamer/static@main/live2d/dafeiyu/index.json"
       ],
       "message": "我是DeepSeek小鲸鱼哦🐳～"
     },
