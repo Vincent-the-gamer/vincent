@@ -14,13 +14,13 @@ art: dots
 对于Node.js代码，我们使用`undici`这个库可以使得代码中的方法在发起网络请求时，可以通过我们本地的代理端口。
 
 ```ts
-import { setGlobalDispatcher, ProxyAgent } from "undici"
+import { ProxyAgent, setGlobalDispatcher } from 'undici'
 
-const proxyHost = "127.0.0.1"
+const proxyHost = '127.0.0.1'
 const proxyPort = 7890
 
 const dispatcher = new ProxyAgent({
-   uri: new URL(`http://${proxyHost}:${proxyPort}`).toString()
+  uri: new URL(`http://${proxyHost}:${proxyPort}`).toString()
 })
 setGlobalDispatcher(dispatcher)
 ```

@@ -13,3 +13,4 @@ drafts
 public/og
 *.log
 public/assets/fonts
+.tmp

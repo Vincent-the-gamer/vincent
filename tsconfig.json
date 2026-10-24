@@ -7,16 +7,16 @@
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "paths": {
-      "~/*": ["src/*"],
+      "~/*": ["src/*"]
     },
-    "allowImportingTsExtensions": true,
-    "noEmit": true,
     "resolveJsonModule": true,
     "types": ["vite/client"],
+    "allowImportingTsExtensions": true,
     "strict": true,
+    "noEmit": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true,
+    "skipLibCheck": true
   },
-  "exclude": ["dist", "node_modules"],
+  "exclude": ["dist", "node_modules"]
 }

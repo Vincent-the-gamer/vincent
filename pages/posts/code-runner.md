@@ -19,13 +19,13 @@ art: dots
 **将编译后的JS写入一个`.js`后缀的文件，然后使用node的`exec`函数运行文件，即可获得stdout的文本。** 这个方法的灵感来源于[glot.io](https://glot.io/)这个在线运行代码的网站。通过对网站核心模块代码(开源，可以在[这里](https://github.com/glotcode)找到)的观察，发现也是通过文件的方式拿到输出流文本的。
 
 ```ts
-import { exec } from "node:child_process";
-import fs from "node:fs";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
+import { exec } from 'node:child_process'
+import fs from 'node:fs'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 // 这里是为了扩展做准备
 export enum Language {
@@ -38,20 +38,22 @@ export function run(lang: Language, code: string): Promise<string> {
       return new Promise((resolve, reject) => {
         fs.writeFile(`${__dirname}/main.js`, code, (err) => {
           // [!code hl]
-          if (err) reject("Write file error!");
+          if (err)
+            reject('Write file error!')
 
           exec(`node ${__dirname}/main.js`, (err, stdout, stderr) => {
             // [!code hl]
             if (err) {
-              reject({ stdout, stderr });
-            } else {
-              resolve({ stdout, stderr });
+              reject({ stdout, stderr })
             }
-          });
-        });
-      });
+            else {
+              resolve({ stdout, stderr })
+            }
+          })
+        })
+      })
     default:
-      break;
+      break
   }
 }
 ```

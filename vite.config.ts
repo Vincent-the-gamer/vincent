@@ -9,6 +9,7 @@ import matter from 'gray-matter'
 import anchor from 'markdown-it-anchor'
 import GitHubAlerts from 'markdown-it-github-alerts'
 import LinkAttributes from 'markdown-it-link-attributes'
+import MarkdownItMagicLink from 'markdown-it-magic-link'
 // @ts-expect-error missing types
 import TOC from 'markdown-it-table-of-contents'
 import sharp from 'sharp'
@@ -25,7 +26,6 @@ import Exclude from 'vite-plugin-optimize-exclude'
 import Pages from 'vite-plugin-pages'
 import SVG from 'vite-svg-loader'
 import { slugify } from './scripts/slugify.ts'
-import MarkdownItMagicLink from 'markdown-it-magic-link'
 
 const promises: Promise<any>[] = []
 
@@ -201,11 +201,11 @@ export default defineConfig({
         md.use(GitHubAlerts)
         md.use(MarkdownItMagicLink, {
           linksMap: {
-            'TypeScript': 'https://www.typescriptlang.org/',
-            'Java': 'https://www.java.com/zh-CN/',
-            'Python': 'https://www.python.org/',
-            'GitHub': { link: 'https://github.com/Vincent-the-gamer', imageUrl: 'https://github.com/github.png'},
-            'Rust': 'https://www.rust-lang.org/zh-CN'
+            TypeScript: 'https://www.typescriptlang.org/',
+            Java: 'https://www.java.com/zh-CN/',
+            Python: 'https://www.python.org/',
+            GitHub: { link: 'https://github.com/Vincent-the-gamer', imageUrl: 'https://github.com/github.png' },
+            Rust: 'https://www.rust-lang.org/zh-CN',
           },
         })
       },

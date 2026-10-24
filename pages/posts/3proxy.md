@@ -21,7 +21,7 @@ art: dots
 ```
 # 设置超时时间
 timeouts 1 5 30 60 180 1800 15 60
- 
+
 # 在windows上作为服务启动
 service
 
@@ -44,12 +44,14 @@ socks -p11080
 ```
 
 最后启动：
+
 ```shell
 # 指定配置文件启动，默认取同级目录的
 3proxy 3proxy.cfg
 ```
 
 如果想注册为windows服务：
+
 ```shell
 # 使用配置文件注册服务
 3proxy.exe --install 3proxy.cfg
@@ -86,7 +88,7 @@ proxy-groups:
       - vpn-socks5-server
       - vpn-ssh
 # 代理规则配置，自己研究去（
-rules: 
+rules:
   - DOMAIN-SUFFIX,xxx.com,MyProxies
   - IP-CIDR,188.88.0.0/16,MyProxies
   ...

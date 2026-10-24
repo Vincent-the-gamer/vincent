@@ -207,11 +207,11 @@ agent-browser get url
 
 **实测数据。** 有开发者拿三个复杂度递增的任务，在同一台机器上背靠背对比了 agent-browser + CDP 和 Claude in Chrome：
 
-| 任务 | agent-browser | Claude in Chrome | 加速比 |
-| --- | --- | --- | --- |
-| 数据提取（HN Top 10） | 28s | 50s | 1.8x |
-| 表单登录（填写 + 点击） | 28s | 50s | 1.8x |
-| x.com 发帖 + 删帖 | 2m19s | 3m04s | 1.3x |
+| 任务                    | agent-browser | Claude in Chrome | 加速比 |
+| ----------------------- | ------------- | ---------------- | ------ |
+| 数据提取（HN Top 10）   | 28s           | 50s              | 1.8x   |
+| 表单登录（填写 + 点击） | 28s           | 50s              | 1.8x   |
+| x.com 发帖 + 删帖       | 2m19s         | 3m04s            | 1.3x   |
 
 为什么更快？三个原因：
 
@@ -221,12 +221,12 @@ agent-browser get url
 
 真正的差异还不止速度：
 
-| 指标 | agent-browser（Skill） | Claude in Chrome（MCP） |
-| --- | --- | --- |
-| 速度 | 快 1.3x–1.8x | 基线 |
-| 空闲 Token 开销 | ~586 Token（按需加载） | ~5,600 Token（每轮都加载） |
-| 适用 Agent | 任何 AI Agent（Claude Code、Codex、Cursor……） | 仅限 Claude |
-| 网站访问 | 任何你能打开的网站 | 部分网站在自动化模式下受限 |
+| 指标            | agent-browser（Skill）                        | Claude in Chrome（MCP）    |
+| --------------- | --------------------------------------------- | -------------------------- |
+| 速度            | 快 1.3x–1.8x                                  | 基线                       |
+| 空闲 Token 开销 | ~586 Token（按需加载）                        | ~5,600 Token（每轮都加载） |
+| 适用 Agent      | 任何 AI Agent（Claude Code、Codex、Cursor……） | 仅限 Claude                |
+| 网站访问        | 任何你能打开的网站                            | 部分网站在自动化模式下受限 |
 
 **实战：带登录态直接调鉴权 API。** 连上真实 Chrome 最大的红利是——`eval` 里的 `fetch` 会自动带上你的 Cookie。比如同步券商自选股：
 

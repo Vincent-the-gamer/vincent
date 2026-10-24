@@ -11,30 +11,30 @@
 </script>
 
 <template>
-    <div
-        fixed
-        inset-0
-        pointer-events-none
-        class="print:hidden"
-        style="z-index: -1"
-        aria-hidden="true"
-    >
-        <DotField
-            :dot-radius="1"
-            :dot-spacing="9"
-            :bulge-strength="67"
-            :cursor-radius="500"
-            :cursor-force="0.1"
-            :glow-radius="160"
-            :sparkle="true"
-            :wave-amplitude="0"
-            bulge-only
-            gradient-from="#7cff67"
-            gradient-to="#A0FFBC"
-            glow-color="#00ff9e"
-            gradient-from-light="#15803d"
-            gradient-to-light="#22c55e"
-            glow-color-light="#00ff9e"
-        />
-    </div>
+  <div
+    fixed
+    inset-0
+    pointer-events-none
+    class="print:hidden"
+    style="z-index: -1"
+    aria-hidden="true"
+  >
+    <DotField
+      :dot-radius="1"
+      :dot-spacing="9"
+      :bulge-strength="67"
+      :cursor-radius="500"
+      :cursor-force="0.1"
+      :glow-radius="160"
+      :sparkle="true"
+      :wave-amplitude="0"
+      bulge-only
+      gradient-from="#7cff67"
+      gradient-to="#A0FFBC"
+      glow-color="#00ff9e"
+      gradient-from-light="#15803d"
+      gradient-to-light="#22c55e"
+      glow-color-light="#00ff9e"
+    />
+  </div>
 </template>

@@ -4,49 +4,49 @@
 // The original ships a three.js wrapper (~600 kB) around a single fullscreen
 // fragment shader. We only need the shader, so this keeps the exact GLSL and
 // drives it with a plain WebGL context — no extra dependency.
-import { onBeforeUnmount, onMounted, useTemplateRef, watch } from "vue";
+import { onBeforeUnmount, onMounted, useTemplateRef, watch } from 'vue'
 
 interface ColorBendsProps {
-    rotation?: number;
-    speed?: number;
-    colors?: string[];
-    transparent?: boolean;
-    autoRotate?: number;
-    scale?: number;
-    frequency?: number;
-    warpStrength?: number;
-    mouseInfluence?: number;
-    parallax?: number;
-    noise?: number;
-    iterations?: number;
-    intensity?: number;
-    bandWidth?: number;
-    /** Strength (0..1) of a page-background veil fading down from the top. */
-    fadeTop?: number;
-    /** Freeze the animation (used for `prefers-reduced-motion`). */
-    paused?: boolean;
+  rotation?: number
+  speed?: number
+  colors?: string[]
+  transparent?: boolean
+  autoRotate?: number
+  scale?: number
+  frequency?: number
+  warpStrength?: number
+  mouseInfluence?: number
+  parallax?: number
+  noise?: number
+  iterations?: number
+  intensity?: number
+  bandWidth?: number
+  /** Strength (0..1) of a page-background veil fading down from the top. */
+  fadeTop?: number
+  /** Freeze the animation (used for `prefers-reduced-motion`). */
+  paused?: boolean
 }
 
 const props = withDefaults(defineProps<ColorBendsProps>(), {
-    rotation: 90,
-    speed: 0.2,
-    colors: () => [],
-    transparent: true,
-    autoRotate: 0,
-    scale: 1,
-    frequency: 1,
-    warpStrength: 1,
-    mouseInfluence: 1,
-    parallax: 0.5,
-    noise: 0.15,
-    iterations: 1,
-    intensity: 1.5,
-    bandWidth: 6,
-    fadeTop: 0,
-    paused: false,
-});
+  rotation: 90,
+  speed: 0.2,
+  colors: () => [],
+  transparent: true,
+  autoRotate: 0,
+  scale: 1,
+  frequency: 1,
+  warpStrength: 1,
+  mouseInfluence: 1,
+  parallax: 0.5,
+  noise: 0.15,
+  iterations: 1,
+  intensity: 1.5,
+  bandWidth: 6,
+  fadeTop: 0,
+  paused: false,
+})
 
-const MAX_COLORS = 8;
+const MAX_COLORS = 8
 
 const VERT = `
 precision highp float;
@@ -56,7 +56,7 @@ void main() {
   vUv = position * 0.5 + 0.5;
   gl_Position = vec4(position, 0.0, 1.0);
 }
-`;
+`
 
 const FRAG = `
 precision highp float;
@@ -152,342 +152,350 @@ void main() {
   vec3 rgb = (uTransparent > 0) ? col * a : col;
   gl_FragColor = vec4(rgb, a);
 }
-`;
+`
 
 interface Uniforms {
-    uCanvas: WebGLUniformLocation | null;
-    uTime: WebGLUniformLocation | null;
-    uSpeed: WebGLUniformLocation | null;
-    uRot: WebGLUniformLocation | null;
-    uColorCount: WebGLUniformLocation | null;
-    uColors: WebGLUniformLocation | null;
-    uTransparent: WebGLUniformLocation | null;
-    uScale: WebGLUniformLocation | null;
-    uFrequency: WebGLUniformLocation | null;
-    uWarpStrength: WebGLUniformLocation | null;
-    uPointer: WebGLUniformLocation | null;
-    uMouseInfluence: WebGLUniformLocation | null;
-    uParallax: WebGLUniformLocation | null;
-    uNoise: WebGLUniformLocation | null;
-    uIterations: WebGLUniformLocation | null;
-    uIntensity: WebGLUniformLocation | null;
-    uBandWidth: WebGLUniformLocation | null;
+  uCanvas: WebGLUniformLocation | null
+  uTime: WebGLUniformLocation | null
+  uSpeed: WebGLUniformLocation | null
+  uRot: WebGLUniformLocation | null
+  uColorCount: WebGLUniformLocation | null
+  uColors: WebGLUniformLocation | null
+  uTransparent: WebGLUniformLocation | null
+  uScale: WebGLUniformLocation | null
+  uFrequency: WebGLUniformLocation | null
+  uWarpStrength: WebGLUniformLocation | null
+  uPointer: WebGLUniformLocation | null
+  uMouseInfluence: WebGLUniformLocation | null
+  uParallax: WebGLUniformLocation | null
+  uNoise: WebGLUniformLocation | null
+  uIterations: WebGLUniformLocation | null
+  uIntensity: WebGLUniformLocation | null
+  uBandWidth: WebGLUniformLocation | null
 }
 
-const containerRef = useTemplateRef<HTMLDivElement>("containerRef");
+const containerRef = useTemplateRef<HTMLDivElement>('containerRef')
 
-let gl: WebGLRenderingContext | null = null;
-let program: WebGLProgram | null = null;
-let uniforms: Uniforms | null = null;
-let colorData = new Float32Array(MAX_COLORS * 3);
-let colorCount = 0;
-let rafId = 0;
-let startTime = 0;
-let lastFrame = 0;
-let resizeObserver: ResizeObserver | null = null;
+let gl: WebGLRenderingContext | null = null
+let program: WebGLProgram | null = null
+let uniforms: Uniforms | null = null
+let colorData = new Float32Array(MAX_COLORS * 3)
+let colorCount = 0
+let rafId = 0
+let startTime = 0
+let lastFrame = 0
+let resizeObserver: ResizeObserver | null = null
 
-const pointerTarget = { x: 0, y: 0 };
-const pointerCurrent = { x: 0, y: 0 };
+const pointerTarget = { x: 0, y: 0 }
+const pointerCurrent = { x: 0, y: 0 }
 
 function hexToRgb(hex: string): [number, number, number] {
-    const h = hex.replace("#", "").trim();
-    const v =
-        h.length === 3
-            ? [
-                  parseInt(h[0] + h[0], 16),
-                  parseInt(h[1] + h[1], 16),
-                  parseInt(h[2] + h[2], 16),
-              ]
-            : [
-                  parseInt(h.slice(0, 2), 16),
-                  parseInt(h.slice(2, 4), 16),
-                  parseInt(h.slice(4, 6), 16),
-              ];
-    return [v[0] / 255, v[1] / 255, v[2] / 255];
+  const h = hex.replace('#', '').trim()
+  const v
+    = h.length === 3
+      ? [
+          parseInt(h[0] + h[0], 16),
+          parseInt(h[1] + h[1], 16),
+          parseInt(h[2] + h[2], 16),
+        ]
+      : [
+          parseInt(h.slice(0, 2), 16),
+          parseInt(h.slice(2, 4), 16),
+          parseInt(h.slice(4, 6), 16),
+        ]
+  return [v[0] / 255, v[1] / 255, v[2] / 255]
 }
 
 function writeColors() {
-    colorData = new Float32Array(MAX_COLORS * 3);
-    const list = (props.colors || []).filter(Boolean).slice(0, MAX_COLORS);
-    list.forEach((hex, i) => {
-        const [r, g, b] = hexToRgb(hex);
-        colorData[i * 3] = r;
-        colorData[i * 3 + 1] = g;
-        colorData[i * 3 + 2] = b;
-    });
-    colorCount = list.length;
+  colorData = new Float32Array(MAX_COLORS * 3)
+  const list = (props.colors || []).filter(Boolean).slice(0, MAX_COLORS)
+  list.forEach((hex, i) => {
+    const [r, g, b] = hexToRgb(hex)
+    colorData[i * 3] = r
+    colorData[i * 3 + 1] = g
+    colorData[i * 3 + 2] = b
+  })
+  colorCount = list.length
 }
 
 function applyUniforms() {
-    if (!gl || !uniforms) return;
-    gl.uniform2f(
-        uniforms.uCanvas,
-        gl.drawingBufferWidth,
-        gl.drawingBufferHeight,
-    );
-    gl.uniform1f(uniforms.uSpeed, props.speed);
-    gl.uniform1f(uniforms.uScale, props.scale);
-    gl.uniform1f(uniforms.uFrequency, props.frequency);
-    gl.uniform1f(uniforms.uWarpStrength, props.warpStrength);
-    gl.uniform1f(uniforms.uMouseInfluence, props.mouseInfluence);
-    gl.uniform1f(uniforms.uParallax, props.parallax);
-    gl.uniform1f(uniforms.uNoise, props.noise);
-    gl.uniform1i(uniforms.uIterations, props.iterations);
-    gl.uniform1f(uniforms.uIntensity, props.intensity);
-    gl.uniform1f(uniforms.uBandWidth, props.bandWidth);
-    gl.uniform1i(uniforms.uTransparent, props.transparent ? 1 : 0);
-    gl.uniform1i(uniforms.uColorCount, colorCount);
-    gl.uniform3fv(uniforms.uColors, colorData);
+  if (!gl || !uniforms)
+    return
+  gl.uniform2f(
+    uniforms.uCanvas,
+    gl.drawingBufferWidth,
+    gl.drawingBufferHeight,
+  )
+  gl.uniform1f(uniforms.uSpeed, props.speed)
+  gl.uniform1f(uniforms.uScale, props.scale)
+  gl.uniform1f(uniforms.uFrequency, props.frequency)
+  gl.uniform1f(uniforms.uWarpStrength, props.warpStrength)
+  gl.uniform1f(uniforms.uMouseInfluence, props.mouseInfluence)
+  gl.uniform1f(uniforms.uParallax, props.parallax)
+  gl.uniform1f(uniforms.uNoise, props.noise)
+  gl.uniform1i(uniforms.uIterations, props.iterations)
+  gl.uniform1f(uniforms.uIntensity, props.intensity)
+  gl.uniform1f(uniforms.uBandWidth, props.bandWidth)
+  gl.uniform1i(uniforms.uTransparent, props.transparent ? 1 : 0)
+  gl.uniform1i(uniforms.uColorCount, colorCount)
+  gl.uniform3fv(uniforms.uColors, colorData)
 }
 
 function resize() {
-    const container = containerRef.value;
-    const canvas = gl?.canvas as HTMLCanvasElement | undefined;
-    if (!container || !gl || !canvas) return;
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const w = container.clientWidth || 1;
-    const h = container.clientHeight || 1;
-    canvas.width = Math.round(w * dpr);
-    canvas.height = Math.round(h * dpr);
-    canvas.style.width = "100%";
-    canvas.style.height = "100%";
-    gl.viewport(0, 0, canvas.width, canvas.height);
-    if (uniforms) {
-        gl.uniform2f(uniforms.uCanvas, canvas.width, canvas.height);
-    }
+  const container = containerRef.value
+  const canvas = gl?.canvas as HTMLCanvasElement | undefined
+  if (!container || !gl || !canvas)
+    return
+  const dpr = Math.min(window.devicePixelRatio || 1, 2)
+  const w = container.clientWidth || 1
+  const h = container.clientHeight || 1
+  canvas.width = Math.round(w * dpr)
+  canvas.height = Math.round(h * dpr)
+  canvas.style.width = '100%'
+  canvas.style.height = '100%'
+  gl.viewport(0, 0, canvas.width, canvas.height)
+  if (uniforms) {
+    gl.uniform2f(uniforms.uCanvas, canvas.width, canvas.height)
+  }
 }
 
 function renderFrame() {
-    if (!gl || !uniforms || !program) return;
-    const now = performance.now();
-    if (!startTime) startTime = now;
-    const elapsed = (now - startTime) / 1000;
-    const dt = Math.min((now - lastFrame) / 1000, 0.1);
-    lastFrame = now;
+  if (!gl || !uniforms || !program)
+    return
+  const now = performance.now()
+  if (!startTime)
+    startTime = now
+  const elapsed = (now - startTime) / 1000
+  const dt = Math.min((now - lastFrame) / 1000, 0.1)
+  lastFrame = now
 
-    gl.uniform1f(uniforms.uTime, elapsed);
+  gl.uniform1f(uniforms.uTime, elapsed)
 
-    const deg = (props.rotation % 360) + props.autoRotate * elapsed;
-    const rad = (deg * Math.PI) / 180;
-    gl.uniform2f(uniforms.uRot, Math.cos(rad), Math.sin(rad));
+  const deg = (props.rotation % 360) + props.autoRotate * elapsed
+  const rad = (deg * Math.PI) / 180
+  gl.uniform2f(uniforms.uRot, Math.cos(rad), Math.sin(rad))
 
-    const amt = Math.min(1, dt * 8);
-    pointerCurrent.x += (pointerTarget.x - pointerCurrent.x) * amt;
-    pointerCurrent.y += (pointerTarget.y - pointerCurrent.y) * amt;
-    gl.uniform2f(uniforms.uPointer, pointerCurrent.x, pointerCurrent.y);
+  const amt = Math.min(1, dt * 8)
+  pointerCurrent.x += (pointerTarget.x - pointerCurrent.x) * amt
+  pointerCurrent.y += (pointerTarget.y - pointerCurrent.y) * amt
+  gl.uniform2f(uniforms.uPointer, pointerCurrent.x, pointerCurrent.y)
 
-    gl.clearColor(0, 0, 0, 0);
-    gl.clear(gl.COLOR_BUFFER_BIT);
-    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+  gl.clearColor(0, 0, 0, 0)
+  gl.clear(gl.COLOR_BUFFER_BIT)
+  gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
 }
 
 function loop() {
-    renderFrame();
-    rafId = requestAnimationFrame(loop);
+  renderFrame()
+  rafId = requestAnimationFrame(loop)
 }
 
 function onPointerMove(e: PointerEvent) {
-    const container = containerRef.value;
-    if (!container) return;
-    const rect = container.getBoundingClientRect();
-    pointerTarget.x = ((e.clientX - rect.left) / (rect.width || 1)) * 2 - 1;
-    pointerTarget.y = -(((e.clientY - rect.top) / (rect.height || 1)) * 2 - 1);
+  const container = containerRef.value
+  if (!container)
+    return
+  const rect = container.getBoundingClientRect()
+  pointerTarget.x = ((e.clientX - rect.left) / (rect.width || 1)) * 2 - 1
+  pointerTarget.y = -(((e.clientY - rect.top) / (rect.height || 1)) * 2 - 1)
 }
 
 function compile(type: number, source: string) {
-    const shader = gl!.createShader(type)!;
-    gl!.shaderSource(shader, source);
-    gl!.compileShader(shader);
-    if (!gl!.getShaderParameter(shader, gl!.COMPILE_STATUS)) {
-        console.error(gl!.getShaderInfoLog(shader));
-        gl!.deleteShader(shader);
-        return null;
-    }
-    return shader;
+  const shader = gl!.createShader(type)!
+  gl!.shaderSource(shader, source)
+  gl!.compileShader(shader)
+  if (!gl!.getShaderParameter(shader, gl!.COMPILE_STATUS)) {
+    console.error(gl!.getShaderInfoLog(shader))
+    gl!.deleteShader(shader)
+    return null
+  }
+  return shader
 }
 
 function setup() {
-    const container = containerRef.value;
-    if (!container) return;
+  const container = containerRef.value
+  if (!container)
+    return
 
-    const canvas = document.createElement("canvas");
-    canvas.style.display = "block";
-    container.appendChild(canvas);
+  const canvas = document.createElement('canvas')
+  canvas.style.display = 'block'
+  container.appendChild(canvas)
 
-    gl = canvas.getContext("webgl", {
-        alpha: true,
-        antialias: false,
-        premultipliedAlpha: true,
-        powerPreference: "high-performance",
-    }) as WebGLRenderingContext | null;
-    if (!gl) {
-        container.removeChild(canvas);
-        return;
-    }
+  gl = canvas.getContext('webgl', {
+    alpha: true,
+    antialias: false,
+    premultipliedAlpha: true,
+    powerPreference: 'high-performance',
+  }) as WebGLRenderingContext | null
+  if (!gl) {
+    container.removeChild(canvas)
+    return
+  }
 
-    const vert = compile(gl.VERTEX_SHADER, VERT);
-    const frag = compile(gl.FRAGMENT_SHADER, FRAG);
-    if (!vert || !frag) return;
+  const vert = compile(gl.VERTEX_SHADER, VERT)
+  const frag = compile(gl.FRAGMENT_SHADER, FRAG)
+  if (!vert || !frag)
+    return
 
-    program = gl.createProgram()!;
-    gl.attachShader(program, vert);
-    gl.attachShader(program, frag);
-    gl.linkProgram(program);
-    gl.deleteShader(vert);
-    gl.deleteShader(frag);
-    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-        console.error(gl.getProgramInfoLog(program));
-        return;
-    }
-    gl.useProgram(program);
+  program = gl.createProgram()!
+  gl.attachShader(program, vert)
+  gl.attachShader(program, frag)
+  gl.linkProgram(program)
+  gl.deleteShader(vert)
+  gl.deleteShader(frag)
+  if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+    console.error(gl.getProgramInfoLog(program))
+    return
+  }
+  gl.useProgram(program)
 
-    const buffer = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
-    gl.bufferData(
-        gl.ARRAY_BUFFER,
-        new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]),
-        gl.STATIC_DRAW,
-    );
-    const positionLoc = gl.getAttribLocation(program, "position");
-    gl.enableVertexAttribArray(positionLoc);
-    gl.vertexAttribPointer(positionLoc, 2, gl.FLOAT, false, 0, 0);
+  const buffer = gl.createBuffer()
+  gl.bindBuffer(gl.ARRAY_BUFFER, buffer)
+  gl.bufferData(
+    gl.ARRAY_BUFFER,
+    new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]),
+    gl.STATIC_DRAW,
+  )
+  const positionLoc = gl.getAttribLocation(program, 'position')
+  gl.enableVertexAttribArray(positionLoc)
+  gl.vertexAttribPointer(positionLoc, 2, gl.FLOAT, false, 0, 0)
 
-    uniforms = {
-        uCanvas: gl.getUniformLocation(program, "uCanvas"),
-        uTime: gl.getUniformLocation(program, "uTime"),
-        uSpeed: gl.getUniformLocation(program, "uSpeed"),
-        uRot: gl.getUniformLocation(program, "uRot"),
-        uColorCount: gl.getUniformLocation(program, "uColorCount"),
-        uColors: gl.getUniformLocation(program, "uColors[0]"),
-        uTransparent: gl.getUniformLocation(program, "uTransparent"),
-        uScale: gl.getUniformLocation(program, "uScale"),
-        uFrequency: gl.getUniformLocation(program, "uFrequency"),
-        uWarpStrength: gl.getUniformLocation(program, "uWarpStrength"),
-        uPointer: gl.getUniformLocation(program, "uPointer"),
-        uMouseInfluence: gl.getUniformLocation(program, "uMouseInfluence"),
-        uParallax: gl.getUniformLocation(program, "uParallax"),
-        uNoise: gl.getUniformLocation(program, "uNoise"),
-        uIterations: gl.getUniformLocation(program, "uIterations"),
-        uIntensity: gl.getUniformLocation(program, "uIntensity"),
-        uBandWidth: gl.getUniformLocation(program, "uBandWidth"),
-    };
+  uniforms = {
+    uCanvas: gl.getUniformLocation(program, 'uCanvas'),
+    uTime: gl.getUniformLocation(program, 'uTime'),
+    uSpeed: gl.getUniformLocation(program, 'uSpeed'),
+    uRot: gl.getUniformLocation(program, 'uRot'),
+    uColorCount: gl.getUniformLocation(program, 'uColorCount'),
+    uColors: gl.getUniformLocation(program, 'uColors[0]'),
+    uTransparent: gl.getUniformLocation(program, 'uTransparent'),
+    uScale: gl.getUniformLocation(program, 'uScale'),
+    uFrequency: gl.getUniformLocation(program, 'uFrequency'),
+    uWarpStrength: gl.getUniformLocation(program, 'uWarpStrength'),
+    uPointer: gl.getUniformLocation(program, 'uPointer'),
+    uMouseInfluence: gl.getUniformLocation(program, 'uMouseInfluence'),
+    uParallax: gl.getUniformLocation(program, 'uParallax'),
+    uNoise: gl.getUniformLocation(program, 'uNoise'),
+    uIterations: gl.getUniformLocation(program, 'uIterations'),
+    uIntensity: gl.getUniformLocation(program, 'uIntensity'),
+    uBandWidth: gl.getUniformLocation(program, 'uBandWidth'),
+  }
 
-    writeColors();
-    applyUniforms();
-    resize();
+  writeColors()
+  applyUniforms()
+  resize()
 
-    if ("ResizeObserver" in window) {
-        resizeObserver = new ResizeObserver(resize);
-        resizeObserver.observe(container);
-    } else {
-        useEventListener(window, "resize", resize);
-    }
+  if ('ResizeObserver' in window) {
+    resizeObserver = new ResizeObserver(resize)
+    resizeObserver.observe(container)
+  }
+  else {
+    useEventListener(window, 'resize', resize)
+  }
 
-    useEventListener(window, "pointermove", onPointerMove, { passive: true });
+  useEventListener(window, 'pointermove', onPointerMove, { passive: true })
 
-    if (props.paused) {
-        renderFrame();
-    } else {
-        rafId = requestAnimationFrame(loop);
-    }
+  if (props.paused) {
+    renderFrame()
+  }
+  else {
+    rafId = requestAnimationFrame(loop)
+  }
 }
 
 function teardown() {
-    cancelAnimationFrame(rafId);
-    rafId = 0;
-    resizeObserver?.disconnect();
-    resizeObserver = null;
-    if (gl) {
-        const ext = gl.getExtension("WEBGL_lose_context");
-        ext?.loseContext();
-    }
-    const container = containerRef.value;
-    const canvas = gl?.canvas as HTMLCanvasElement | undefined;
-    if (container && canvas && canvas.parentElement === container) {
-        container.removeChild(canvas);
-    }
-    gl = null;
-    program = null;
-    uniforms = null;
-    startTime = 0;
-    lastFrame = 0;
+  cancelAnimationFrame(rafId)
+  rafId = 0
+  resizeObserver?.disconnect()
+  resizeObserver = null
+  if (gl) {
+    const ext = gl.getExtension('WEBGL_lose_context')
+    ext?.loseContext()
+  }
+  const container = containerRef.value
+  const canvas = gl?.canvas as HTMLCanvasElement | undefined
+  if (container && canvas && canvas.parentElement === container) {
+    container.removeChild(canvas)
+  }
+  gl = null
+  program = null
+  uniforms = null
+  startTime = 0
+  lastFrame = 0
 }
 
-onMounted(() => setup());
-onBeforeUnmount(() => teardown());
+onMounted(() => setup())
+onBeforeUnmount(() => teardown())
 
 watch(
-    () => [props.paused, props.colors],
-    () => {
-        if (!gl) return;
-        writeColors();
-        applyUniforms();
-        cancelAnimationFrame(rafId);
-        if (props.paused) {
-            renderFrame();
-        } else {
-            startTime = 0;
-            lastFrame = 0;
-            rafId = requestAnimationFrame(loop);
-        }
-    },
-);
+  () => [props.paused, props.colors],
+  () => {
+    if (!gl)
+      return
+    writeColors()
+    applyUniforms()
+    cancelAnimationFrame(rafId)
+    if (props.paused) {
+      renderFrame()
+    }
+    else {
+      startTime = 0
+      lastFrame = 0
+      rafId = requestAnimationFrame(loop)
+    }
+  },
+)
 
 watch(
-    () => [
-        props.speed,
-        props.scale,
-        props.frequency,
-        props.warpStrength,
-        props.mouseInfluence,
-        props.parallax,
-        props.noise,
-        props.iterations,
-        props.intensity,
-        props.bandWidth,
-        props.transparent,
-        props.rotation,
-        props.autoRotate,
-    ],
-    () => {
-        applyUniforms();
-        if (props.paused) renderFrame();
-    },
-);
+  () => [
+    props.speed,
+    props.scale,
+    props.frequency,
+    props.warpStrength,
+    props.mouseInfluence,
+    props.parallax,
+    props.noise,
+    props.iterations,
+    props.intensity,
+    props.bandWidth,
+    props.transparent,
+    props.rotation,
+    props.autoRotate,
+  ],
+  () => {
+    applyUniforms()
+    if (props.paused)
+      renderFrame()
+  },
+)
 </script>
 
 <template>
-    <div ref="containerRef" class="color-bends">
-        <div
-            v-if="fadeTop > 0"
-            class="color-bends__fade"
-            :style="{ opacity: fadeTop }"
-        />
-    </div>
+  <div ref="containerRef" class="color-bends">
+    <div
+      v-if="fadeTop > 0"
+      class="color-bends__fade"
+      :style="{ opacity: fadeTop }"
+    />
+  </div>
 </template>
 
 <style scoped>
 .color-bends {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 /* Veil of the page background fading down from the top, so the header area
    stays legible over the shader. */
 .color-bends__fade {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-    height: 38%;
-    pointer-events: none;
-    background: linear-gradient(
-        to bottom,
-        var(--c-bg, #000) 0%,
-        transparent 100%
-    );
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  height: 38%;
+  pointer-events: none;
+  background: linear-gradient(to bottom, var(--c-bg, #000) 0%, transparent 100%);
 }
 </style>

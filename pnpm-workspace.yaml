@@ -1,13 +1,14 @@
-shellEmulator: true
+minimumReleaseAgeExcludePrune: true
+minimumReleaseAgeExclude:
+  - dayjs@1.11.21
 
 trustPolicy: no-downgrade
 trustPolicyExclude:
-  - "tinyexec"
+  - tinyexec
+
+shellEmulator: true
 
 allowBuilds:
   esbuild: false
   sharp: false
   vue-demi: false
-
-minimumReleaseAgeExclude:
-  - dayjs@1.11.21

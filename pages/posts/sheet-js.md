@@ -37,33 +37,33 @@ art: dots
 
 ```ts
 // 工作表名称集合
-var sheetNames = workbook.SheetNames;
+const sheetNames = workbook.SheetNames
 // 只读取第一张sheet
-var worksheet = workbook.Sheets[sheetNames[0]];
-//获取json格式的数据
-var parseJson = XLSX.utils.sheet_to_json(worksheet);
-var csvstr = XLSX.utils.sheet_to_csv(worksheet);
+const worksheet = workbook.Sheets[sheetNames[0]]
+// 获取json格式的数据
+const parseJson = XLSX.utils.sheet_to_json(worksheet)
+const csvstr = XLSX.utils.sheet_to_csv(worksheet)
 
-const parseCsvToJson = (csvStr) => {
+function parseCsvToJson(csvStr) {
   // 分割文本为行
-  const lines = csvStr.trim().split("\n");
-  //第一行是标题行（字段名）
-  const headers = lines.shift().split(",");
+  const lines = csvStr.trim().split('\n')
+  // 第一行是标题行（字段名）
+  const headers = lines.shift().split(',')
   const parsedData = lines.map((line) => {
     // 分割每行的数据
-    const values = line.trim().split(",");
+    const values = line.trim().split(',')
     // 创建一个对象来存储当前行的数据
-    const rowData = {};
+    const rowData = {}
     // 遍历字段名和字段值，并将它们对应起来
     values.forEach((value, index) => {
       // 使用字段名作为属性名，并去除空格
-      const key = headers[index].trim();
+      const key = headers[index].trim()
       // 存储值（在这里我们假设所有值都是字符串）
-      rowData[key] = value.trim();
-    });
+      rowData[key] = value.trim()
+    })
     // 返回当前行的数据对象
-    return rowData;
-  });
-  return parsedData;
-};
+    return rowData
+  })
+  return parsedData
+}
 ```

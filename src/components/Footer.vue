@@ -4,11 +4,10 @@ import config from '../../package.json'
 onMounted(() => {
   // 不蒜子 - 访问计数
   // @ts-expect-error missing types
-  import("busuanzi.pure.js").then((module) => {
+  import('busuanzi.pure.js').then((module) => {
     module.default.fetch()
   })
 })
-
 </script>
 
 <template>
@@ -18,7 +17,7 @@ onMounted(() => {
     </p>
     <div text-sm op50>
       <span id="busuanzi_container_site_pv">
-        本站总访问量：<span id="busuanzi_value_site_pv"/> 次
+        本站总访问量：<span id="busuanzi_value_site_pv" /> 次
       </span>
       <span> | </span>
       <span id="busuanzi_container_site_uv">

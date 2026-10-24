@@ -30,4 +30,3 @@ Krkr模拟器默认状态下有个白边，导致Galgame的底部菜单被挡住
 然后重启Krkr2模拟器即可，可以看到底部白边没了，菜单正常显示，也可以正常点击。
 
 ![zhengchang](/images/posts/galgame/zhengchang.jpg)
-

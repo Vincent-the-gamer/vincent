@@ -20,7 +20,7 @@ git update-git-for-windows
 PS C:\WINDOWS\system32> git update-git-for-windows
 Git for Windows 2.45.2.windows.1 (64-bit)
 Update 2.49.0.windows.1 is available
-curl: (43) A libcurl function was given a bad argument 
+curl: (43) A libcurl function was given a bad argument
 ```
 
 有[GitHub Issue](https://github.com/git-for-windows/git/issues/5083)提及了该问题，解决办法如下。

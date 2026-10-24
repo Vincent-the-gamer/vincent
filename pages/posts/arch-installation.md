@@ -84,11 +84,13 @@ certutil -hashfile 镜像文件.iso SHA256
 2020年，archlinux安装镜像中加入了`reflector`服务，它会自己更新`mirrorlist`（软件包管理器 pacman 的软件源）。在特定情况下，它会误删某些有用的源信息。这里进入安装环境后的第一件事就是将其禁用。也许它是一个好用的工具，但是很明显，因为地理上造成的特殊网络环境，这项服务并不适合启用。
 
 1. 禁用该服务
+
 ```shell
 systemctl stop reflector.service
 ```
 
 2. 查看该服务是否已经被禁用
+
 ```shell
 systemctl status reflector.service
 ```
@@ -96,6 +98,7 @@ systemctl status reflector.service
 ## 再次确认是否为UEFI模式
 
 命令：
+
 ```shell
 ls /sys/firmware/efi/efivars
 ```
@@ -110,9 +113,11 @@ ls /sys/firmware/efi/efivars
 ### 若使用无线网卡连接
 
 > [!WARNING] 注意
+>
 > 1. 家里Wi-fi名称最好别是中文，因为命令行连不了（
 > 2. 如果报错：Operation not possible due to RF-kill，请尝试：`rfkill unblock wifi`
 > 3. 如果你的 BIOS 没有开启无线网卡的开关：
+>
 > ```shell
 > rfkill list #查看无线连接 是否被禁用(blocked: yes)
 > ip link set wlan0 up # 如果无线网卡是叫wlan0
@@ -177,9 +182,11 @@ Server = http://mirror.lzu.edu.cn/archlinux/$repo/os/$arch # 兰州大学开源�
 使用`lsblk`查看当前分区情况，注意看清楚你的主硬盘符号！！！可以根据存储空间等信息来判断。
 
 ### 删除原来的硬盘分区
+
 如果您的硬盘之前有分过区，并且想要需要删除分区并且重新分区的话，可以通过: `fdisk /dev/sdX`(sdX是你的盘符)来重写分区表，进去以后连续运行`d`命令删除每个分区，然后使用`w`重写分区表，则可以得到未分区的完整储存空间
 
 ### 我的硬盘分区规划
+
 - `/boot`: EFI分区，`512MB`
 - Swap 分区: `9G` (我小主机内存16G，原则上应该取>=60%，9.6G，但我这里就向下取整了。。)
 - `/`: 根目录，使用剩下所有空间
@@ -189,11 +196,13 @@ Server = http://mirror.lzu.edu.cn/archlinux/$repo/os/$arch # 兰州大学开源�
 使用`cfdisk`命令对磁盘分区：
 
 对于SATA协议：
+
 ```shell
 cfdisk /dev/sdx # x是字母 a,b,c等
 ```
 
 对于NVME协议：
+
 ```shell
 cfdisk /dev/nvmexn1 # x是数字0, 1, 2等
 ```
@@ -217,7 +226,6 @@ cfdisk /dev/nvmexn1 # x是数字0, 1, 2等
 
 Swap分区类似，然后最后再创建主分区，注意主分区最后创建！！因为要使用剩下的所有空间！主分区就不用修改类型了，也就是保持`Linux filesystem`
 
-
 ## 挂载硬盘
 
 注意挂载是有顺序的，需要从根目录开始挂载。
@@ -225,6 +233,7 @@ Swap分区类似，然后最后再创建主分区，注意主分区最后创建�
 这里以SATA为例，NVME不再赘述。
 
 按照我之前的分区规划:
+
 - /dev/sda1作为EFI分区(/boot)
 - /dev/sda2作为Swap分区
 - /dev/sda3作为主分区
@@ -250,17 +259,20 @@ pacstrap /mnt base base-devel linux linux-firmware btrfs-progs
 ```
 
 如果提示GPG证书错误，可能是因为使用的不是最新的镜像文件，可以通过更新`archlinux-keyring`解决此问题:
+
 ```shell
 pacman -S archlinux-keyring
 ```
 
 此外，安装一些必要的功能性软件
+
 ```shell
 # 如果您喜欢zsh，不想用fish，安装zsh zsh-completions，当然，您也可以用bash。
 pacstrap /mnt networkmanager vim sudo fish
 ```
 
 ## 生成fstab文件
+
 `fstab`用来定义磁盘分区。它是Linux系统中重要的文件之一。使用`genfstab`自动根据当前挂载情况生成并写入fstab文件：
 
 ```shell
@@ -268,6 +280,7 @@ genfstab -U /mnt > /mnt/etc/fstab
 ```
 
 复查`/mnt/etc/fstab`确保没有错误：
+
 ```shell
 cat /mnt/etc/fstab
 ```
@@ -286,6 +299,7 @@ arch-chroot /mnt
 > 现在系统还没有安装完毕！！请勿重启！！
 
 ## 设置主机名与时区
+
 1. 首先在`/etc/hostname`设置主机名, 取一个自己喜欢的名字就好，比如：arch
 
 > [!TIP] 提示
@@ -296,6 +310,7 @@ vim /etc/hostname
 ```
 
 2. 配置hosts，在`/etc/hosts`设置与其匹配的条目：
+
 ```shell
 vim /etc/hosts
 ```
@@ -314,6 +329,7 @@ vim /etc/hosts
 3. 设置时区：
 
 列出所有时区：
+
 ```shell
 ls /usr/share/zoneinfo
 ```
@@ -325,6 +341,7 @@ ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 ```
 
 ## 硬件时间设置
+
 使用如下命令将系统时间同步到硬件时间：
 
 ```shell
@@ -332,6 +349,7 @@ hwclock --systohc
 ```
 
 ## 设置Locale
+
 `Locale`决定了软件使用的语言、书写习惯和字符集。
 
 1. 编辑`/etc/locale.gen`，去掉`en_US.UTF-8 UTF-8`以及`zh_CN.UTF-8 UTF-8`行前的注释符号（`#`）：
@@ -340,6 +358,7 @@ hwclock --systohc
 ![locale-2](/images/posts/arch-installation/locale-2.png)
 
 2. 生成locale
+
 ```shell
 locale-gen
 ```
@@ -354,6 +373,7 @@ echo 'LANG=en_US.UTF-8' > /etc/locale.conf
 ```
 
 ## 为root用户设置密码
+
 ```shell
 passwd root
 ```
@@ -372,6 +392,7 @@ pacman -S amd-ucode # AMD
 ## 安装引导程序
 
 1. 安装以下包：
+
 ```shell
 pacman -S grub efibootmgr
 ```
@@ -382,20 +403,24 @@ pacman -S grub efibootmgr
 此外，`os-prober`包可以用于引导其它操作系统，如果是安装多系统的可以安装
 
 2. 安装GRUB到EFI分区
+
 ```shell
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=ARCH
 ```
 
 说明：
+
 - --efi-directory=/boot —— 将 grubx64.efi 安装到之前的指定位置（EFI 分区）
 - --bootloader-id=ARCH —— 取名为 ARCH
 
 3.接下来使用 vim 编辑`/etc/default/grub`文件：
+
 ```shell
 vim /etc/default/grub
 ```
 
 进行如下修改：
+
 - 去掉`GRUB_CMDLINE_LINUX_DEFAULT`一行中最后的`quiet`参数
 - 把`loglevel`的数值从`3`改成`5`。这样是为了后续如果出现系统错误，方便排错
 - 加入`nowatchdog`参数，这可以显著提高开关机速度
@@ -405,6 +430,7 @@ PS: `nowatchdog`参数无法禁用英特尔的看门狗硬件，改为`modprobe.
 ![grub-config](/images/posts/arch-installation/grub-config.png)
 
 如果你安装了`os-prober`，则需要添加一行：`GRUB_DISABLE_OS_PROBER=false`
+
 ```shell
 # GRUB boot loader configuration
 
@@ -418,7 +444,9 @@ GRUB_DISABLE_OS_PROBER=false # 这里
 ```
 
 > [!TIP] 提示
+>
 > 1. 在某些主板安装完成后，你会发现没有启动条目。这是因为某些主板的 UEFI 固件在显示 UEFI NVRAM 引导条目之前，需要在特定的位置存放可引导文件，不支持自定义存放 efi 文件。解决方案是在默认启动路径下安装 GRUB。重新插入安装U盘，按原先顺序挂载目录（不需要再次创建文件夹了），chroot 到 /mnt，然后你可以重新用 --removable 安装grub2，如下命令所示。只有安装完成后你的主板不出现启动条目才需要尝试如下命令，正常安装无需执行。可以参考[ArchWiki](https://wiki.archlinuxcn.org/wiki/GRUB#%E7%BC%BA%E7%9C%81/%E5%90%8E%E5%A4%87%E5%90%AF%E5%8A%A8%E8%B7%AF%E5%BE%84)
+>
 > ```shell
 >   grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=ARCH --removable
 > ```
@@ -426,7 +454,9 @@ GRUB_DISABLE_OS_PROBER=false # 这里
 > 2.`os-prober`在chroot环境中可能无法正常运作。如果遇到这种情况，重启并引导进入系统后再次尝试生成配置文件。
 
 ## 完成安装
+
 输入：
+
 ```shell
 exit # 退回安装环境
 umount -R /mnt # 卸载新分区
@@ -443,18 +473,21 @@ reboot # 重启
 ![login](/images/posts/arch-installation/login.png)
 
 设置开机自动联网：
+
 ```shell
 systemctl enable --now NetworkManager # 设置开机自启并立即启动 NetworkManager 服务
 ping www.bilibili.com # 测试网络连接
 ```
 
 若为无线连接，则需要在启动`networkmanager`后使用`nmcli`连接网络：
+
 ```shell
 nmcli dev wifi list # 显示附近的 Wi-Fi 网络
 nmcli dev wifi connect "Wi-Fi名（SSID）" password "网络密码" # 连接指定的无线网络
 ```
 
 也可以用`nmtui`配置网络:
+
 ```shell
 nmtui
 ```
@@ -481,16 +514,19 @@ useradd -m -s "/bin/fish" "username"
 ```
 
 2. 给用户设置一个密码
+
 ```shell
 passwd username
 ```
 
 3. 把用户添加进`/etc/sudoers`的wheel组
+
 ```shell
 usermod -a -G wheel username
 ```
 
 4. 修改`/etc/sudoers`文件，找到这样一行：
+
 ```shell
 # %wheel ALL=(ALL) ALL
 ```
@@ -498,7 +534,9 @@ usermod -a -G wheel username
 将%wheel前面的#注释去掉即可
 
 ## 配置archlinuxcn
+
 这里使用清华的软件源，在`/etc/pacman.conf`末尾添加以下内容：
+
 ```toml
 [archlinuxcn]
 SigLevel = Optional TrustAll
@@ -506,11 +544,13 @@ Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
 ```
 
 设置在本地信任 farseerfc 的 GPG key：
+
 ```shell
 sudo pacman-key --lsign-key "farseerfc@archlinux.org"
 ```
 
 然后安装archlinuxcn密钥：
+
 ```shell
 sudo pacman -Sy archlinuxcn-keyring
 
@@ -521,6 +561,7 @@ sudo pacman -Syyu
 ## 安装yay (或者其它AUR助手)
 
 如果配置了archlinuxcn，就可以直接用pacman安装yay了。
+
 ```shell
 sudo pacman -Sy yay
 ```
@@ -539,12 +580,14 @@ sudo pacman -Sy yay
 # 安装Hyprland
 
 1. 安装基础Hyprland
+
 ```shell
 # waybar是系统状态栏，hyprpaper是用于设置壁纸的
 sudo pacman -S hyprland waybar hyprpaper
 ```
 
 然后我们通过运行以下命令，进入预览的图形界面，这一步非常重要，因为我们后续要安装一个懒人包，省去所有配置：
+
 ```shell
 Hyprland
 ```
@@ -554,6 +597,7 @@ Hyprland
 推荐的懒人包是：[dots-hyprland](https://github.com/end-4/dots-hyprland)
 
 当我们进入预览图形界面后，通过默认快捷键`Win + Q`打开`kitty`终端，然后输入dots-hyprland的安装命令：
+
 ```shell
 # 如果提示fish/zsh无法运行该命令，先把终端临时切到bash：先输入bash回车，然后再运行以下命令
 bash <(curl -s "https://end-4.github.io/dots-hyprland-wiki/setup.sh")
@@ -573,7 +617,9 @@ sudo systemctl enable --now sddm
 ```
 
 # 修改系统locale
+
 之前的locale还是英文，我们需要修改一下：
+
 ```shell
 sudo localectl set-locale LANG=zh_CN.utf8
 ```

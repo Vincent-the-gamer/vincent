@@ -7,14 +7,15 @@ art: dots
 
 > [!NOTE] 省流
 > 如果你懒得看这篇博客，我准备了两个模板项目，直接克隆到本地就可以使用：
+>
 > - 使用Rust开发Node.js模块：[neon-starter](https://github.com/Vincent-the-gamer/neon-starter), 基于Neon框架，用于编写一些小型模块，如果你需要编写大型项目，更推荐[napi-rs](https://github.com/napi-rs/napi-rs)
 > - 使用Rust开发浏览器可用的方法，基于WebAssembly技术：[rust-wasm-starter](https://github.com/Vincent-the-gamer/rust-wasm-starter)
 >
 > 推荐使用node的工具`degit`进行克隆，这样不会克隆.git目录，方便自己初始化新的git项目。
+>
 > ```shell
 > npx degit <仓库地址>
 > ```
-
 
 # 引言
 
@@ -34,7 +35,7 @@ art: dots
 
 ```rust
 use napi_derive::napi;
- 
+
 #[napi] // [!code hl]
 fn fibonacci(n: u32) -> u32 {
   match n {
@@ -57,17 +58,18 @@ use neon::{
 pub fn echo(mut cx: FunctionContext) -> JsResult<JsString> {
     // read the first param of function
     let get_str: String = cx.argument::<JsString>(0)?.value(&mut cx); // [!code hl]
-    let result: String = format!("Echoed text: {}", &get_str); 
+    let result: String = format!("Echoed text: {}", &get_str);
     Ok(cx.string(result)) // [!code hl]
 }
 ```
 
 #### 文档
+
 `Napi-rs`的文档较为详细, 而`Neon`的文档甚至感觉还不完善。
 
 #### TypeScript支持
-`Napi-rs`会自动生成TS类型声明文件`*.d.ts`，为TypeScript提供更好的支持，而`Neon`默认没有提供这样的功能。
 
+`Napi-rs`会自动生成TS类型声明文件`*.d.ts`，为TypeScript提供更好的支持，而`Neon`默认没有提供这样的功能。
 
 ### Neon比Napi-rs的工作空间更轻量化
 
@@ -76,17 +78,17 @@ pub fn echo(mut cx: FunctionContext) -> JsResult<JsString> {
 > [!TIP] 提示
 > 如果您更喜欢pnpm, `npm init` 命令可以用 `pnpm create` 命令代替。
 
-- Napi-rs项目的初始化: 
-    ```shell
-    npm i -g @napi-rs/cli
-    napi new
-    ```
+- Napi-rs项目的初始化:
+  ```shell
+  npm i -g @napi-rs/cli
+  napi new
+  ```
 - Neon项目的初始化:
-    ```shell
-    npm init neon <你的项目名称>
-    # 或者pnpm
-    pnpm create neon <你的项目名称>
-    ```
+  ```shell
+  npm init neon <你的项目名称>
+  # 或者pnpm
+  pnpm create neon <你的项目名称>
+  ```
 
 两者最主要的区别基本就这些，当然还有一些细小的区别可能我还没有探究出来。总之根据自己的实际情况，选择适合自己的框架即可。
 
@@ -101,7 +103,7 @@ _对于 Web 平台而言，WebAssembly 具有巨大的意义——它提供了�
 > [!IMPORTANT] 重要
 > 并不是所有函数都支持被打包到WASM，比如一些引入了第三方库的方法，举个🌰：使用`mysql` crate操作数据库的函数。~~(别问我怎么知道的)~~
 
-你可以在Rust项目中专门创建一个`wasm` crate，然后从其它crate中引入需要编译进WASM中的函数: 
+你可以在Rust项目中专门创建一个`wasm` crate，然后从其它crate中引入需要编译进WASM中的函数:
 
 ```rust
 use demo::add_two;
@@ -148,14 +150,14 @@ init().then((instance) => {
 ### 使用`wasm.js`作为入口
 
 ```ts
-import init, { add } from "xxx/output/wasm.js"
+import init, { add } from 'xxx/output/wasm.js'
 
 function addTwo() {
-    const content = document.getElementById("content")
-    const left = document.getElementById("left").value
-    const right = document.getElementById("right").value
-    const result = add(left, right)
-    content.innerText = result
+  const content = document.getElementById('content')
+  const left = document.getElementById('left').value
+  const right = document.getElementById('right').value
+  const result = add(left, right)
+  content.innerText = result
 }
 
 init().then()
@@ -171,14 +173,14 @@ init().then()
 > 对于旧版浏览器不支持顶层await的，需要安装`vite-plugin-top-level-await`
 
 ```ts
+import topLevelAwait from 'vite-plugin-top-level-await'
 // vite.config.ts
-import wasm from "vite-plugin-wasm";
-import topLevelAwait from "vite-plugin-top-level-await";
+import wasm from 'vite-plugin-wasm'
 
 export default defineConfig({
   plugins: [
     wasm(),
     topLevelAwait()
   ]
-});
+})
 ```

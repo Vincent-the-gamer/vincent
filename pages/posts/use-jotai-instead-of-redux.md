@@ -21,6 +21,7 @@ art: dots
 
   ```typescript
   import { defineStore } from 'pinia'
+
   export const use啥啥啥store = defineStore('storeId', {
     state: () => {
       return {
@@ -44,6 +45,7 @@ art: dots
 
   ```typescript
   import { use啥啥啥store } from '你的路径'
+
   const 啥啥啥store = use啥啥啥store()
 
   // 使用函数和属性

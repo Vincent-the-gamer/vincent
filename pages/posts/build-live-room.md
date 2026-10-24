@@ -30,33 +30,33 @@ chmod +x /path_to/xiu
 比如我的配置文件`xiu.conf`如下：
 
 ```toml
-##########################
+# #########################
 #   RTMP configurations  #
-##########################
+# #########################
 [rtmp]
-enabled = true #打开或者关闭RTMP媒体协议
-port = 1935 #指定RTMP协议监听端口
-gop_num = 0 #指定缓存GOP数量，用于秒开（会增加延迟）
+enabled = true # 打开或者关闭RTMP媒体协议
+port = 1935 # 指定RTMP协议监听端口
+gop_num = 0 # 指定缓存GOP数量，用于秒开（会增加延迟）
 
-[rtmp.auth] 
+[rtmp.auth]
 pull_enabled = true # 是否开启拉流鉴权
-push_enabled = true  # 是否开启推流鉴权
-algorithm = "simple" #设置鉴权方式 支持简单鉴权和MD5鉴权(分别填simple或者md5)
+push_enabled = true # 是否开启推流鉴权
+algorithm = "simple" # 设置鉴权方式 支持简单鉴权和MD5鉴权(分别填simple或者md5)
 
-##########################
+# #########################
 #    HLS configurations  #
-##########################
+# #########################
 [hls]
-enabled = true  #打开或者关闭RTSP媒体协议
-port = 2000  #指定协议监听端口
-need_record = false #是否打开HLS录制
+enabled = true # 打开或者关闭RTSP媒体协议
+port = 2000 # 指定协议监听端口
+need_record = false # 是否打开HLS录制
 
-[hls.auth] 
-pull_enabled = true #是否开启拉流鉴权
-algorithm = "simple" #设置鉴权方式 支持简单鉴权和MD5鉴权(分别填simple或者md5)
+[hls.auth]
+pull_enabled = true # 是否开启拉流鉴权
+algorithm = "simple" # 设置鉴权方式 支持简单鉴权和MD5鉴权(分别填simple或者md5)
 
 [authsecret]
-# used for md5 authentication.  
+# used for md5 authentication.
 key = "good"
 # used for simple authentication
 password = "well"
@@ -82,11 +82,13 @@ password = "well"
 - 拉流地址(HLS)：http://IP:2000/{app_name}/{stream_name}/{stream_name}.m3u8?token=well
 
 其中：
+
 1. 推流地址使用`rtmp`协议，端口为你配置的`rtmp端口`，后面的app_name和stream_name可以自定义，分别为app名称和流名称。
-token为你配置的鉴权参数，根据文档，鉴权方式有`md5`和`simple`，我这里使用`simple`，鉴权方式就是直接传token参数，值为你的配置（如果你配置了推流鉴权，未配置则不需要传token参数）。
+   token为你配置的鉴权参数，根据文档，鉴权方式有`md5`和`simple`，我这里使用`simple`，鉴权方式就是直接传token参数，值为你的配置（如果你配置了推流鉴权，未配置则不需要传token参数）。
 2. 拉流地址使用`http`协议，实则为HLS服务，端口为你配置的`HLS端口`, 注意，**此处的`app_name`和`stream_name`必须与您的推流地址相同！！**，然后鉴权token也需要一致（如果你配置了拉流鉴权，未配置则不需要传token参数）。
 
 ## 直播间前端搭建
+
 最后，您需要一个直播间前端，只需要把直播间放在网页或是其它你喜欢的地方即可，通过一些现成工具即可播放实时HLS的m3u8流。
 
 注意，如果你是**局域网搭建，且使用浏览器网页**的情况，由于xiu后端没有处理跨域问题，需要借助nginx做反向代理让把m3u8流的端口代理到网页部署的端口。

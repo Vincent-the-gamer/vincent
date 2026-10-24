@@ -220,11 +220,11 @@ Skills 是预定义的、可复用的**能力模块**。如果把 Tool Call 比�
 ```yaml
 # 一个 Skill 定义的示意结构
 skill:
-  name: "code-reviewer"
-  description: "对代码进行专业审查，输出改进建议"
+  name: code-reviewer
+  description: 对代码进行专业审查，输出改进建议
   triggers: # 触发条件
-    - "帮我审查这段代码"
-    - "review this code"
+    - 帮我审查这段代码
+    - review this code
 
   system_prompt: | # 注入到 System Prompt 的行为指令
     你是一个资深代码审查专家。审查时请关注：

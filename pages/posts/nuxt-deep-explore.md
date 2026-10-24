@@ -49,7 +49,6 @@ nuxt.config.ts  Nuxt配置文件
 
 随着你需求的变化，可能会有更多目录，比如你希望集成项目文档，使用Markdown渲染，那么一般使用`@nuxt/content`来集成到Nuxt项目中，此时Nuxt就会自动读取根目录下的content文件夹下的markdown文件进行渲染。
 
-
 # 改造基础项目
 
 ## 配置文件
@@ -66,7 +65,7 @@ export default defineNuxtConfig({
   plugins: [
     '~/plugins/node-client', // 配合clientNodeCompat的插件，将Buffer，process等挂载到globalThis，下面会给出这个plugin的内容
   ],
-  app: {  // Nuxt 3开发项目中没有index.html，所以关于页面的配置在这里进行，如head等
+  app: { // Nuxt 3开发项目中没有index.html，所以关于页面的配置在这里进行，如head等
     head: {
       title: 'Mayu',
       viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
@@ -112,7 +111,6 @@ export default defineNuxtPlugin({})
 server文件夹是服务端的内容，使用方法与Nitro基本一致，API接口放在`server/api`文件夹下。需要注意的是默认不支持跨域请求，需要配置一下。
 
 这里使用`server/middleware`文件夹，Nuxt会读取这个文件夹的`.ts`文件作为服务端中间件，在每个请求发起前，进行读取headers，记录日志等操作。
-
 
 如果你需要使用中间件允许请求跨域，可以创建`server/middleware/cors.ts`:
 
@@ -168,6 +166,7 @@ export default defineNitroErrorHandler((error, event) => {
 由于Nuxt的SSR特性，你日常在Vue中使用的工具可能不能直接使用，需要安装**适配Nuxt的版本**，可以在[这里](https://nuxt.com.cn/modules)搜索，例如：
 
 `nuxt.config.ts`中：
+
 ```ts
 modules: [
     '@unocss/nuxt', // 适配Nuxt的UnoCSS
@@ -188,6 +187,7 @@ pnpm run build --preset netlify   # 为netlify构建，通常不用手动执行�
 针对不同环境，我们可能需要返回服务端的静态文件，此时需要获取服务端的url，所以我们需要对环境进行区分。
 
 这里和Nitro服务端配置方式完全相同，通过`nuxt.config.ts`添加配置：
+
 ```ts
 runtimeConfig: {
     baseUrl: 'https://xxx.com/xxx',
@@ -210,7 +210,6 @@ const { baseUrl } = useRuntimeConfig(event)
 ```
 
 在服务端中读取。
-
 
 # 后续
 
