@@ -23,7 +23,9 @@ function addNewTile() {
   }, [])
   if (emptyTiles.length > 0) {
     const randomIndex = emptyTiles[Math.floor(Math.random() * emptyTiles.length)]
-    board.value[randomIndex] = Math.random() < 0.9 ? 2 : 4
+    board.value[randomIndex] = Math.random() < 0.9
+      ? 2
+      : 4
   }
 }
 

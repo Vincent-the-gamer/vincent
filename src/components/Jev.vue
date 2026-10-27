@@ -170,11 +170,15 @@ const expectedScore = computed(() => {
 })
 
 const rawJson = computed(() =>
-  result.value ? JSON.stringify(result.value, null, 2) : '',
+  result.value
+    ? JSON.stringify(result.value, null, 2)
+    : '',
 )
 
 function optionLabel(index: number): string {
-  return index < LETTERS.length ? LETTERS[index] : String(index + 1)
+  return index < LETTERS.length
+    ? LETTERS[index]
+    : String(index + 1)
 }
 
 function selectType(type: JevType) {
@@ -205,7 +209,9 @@ function loadExample(example: JevExample) {
     return
   }
   const opts = example.options?.slice(0, MAX_OPTIONS) ?? []
-  options.value = opts.length >= 2 ? opts : ['', '', '']
+  options.value = opts.length >= 2
+    ? opts
+    : ['', '', '']
   clearResult()
 }
 
@@ -294,7 +300,9 @@ async function run() {
     toast('决策完成')
   }
   catch (e) {
-    const message = e instanceof Error ? e.message : String(e)
+    const message = e instanceof Error
+      ? e.message
+      : String(e)
     errorMsg.value = message
     toast(`决策失败：${message}`)
   }

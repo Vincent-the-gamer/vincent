@@ -1,6 +1,4 @@
 minimumReleaseAgeExcludePrune: true
-minimumReleaseAgeExclude:
-  - dayjs@1.11.21
 
 trustPolicy: no-downgrade
 trustPolicyExclude:

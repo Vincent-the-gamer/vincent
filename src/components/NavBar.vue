@@ -42,24 +42,24 @@ const { y: scroll } = useWindowScroll()
     <nav class="nav">
       <div class="spacer" />
       <div class="right" print:op0>
-        <RouterLink to="/posts" title="博客">
-          <span class="lt-md:hidden">博客</span>
+        <RouterLink to="/posts" title="Blog/博客">
+          <span class="lt-md:hidden">Blog/博客</span>
           <div i-cib-micro-blog md:hidden />
         </RouterLink>
-        <RouterLink to="/projects" title="工具合集">
-          <span class="lt-md:hidden">工具合集</span>
+        <RouterLink to="/projects" title="Tools/工具合集">
+          <span class="lt-md:hidden">Tools/工具合集</span>
           <div i-ri-lightbulb-line md:hidden />
         </RouterLink>
         <RouterLink to="/lpd" title="Launchpad">
           <span class="gradient-text" lt-md:hidden>Launchpad</span>
           <div i-material-symbols-grid-on-sharp md:hidden />
         </RouterLink>
-        <RouterLink to="/games" title="游戏历程">
-          <span lt-md:hidden>游戏历程</span>
+        <RouterLink to="/games" title="Game History/游戏历程">
+          <span lt-md:hidden>Game History/游戏历程</span>
           <div i-solar-gameboy-linear md:hidden />
         </RouterLink>
-        <RouterLink to="/waifus" title="老婆列表">
-          <span lt-md:hidden>老婆列表</span>
+        <RouterLink to="/waifus" title="Waifus/老婆列表">
+          <span lt-md:hidden>Waifus/老婆列表</span>
           <div i-icon-park-outline-girl md:hidden />
         </RouterLink>
         <a

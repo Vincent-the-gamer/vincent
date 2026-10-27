@@ -157,19 +157,32 @@ const harmonies = computed<HarmonyGroup[]>(() => {
   return [
     {
       label: '同类色',
-      colors: [mk(-30), mk(-15), mk(15), mk(30)],
+      colors: [
+        mk(-30),
+        mk(-15),
+        mk(15),
+        mk(30),
+      ],
     },
     {
       label: '邻近色',
-      colors: [mk(-60), mk(60)],
+      colors: [
+        mk(-60),
+        mk(60),
+      ],
     },
     {
       label: '对比色',
-      colors: [mk(-120), mk(120)],
+      colors: [
+        mk(-120),
+        mk(120),
+      ],
     },
     {
       label: '互补色',
-      colors: [mk(180)],
+      colors: [
+        mk(180),
+      ],
     },
   ]
 })
@@ -212,7 +225,9 @@ function drawPalette() {
   // Step 3: Draw indicator circle
   const ix = (saturation.value / 100) * w
   const iy = ((100 - lightness.value) / 100) * h
-  drawIndicator(ctx, ix, iy, lightness.value > 50 ? '#000' : '#fff')
+  drawIndicator(ctx, ix, iy, lightness.value > 50
+    ? '#000'
+    : '#fff')
 }
 
 function drawHueBar() {
@@ -263,7 +278,9 @@ function drawAlphaBar() {
   const size = 6
   for (let y = 0; y < h; y += size) {
     for (let x = 0; x < w; x += size) {
-      ctx.fillStyle = (x / size + y / size) % 2 === 0 ? '#ccc' : '#fff'
+      ctx.fillStyle = (x / size + y / size) % 2 === 0
+        ? '#ccc'
+        : '#fff'
       ctx.fillRect(x, y, size, size)
     }
   }
@@ -278,7 +295,9 @@ function drawAlphaBar() {
 
   // Draw indicator
   const ix = alpha.value * w
-  drawIndicator(ctx, ix, h / 2, alpha.value > 0.5 ? '#fff' : '#000')
+  drawIndicator(ctx, ix, h / 2, alpha.value > 0.5
+    ? '#fff'
+    : '#000')
 }
 
 function drawIndicator(
@@ -292,7 +311,9 @@ function drawIndicator(
   ctx.strokeStyle = color
   ctx.lineWidth = 2.5
   ctx.stroke()
-  ctx.fillStyle = color === '#fff' ? '#333' : '#fff'
+  ctx.fillStyle = color === '#fff'
+    ? '#333'
+    : '#fff'
   ctx.lineWidth = 1.5
   ctx.stroke()
 }

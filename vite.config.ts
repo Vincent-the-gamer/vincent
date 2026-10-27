@@ -48,7 +48,13 @@ function getGitLastModified(): Map<string, string> | null {
   try {
     const output = execFileSync(
       'git',
-      ['--no-optional-locks', 'log', '--no-renames', '--pretty=format:\u001E%aI', '--name-only'],
+      [
+        '--no-optional-locks',
+        'log',
+        '--no-renames',
+        '--pretty=format:\u001E%aI',
+        '--name-only',
+      ],
       { cwd: ROOT, encoding: 'utf-8', maxBuffer: 64 * 1024 * 1024 },
     )
     const map = new Map<string, string>()

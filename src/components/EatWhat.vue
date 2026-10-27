@@ -7,7 +7,9 @@ const foods = ref<string>('')
 const result = ref<string>('')
 
 const wheelData = reactive<Record<string, any>>({
-  blocks: [{ padding: '10px', background: '#869cfa' }],
+  blocks: [
+    { padding: '10px', background: '#869cfa' },
+  ],
   prizes: [],
   buttons: [
     { radius: '40%', background: '#617df2' },
@@ -16,7 +18,9 @@ const wheelData = reactive<Record<string, any>>({
       radius: '30%',
       background: '#869cfa',
       pointer: true,
-      fonts: [{ text: '开始', top: '-10px' }],
+      fonts: [
+        { text: '开始', top: '-10px' },
+      ],
     },
   ],
 })
@@ -42,7 +46,9 @@ function generatePrizes(foods: string[]) {
   for (let i = 0; i < foods.length; i++) {
     prizes.push({
       background: getColor(i),
-      fonts: [{ text: foods[i] }],
+      fonts: [
+        { text: foods[i] },
+      ],
     })
   }
 

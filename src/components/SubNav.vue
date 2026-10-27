@@ -73,7 +73,7 @@ function toggleShowTools() {
         class="!border-none"
         :class="route.path === `/posts` ? activeStyle : inactiveStyle"
       >
-        博客
+        Blogs/博客
       </RouterLink>
       <RouterLink
         to="/projects"
@@ -82,7 +82,7 @@ function toggleShowTools() {
           route.path === `/projects` ? activeStyle : inactiveStyle
         "
       >
-        工具合集
+        Tools/工具合集
       </RouterLink>
       <RouterLink
         to="/lpd"
@@ -96,14 +96,14 @@ function toggleShowTools() {
         class="!border-none"
         :class="route.path === `/games` ? activeStyle : inactiveStyle"
       >
-        游戏历程
+        Game History/游戏历程
       </RouterLink>
       <RouterLink
         to="/waifus"
         class="!border-none"
         :class="route.path === `/waifus` ? activeStyle : inactiveStyle"
       >
-        老婆列表
+        Waifus/老婆列表
       </RouterLink>
     </div>
   </div>

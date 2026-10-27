@@ -22,7 +22,11 @@ function buildLink(lpd: LaunchpadItem): string {
     const googleDriveLink = lpd.googleDriveLink
       ? encodeURIComponent(lpd.googleDriveLink as string)
       : undefined
-    link = `${lpd.link}?name=${name}&image=${image}&artist=${artist}&difficulty=${lpd.difficulty}&video=${video}${baiduLink ? `&baiduLink=${baiduLink}` : ''}${googleDriveLink ? `&googleDriveLink=${googleDriveLink}` : ''}&minAbletonLiveVersion=${minAbletonLiveVersion}`
+    link = `${lpd.link}?name=${name}&image=${image}&artist=${artist}&difficulty=${lpd.difficulty}&video=${video}${baiduLink
+      ? `&baiduLink=${baiduLink}`
+      : ''}${googleDriveLink
+      ? `&googleDriveLink=${googleDriveLink}`
+      : ''}&minAbletonLiveVersion=${minAbletonLiveVersion}`
   }
   return link
 }

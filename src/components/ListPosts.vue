@@ -46,7 +46,10 @@ const routes: Post[] = router
   })
 
 const posts = computed(() => {
-  return [...(props.posts || routes), ...(props.extra || [])]
+  return [
+    ...(props.posts || routes),
+    ...(props.extra || []),
+  ]
     .sort((a, b) => +new Date(b.date) - +new Date(a.date))
     .filter((i) => {
       return (

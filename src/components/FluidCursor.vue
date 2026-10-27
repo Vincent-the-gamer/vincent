@@ -83,7 +83,9 @@ onMounted(() => {
     return
 
   // Pointer and config setup
-  const pointers: Pointer[] = [pointerPrototype()]
+  const pointers: Pointer[] = [
+    pointerPrototype(),
+  ]
 
   const config = {
     SIM_RESOLUTION: props.simResolution,
@@ -318,7 +320,9 @@ onMounted(() => {
 
     constructor(vertexShader: WebGLShader | null, fragmentShader: WebGLShader | null) {
       this.program = createProgram(vertexShader, fragmentShader)
-      this.uniforms = this.program ? getUniforms(this.program) : {}
+      this.uniforms = this.program
+        ? getUniforms(this.program)
+        : {}
     }
 
     bind() {
@@ -526,7 +530,9 @@ onMounted(() => {
           gl_FragColor = result / decay;
         }
       `,
-    ext.supportLinearFiltering ? null : ['MANUAL_FILTERING'],
+    ext.supportLinearFiltering
+      ? null
+      : ['MANUAL_FILTERING'],
   )
 
   const divergenceShader = compileShader(
@@ -926,7 +932,9 @@ onMounted(() => {
     const w = gl.drawingBufferWidth
     const h = gl.drawingBufferHeight
     const aspectRatio = w / h
-    const aspect = aspectRatio < 1 ? 1 / aspectRatio : aspectRatio
+    const aspect = aspectRatio < 1
+      ? 1 / aspectRatio
+      : aspectRatio
     const min = Math.round(resolution)
     const max = Math.round(resolution * aspect)
     if (w > h) {
