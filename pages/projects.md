@@ -32,9 +32,9 @@ projects:
       desc: '为软件工程师设计的一套Agent Skill'
       icon: 'i-pajamas-agent-ai'  
     
-    - name: 'Qwen Image 2.1 Skill'
-      link: 'https://github.com/iamyoki/qwen-image-2.1-skill'
-      desc: '用于生成Qwen Image 2.1提示词的Skill'
+    - name: 'I have ADHD'
+      link: 'https://github.com/ayghri/i-have-adhd'
+      desc: '用于提炼Agent输出结果，只输出重点内容的Skill'
       icon: 'i-pajamas-agent-ai'  
 
   游戏相关:
