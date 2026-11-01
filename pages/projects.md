@@ -6,6 +6,11 @@ art: dots
 wrapperClass: 'text-center'
 projects:
   AI项目:
+    - name: 'Strata'
+      link: 'https://github.com/Niko1221/Strata'
+      desc: 'LLM推理框架，可实现将Qwen3.8-Flash-Next等大型开源LLM本地运行'
+      icon: 'i-hugeicons-artificial-intelligence-04'
+    
     - name: 'MOSS-Image'
       link: 'https://github.com/OpenMOSS/MOSS-Image'
       desc: '开源版 MOSS 文生图模型'
