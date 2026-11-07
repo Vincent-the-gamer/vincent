@@ -176,6 +176,10 @@ onMounted(async () => {
       }}</span>
     </ClientOnly>
   </div>
+  <PostToc
+    v-if="route.path.startsWith('/posts/') && frontmatter.toc !== false"
+    :content="content"
+  />
   <article
     ref="content"
     :class="[

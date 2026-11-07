@@ -16,12 +16,14 @@ graph TD
     M --> J[其余社区插件]
     B --> D[dsh-our-free-model]
     D --> E[白嫖模型接入：各平台免费额度]
+    B --> O[dsh-soul-md]
+    O --> P[人设卡与文件式长期记忆]
     K --> F[dsh-pocket]
     F --> G[局域网浏览器]
     F --> H[手机]
     K --> L[dsh-im]
     L --> N[微信 / 飞书 / Discord 等 IM 机器人]
-    C --> I[dafy-whale-theme / dsh-pet]
+    C --> I[dsh-deep-whale / dsh-pet]
 ```
 
 # 安装 Desktop 客户端
@@ -78,13 +80,14 @@ dsh plugin --profile desktop add dshmarket
 
 # 我的插件清单
 
-| 插件                            | 用途                                                  |
-| ------------------------------- | ----------------------------------------------------- |
-| `dshmarket`                     | 插件市场：在 DSH 里浏览、搜索、一键安装社区插件和主题 |
-| `dsh-pocket`                    | 通过局域网在手机等设备访问会话                        |
-| `@xmanrui/dsh-im`               | 把微信、飞书、Discord 等 IM 机器人接入 DSH            |
-| `DViridescent/dafy-whale-theme` | 大肥鱼主题插件                                        |
-| `PC2005-cloud/dsh-pet`          | 大肥鱼桌宠                                            |
+| 插件                           | 用途                                                  |
+| ------------------------------ | ----------------------------------------------------- |
+| `dshmarket`                    | 插件市场：在 DSH 里浏览、搜索、一键安装社区插件和主题 |
+| `dsh-pocket`                   | 通过局域网在手机等设备访问会话                        |
+| `@xmanrui/dsh-im`              | 把微信、飞书、Discord 等 IM 机器人接入 DSH            |
+| `dsh-soul-md`                  | 人设卡与文件式长期记忆                                |
+| `Small-tailqwq/dsh-deep-whale` | 鲸鱼娘皮肤（maid-atelier / orca-link）与皮肤管理器    |
+| `PC2005-cloud/dsh-pet`         | 大肥鱼桌宠                                            |
 
 ## dsh-pocket：局域网/手机也能访问
 
@@ -181,24 +184,95 @@ dsh plugin --profile web add -w @xmanrui/dsh-im
 > [!NOTE] 装完没生效怎么查
 > 设置页里每个渠道都能展开「诊断详情」，点「复制诊断信息」会给出失败阶段、底层原因和 `IM-CONN-…` 之类的参考号，反馈问题时带上这个号和 DSH 版本最省事。
 
-# 主题插件：大肥鱼
+# 人设与记忆插件：dsh-soul-md
 
-功能配完，剩下就是外观。如果你也喜欢大肥鱼，可以看看这两个：
+前面几个插件解决「怎么连上」，[dsh-soul-md](https://github.com/Scorp1o117/dsh-soul-md) 解决的是「让 agent 记住我是谁」。它给 DSH 加上可切换的人设卡和文件式长期记忆：人设可以按默认、工作区、单个会话三层指定，记忆则以 Markdown 文件存在本地，由 agent 自己读写。
 
-- [DViridescent/dafy-whale-theme](https://github.com/DViridescent/dafy-whale-theme) 大肥鱼页面主题
-- [PC2005-cloud/dsh-pet](https://github.com/PC2005-cloud/dsh-pet) 大肥鱼桌宠
+README 里列出来的能力：
 
-安装：
+- **人设卡**：在插件页创建、编辑并设为默认卡；新会话页或聊天标题栏能给单个会话换卡，也可以隐藏选择器。
+- **工作区人设**：解析顺序是「会话选择 → 工作区人设 → 默认卡 → 不启用」。
+- **文件记忆**：agent 用 `memory_read`、`memory_append`、`memory_rewrite` 读取和维护记忆，用 `soul_read`、`soul_update` 读写人设卡。
+- **分层记忆**：默认把常驻的 `core.md` 和按主题读取的 `topics/*.md` 分开，支持 `memory_search`、关键词召回和压缩后的补偿提示，也能关掉改回单文件。
+- **按人设控制记忆**：某张卡关掉记忆后，该卡下的四个 `memory_*` 工具会直接拒绝调用，不会退回全局记忆。
+- **子代理默认不注入**人设和记忆，可以在设置里打开继承。
 
-使用插件市场搜索，或者：
+安装还是同一个模板：
 
 ```bash
-dsh plugin --profile desktop add github:DViridescent/dafy-whale-theme
+dsh plugin --profile desktop add dsh-soul-md
+```
+
+Web 版把 `desktop` 换成 `web`。装完重启 DSH，打开 **插件 → 已安装 → dsh-soul-md**。README 要求 Node.js `20.18` 以上，声明的兼容范围是 `>=0.2.0-rc.2 <0.3.0`（含 `0.2.0-rc.2`、`0.2.1-rc.1` ~ `rc.5`）；如果宿主还是 `0.2.0-rc.2`，新会话页没有扩展位，只能从会话标题栏选人设。
+
+## 怎么用
+
+1. 在插件页新建人设卡，填名称和 Markdown 内容，保存。
+2. 设为默认卡，或指定给某个工作区；新会话页、聊天标题栏也能单独切。切换工作区可能打开另一个空白会话，记得回头检查那个会话的人设。
+3. 正常对话，让 agent 按需调用记忆和人设工具。人设变化与记忆写入取决于模型是否真的去调工具，不会自动发生。
+
+记忆默认落在 `$DSH_HOME/soul-md/memory/`，人设配置跟着当前 Profile 走，这两处建议自己定期备份。
+
+## 值得先改的设置
+
+| 设置                      | 默认值    | 作用                                                  |
+| ------------------------- | --------- | ----------------------------------------------------- |
+| `showPersonaSwitcher`     | `true`    | 是否显示新会话页和聊天标题栏的人设选择器              |
+| `memory.inject`           | `true`    | 是否把记忆段落注入提示词                              |
+| `memory.layered`          | `true`    | `core.md` + `topics/*.md` 分层；关掉回到单文件模式    |
+| `memory.recall`           | `keyword` | 从第二条用户消息起做关键词召回，设为 `off` 关闭       |
+| `memory.compactionRecall` | `true`    | 压缩或裁剪成功后，下一回合提示近期用过的主题摘要      |
+| `memory.injectMaxChars`   | `8000`    | 记忆注入的字符预算                                    |
+| `skipSubagents`           | `true`    | 不向子代理注入人设和记忆；设为 `false` 可让子代理继承 |
+
+> [!NOTE] 关键词召回不是语义检索
+> `memory.recall` 做的是字面匹配，不是向量搜索；召回提示只带主题 key 和摘要，正文仍要靠工具去读，还受注入预算限制。主题很多时可以把 `memory.indexMode` 设成 `recall`，少注入一点完整索引。想要对话捕获、模型提取和向量召回，README 推荐另看 [dsh-tdai-memory](https://github.com/Scorp1o117/dsh-tdai-memory)，两个插件可以各装各的。
+
+# 主题插件：鲸鱼娘皮肤 dsh-deep-whale
+
+功能配完，剩下就是外观。之前的大肥鱼主题换成 [Small-tailqwq/dsh-deep-whale](https://github.com/Small-tailqwq/dsh-deep-whale)：一套鲸鱼娘皮肤合集，附带一个用来切皮肤的管理面板。
+
+| 皮肤           | 包名                                                  | 说明                                                      |
+| -------------- | ----------------------------------------------------- | --------------------------------------------------------- |
+| `maid-atelier` | `@smalltailqwq/dsh-client-ui-skin-maid-atelier`       | 深海女仆工坊：两位鲸鱼娘女仆、深海蓝蕾丝、Q 版侧栏        |
+| `orca-link`    | `@smalltailqwq/dsh-client-ui-skin-orca-link`          | 虎鲸链路：小黑鲸操作员，全直角界面、直线重绘的图标        |
+| `skin-manager` | `@smalltailqwq/dsh-client-ui-skin-deep-whale-manager` | 皮肤管理器：在「设置 → 皮肤管理」里切换皮肤、调各皮肤选项 |
+
+桌面版不用敲命令：打开侧栏 **插件 → 添加插件**，把上面的 npm 包名逐个填进去安装。想跟着 `main` 上的最新代码走，就在同一个框里换成 GitHub 地址（只填地址，不加 `dsh plugin add`）：
+
+```text
+github:Small-tailqwq/dsh-deep-whale#main&path:/skin-manager
+github:Small-tailqwq/dsh-deep-whale#main&path:/maid-atelier
+github:Small-tailqwq/dsh-deep-whale#main&path:/orca-link
+```
+
+CLI 的 Web 版还是熟悉的模板：
+
+```bash
+dsh plugin --profile web add '@smalltailqwq/dsh-client-ui-skin-deep-whale-manager'
+dsh plugin --profile web add '@smalltailqwq/dsh-client-ui-skin-maid-atelier'
+dsh plugin --profile web add '@smalltailqwq/dsh-client-ui-skin-orca-link'
+```
+
+装完**重启一次 DSH**，然后打开 **设置 → 皮肤管理** 点「切换」。之后换皮肤即时生效，不用再重启。
+
+> [!WARNING] 四个坑
+>
+> - 同一时间只能启用一套皮肤。**同时装多套就必须装管理器并保持启用**，否则两套一起跑会让界面错乱（设置按钮不见、侧栏宽度异常、装饰叠在一起）。
+> - 装完第一次重启后还是官方界面是正常的：管理器会先把同时启用的皮肤都关掉，等你去「皮肤管理」里选。
+> - README 明确指出，桌面版由应用管理自己的 `desktop` profile，上面那组 `--profile web` 命令**不会**给桌面版装皮肤；桌面版就用界面里的「添加插件」。
+> - 皮肤声明支持的 DSH 版本目前是 0.2.2 系列。升级 DSH 后版本对不上，DSH 会自动停用皮肤、退回官方界面——先更新皮肤，或到「设置 → 皮肤管理」里确认放行。
+
+另外，这套皮肤的美术资源是 CC BY-NC-SA 4.0，只有代码是 MIT，**不能商用**。
+
+桌宠还是原来那个 [PC2005-cloud/dsh-pet](https://github.com/PC2005-cloud/dsh-pet)，和皮肤互不影响：
+
+```bash
 dsh plugin --profile desktop add github:PC2005-cloud/dsh-pet
 ```
 
-下图中，背景为dafy-whale-theme，桌宠为`dsh-pet`
+下图里，背景是 `maid-atelier` 皮肤，桌宠是 `dsh-pet`：
 
-![theme](/images/posts/dsh/theme.png)
+![theme](/images/posts/dsh/whale-theme.png)
 
 命令行装完如果没立刻变化，刷新页面或重启客户端。
