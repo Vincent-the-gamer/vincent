@@ -7,11 +7,27 @@ art: dots
 > [!NOTE]
 > To be updated.
 
-# Software
+## Abilities
 
-## Open Source
-
+- [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) - AI Agent, including plugin system.
 - [Rayburst](https://github.com/AnInsomniacy/rayburst) - Aria2 Next download engine, a Motrix alternative.
 - [Raycast](https://www.raycast.com/) - Multifunction tool, including clipboard history, global search, and supporting extensions.
-- [Zed Editor](https://zed.dev/) - lightweight code editor with a bundled AI Agent.
 - [capcap](https://github.com/realskyrin/capcap) - macOS only open source screenshot tool, supporting scroll screenshot(long pic).
+- [Atoll](https://github.com/Ebullioscopic/Atoll) - Provide dynamic island for macOS(earlier than the first PROLED XDR Devices).
+
+## Development
+
+### IDE
+
+- [Zed Editor](https://zed.dev/) - lightweight code editor with a bundled AI Agent.
+- [PyCharm](https://www.jetbrains.com/pycharm/) - JetBrains Python IDE
+
+### Database
+- [DBX](https://github.com/t8y2/dbx) - Lightweight cross-platform database client, built-in MCP Support.
+
+## Remote
+
+- [easytier](https://github.com/EasyTier/EasyTier) - Decentralized mesh VPN with WireGuard support.
+- [code-server](https://github.com/coder/code-server) - Web VSCode, deploy on server, use in your browser.
+- [OpenSSH Server for Windows](https://github.com/PowerShell/Win32-OpenSSH) - Easily set up SSH server on Windows.
+- [noVNC](https://github.com/novnc/noVNC) - VNC web client.(quick setup using agent: [My Skill](https://github.com/Vincent-the-gamer/skills/blob/main/skills/novnc))
