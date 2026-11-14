@@ -28,6 +28,7 @@ art: dots
 - [PyCharm](https://www.jetbrains.com/pycharm/) - JetBrains Python IDE
 
 ### Database Related
+
 - [DBX](https://github.com/t8y2/dbx) - Lightweight cross-platform database client, built-in MCP Support.
 
 ## Remote

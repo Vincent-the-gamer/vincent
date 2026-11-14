@@ -4,3 +4,10 @@ declare module '*.vue' {
   const component: DefineComponent<{}, {}, any>
   export default component
 }
+
+declare module 'virtual:search-index' {
+  import type { SearchDoc } from '~/logics/search'
+
+  const docs: SearchDoc[]
+  export default docs
+}

@@ -308,10 +308,15 @@ h6:focus .header-anchor {
   overflow: hidden;
 }
 
-.code-block-wrapper pre {
+.code-block-wrapper pre,
+.code-block-wrapper pre.shiki {
   margin-top: 0;
   margin-bottom: 0;
   border-radius: 0;
+  /* Reserve a little room on the right so the end of a long line stays clear
+   * of the copy button once the block is scrolled to its end. Kept under
+   * 48px so the highlighted-line band still bleeds to the edge of the block. */
+  padding-right: 3em;
 }
 
 .copy-code-btn {
@@ -328,13 +333,37 @@ h6:focus .header-anchor {
   border: 1px solid rgb(255 255 255 / 0.1);
   cursor: pointer;
   color: rgb(255 255 255 / 0.6);
-  padding: 4px 10px;
+  padding: 3px 8px;
   border-radius: 6px;
-  font-size: 0.78em;
+  font-size: 0.75em;
   line-height: 1.4;
-  transition: all 0.2s ease;
-  opacity: 1;
+  transition:
+    opacity 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+  opacity: 0;
+  pointer-events: none;
   font-family: inherit;
+}
+
+/* The button only surfaces while the block is hovered, focused or just copied,
+ * so it never sits on top of the code while reading. */
+.code-block-wrapper:hover .copy-code-btn,
+.code-block-wrapper:focus-within .copy-code-btn,
+.copy-code-btn:focus-visible,
+.copy-code-btn.copied {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Coarse pointers cannot hover, so keep the affordance visible there. */
+@media (hover: none) {
+  .copy-code-btn {
+    opacity: 0.85;
+    pointer-events: auto;
+  }
 }
 
 .copy-code-btn:hover {

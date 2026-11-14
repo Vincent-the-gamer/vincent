@@ -25,6 +25,7 @@ import Inspect from 'vite-plugin-inspect'
 import Exclude from 'vite-plugin-optimize-exclude'
 import Pages from 'vite-plugin-pages'
 import SVG from 'vite-svg-loader'
+import { SearchIndexPlugin } from './scripts/search-index.ts'
 import { slugify } from './scripts/slugify.ts'
 
 const promises: Promise<any>[] = []
@@ -272,6 +273,8 @@ export default defineConfig({
     }),
 
     Exclude(),
+
+    SearchIndexPlugin(),
 
     {
       name: 'await',
