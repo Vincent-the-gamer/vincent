@@ -40,7 +40,13 @@ projects:
     - name: 'I have ADHD'
       link: 'https://github.com/ayghri/i-have-adhd'
       desc: '用于提炼Agent输出结果，只输出重点内容的Skill'
-      icon: 'i-pajamas-agent-ai'  
+      icon: 'i-pajamas-agent-ai'
+
+  开发项目模板:
+    - name: 'ts-starter'
+      link: 'https://github.com/Vincent-the-gamer/ts-starter'
+      desc: '为AI Agent准备的Node.js TypeScript 库/CLI 开发模板'
+      icon: 'typescript'
 
   游戏相关:
     - name: '轨迹系列'

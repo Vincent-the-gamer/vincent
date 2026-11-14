@@ -30,10 +30,6 @@ These days I don't have much time for trophy hunting anymore (sadly), so I mainl
 
 ---
 
-Find me:
-
-<p flex="~ gap-3 wrap" m-0>
-  <a href="https://github.com/Vincent-the-gamer" target="_blank"><span op75 i-simple-icons-github /> GitHub</a>
-</p>
+Find me: {GitHub}
 
 <div h-1 />
