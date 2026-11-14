@@ -13,13 +13,22 @@ const { y: scroll } = useWindowScroll();
 
 <template>
     <header class="header z-40">
-        <RouterLink
-            class="w-12 h-12 absolute xl:fixed m-5 select-none outline-none"
-            to="/"
-            focusable="false"
-        >
-            <SvgAvatar />
-        </RouterLink>
+        <!--
+          The signature and the search trigger share one fixed cluster so both
+          stay pinned to the top-left corner while the page scrolls.
+        -->
+        <div class="brand">
+            <RouterLink
+                class="logo select-none outline-none"
+                to="/"
+                focusable="false"
+            >
+                <SvgAvatar />
+            </RouterLink>
+            <div class="brand-search" print:hidden>
+                <LocalSearch />
+            </div>
+        </div>
         <button
             title="Scroll to top"
             fixed
@@ -40,9 +49,7 @@ const { y: scroll } = useWindowScroll();
             <div i-ri-arrow-up-line />
         </button>
         <nav class="nav">
-            <div class="left" print:hidden>
-                <LocalSearch />
-            </div>
+            <div class="spacer" print:hidden />
             <div class="right" print:op0>
                 <RouterLink to="/posts" title="Blog/博客">
                     <span class="lt-md:hidden">Blog/博客</span>
@@ -83,52 +90,58 @@ const { y: scroll } = useWindowScroll();
     margin-bottom: 0;
 }
 
+/*
+ * Signature + search trigger, pinned together. The SVG inside the logo is a
+ * 98×27 signature, so the box is as wide as the signature itself: the flex gap
+ * then starts where the visible logo ends instead of halfway through it.
+ */
+.brand {
+    position: fixed;
+    top: 1.25rem;
+    left: 1.25rem;
+    z-index: 50;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
 .logo {
-    position: absolute;
-    top: 1.5rem;
-    left: 1.5rem;
+    display: block;
+    flex: none;
+    width: 6.16rem;
+    height: 3rem;
+}
+
+.brand-search {
+    display: flex;
+    flex: none;
 }
 
 .nav {
     padding: 2rem;
     width: 100%;
-    display: grid;
-    grid-template-columns: auto max-content;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
     box-sizing: border-box;
 }
 
-.nav > * {
-    margin: auto;
-}
-
-.nav .left {
-    display: flex;
-    align-items: center;
-    /*
-   * The logo is a 98×27 signature drawn inside a 3rem box, so it overflows
-   * horizontally: clear its real width (offset 1.25rem) rather than the box.
-   */
-    margin-left: 7rem;
-    margin-top: -0.8rem;
-}
-
 /*
- * Narrow screens can't fit the trigger beside the nav icons, so let the nav
- * wrap instead of clipping: the trigger keeps its place after the logo and the
- * icon group drops onto a second row, right aligned.
+ * Reserves the fixed brand cluster's footprint. If the links no longer fit
+ * beside it they wrap onto their own row instead of sliding underneath the
+ * logo and the search trigger.
  */
+.nav .spacer {
+    flex: none;
+    width: 13.5rem;
+    height: 1.5rem;
+}
+
 @media (max-width: 768px) {
-    .nav {
-        display: flex;
-        flex-wrap: wrap;
-    }
-
-    .nav > * {
-        margin: 0;
-    }
-
-    .nav .right {
-        margin-left: auto;
+    /* The trigger drops its label and shortcut below md. */
+    .nav .spacer {
+        width: 9.5rem;
     }
 }
 
@@ -211,6 +224,8 @@ html.dark .nav a.router-link-active {
     display: grid;
     grid-gap: 1.2rem;
     grid-auto-flow: column;
+    flex: none;
+    margin-left: auto;
 }
 
 .nav .right > * {
