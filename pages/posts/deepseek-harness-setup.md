@@ -50,9 +50,9 @@ dsh plugin --profile desktop add <插件名>
 > [!WARNING] 最容易踩的坑
 > 如果你照着 CLI 的教程直接执行 `dsh plugin install xxx`，插件会装到默认 profile 里，Desktop 客户端那边大概率找不到。装完发现「没生效」，先检查是不是漏了 `--profile desktop`。
 
-# 第一件事：装插件市场 dshmarket
+# 第一件事：装插件市场 dsh-market
 
-装好客户端、确认能新建会话后，**先别急着一个个敲命令**。第一步应该是装 [dshmarket](https://github.com/dsh-market/dsh-market)（官网 [dshmarket.com](https://dshmarket.com)）：它把插件市场做进了 DSH 里，之后找插件、看说明和截图、一键安装/更新/停用，都在界面里完成。
+装好客户端、确认能新建会话后，**先别急着一个个敲命令**。第一步应该是装 [dsh-market](https://github.com/dsh-market/dsh-market)（官网 [dshmarket.com](https://dshmarket.com)）：它把插件市场做进了 DSH 里，之后找插件、看说明和截图、一键安装/更新/停用，都在界面里完成。
 
 Desktop 客户端里最省事的方式是直接在应用内装：
 
@@ -80,14 +80,20 @@ dsh plugin --profile desktop add dshmarket
 
 # 我的插件清单
 
+> [!IMPORTANT] 重要提示
+> 根据实际需求酌情安装即可，在下面的内容中，我只介绍如何把dsh配置成一个拥有基本能力的Agent，所以并非所有插件都会介绍，没介绍到的可以去GitHub看Readme（点击下面链接就行），我这里没必要赘述。
+
 | 插件                           | 用途                                                  |
 | ------------------------------ | ----------------------------------------------------- |
-| `dshmarket`                    | 插件市场：在 DSH 里浏览、搜索、一键安装社区插件和主题 |
-| `dsh-pocket`                   | 通过局域网在手机等设备访问会话                        |
-| `@xmanrui/dsh-im`              | 把微信、飞书、Discord 等 IM 机器人接入 DSH            |
-| `dsh-soul-md`                  | 人设卡与文件式长期记忆                                |
-| `Small-tailqwq/dsh-deep-whale` | 鲸鱼娘皮肤（maid-atelier / orca-link）与皮肤管理器    |
-| `PC2005-cloud/dsh-pet`         | 大肥鱼桌宠                                            |
+| [dsh-market](http://github.com/dsh-market/dsh-market)                    | 插件市场：在 DSH 里浏览、搜索、一键安装社区插件和主题 |
+| [dsh-pocket](https://github.com/shaobeichen/dsh-pocket)                  | 通过局域网在手机等设备访问会话                        |
+| [dsh-im](https://github.com/xmanrui/dsh-im)              | 把微信、飞书、Discord 等 IM 机器人接入 DSH            |
+| [dsh-soul-md](https://github.com/Scorp1o117/dsh-soul-md)                 | 人设卡与文件式长期记忆                                |
+| [dsh-deep-whale](https://github.com/Small-tailqwq/dsh-deep-whale) | 鲸鱼娘皮肤（maid-atelier / orca-link）与皮肤管理器    |
+| [dsh-pet](https://github.com/PC2005-cloud/dsh-pet)         | 大肥鱼桌宠                                            |
+| [modsearch](https://github.com/liustack/modsearch) | 纯文本 agent 的联网搜索桥，算是联网搜索功能的增强插件吧 |
+| [dsh-our-free-model](https://github.com/Ebony-Vinyl/dsh-our-free-model)|  白嫖模型，谁用谁知道 |
+| [dsh-computer-use-win](https://github.com/Yu-tao-Li/dsh-computer-use-win) | 给Windows系统上的dsh带来Computer Use的能力 |
 
 ## dsh-pocket：局域网/手机也能访问
 
