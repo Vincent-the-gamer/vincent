@@ -9,7 +9,7 @@ art: dots
 
 ## Abilities
 
-- [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) - AI Agent, including plugin system.
+- [DeepSeek Harness](https://www.deepseek.com/en/harness) - AI Agent, including plugin system.
 - [Rayburst](https://github.com/AnInsomniacy/rayburst) - Aria2 Next download engine, a Motrix alternative.
 - [Raycast](https://www.raycast.com/) - Multifunction tool, including clipboard history, global search, and supporting extensions.
 - [capcap](https://github.com/realskyrin/capcap) - macOS only open source screenshot tool, supporting scroll screenshot(long pic).
