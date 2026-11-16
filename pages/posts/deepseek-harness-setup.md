@@ -94,6 +94,7 @@ dsh plugin --profile desktop add dshmarket
 | [modsearch](https://github.com/liustack/modsearch) | 纯文本 agent 的联网搜索桥，算是联网搜索功能的增强插件吧 |
 | [dsh-our-free-model](https://github.com/Ebony-Vinyl/dsh-our-free-model)|  白嫖模型，谁用谁知道 |
 | [dsh-computer-use-win](https://github.com/Yu-tao-Li/dsh-computer-use-win) | 给Windows系统上的dsh带来Computer Use的能力 |
+| [dsh-meme](https://github.com/yyh-001/dsh-meme) | 让Agent主动发表情包，有图库，还可以上传图片 |
 
 ## dsh-pocket：局域网/手机也能访问
 
