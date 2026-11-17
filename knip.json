@@ -1,0 +1,28 @@
+{
+  "$schema": "https://unpkg.com/knip@6/schema.json",
+  "tags": ["-lintignore"],
+  "ignoreExportsUsedInFile": true,
+  "workspaces": {
+    ".": {
+      "entry": [
+        "pages/**/*.{md,vue}",
+        "scripts/**/*.ts",
+        "taze.config.ts",
+        "src/components/{MermaidBlock,Ruby,Typewriter,WrapperDemo,WrapperPost}.vue"
+      ],
+      "project": [
+        "src/**/*.{ts,vue}",
+        "pages/**/*.{md,vue}",
+        "scripts/**/*.ts",
+        "*.config.{js,ts}"
+      ],
+      "ignoreDependencies": [
+        "@unhead/vue",
+        "aplayer",
+        "pages-generated",
+        "@types/markdown-it",
+        "@typescript/native"
+      ]
+    }
+  }
+}

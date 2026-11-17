@@ -73,4 +73,4 @@ function useIsMobile(): boolean {
   return uaCondition || touchEventCondition || orientationCondition
 }
 
-export const isMobile = useIsMobile()
+const isMobile = useIsMobile()
