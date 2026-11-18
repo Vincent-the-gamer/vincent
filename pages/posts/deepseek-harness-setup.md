@@ -50,7 +50,27 @@ dsh plugin --profile desktop add <插件名>
 > [!WARNING] 最容易踩的坑
 > 如果你照着 CLI 的教程直接执行 `dsh plugin install xxx`，插件会装到默认 profile 里，Desktop 客户端那边大概率找不到。装完发现「没生效」，先检查是不是漏了 `--profile desktop`。
 
-# 第一件事：装插件市场 dsh-market
+# 插件
+
+> [!IMPORTANT] 重要提示
+> **这是我的插件清单**，根据实际需求酌情安装即可，在下面的内容中，我只介绍如何把dsh配置成一个拥有基本能力的Agent，所以并非所有插件都会介绍，没介绍到的可以去GitHub看Readme（点击下面链接就行），我这里没必要赘述。
+
+| 插件                                                                      | 用途                                                    |
+| ------------------------------------------------------------------------- | ------------------------------------------------------- |
+| [dsh-market](http://github.com/dsh-market/dsh-market)                     | 插件市场：在 DSH 里浏览、搜索、一键安装社区插件和主题   |
+| [dsh-our-free-model](https://github.com/Ebony-Vinyl/dsh-our-free-model)   | 白嫖免费大模型                                          |
+| [dsh-pocket](https://github.com/shaobeichen/dsh-pocket)                   | 通过局域网在手机等设备访问会话                          |
+| [dsh-im](https://github.com/xmanrui/dsh-im)                               | 把微信、飞书、Discord 等 IM 机器人接入 DSH              |
+| [dsh-soul-md](https://github.com/Scorp1o117/dsh-soul-md)                  | 人设卡与文件式长期记忆                                  |
+| [dsh-deep-whale](https://github.com/Small-tailqwq/dsh-deep-whale)         | 鲸鱼娘皮肤（maid-atelier / orca-link）与皮肤管理器      |
+| [dsh-pet](https://github.com/PC2005-cloud/dsh-pet)                        | 大肥鱼桌宠                                              |
+| [modsearch](https://github.com/liustack/modsearch)                        | 纯文本 agent 的联网搜索桥，算是联网搜索功能的增强插件吧 |
+| [dsh-our-free-model](https://github.com/Ebony-Vinyl/dsh-our-free-model)   | 白嫖模型，谁用谁知道                                    |
+| [dsh-computer-use-win](https://github.com/Yu-tao-Li/dsh-computer-use-win) | 给Windows系统上的dsh带来Computer Use的能力              |
+| [dsh-meme](https://github.com/yyh-001/dsh-meme)                           | 让Agent主动发表情包，有图库，还可以上传图片             |
+
+
+## 必装：插件市场 dsh-market
 
 装好客户端、确认能新建会话后，**先别急着一个个敲命令**。第一步应该是装 [dsh-market](https://github.com/dsh-market/dsh-market)（官网 [dshmarket.com](https://dshmarket.com)）：它把插件市场做进了 DSH 里，之后找插件、看说明和截图、一键安装/更新/停用，都在界面里完成。
 
@@ -78,23 +98,28 @@ dsh plugin --profile desktop add dshmarket
 > [!NOTE] 市场不等于安全审计
 > 它只保证插件来源在收录列表里。插件是第三方代码，跑在你 agent 的权限下，装之前扫一眼仓库和它申请的权限。
 
-# 我的插件清单
 
-> [!IMPORTANT] 重要提示
-> 根据实际需求酌情安装即可，在下面的内容中，我只介绍如何把dsh配置成一个拥有基本能力的Agent，所以并非所有插件都会介绍，没介绍到的可以去GitHub看Readme（点击下面链接就行），我这里没必要赘述。
+## 必装：dsh-our-free-model - 白嫖大模型
 
-| 插件                           | 用途                                                  |
-| ------------------------------ | ----------------------------------------------------- |
-| [dsh-market](http://github.com/dsh-market/dsh-market)                    | 插件市场：在 DSH 里浏览、搜索、一键安装社区插件和主题 |
-| [dsh-pocket](https://github.com/shaobeichen/dsh-pocket)                  | 通过局域网在手机等设备访问会话                        |
-| [dsh-im](https://github.com/xmanrui/dsh-im)              | 把微信、飞书、Discord 等 IM 机器人接入 DSH            |
-| [dsh-soul-md](https://github.com/Scorp1o117/dsh-soul-md)                 | 人设卡与文件式长期记忆                                |
-| [dsh-deep-whale](https://github.com/Small-tailqwq/dsh-deep-whale) | 鲸鱼娘皮肤（maid-atelier / orca-link）与皮肤管理器    |
-| [dsh-pet](https://github.com/PC2005-cloud/dsh-pet)         | 大肥鱼桌宠                                            |
-| [modsearch](https://github.com/liustack/modsearch) | 纯文本 agent 的联网搜索桥，算是联网搜索功能的增强插件吧 |
-| [dsh-our-free-model](https://github.com/Ebony-Vinyl/dsh-our-free-model)|  白嫖模型，谁用谁知道 |
-| [dsh-computer-use-win](https://github.com/Yu-tao-Li/dsh-computer-use-win) | 给Windows系统上的dsh带来Computer Use的能力 |
-| [dsh-meme](https://github.com/yyh-001/dsh-meme) | 让Agent主动发表情包，有图库，还可以上传图片 |
+安装命令: (注意包名带scope，不要安装dsh-our-free-model，那个是旧版)
+
+```bash
+# 网页版
+dsh plugin --profile web add @ebony-vinyl/dsh-our-free-model@latest
+
+# 桌面客户端
+dsh plugin --profile desktop add @ebony-vinyl/dsh-our-free-model@latest
+```
+
+安装好后，无需配置，直接在对话框下拉框选择模型即可使用，注意模型还是有免费额度，但可以换着用。
+
+多模态模型的每日可使用次数较少，推荐无需多模态的杂活，用纯文本模型，比如beam之类的。
+
+灵活安排使用的模型，可以省下相当一部分费用，杂活让免费模型干，重要的事再用自己的API。
+
+自己去研究，相信你能找出适合自己的方案。
+
+![dsh-our-free-model](/images/posts/dsh/dsh-our-free-model.png)
 
 ## dsh-pocket：局域网/手机也能访问
 
@@ -116,7 +141,7 @@ dsh plugin --profile desktop add dsh-pocket
 
 为了安全起见，插件做了功能，需要输入安全密码登录，输入即可。
 
-# IM 接入插件：dsh-im
+## IM 接入插件：dsh-im
 
 `dsh-im` 解决的是「不想开电脑，但还想继续用 agent」的问题。它把 DSH 接成 IM 机器人：微信、飞书、钉钉、企业微信、QQ、Slack、Discord等都能接，多数渠道扫个码就完事。接好之后在聊天窗口里发消息就能开新会话、切模型、看进度、远程审批，和在电脑上操作的是同一个 Harness。
 
@@ -138,7 +163,7 @@ dsh plugin --profile web add -w @xmanrui/dsh-im
 > - 命令里的 `-w` 别漏。官方给的安装命令就带着它，而前面几个插件都不带，照抄模板很容易忘。
 > - 同一台机器上 Desktop 和 Web 是两套 profile，装错那个在客户端里看不到，还是要检查 `--profile desktop`。
 
-## 能接哪些渠道
+### 能接哪些渠道
 
 | 渠道             | 接入方式                                     | 特点                                                                   |
 | ---------------- | -------------------------------------------- | ---------------------------------------------------------------------- |
@@ -163,7 +188,7 @@ dsh plugin --profile web add -w @xmanrui/dsh-im
 - **图片输入**：支持图片的渠道可以发 JPEG / PNG / WebP，默认每张最多 30 MB、每条最多 20 张，超限或模型不支持时按文件处理。
 - **凭据只留在本机**：Secret 和 Token 只提交给本机 Host 并写进受保护的凭据库，机器人列表和状态接口都不会回传。
 
-## 聊天里能做什么
+### 聊天里能做什么
 
 不用记太多，常用的是这几个：
 
@@ -182,7 +207,7 @@ dsh plugin --profile web add -w @xmanrui/dsh-im
 - **远程审批**：agent 要执行敏感操作时，直接在聊天里回 `批准` / `拒绝` 就行，和 Web 端是同一个审批，先提交的生效。
 - **交互式提问**：回选项序号、选项文字或自己写，多选用逗号分隔。
 
-## 环境要求
+### 环境要求
 
 最新版跟着最新版 DSH 走，README 里写的支持基线是 DSH `0.2.1-rc.2`（Session 格式 v4）。所以装之前先把客户端升到较新的版本，老宿主得用对应的历史插件版本。
 
@@ -191,7 +216,7 @@ dsh plugin --profile web add -w @xmanrui/dsh-im
 > [!NOTE] 装完没生效怎么查
 > 设置页里每个渠道都能展开「诊断详情」，点「复制诊断信息」会给出失败阶段、底层原因和 `IM-CONN-…` 之类的参考号，反馈问题时带上这个号和 DSH 版本最省事。
 
-# 人设与记忆插件：dsh-soul-md
+## 人设与记忆插件：dsh-soul-md
 
 前面几个插件解决「怎么连上」，[dsh-soul-md](https://github.com/Scorp1o117/dsh-soul-md) 解决的是「让 agent 记住我是谁」。它给 DSH 加上可切换的人设卡和文件式长期记忆：人设可以按默认、工作区、单个会话三层指定，记忆则以 Markdown 文件存在本地，由 agent 自己读写。
 
@@ -212,7 +237,7 @@ dsh plugin --profile desktop add dsh-soul-md
 
 Web 版把 `desktop` 换成 `web`。装完重启 DSH，打开 **插件 → 已安装 → dsh-soul-md**。README 要求 Node.js `20.18` 以上，声明的兼容范围是 `>=0.2.0-rc.2 <0.3.0`（含 `0.2.0-rc.2`、`0.2.1-rc.1` ~ `rc.5`）；如果宿主还是 `0.2.0-rc.2`，新会话页没有扩展位，只能从会话标题栏选人设。
 
-## 怎么用
+### 怎么用
 
 1. 在插件页新建人设卡，填名称和 Markdown 内容，保存。
 2. 设为默认卡，或指定给某个工作区；新会话页、聊天标题栏也能单独切。切换工作区可能打开另一个空白会话，记得回头检查那个会话的人设。
@@ -220,7 +245,7 @@ Web 版把 `desktop` 换成 `web`。装完重启 DSH，打开 **插件 → 已�
 
 记忆默认落在 `$DSH_HOME/soul-md/memory/`，人设配置跟着当前 Profile 走，这两处建议自己定期备份。
 
-## 值得先改的设置
+### 值得先改的设置
 
 | 设置                      | 默认值    | 作用                                                  |
 | ------------------------- | --------- | ----------------------------------------------------- |
@@ -235,7 +260,7 @@ Web 版把 `desktop` 换成 `web`。装完重启 DSH，打开 **插件 → 已�
 > [!NOTE] 关键词召回不是语义检索
 > `memory.recall` 做的是字面匹配，不是向量搜索；召回提示只带主题 key 和摘要，正文仍要靠工具去读，还受注入预算限制。主题很多时可以把 `memory.indexMode` 设成 `recall`，少注入一点完整索引。想要对话捕获、模型提取和向量召回，README 推荐另看 [dsh-tdai-memory](https://github.com/Scorp1o117/dsh-tdai-memory)，两个插件可以各装各的。
 
-# 主题插件：鲸鱼娘皮肤 dsh-deep-whale
+## 主题插件：鲸鱼娘皮肤 dsh-deep-whale
 
 功能配完，剩下就是外观。之前的大肥鱼主题换成 [Small-tailqwq/dsh-deep-whale](https://github.com/Small-tailqwq/dsh-deep-whale)：一套鲸鱼娘皮肤合集，附带一个用来切皮肤的管理面板。
 
