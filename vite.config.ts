@@ -1,8 +1,9 @@
-import { Buffer } from 'node:buffer'
-import { execFileSync } from 'node:child_process'
-import { basename, dirname, relative, resolve, sep } from 'node:path'
 import MarkdownItShiki from '@shikijs/markdown-it'
-import { transformerNotationDiff, transformerNotationHighlight, transformerNotationWordHighlight } from '@shikijs/transformers'
+import {
+  transformerNotationDiff,
+  transformerNotationHighlight,
+  transformerNotationWordHighlight,
+} from '@shikijs/transformers'
 import Vue from '@vitejs/plugin-vue'
 import fs from 'fs-extra'
 import matter from 'gray-matter'
@@ -12,6 +13,9 @@ import LinkAttributes from 'markdown-it-link-attributes'
 import MarkdownItMagicLink from 'markdown-it-magic-link'
 // @ts-expect-error missing types
 import TOC from 'markdown-it-table-of-contents'
+import { Buffer } from 'node:buffer'
+import { execFileSync } from 'node:child_process'
+import { basename, dirname, relative, resolve, sep } from 'node:path'
 import sharp from 'sharp'
 import { bundledLanguages } from 'shiki/bundle/full'
 import UnoCSS from 'unocss/vite'
@@ -43,19 +47,12 @@ const ROOT = import.meta.dirname
 let gitLastModified: Map<string, string> | null | undefined
 
 function getGitLastModified(): Map<string, string> | null {
-  if (gitLastModified !== undefined)
-    return gitLastModified
+  if (gitLastModified !== undefined) return gitLastModified
 
   try {
     const output = execFileSync(
       'git',
-      [
-        '--no-optional-locks',
-        'log',
-        '--no-renames',
-        '--pretty=format:\u001E%aI',
-        '--name-only',
-      ],
+      ['--no-optional-locks', 'log', '--no-renames', '--pretty=format:\u001E%aI', '--name-only'],
       { cwd: ROOT, encoding: 'utf-8', maxBuffer: 64 * 1024 * 1024 },
     )
     const map = new Map<string, string>()
@@ -67,12 +64,10 @@ function getGitLastModified(): Map<string, string> | null {
         continue
       }
       const name = line.trim()
-      if (name && date && !map.has(name))
-        map.set(name, date)
+      if (name && date && !map.has(name)) map.set(name, date)
     }
     gitLastModified = map
-  }
-  catch {
+  } catch {
     // Not a git repo, git missing, etc. - fall back to file mtime.
     gitLastModified = null
   }
@@ -83,8 +78,7 @@ function getGitLastModified(): Map<string, string> | null {
 function getLastModified(absPath: string) {
   const repoRelativePath = relative(ROOT, absPath).split(sep).join('/')
   const fromGit = getGitLastModified()?.get(repoRelativePath)
-  if (fromGit)
-    return new Date(fromGit).toISOString()
+  if (fromGit) return new Date(fromGit).toISOString()
   return fs.statSync(absPath).mtime.toISOString()
 }
 
@@ -94,19 +88,10 @@ export default defineConfig({
     port: 8080,
   },
   resolve: {
-    alias: [
-      { find: '~/', replacement: `${resolve(import.meta.dirname, 'src')}/` },
-    ],
+    alias: [{ find: '~/', replacement: `${resolve(import.meta.dirname, 'src')}/` }],
   },
   optimizeDeps: {
-    include: [
-      'vue',
-      'vue-router',
-      '@vueuse/core',
-      'dayjs',
-      'dayjs/plugin/localizedFormat',
-      'mermaid',
-    ],
+    include: ['vue', 'vue-router', '@vueuse/core', 'dayjs', 'dayjs/plugin/localizedFormat', 'mermaid'],
   },
   plugins: [
     UnoCSS(),
@@ -130,8 +115,7 @@ export default defineConfig({
           const { data } = matter(md)
           // Auto-populate lastModified from the file's last git commit if not
           // manually set (falls back to file mtime outside a git checkout).
-          if (!data.lastModified)
-            data.lastModified = getLastModified(path)
+          if (!data.lastModified) data.lastModified = getLastModified(path)
           route.meta = Object.assign(route.meta || {}, { frontmatter: data })
         }
 
@@ -140,12 +124,8 @@ export default defineConfig({
     }),
 
     Markdown({
-      wrapperComponent: id => id.includes('/demo/')
-        ? 'WrapperDemo'
-        : 'WrapperPost',
-      wrapperClasses: (id, code) => code.includes('@layout-full-width')
-        ? ''
-        : 'prose m-auto slide-enter-content',
+      wrapperComponent: (id) => (id.includes('/demo/') ? 'WrapperDemo' : 'WrapperPost'),
+      wrapperClasses: (id, code) => (code.includes('@layout-full-width') ? '' : 'prose m-auto slide-enter-content'),
       headEnabled: true,
       exportFrontmatter: false,
       exposeFrontmatter: false,
@@ -154,23 +134,22 @@ export default defineConfig({
         quotes: '""\'\'',
       },
       async markdownItSetup(md) {
-        md.use(await MarkdownItShiki({
-          themes: {
-            dark: 'synthwave-84',
-            light: 'vitesse-light',
-          },
-          langs: [
-            ...Object.keys(bundledLanguages),
-            pycnLang,
-          ],
-          defaultColor: false,
-          cssVariablePrefix: '--s-',
-          transformers: [
-            transformerNotationDiff(),
-            transformerNotationHighlight(),
-            transformerNotationWordHighlight(),
-          ],
-        }))
+        md.use(
+          await MarkdownItShiki({
+            themes: {
+              dark: 'synthwave-84',
+              light: 'vitesse-light',
+            },
+            langs: [...Object.keys(bundledLanguages), pycnLang],
+            defaultColor: false,
+            cssVariablePrefix: '--s-',
+            transformers: [
+              transformerNotationDiff(),
+              transformerNotationHighlight(),
+              transformerNotationWordHighlight(),
+            ],
+          }),
+        )
 
         // Mermaid: render via Vue component on client side
         // Must be after Shiki to avoid being overwritten
@@ -217,12 +196,10 @@ export default defineConfig({
         })
       },
       frontmatterPreprocess(frontmatter, options, id, defaults) {
-        (() => {
-          if (!id.endsWith('.md'))
-            return
+        ;(() => {
+          if (!id.endsWith('.md')) return
           const route = basename(id, '.md')
-          if (route === 'index' || frontmatter.image || !frontmatter.title)
-            return
+          if (route === 'index' || frontmatter.image || !frontmatter.title) return
           const path = `og/${route}.png`
           promises.push(
             fs.existsSync(`${id.slice(0, -3)}.png`)
@@ -288,8 +265,7 @@ export default defineConfig({
     chunkSizeWarningLimit: 1000,
     rollupOptions: {
       onwarn(warning, next) {
-        if (warning.code !== 'UNUSED_EXTERNAL_IMPORT' && warning.code !== 'INVALID_ANNOTATION')
-          next(warning)
+        if (warning.code !== 'UNUSED_EXTERNAL_IMPORT' && warning.code !== 'INVALID_ANNOTATION') next(warning)
       },
     },
   },
@@ -303,12 +279,14 @@ export default defineConfig({
 const ogSVg = fs.readFileSync('./scripts/og-template.svg', 'utf-8')
 
 async function generateOg(title: string, output: string) {
-  if (fs.existsSync(output))
-    return
+  if (fs.existsSync(output)) return
 
   await fs.mkdir(dirname(output), { recursive: true })
   // breakline every 25 chars
-  const lines = title.trim().split(/(.{0,25})(?:\s|$)/g).filter(Boolean)
+  const lines = title
+    .trim()
+    .split(/(.{0,25})(?:\s|$)/g)
+    .filter(Boolean)
 
   const data: Record<string, string> = {
     line1: lines[0],
@@ -323,8 +301,7 @@ async function generateOg(title: string, output: string) {
       .resize(1200 * 1.1, 630 * 1.1)
       .png()
       .toFile(output)
-  }
-  catch (e) {
+  } catch (e) {
     console.error('Failed to generate og image', e)
   }
 }

@@ -10,19 +10,8 @@
         "taze.config.ts",
         "src/components/{MermaidBlock,Ruby,Typewriter,WrapperDemo,WrapperPost}.vue"
       ],
-      "project": [
-        "src/**/*.{ts,vue}",
-        "pages/**/*.{md,vue}",
-        "scripts/**/*.ts",
-        "*.config.{js,ts}"
-      ],
-      "ignoreDependencies": [
-        "@unhead/vue",
-        "aplayer",
-        "pages-generated",
-        "@types/markdown-it",
-        "@typescript/native"
-      ]
+      "project": ["src/**/*.{ts,vue}", "pages/**/*.{md,vue}", "scripts/**/*.ts", "*.config.{js,ts}"],
+      "ignoreDependencies": ["@unhead/vue", "aplayer", "pages-generated", "@types/markdown-it", "@typescript/native"]
     }
   }
 }

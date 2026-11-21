@@ -34,25 +34,14 @@ function resetCardTilt(e: MouseEvent) {
 
 <template>
   <div max-w-300 mx-auto>
-    <div
-      v-for="(key, cidx) in Object.keys(projects)"
-      :key="key"
-      slide-enter
-      :style="{ '--enter-stage': cidx + 1 }"
-    >
+    <div v-for="(key, cidx) in Object.keys(projects)" :key="key" slide-enter :style="{ '--enter-stage': cidx + 1 }">
       <h4 :id="slug(key)" class="mt-15 mb-2 font-bold text-center op75">
         {{ key }}
       </h4>
       <div
         class="project-grid py-2 max-w-500 w-max mx-auto"
         grid="~ cols-1 md:cols-2 gap-4"
-        :class="
-          projects[key].length === 1
-            ? 'flex'
-            : projects[key].length > 2
-              ? 'lg:grid-cols-3'
-              : ''
-        "
+        :class="projects[key].length === 1 ? 'flex' : projects[key].length > 2 ? 'lg:grid-cols-3' : ''"
       >
         <a
           v-for="(item, idx) in projects[key]"
@@ -60,45 +49,23 @@ function resetCardTilt(e: MouseEvent) {
           class="item relative flex items-center"
           :href="item.link"
           target="_blank"
-          :class="
-            !item.link
-              ? 'opacity-0 pointer-events-none h-0 -mt-8 -mb-4'
-              : ''
-          "
+          :class="!item.link ? 'opacity-0 pointer-events-none h-0 -mt-8 -mb-4' : ''"
           :title="item.name"
           @mousemove="handleCardTilt"
           @mouseleave="resetCardTilt"
         >
           <div v-if="item.icon" class="pt-2 pr-5">
             <!-- pic -->
-            <img
-              v-if="item.icon === 'picdiet'"
-              class="text-4xl w-220px h-35px"
-              src="/images/projects/picdiet.png"
-            >
-            <img
-              v-else-if="item.icon === 'github'"
-              class="text-4xl w-200px h-88px"
-              src="/images/projects/github.png"
-            >
+            <img v-if="item.icon === 'picdiet'" class="text-4xl w-220px h-35px" src="/images/projects/picdiet.png" />
+            <img v-else-if="item.icon === 'github'" class="text-4xl w-200px h-88px" src="/images/projects/github.png" />
             <img
               v-else-if="item.icon === 'transfonter'"
               class="text-4xl w-300px h-30px"
               src="/images/projects/transfonter.png"
-            >
-            <img
-              v-else-if="item.icon === 'vizzy'"
-              class="text-4xl w-80px h-50px"
-              src="/images/projects/vizzy.png"
-            >
+            />
+            <img v-else-if="item.icon === 'vizzy'" class="text-4xl w-80px h-50px" src="/images/projects/vizzy.png" />
 
-            <img
-              v-else-if="item.icon === 'estelle'"
-              src="/images/projects/estelle.png"
-              text-4xl
-              w-80px
-              h-80px
-            >
+            <img v-else-if="item.icon === 'estelle'" src="/images/projects/estelle.png" text-4xl w-80px h-80px />
 
             <!-- ico -->
             <img
@@ -107,60 +74,41 @@ function resetCardTilt(e: MouseEvent) {
               text-4xl
               w-75px
               h-75px
-            >
+            />
             <img
               v-else-if="item.icon === 'mikan'"
               src="https://www.acgbox.link/wp-content/uploads/2023/09/mikanani.me_.png"
               text-4xl
               w-75px
               h-75px
-            >
+            />
             <img
               v-else-if="item.icon === 'nyaa'"
               src="https://www.acgbox.link/wp-content/uploads/favicon/nyaa.si.png"
               text-4xl
               w-145px
               h-55px
-            >
+            />
 
             <!-- svg -->
-            <img
-              v-else-if="item.icon === 'nitro'"
-              class="w-80px h-55px"
-              src="/images/projects/nitro.svg"
-            >
-            <img
-              v-else-if="item.icon === 'comfy'"
-              class="w-80px h-55px"
-              src="/images/projects/comfy.svg"
-            >
+            <img v-else-if="item.icon === 'nitro'" class="w-80px h-55px" src="/images/projects/nitro.svg" />
+            <img v-else-if="item.icon === 'comfy'" class="w-80px h-55px" src="/images/projects/comfy.svg" />
 
             <img
               v-else-if="item.icon === 'typescript'"
               class="w-80px h-55px"
               src="/images/projects/typescript-icon.svg"
-            >
+            />
 
             <!-- else -->
-            <img
-              v-else-if="item.icon.includes('http')"
-              class="text-3xl opacity-50"
-              :src="item.icon"
-            >
-            <div
-              v-else
-              class="text-3xl opacity-50"
-              :class="item.icon || 'i-carbon-unknown'"
-            />
+            <img v-else-if="item.icon.includes('http')" class="text-3xl opacity-50" :src="item.icon" />
+            <div v-else class="text-3xl opacity-50" :class="item.icon || 'i-carbon-unknown'" />
           </div>
           <div class="flex-auto">
             <div class="text-normal color-black dark:color-white">
               {{ item.name }}
             </div>
-            <div
-              class="desc text-sm opacity-90 font-normal"
-              v-html="item.desc"
-            />
+            <div class="desc text-sm opacity-90 font-normal" v-html="item.desc" />
           </div>
         </a>
       </div>

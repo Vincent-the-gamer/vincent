@@ -4,16 +4,14 @@ const shuffledList = ref<string[]>([])
 
 function shuffleArray<T>(array: T[]): T[] {
   for (let i = array.length; i; i--) {
-    const j = Math.floor(Math.random() * i);
-    [array[i - 1], array[j]] = [array[j], array[i - 1]]
+    const j = Math.floor(Math.random() * i)
+    ;[array[i - 1], array[j]] = [array[j], array[i - 1]]
   }
   return array
 }
 
 function order() {
-  const foodList: string[] = foods.value
-    .split('\n')
-    .map(item => item.trim())
+  const foodList: string[] = foods.value.split('\n').map((item) => item.trim())
   shuffledList.value = shuffleArray(foodList)
 }
 
@@ -36,9 +34,7 @@ watch(
   <div flex="~ col justify-center items-center">
     <p>输入食物，一行一个，让我来帮你规划顺序！</p>
     <textarea v-model="foods" dark:bg-black />
-    <button color-white bg-black btn-pink @click="order">
-      规划！！！！
-    </button>
+    <button color-white bg-black btn-pink @click="order">规划！！！！</button>
     <div mt-2>
       <div>规划结果：</div>
       <span color-red>提示，你可以按照一周的顺序来安排这些食物</span>
@@ -47,9 +43,7 @@ watch(
           {{ item }}
         </li>
       </div>
-      <h2 v-else>
-        空
-      </h2>
+      <h2 v-else>空</h2>
     </div>
   </div>
 </template>

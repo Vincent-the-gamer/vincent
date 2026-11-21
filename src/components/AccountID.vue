@@ -9,13 +9,12 @@ function accountToBase64() {
 
     const bytes = new Uint8Array(8)
     for (let i = 0; i < 8; i++) {
-      bytes[i] = Number((bigIntAccountId >> BigInt(i * 8)) & BigInt(0xFF))
+      bytes[i] = Number((bigIntAccountId >> BigInt(i * 8)) & BigInt(0xff))
     }
 
     const base64AccountId = btoa(String.fromCharCode(...bytes))
     chiaki.value = base64AccountId
-  }
-  catch (e) {
+  } catch (e) {
     alert(e)
   }
 }
@@ -24,19 +23,13 @@ function accountToBase64() {
 <template>
   <div>
     <p>
-      Offline Account（填写16位Hex ID）: <input
-        v-model="accountId" m-inline-1 color-black b-rd-2 h-10 w-120
-        type="text"
-      >
+      Offline Account（填写16位Hex ID）:
+      <input v-model="accountId" m-inline-1 color-black b-rd-2 h-10 w-120 type="text" />
     </p>
-    <p> {{ accountId ?? "" }} </p>
+    <p>{{ accountId ?? '' }}</p>
+    <p>Encoded ID (Chiaki使用): {{ chiaki }}</p>
     <p>
-      Encoded ID (Chiaki使用): {{ chiaki }}
-    </p>
-    <p>
-      <button color-black bg-green w-20 p-2 b-rd-2 @click="accountToBase64">
-        转换
-      </button>
+      <button color-black bg-green w-20 p-2 b-rd-2 @click="accountToBase64">转换</button>
     </p>
   </div>
 </template>

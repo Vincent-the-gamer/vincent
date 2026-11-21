@@ -27,11 +27,7 @@ function copyToClipboard(text: string, label: string) {
 }
 
 // ==================== Utility: HSL → RGB ====================
-function hslToRgb(
-  h: number,
-  s: number,
-  l: number,
-): { r: number, g: number, b: number } {
+function hslToRgb(h: number, s: number, l: number): { r: number; g: number; b: number } {
   s /= 100
   l /= 100
   const c = (1 - Math.abs(2 * l - 1)) * s
@@ -45,28 +41,23 @@ function hslToRgb(
     r = c
     g = x
     b = 0
-  }
-  else if (h < 120) {
+  } else if (h < 120) {
     r = x
     g = c
     b = 0
-  }
-  else if (h < 180) {
+  } else if (h < 180) {
     r = 0
     g = c
     b = x
-  }
-  else if (h < 240) {
+  } else if (h < 240) {
     r = 0
     g = x
     b = c
-  }
-  else if (h < 300) {
+  } else if (h < 300) {
     r = x
     g = 0
     b = c
-  }
-  else {
+  } else {
     r = c
     g = 0
     b = x
@@ -81,7 +72,7 @@ function hslToRgb(
 
 // ==================== Utility: RGB → HEX ====================
 function rgbToHex(r: number, g: number, b: number): string {
-  return [r, g, b].map(v => v.toString(16).padStart(2, '0')).join('')
+  return [r, g, b].map((v) => v.toString(16).padStart(2, '0')).join('')
 }
 
 // ==================== Computed Color Strings ====================
@@ -116,9 +107,7 @@ const hexString = computed(() => {
   return `#${hex}`
 })
 
-const cssHsl = computed(
-  () => `hsl(${hue.value}, ${saturation.value}%, ${lightness.value}%)`,
-)
+const cssHsl = computed(() => `hsl(${hue.value}, ${saturation.value}%, ${lightness.value}%)`)
 
 // ==================== Color Harmonies ====================
 function mod360(h: number): number {
@@ -157,32 +146,19 @@ const harmonies = computed<HarmonyGroup[]>(() => {
   return [
     {
       label: '同类色',
-      colors: [
-        mk(-30),
-        mk(-15),
-        mk(15),
-        mk(30),
-      ],
+      colors: [mk(-30), mk(-15), mk(15), mk(30)],
     },
     {
       label: '邻近色',
-      colors: [
-        mk(-60),
-        mk(60),
-      ],
+      colors: [mk(-60), mk(60)],
     },
     {
       label: '对比色',
-      colors: [
-        mk(-120),
-        mk(120),
-      ],
+      colors: [mk(-120), mk(120)],
     },
     {
       label: '互补色',
-      colors: [
-        mk(180),
-      ],
+      colors: [mk(180)],
     },
   ]
 })
@@ -197,11 +173,9 @@ function selectHarmony(c: HarmonyColor) {
 // ==================== Drawing ====================
 function drawPalette() {
   const canvas = paletteCanvas.value
-  if (!canvas)
-    return
+  if (!canvas) return
   const ctx = canvas.getContext('2d', { willReadFrequently: true })
-  if (!ctx)
-    return
+  if (!ctx) return
 
   const w = canvas.width
   const h = canvas.height
@@ -225,18 +199,14 @@ function drawPalette() {
   // Step 3: Draw indicator circle
   const ix = (saturation.value / 100) * w
   const iy = ((100 - lightness.value) / 100) * h
-  drawIndicator(ctx, ix, iy, lightness.value > 50
-    ? '#000'
-    : '#fff')
+  drawIndicator(ctx, ix, iy, lightness.value > 50 ? '#000' : '#fff')
 }
 
 function drawHueBar() {
   const canvas = hueCanvas.value
-  if (!canvas)
-    return
+  if (!canvas) return
   const ctx = canvas.getContext('2d', { willReadFrequently: true })
-  if (!ctx)
-    return
+  if (!ctx) return
 
   const w = canvas.width
   const h = canvas.height
@@ -252,8 +222,7 @@ function drawHueBar() {
     [5 / 6, 'hsl(300, 100%, 50%)'],
     [1, 'hsl(360, 100%, 50%)'],
   ]
-  for (const [pos, color] of segments)
-    grad.addColorStop(pos as number, color as string)
+  for (const [pos, color] of segments) grad.addColorStop(pos as number, color as string)
 
   ctx.fillStyle = grad
   ctx.fillRect(0, 0, w, h)
@@ -265,11 +234,9 @@ function drawHueBar() {
 
 function drawAlphaBar() {
   const canvas = alphaCanvas.value
-  if (!canvas)
-    return
+  if (!canvas) return
   const ctx = canvas.getContext('2d', { willReadFrequently: true })
-  if (!ctx)
-    return
+  if (!ctx) return
 
   const w = canvas.width
   const h = canvas.height
@@ -278,9 +245,7 @@ function drawAlphaBar() {
   const size = 6
   for (let y = 0; y < h; y += size) {
     for (let x = 0; x < w; x += size) {
-      ctx.fillStyle = (x / size + y / size) % 2 === 0
-        ? '#ccc'
-        : '#fff'
+      ctx.fillStyle = (x / size + y / size) % 2 === 0 ? '#ccc' : '#fff'
       ctx.fillRect(x, y, size, size)
     }
   }
@@ -295,34 +260,22 @@ function drawAlphaBar() {
 
   // Draw indicator
   const ix = alpha.value * w
-  drawIndicator(ctx, ix, h / 2, alpha.value > 0.5
-    ? '#fff'
-    : '#000')
+  drawIndicator(ctx, ix, h / 2, alpha.value > 0.5 ? '#fff' : '#000')
 }
 
-function drawIndicator(
-  ctx: CanvasRenderingContext2D,
-  x: number,
-  y: number,
-  color: string,
-) {
+function drawIndicator(ctx: CanvasRenderingContext2D, x: number, y: number, color: string) {
   ctx.beginPath()
   ctx.arc(x, y, 7, 0, Math.PI * 2)
   ctx.strokeStyle = color
   ctx.lineWidth = 2.5
   ctx.stroke()
-  ctx.fillStyle = color === '#fff'
-    ? '#333'
-    : '#fff'
+  ctx.fillStyle = color === '#fff' ? '#333' : '#fff'
   ctx.lineWidth = 1.5
   ctx.stroke()
 }
 
 // ==================== Pointer Event Helpers ====================
-function getPosFromEvent(
-  e: PointerEvent | MouseEvent,
-  el: HTMLElement,
-): { x: number, y: number } {
+function getPosFromEvent(e: PointerEvent | MouseEvent, el: HTMLElement): { x: number; y: number } {
   const rect = el.getBoundingClientRect()
   return {
     x: Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width)),
@@ -339,8 +292,7 @@ function onPaletteDown(e: PointerEvent) {
 }
 
 function onPaletteMove(e: PointerEvent) {
-  if (!draggingPalette.value)
-    return
+  if (!draggingPalette.value) return
   updatePalette(e, e.currentTarget as HTMLElement)
 }
 
@@ -364,8 +316,7 @@ function onHueDown(e: PointerEvent) {
 }
 
 function onHueMove(e: PointerEvent) {
-  if (!draggingHue.value)
-    return
+  if (!draggingHue.value) return
   updateHue(e, e.currentTarget as HTMLElement)
 }
 
@@ -389,8 +340,7 @@ function onAlphaDown(e: PointerEvent) {
 }
 
 function onAlphaMove(e: PointerEvent) {
-  if (!draggingAlpha.value)
-    return
+  if (!draggingAlpha.value) return
   updateAlpha(e, e.currentTarget as HTMLElement)
 }
 
@@ -465,10 +415,7 @@ watch([hue, saturation, lightness], () => {
 
     <!-- Color preview & values -->
     <div class="palette-info">
-      <div
-        class="palette-preview"
-        :style="{ background: displayColor }"
-      />
+      <div class="palette-preview" :style="{ background: displayColor }" />
 
       <div class="palette-values">
         <div class="value-row">
@@ -491,17 +438,8 @@ watch([hue, saturation, lightness], () => {
               stroke-linecap="round"
               stroke-linejoin="round"
             >
-              <rect
-                x="9"
-                y="9"
-                width="13"
-                height="13"
-                rx="2"
-                ry="2"
-              />
-              <path
-                d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
-              />
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
             </svg>
             <svg
               v-else
@@ -538,17 +476,8 @@ watch([hue, saturation, lightness], () => {
               stroke-linecap="round"
               stroke-linejoin="round"
             >
-              <rect
-                x="9"
-                y="9"
-                width="13"
-                height="13"
-                rx="2"
-                ry="2"
-              />
-              <path
-                d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
-              />
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
             </svg>
             <svg
               v-else
@@ -585,17 +514,8 @@ watch([hue, saturation, lightness], () => {
               stroke-linecap="round"
               stroke-linejoin="round"
             >
-              <rect
-                x="9"
-                y="9"
-                width="13"
-                height="13"
-                rx="2"
-                ry="2"
-              />
-              <path
-                d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
-              />
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
             </svg>
             <svg
               v-else
@@ -616,11 +536,7 @@ watch([hue, saturation, lightness], () => {
 
       <!-- Color harmony swatches -->
       <div class="palette-harmonies">
-        <div
-          v-for="group in harmonies"
-          :key="group.label"
-          class="harmony-group"
-        >
+        <div v-for="group in harmonies" :key="group.label" class="harmony-group">
           <span class="harmony-label">{{ group.label }}</span>
           <div class="harmony-swatches">
             <button
@@ -646,19 +562,8 @@ watch([hue, saturation, lightness], () => {
             min="0"
             max="360"
             :value="Math.round(hue)"
-            @input="
-              hue = Math.max(
-                0,
-                Math.min(
-                  360,
-                  Number(
-                    ($event.target as HTMLInputElement)
-                      .value,
-                  ) || 0,
-                ),
-              )
-            "
-          >
+            @input="hue = Math.max(0, Math.min(360, Number(($event.target as HTMLInputElement).value) || 0))"
+          />
         </div>
         <div class="input-group">
           <label>S</label>
@@ -667,19 +572,8 @@ watch([hue, saturation, lightness], () => {
             min="0"
             max="100"
             :value="Math.round(saturation)"
-            @input="
-              saturation = Math.max(
-                0,
-                Math.min(
-                  100,
-                  Number(
-                    ($event.target as HTMLInputElement)
-                      .value,
-                  ) || 0,
-                ),
-              )
-            "
-          >
+            @input="saturation = Math.max(0, Math.min(100, Number(($event.target as HTMLInputElement).value) || 0))"
+          />
         </div>
         <div class="input-group">
           <label>L</label>
@@ -688,19 +582,8 @@ watch([hue, saturation, lightness], () => {
             min="0"
             max="100"
             :value="Math.round(lightness)"
-            @input="
-              lightness = Math.max(
-                0,
-                Math.min(
-                  100,
-                  Number(
-                    ($event.target as HTMLInputElement)
-                      .value,
-                  ) || 0,
-                ),
-              )
-            "
-          >
+            @input="lightness = Math.max(0, Math.min(100, Number(($event.target as HTMLInputElement).value) || 0))"
+          />
         </div>
         <div class="input-group">
           <label>A</label>
@@ -710,19 +593,8 @@ watch([hue, saturation, lightness], () => {
             max="1"
             step="0.01"
             :value="alpha"
-            @input="
-              alpha = Math.max(
-                0,
-                Math.min(
-                  1,
-                  Number(
-                    ($event.target as HTMLInputElement)
-                      .value,
-                  ) || 0,
-                ),
-              )
-            "
-          >
+            @input="alpha = Math.max(0, Math.min(1, Number(($event.target as HTMLInputElement).value) || 0))"
+          />
         </div>
       </div>
     </div>

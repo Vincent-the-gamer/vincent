@@ -1,12 +1,5 @@
 <script setup lang="ts">
-import {
-  computed,
-  nextTick,
-  onBeforeUnmount,
-  onMounted,
-  ref,
-  watch,
-} from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 
 const props = withDefaults(
   defineProps<{
@@ -71,17 +64,11 @@ const glowId = `dot-field-glow-${Math.random().toString(36).slice(2, 9)}`
 // dots keep their contrast instead of washing out.
 const dark = useDark()
 
-const themeGradientFrom = computed(() =>
-  dark.value ? props.gradientFrom : props.gradientFromLight,
-)
+const themeGradientFrom = computed(() => (dark.value ? props.gradientFrom : props.gradientFromLight))
 
-const themeGradientTo = computed(() =>
-  dark.value ? props.gradientTo : props.gradientToLight,
-)
+const themeGradientTo = computed(() => (dark.value ? props.gradientTo : props.gradientToLight))
 
-const themeGlowColor = computed(() =>
-  dark.value ? props.glowColor : props.glowColorLight,
-)
+const themeGlowColor = computed(() => (dark.value ? props.glowColor : props.glowColorLight))
 
 let dots: Dot[] = []
 
@@ -159,21 +146,18 @@ function updateMouseSpeed() {
 }
 
 function setupCanvas() {
-  if (!root.value || !canvas.value)
-    return
+  if (!root.value || !canvas.value) return
 
   const ctx = canvas.value.getContext('2d', {
     alpha: true,
   })
 
-  if (!ctx)
-    return
+  if (!ctx) return
 
   const dpr = Math.min(window.devicePixelRatio || 1, 2)
 
   function doResize() {
-    if (!root.value || !canvas.value || !ctx)
-      return
+    if (!root.value || !canvas.value || !ctx) return
 
     const rect = root.value.getBoundingClientRect()
 
@@ -210,8 +194,7 @@ function setupCanvas() {
   }
 
   function tick() {
-    if (!ctx)
-      return
+    if (!ctx) return
 
     frameCount++
 
@@ -266,23 +249,19 @@ function setupCanvas() {
         if (props.bulgeOnly) {
           const falloff = 1 - dist / props.cursorRadius
 
-          const push
-            = falloff * falloff * props.bulgeStrength * engagement
+          const push = falloff * falloff * props.bulgeStrength * engagement
 
           d.sx += (d.ax - Math.cos(angle) * push - d.sx) * 0.15
           d.sy += (d.ay - Math.sin(angle) * push - d.sy) * 0.15
-        }
-        else {
+        } else {
           const safeDist = Math.max(dist, 0.001)
 
-          const move
-            = (500 / safeDist) * (mouse.speed * props.cursorForce)
+          const move = (500 / safeDist) * (mouse.speed * props.cursorForce)
 
           d.vx += Math.cos(angle) * -move
           d.vy += Math.sin(angle) * -move
         }
-      }
-      else if (props.bulgeOnly) {
+      } else if (props.bulgeOnly) {
         d.sx += (d.ax - d.sx) * 0.1
         d.sy += (d.ay - d.sy) * 0.1
       }
@@ -304,8 +283,7 @@ function setupCanvas() {
       if (props.waveAmplitude > 0) {
         drawY += Math.sin(d.ax * 0.03 + t) * props.waveAmplitude
 
-        drawX
-          += Math.cos(d.ay * 0.03 + t * 0.7) * props.waveAmplitude * 0.5
+        drawX += Math.cos(d.ay * 0.03 + t * 0.7) * props.waveAmplitude * 0.5
       }
 
       if (props.sparkle) {
@@ -314,13 +292,11 @@ function setupCanvas() {
         if (hash % 100 < 3) {
           ctx.moveTo(drawX + rad * 1.8, drawY)
           ctx.arc(drawX, drawY, rad * 1.8, 0, TWO_PI)
-        }
-        else {
+        } else {
           ctx.moveTo(drawX + rad, drawY)
           ctx.arc(drawX, drawY, rad, 0, TWO_PI)
         }
-      }
-      else {
+      } else {
         ctx.moveTo(drawX + rad, drawY)
         ctx.arc(drawX, drawY, rad, 0, TWO_PI)
       }
@@ -377,30 +353,15 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div
-    ref="root"
-    class="relative w-full h-full overflow-hidden"
-    :class="className"
-  >
+  <div ref="root" class="relative w-full h-full overflow-hidden" :class="className">
     <canvas ref="canvas" class="absolute inset-0 w-full h-full" />
 
-    <svg
-      class="absolute inset-0 w-full h-full pointer-events-none"
-      aria-hidden="true"
-    >
+    <svg class="absolute inset-0 w-full h-full pointer-events-none" aria-hidden="true">
       <defs>
         <radialGradient :id="glowId">
-          <stop
-            offset="0%"
-            :stop-color="themeGlowColor"
-            stop-opacity="0.45"
-          />
+          <stop offset="0%" :stop-color="themeGlowColor" stop-opacity="0.45" />
 
-          <stop
-            offset="100%"
-            :stop-color="themeGlowColor"
-            stop-opacity="0"
-          />
+          <stop offset="100%" :stop-color="themeGlowColor" stop-opacity="0" />
         </radialGradient>
       </defs>
 

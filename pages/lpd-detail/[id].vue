@@ -2,17 +2,15 @@
 const { query } = useRoute()
 
 function difficultyColor(difficulty: number): Record<string, string> {
-  if (difficulty > 7)
-    return { color: 'red' }
-  else if (difficulty >= 5 && difficulty < 7)
-    return { color: 'yellow' }
+  if (difficulty > 7) return { color: 'red' }
+  else if (difficulty >= 5 && difficulty < 7) return { color: 'yellow' }
   else return { color: 'rgb(65, 255, 51)' }
 }
 </script>
 
 <template>
   <div flex="~ col justify-center items-center">
-    <img :src="query.image?.toString()" w-100>
+    <img :src="query.image?.toString()" w-100 />
     <div font="size-7 bold">
       {{ query.name }}
     </div>
@@ -23,10 +21,7 @@ function difficultyColor(difficulty: number): Record<string, string> {
     <div mb-2 flex="~ col items-center">
       <p>难度/Difficulty:</p>
       <div flex="~ items-center">
-        <div
-          font-size-6
-          :style="difficultyColor(Number(query.difficulty))"
-        >
+        <div font-size-6 :style="difficultyColor(Number(query.difficulty))">
           {{ query.difficulty }}
         </div>
         <span>/10</span>
@@ -36,48 +31,25 @@ function difficultyColor(difficulty: number): Record<string, string> {
     <div mb-2 flex="~ col items-center">
       <p>视频/Video:</p>
       <p>
-        <a :href="query.video?.toString()" target="_blank">{{
-          query.video
-        }}</a>
+        <a :href="query.video?.toString()" target="_blank">{{ query.video }}</a>
       </p>
     </div>
 
     <div mb-2 flex="~ col items-center">
-      <p>
-        最低Ableton Live版本需求 / Minimum Ableton Live version
-        required:
-      </p>
+      <p>最低Ableton Live版本需求 / Minimum Ableton Live version required:</p>
       <p color-red font-size-6>
         {{ query.minAbletonLiveVersion }}
       </p>
     </div>
     <p>下载/Download:</p>
-    <div
-      v-if="query.baiduLink || query.googleDriveLink"
-      flex="~ row gap-2"
-      mt-1
-    >
+    <div v-if="query.baiduLink || query.googleDriveLink" flex="~ row gap-2" mt-1>
       <a id="dld" target="_blank" :href="query.baiduLink?.toString()">
-        <div
-          title="百度网盘"
-          w-fit
-          h-8
-          p-2
-          cursor-pointer
-          bg-white
-          hover:bg-purple
-          border="rd-2"
-          flex="~ items-center"
-        >
+        <div title="百度网盘" w-fit h-8 p-2 cursor-pointer bg-white hover:bg-purple border="rd-2" flex="~ items-center">
           <div i-arcticons-baidu-netdisk />
           <span>百度网盘</span>
         </div>
       </a>
-      <a
-        id="dld"
-        target="_blank"
-        :href="query.googleDriveLink?.toString()"
-      >
+      <a id="dld" target="_blank" :href="query.googleDriveLink?.toString()">
         <div
           title="Google Drive"
           w-fit
@@ -94,9 +66,7 @@ function difficultyColor(difficulty: number): Record<string, string> {
         </div>
       </a>
     </div>
-    <div v-else>
-      等待上传/To be upload soon.
-    </div>
+    <div v-else>等待上传/To be upload soon.</div>
   </div>
 </template>
 

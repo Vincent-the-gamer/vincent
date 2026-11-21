@@ -1,6 +1,4 @@
-import {
-  createLocalFontProcessor,
-} from '@unocss/preset-web-fonts/local'
+import { createLocalFontProcessor } from '@unocss/preset-web-fonts/local'
 import {
   defineConfig,
   presetAttributify,
@@ -16,11 +14,12 @@ export default defineConfig({
       'bg-base': 'bg-white dark:bg-[#101014]',
       'color-base': 'text-black dark:text-gray-100',
       'border-base': 'border-[#8884]',
-      'btn': 'px-4 py-1 rounded inline-block bg-teal-600 text-white cursor-pointer hover:bg-teal-700 active:scale-98 disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50',
+      btn: 'px-4 py-1 rounded inline-block bg-teal-600 text-white cursor-pointer hover:bg-teal-700 active:scale-98 disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50',
     },
     [
       /^btn-(\w+)$/,
-      ([_, color]) => `op50 px2.5 py1 transition-all duration-200 ease-out no-underline! active:scale-98 hover:(op100 text-${color} bg-${color}/10) border border-base! rounded`,
+      ([_, color]) =>
+        `op50 px2.5 py1 transition-all duration-200 ease-out no-underline! active:scale-98 hover:(op100 text-${color} bg-${color}/10) border border-base! rounded`,
     ],
   ],
   rules: [
@@ -34,9 +33,9 @@ export default defineConfig({
   presets: [
     presetIcons({
       extraProperties: {
-        'display': 'inline-block',
-        'height': '1.2em',
-        'width': '1.2em',
+        display: 'inline-block',
+        height: '1.2em',
+        width: '1.2em',
         'vertical-align': 'text-bottom',
       },
     }),
@@ -52,10 +51,6 @@ export default defineConfig({
       processors: createLocalFontProcessor(),
     }),
   ],
-  transformers: [
-    transformerDirectives(),
-  ],
-  safelist: [
-    'i-ri-menu-2-fill',
-  ],
+  transformers: [transformerDirectives()],
+  safelist: ['i-ri-menu-2-fill'],
 })

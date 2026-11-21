@@ -69,7 +69,6 @@ dsh plugin --profile desktop add <插件名>
 | [dsh-computer-use-win](https://github.com/Yu-tao-Li/dsh-computer-use-win) | 给Windows系统上的dsh带来Computer Use的能力              |
 | [dsh-meme](https://github.com/yyh-001/dsh-meme)                           | 让Agent主动发表情包，有图库，还可以上传图片             |
 
-
 ## 必装：插件市场 dsh-market
 
 装好客户端、确认能新建会话后，**先别急着一个个敲命令**。第一步应该是装 [dsh-market](https://github.com/dsh-market/dsh-market)（官网 [dshmarket.com](https://dshmarket.com)）：它把插件市场做进了 DSH 里，之后找插件、看说明和截图、一键安装/更新/停用，都在界面里完成。
@@ -97,7 +96,6 @@ dsh plugin --profile desktop add dshmarket
 
 > [!NOTE] 市场不等于安全审计
 > 它只保证插件来源在收录列表里。插件是第三方代码，跑在你 agent 的权限下，装之前扫一眼仓库和它申请的权限。
-
 
 ## 必装：dsh-our-free-model - 白嫖大模型
 

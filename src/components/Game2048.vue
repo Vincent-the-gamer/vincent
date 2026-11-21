@@ -17,15 +17,12 @@ function initBoard() {
 
 function addNewTile() {
   const emptyTiles = board.value.reduce((acc, val, index) => {
-    if (val === 0)
-      acc.push(index)
+    if (val === 0) acc.push(index)
     return acc
   }, [])
   if (emptyTiles.length > 0) {
     const randomIndex = emptyTiles[Math.floor(Math.random() * emptyTiles.length)]
-    board.value[randomIndex] = Math.random() < 0.9
-      ? 2
-      : 4
+    board.value[randomIndex] = Math.random() < 0.9 ? 2 : 4
   }
 }
 
@@ -38,7 +35,10 @@ function checkGameOver() {
     for (let i = 0; i < 4; i++) {
       for (let j = 0; j < 4; j++) {
         const index = i * 4 + j
-        if ((j < 3 && board.value[index] === board.value[index + 1]) || (i < 3 && board.value[index] === board.value[index + 4])) {
+        if (
+          (j < 3 && board.value[index] === board.value[index + 1]) ||
+          (i < 3 && board.value[index] === board.value[index + 4])
+        ) {
           return
         }
       }
@@ -66,7 +66,7 @@ function move(direction: 'up' | 'down' | 'left' | 'right') {
     const N = Math.sqrt(board.length)
     for (let i = 0; i < N; i++) {
       let row = board.slice(i * N, (i + 1) * N)
-      row = row.filter(x => x !== 0)
+      row = row.filter((x) => x !== 0)
       for (let j = 0; j < row.length - 1; j++) {
         if (row[j] === row[j + 1]) {
           row[j] *= 2
@@ -75,11 +75,10 @@ function move(direction: 'up' | 'down' | 'left' | 'right') {
           changed = true
         }
       }
-      row = row.filter(x => x !== 0)
+      row = row.filter((x) => x !== 0)
       while (row.length < N) row.push(0)
       for (let j = 0; j < N; j++) {
-        if (board[i * N + j] !== row[j])
-          changed = true
+        if (board[i * N + j] !== row[j]) changed = true
         board[i * N + j] = row[j]
       }
     }
@@ -91,16 +90,13 @@ function move(direction: 'up' | 'down' | 'left' | 'right') {
     newBoard = rotateBoard(rotateBoard(rotateBoard(newBoard)))
     newBoard = moveLeft(newBoard)
     newBoard = rotateBoard(newBoard)
-  }
-  else if (direction === 'down') {
+  } else if (direction === 'down') {
     newBoard = rotateBoard(newBoard)
     newBoard = moveLeft(newBoard)
     newBoard = rotateBoard(rotateBoard(rotateBoard(newBoard)))
-  }
-  else if (direction === 'left') {
+  } else if (direction === 'left') {
     newBoard = moveLeft(newBoard)
-  }
-  else if (direction === 'right') {
+  } else if (direction === 'right') {
     newBoard = rotateBoard(rotateBoard(newBoard))
     newBoard = moveLeft(newBoard)
     newBoard = rotateBoard(rotateBoard(newBoard))
@@ -120,31 +116,39 @@ function move(direction: 'up' | 'down' | 'left' | 'right') {
 
 function handleKeyDown(e: KeyboardEvent) {
   e.preventDefault()
-  if (e.key === 'ArrowUp')
-    move('up')
-  else if (e.key === 'ArrowDown')
-    move('down')
-  else if (e.key === 'ArrowLeft')
-    move('left')
-  else if (e.key === 'ArrowRight')
-    move('right')
+  if (e.key === 'ArrowUp') move('up')
+  else if (e.key === 'ArrowDown') move('down')
+  else if (e.key === 'ArrowLeft') move('left')
+  else if (e.key === 'ArrowRight') move('right')
 }
 
 const getTileClass = computed(() => (value: number) => {
   const baseClass = 'transition-all duration-100 ease-in-out'
   switch (value) {
-    case 2: return `${baseClass} bg-yellow-100 text-gray-700`
-    case 4: return `${baseClass} bg-yellow-200 text-gray-700`
-    case 8: return `${baseClass} bg-orange-200 text-white`
-    case 16: return `${baseClass} bg-orange-300 text-white`
-    case 32: return `${baseClass} bg-orange-400 text-white`
-    case 64: return `${baseClass} bg-orange-500 text-white`
-    case 128: return `${baseClass} bg-red-300 text-white`
-    case 256: return `${baseClass} bg-red-400 text-white`
-    case 512: return `${baseClass} bg-red-500 text-white`
-    case 1024: return `${baseClass} bg-red-600 text-white`
-    case 2048: return `${baseClass} bg-yellow-300 text-white`
-    default: return `${baseClass} bg-gray-100 text-gray-500`
+    case 2:
+      return `${baseClass} bg-yellow-100 text-gray-700`
+    case 4:
+      return `${baseClass} bg-yellow-200 text-gray-700`
+    case 8:
+      return `${baseClass} bg-orange-200 text-white`
+    case 16:
+      return `${baseClass} bg-orange-300 text-white`
+    case 32:
+      return `${baseClass} bg-orange-400 text-white`
+    case 64:
+      return `${baseClass} bg-orange-500 text-white`
+    case 128:
+      return `${baseClass} bg-red-300 text-white`
+    case 256:
+      return `${baseClass} bg-red-400 text-white`
+    case 512:
+      return `${baseClass} bg-red-500 text-white`
+    case 1024:
+      return `${baseClass} bg-red-600 text-white`
+    case 2048:
+      return `${baseClass} bg-yellow-300 text-white`
+    default:
+      return `${baseClass} bg-gray-100 text-gray-500`
   }
 })
 
@@ -156,13 +160,13 @@ onMounted(() => {
 
 <template>
   <div class="mt-8" flex="~ col justify-center items-center">
-    <h1 class="text-2xl font-bold mb-4">
-      2048 Game
-    </h1>
+    <h1 class="text-2xl font-bold mb-4">2048 Game</h1>
     <div class="relative">
       <div v-if="!gameOver && !gameWon" class="grid grid-cols-4 gap-4 bg-gray-200 p-4 rounded-lg shadow-lg">
         <div
-          v-for="(value, index) in board" :key="index" :class="getTileClass(value)"
+          v-for="(value, index) in board"
+          :key="index"
+          :class="getTileClass(value)"
           class="w-20 h-20 flex items-center justify-center text-xl font-bold rounded-lg transition-transform duration-300 ease-out transform hover:scale-110"
         >
           <transition name="slide-fade" mode="out-in">
@@ -172,18 +176,15 @@ onMounted(() => {
           </transition>
         </div>
       </div>
-      <div v-else class="absolute inset-0 flex items-center justify-center bg-gray-200 bg-opacity-75 rounded-lg shadow-lg">
-        <div v-if="gameWon" class="text-center text-2xl font-bold text-green-500">
-          You Win!
-        </div>
-        <div v-else class="text-center text-2xl font-bold text-red-500">
-          Game Over
-        </div>
+      <div
+        v-else
+        class="absolute inset-0 flex items-center justify-center bg-gray-200 bg-opacity-75 rounded-lg shadow-lg"
+      >
+        <div v-if="gameWon" class="text-center text-2xl font-bold text-green-500">You Win!</div>
+        <div v-else class="text-center text-2xl font-bold text-red-500">Game Over</div>
       </div>
     </div>
-    <div class="mt-4 text-center text-xl font-bold">
-      Score: {{ score }}
-    </div>
+    <div class="mt-4 text-center text-xl font-bold">Score: {{ score }}</div>
   </div>
 </template>
 

@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { SearchDoc, SearchHit } from '~/logics/search'
 import { onKeyStroke, useScrollLock, useStorage } from '@vueuse/core'
 import { computed, nextTick, onMounted, ref, shallowRef, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import type { SearchDoc, SearchHit } from '~/logics/search'
 import { formatDate } from '~/logics'
 import { searchDocs, segmentize, splitTerms } from '~/logics/search'
 
@@ -28,31 +28,18 @@ const recentSearches = useStorage<string[]>('vincent-search-recent', [])
 const terms = computed(() => splitTerms(query.value))
 const hasQuery = computed(() => terms.value.length > 0)
 const results = computed<SearchHit[]>(() =>
-  docs.value && hasQuery.value
-    ? searchDocs(docs.value, query.value, RESULT_LIMIT)
-    : [],
+  docs.value && hasQuery.value ? searchDocs(docs.value, query.value, RESULT_LIMIT) : [],
 )
-const recentDocs = computed(() =>
-  (docs.value ?? []).filter(doc => doc.date).slice(0, 5),
-)
+const recentDocs = computed(() => (docs.value ?? []).filter((doc) => doc.date).slice(0, 5))
 
 const shortcutLabel = computed(() => (isMac.value ? '⌘K' : 'Ctrl K'))
-const activeId = computed(() =>
-  hasQuery.value && results.value.length
-    ? `search-hit-${active.value}`
-    : undefined,
-)
+const activeId = computed(() => (hasQuery.value && results.value.length ? `search-hit-${active.value}` : undefined))
 const statusText = computed(() => {
-  if (loading.value)
-    return '正在载入搜索索引'
-  if (loadError.value)
-    return '搜索索引加载失败'
-  if (!hasQuery.value)
-    return ''
+  if (loading.value) return '正在载入搜索索引'
+  if (loadError.value) return '搜索索引加载失败'
+  if (!hasQuery.value) return ''
   return results.value.length
-    ? `找到 ${results.value.length}${results.value.length >= RESULT_LIMIT
-      ? '+'
-      : ''} 条结果`
+    ? `找到 ${results.value.length}${results.value.length >= RESULT_LIMIT ? '+' : ''} 条结果`
     : '没有匹配的结果'
 })
 
@@ -64,12 +51,10 @@ function loadIndex() {
     try {
       const mod = await import('virtual:search-index')
       docs.value = mod.default
-    }
-    catch (error) {
+    } catch (error) {
       loadError.value = true
       console.error('[search] failed to load the local index', error)
-    }
-    finally {
+    } finally {
       loading.value = false
     }
   })()
@@ -77,15 +62,13 @@ function loadIndex() {
 }
 
 function openSearch() {
-  if (open.value)
-    return
+  if (open.value) return
   open.value = true
   void loadIndex()
 }
 
 function closeSearch() {
-  if (!open.value)
-    return
+  if (!open.value) return
   open.value = false
   query.value = ''
   active.value = 0
@@ -93,64 +76,48 @@ function closeSearch() {
 
 function rememberSearch() {
   const value = query.value.trim()
-  if (!value)
-    return
-  recentSearches.value = [
-    value,
-    ...recentSearches.value.filter(item => item !== value),
-  ].slice(0, 6)
+  if (!value) return
+  recentSearches.value = [value, ...recentSearches.value.filter((item) => item !== value)].slice(0, 6)
 }
 
 function navigateTo(path: string, anchor?: string) {
-  const isSamePath
-    = route.path.replace(/\/+$/, '') === path.replace(/\/+$/, '')
+  const isSamePath = route.path.replace(/\/+$/, '') === path.replace(/\/+$/, '')
   closeSearch()
 
   if (anchor && isSamePath) {
-    document
-      .getElementById(anchor)
-      ?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    document.getElementById(anchor)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
     window.history.replaceState(window.history.state, '', `#${anchor}`)
     return
   }
 
-  void router.push(anchor
-    ? { path, hash: `#${anchor}` }
-    : { path })
+  void router.push(anchor ? { path, hash: `#${anchor}` } : { path })
 }
 
 function go(hit?: SearchHit) {
-  if (!hit)
-    return
+  if (!hit) return
   rememberSearch()
   navigateTo(hit.doc.path, hit.section?.anchor || undefined)
 }
 
 function move(delta: number) {
   const total = results.value.length
-  if (!total)
-    return
+  if (!total) return
   active.value = (active.value + delta + total) % total
   void nextTick(() => {
-    listEl.value
-      ?.querySelector<HTMLElement>('[data-active="true"]')
-      ?.scrollIntoView({ block: 'nearest' })
+    listEl.value?.querySelector<HTMLElement>('[data-active="true"]')?.scrollIntoView({ block: 'nearest' })
   })
 }
 
 function onInputKeydown(event: KeyboardEvent) {
-  if (event.isComposing)
-    return
+  if (event.isComposing) return
 
   if (event.key === 'ArrowDown') {
     event.preventDefault()
     move(1)
-  }
-  else if (event.key === 'ArrowUp') {
+  } else if (event.key === 'ArrowUp') {
     event.preventDefault()
     move(-1)
-  }
-  else if (event.key === 'Enter') {
+  } else if (event.key === 'Enter') {
     event.preventDefault()
     go(results.value[active.value])
   }
@@ -158,8 +125,7 @@ function onInputKeydown(event: KeyboardEvent) {
 
 /** Keeps focus inside the dialog: the input is the only tab stop we need. */
 function onPanelKeydown(event: KeyboardEvent) {
-  if (event.key !== 'Tab')
-    return
+  if (event.key !== 'Tab') return
   event.preventDefault()
   inputEl.value?.focus()
 }
@@ -180,35 +146,24 @@ watch(
   () => closeSearch(),
 )
 
-const body = typeof document === 'undefined'
-  ? null
-  : document.body
-const scrollLock = body
-  ? useScrollLock(body)
-  : ref(false)
-watch(open, value => (scrollLock.value = value))
+const body = typeof document === 'undefined' ? null : document.body
+const scrollLock = body ? useScrollLock(body) : ref(false)
+watch(open, (value) => (scrollLock.value = value))
 
 onMounted(() => {
   isMac.value = /mac|iphone|ipad|ipod/i.test(navigator.userAgent)
 })
 
 onKeyStroke(['k', 'K'], (event) => {
-  if (!(event.metaKey || event.ctrlKey))
-    return
+  if (!(event.metaKey || event.ctrlKey)) return
   event.preventDefault()
-  open.value
-    ? closeSearch()
-    : openSearch()
+  open.value ? closeSearch() : openSearch()
 })
 
 onKeyStroke('/', (event) => {
-  if (open.value)
-    return
+  if (open.value) return
   const target = event.target as HTMLElement | null
-  if (
-    target?.isContentEditable
-    || ['INPUT', 'TEXTAREA', 'SELECT'].includes(target?.tagName ?? '')
-  ) {
+  if (target?.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(target?.tagName ?? '')) {
     return
   }
   event.preventDefault()
@@ -229,10 +184,7 @@ onKeyStroke('Escape', () => closeSearch())
       title="搜索文章"
       @click="openSearch"
     >
-      <span
-        class="i-carbon-search search-trigger-icon"
-        aria-hidden="true"
-      />
+      <span class="i-carbon-search search-trigger-icon" aria-hidden="true" />
       <span class="search-trigger-label lt-md:hidden">搜索</span>
       <kbd class="search-kbd lt-md:hidden">{{ shortcutLabel }}</kbd>
     </button>
@@ -240,11 +192,7 @@ onKeyStroke('Escape', () => closeSearch())
     <ClientOnly>
       <Teleport to="body">
         <Transition name="search-fade">
-          <div
-            v-if="open"
-            class="search-overlay"
-            @click.self="closeSearch"
-          >
+          <div v-if="open" class="search-overlay" @click.self="closeSearch">
             <Transition name="search-pop" appear>
               <section
                 class="search-panel"
@@ -257,10 +205,7 @@ onKeyStroke('Escape', () => closeSearch())
                 <div class="search-sheen" aria-hidden="true" />
 
                 <div class="search-field">
-                  <span
-                    class="i-carbon-search search-field-icon"
-                    aria-hidden="true"
-                  />
+                  <span class="i-carbon-search search-field-icon" aria-hidden="true" />
                   <input
                     ref="inputEl"
                     v-model="query"
@@ -277,19 +222,11 @@ onKeyStroke('Escape', () => closeSearch())
                     spellcheck="false"
                     enterkeyhint="go"
                     @keydown="onInputKeydown"
-                  >
-                  <span
-                    v-if="loading"
-                    class="search-spinner"
-                    aria-hidden="true"
                   />
-                  <kbd
-                    v-else
-                    class="search-kbd search-kbd-esc"
-                    role="button"
-                    tabindex="-1"
-                    @click="closeSearch"
-                  >Esc</kbd>
+                  <span v-if="loading" class="search-spinner" aria-hidden="true" />
+                  <kbd v-else class="search-kbd search-kbd-esc" role="button" tabindex="-1" @click="closeSearch"
+                    >Esc</kbd
+                  >
                 </div>
 
                 <p class="sr-only" role="status">
@@ -297,24 +234,10 @@ onKeyStroke('Escape', () => closeSearch())
                 </p>
 
                 <div ref="listEl" class="search-body">
-                  <ul
-                    v-if="hasQuery"
-                    id="search-result-list"
-                    role="listbox"
-                    aria-label="搜索结果"
-                    class="search-list"
-                  >
-                    <li
-                      v-if="!results.length && !loading"
-                      class="search-empty"
-                    >
-                      <span
-                        class="i-carbon-search-advanced search-empty-icon"
-                        aria-hidden="true"
-                      />
-                      <span>没有找到与「{{
-                        query.trim()
-                      }}」相关的内容</span>
+                  <ul v-if="hasQuery" id="search-result-list" role="listbox" aria-label="搜索结果" class="search-list">
+                    <li v-if="!results.length && !loading" class="search-empty">
+                      <span class="i-carbon-search-advanced search-empty-icon" aria-hidden="true" />
+                      <span>没有找到与「{{ query.trim() }}」相关的内容</span>
                       <span class="search-empty-hint">试试更短的关键词，或者只输入其中一部分</span>
                     </li>
                     <li
@@ -331,68 +254,26 @@ onKeyStroke('Escape', () => closeSearch())
                       <div class="search-hit-head">
                         <span class="search-hit-title">
                           <component
-                            :is="
-                              part.hit
-                                ? 'mark'
-                                : 'span'
-                            "
-                            v-for="(
-                              part, partIndex
-                            ) in segmentize(
-                              hit.doc.title,
-                              terms,
-                            )"
+                            :is="part.hit ? 'mark' : 'span'"
+                            v-for="(part, partIndex) in segmentize(hit.doc.title, terms)"
                             :key="`title-${partIndex}`"
-                          >{{
-                            part.text
-                          }}</component>
+                            >{{ part.text }}</component
+                          >
                         </span>
-                        <span
-                          v-if="hit.doc.lang === 'zh'"
-                          class="search-tag"
-                        >中文</span>
-                        <span
-                          v-else-if="hit.doc.lang"
-                          class="search-tag"
-                        >EN</span>
+                        <span v-if="hit.doc.lang === 'zh'" class="search-tag">中文</span>
+                        <span v-else-if="hit.doc.lang" class="search-tag">EN</span>
                       </div>
-                      <div
-                        v-if="
-                          hit.section?.heading
-                            || hit.doc.date
-                        "
-                        class="search-hit-meta"
-                      >
-                        <span
-                          v-if="hit.section?.heading"
-                          class="search-hit-heading"
-                        >
-                          <span
-                            class="i-carbon-book"
-                            aria-hidden="true"
-                          />
+                      <div v-if="hit.section?.heading || hit.doc.date" class="search-hit-meta">
+                        <span v-if="hit.section?.heading" class="search-hit-heading">
+                          <span class="i-carbon-book" aria-hidden="true" />
                           {{ hit.section.heading }}
                         </span>
-                        <span v-if="hit.doc.date">{{
-                          formatDate(
-                            hit.doc.date,
-                            true,
-                          )
-                        }}</span>
+                        <span v-if="hit.doc.date">{{ formatDate(hit.doc.date, true) }}</span>
                       </div>
-                      <p
-                        v-if="hit.snippet.length"
-                        class="search-hit-snippet"
-                      >
+                      <p v-if="hit.snippet.length" class="search-hit-snippet">
                         <component
-                          :is="
-                            part.hit
-                              ? 'mark'
-                              : 'span'
-                          "
-                          v-for="(
-                            part, partIndex
-                          ) in hit.snippet"
+                          :is="part.hit ? 'mark' : 'span'"
+                          v-for="(part, partIndex) in hit.snippet"
                           :key="`snippet-${partIndex}`"
                         >
                           {{ part.text }}
@@ -402,24 +283,14 @@ onKeyStroke('Escape', () => closeSearch())
                   </ul>
 
                   <div v-else class="search-home">
-                    <div
-                      v-if="loadError"
-                      class="search-empty"
-                    >
-                      <span
-                        class="i-carbon-warning-alt search-empty-icon"
-                        aria-hidden="true"
-                      />
+                    <div v-if="loadError" class="search-empty">
+                      <span class="i-carbon-warning-alt search-empty-icon" aria-hidden="true" />
                       <span>索引加载失败，请刷新页面重试</span>
                     </div>
 
                     <template v-else>
-                      <template
-                        v-if="recentSearches.length"
-                      >
-                        <p class="search-home-title">
-                          最近搜索
-                        </p>
+                      <template v-if="recentSearches.length">
+                        <p class="search-home-title">最近搜索</p>
                         <div class="search-chips">
                           <button
                             v-for="item in recentSearches"
@@ -428,41 +299,22 @@ onKeyStroke('Escape', () => closeSearch())
                             class="search-chip"
                             @click="query = item"
                           >
-                            <span
-                              class="i-carbon-time"
-                              aria-hidden="true"
-                            />
+                            <span class="i-carbon-time" aria-hidden="true" />
                             {{ item }}
                           </button>
                         </div>
                       </template>
 
-                      <p
-                        v-if="recentDocs.length"
-                        class="search-home-title"
-                      >
-                        最近更新
-                      </p>
+                      <p v-if="recentDocs.length" class="search-home-title">最近更新</p>
                       <ul class="search-recents">
                         <li
                           v-for="doc in recentDocs"
                           :key="doc.path"
                           class="search-recent"
-                          @click="
-                            navigateTo(doc.path)
-                          "
+                          @click="navigateTo(doc.path)"
                         >
-                          <span
-                            class="search-recent-title"
-                          >{{ doc.title }}</span>
-                          <span
-                            class="search-recent-date"
-                          >{{
-                            formatDate(
-                              doc.date,
-                              true,
-                            )
-                          }}</span>
+                          <span class="search-recent-title">{{ doc.title }}</span>
+                          <span class="search-recent-date">{{ formatDate(doc.date, true) }}</span>
                         </li>
                       </ul>
 

@@ -38,15 +38,13 @@ export function run(lang: Language, code: string): Promise<string> {
       return new Promise((resolve, reject) => {
         fs.writeFile(`${__dirname}/main.js`, code, (err) => {
           // [!code hl]
-          if (err)
-            reject('Write file error!')
+          if (err) reject('Write file error!')
 
           exec(`node ${__dirname}/main.js`, (err, stdout, stderr) => {
             // [!code hl]
             if (err) {
               reject({ stdout, stderr })
-            }
-            else {
+            } else {
               resolve({ stdout, stderr })
             }
           })

@@ -4,8 +4,7 @@ const props = defineProps<{ code: string }>()
 const el = ref<HTMLDivElement>()
 
 async function renderDiagram() {
-  if (!el.value || typeof window === 'undefined')
-    return
+  if (!el.value || typeof window === 'undefined') return
 
   const mermaid = (await import('mermaid')).default
   const isDark = document.documentElement.classList.contains('dark')
@@ -21,8 +20,7 @@ async function renderDiagram() {
       decodeURIComponent(props.code),
     )
     el.value.innerHTML = svg
-  }
-  catch (e) {
+  } catch (e) {
     el.value.innerHTML = `<pre style="color:red;border:1px solid red;padding:8px">${(e as Error).message}</pre>`
   }
 }

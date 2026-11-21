@@ -11,14 +11,7 @@
 </script>
 
 <template>
-  <div
-    fixed
-    inset-0
-    pointer-events-none
-    class="print:hidden"
-    style="z-index: -1"
-    aria-hidden="true"
-  >
+  <div fixed inset-0 pointer-events-none class="print:hidden" style="z-index: -1" aria-hidden="true">
     <DotField
       :dot-radius="1"
       :dot-spacing="9"

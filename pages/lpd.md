@@ -5,7 +5,7 @@ art: dots
 lpds:
   - id: 1
     name: Signal
-    date: "2025-12-23"
+    date: '2025-12-23'
     image: /images/lpd/signal.jpg
     link: /lpd-detail/1
     artist: Rezz/Grabbitz
@@ -17,7 +17,7 @@ lpds:
 
   - id: 2
     name: The Baddest
-    date: "2026-01-18"
+    date: '2026-01-18'
     image: /images/lpd/the-baddest.png
     link: /lpd-detail/2
     artist: K/DA

@@ -1,10 +1,12 @@
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <svg
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 20.850000381469727 98.44999694824219 27.399999618530273"
-    data-asc="0.95" width="98.44999694824219" height="27.399999618530273"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 20.850000381469727 98.44999694824219 27.399999618530273"
+    data-asc="0.95"
+    width="98.44999694824219"
+    height="27.399999618530273"
   >
     <defs />
     <g>

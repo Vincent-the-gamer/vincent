@@ -79,13 +79,10 @@ const canvasRef = ref<HTMLCanvasElement | null>(null)
 
 onMounted(() => {
   const canvas = canvasRef.value
-  if (!canvas)
-    return
+  if (!canvas) return
 
   // Pointer and config setup
-  const pointers: Pointer[] = [
-    pointerPrototype(),
-  ]
+  const pointers: Pointer[] = [pointerPrototype()]
 
   const config = {
     SIM_RESOLUTION: props.simResolution,
@@ -107,8 +104,7 @@ onMounted(() => {
 
   // Get WebGL context (WebGL1 or WebGL2)
   const { gl, ext } = getWebGLContext(canvas)
-  if (!gl || !ext)
-    return
+  if (!gl || !ext) return
 
   // If no linear filtering, reduce resolution
   if (!ext.supportLinearFiltering) {
@@ -128,8 +124,8 @@ onMounted(() => {
     let gl = canvas.getContext('webgl2', params) as WebGL2RenderingContext | null
 
     if (!gl) {
-      gl = (canvas.getContext('webgl', params)
-        || canvas.getContext('experimental-webgl', params)) as WebGL2RenderingContext | null
+      gl = (canvas.getContext('webgl', params) ||
+        canvas.getContext('experimental-webgl', params)) as WebGL2RenderingContext | null
     }
 
     if (!gl) {
@@ -142,12 +138,9 @@ onMounted(() => {
     let halfFloat = null
 
     if (isWebGL2) {
-      (gl as WebGL2RenderingContext).getExtension('EXT_color_buffer_float')
-      supportLinearFiltering = !!(gl as WebGL2RenderingContext).getExtension(
-        'OES_texture_float_linear',
-      )
-    }
-    else {
+      ;(gl as WebGL2RenderingContext).getExtension('EXT_color_buffer_float')
+      supportLinearFiltering = !!(gl as WebGL2RenderingContext).getExtension('OES_texture_float_linear')
+    } else {
       halfFloat = gl.getExtension('OES_texture_half_float')
       supportLinearFiltering = !!gl.getExtension('OES_texture_half_float_linear')
     }
@@ -163,12 +156,7 @@ onMounted(() => {
     let formatR: unknown
 
     if (isWebGL2) {
-      formatRGBA = getSupportedFormat(
-        gl,
-        (gl as WebGL2RenderingContext).RGBA16F,
-        gl.RGBA,
-        halfFloatTexType,
-      )
+      formatRGBA = getSupportedFormat(gl, (gl as WebGL2RenderingContext).RGBA16F, gl.RGBA, halfFloatTexType)
       formatRG = getSupportedFormat(
         gl,
         (gl as WebGL2RenderingContext).RG16F,
@@ -181,8 +169,7 @@ onMounted(() => {
         (gl as WebGL2RenderingContext).RED,
         halfFloatTexType,
       )
-    }
-    else {
+    } else {
       formatRGBA = getSupportedFormat(gl, gl.RGBA, gl.RGBA, halfFloatTexType)
       formatRG = getSupportedFormat(gl, gl.RGBA, gl.RGBA, halfFloatTexType)
       formatR = getSupportedFormat(gl, gl.RGBA, gl.RGBA, halfFloatTexType)
@@ -205,7 +192,7 @@ onMounted(() => {
     internalFormat: number,
     format: number,
     type: number,
-  ): { internalFormat: number, format: number } | null {
+  ): { internalFormat: number; format: number } | null {
     if (!supportRenderTextureFormat(gl, internalFormat, format, type)) {
       if ('drawBuffers' in gl) {
         const gl2 = gl as WebGL2RenderingContext
@@ -230,8 +217,7 @@ onMounted(() => {
     type: number,
   ) {
     const texture = gl.createTexture()
-    if (!texture)
-      return false
+    if (!texture) return false
 
     gl.bindTexture(gl.TEXTURE_2D, texture)
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST)
@@ -241,8 +227,7 @@ onMounted(() => {
     gl.texImage2D(gl.TEXTURE_2D, 0, internalFormat, 4, 4, 0, format, type, null)
 
     const fbo = gl.createFramebuffer()
-    if (!fbo)
-      return false
+    if (!fbo) return false
 
     gl.bindFramebuffer(gl.FRAMEBUFFER, fbo)
     gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, texture, 0)
@@ -251,8 +236,7 @@ onMounted(() => {
   }
 
   function hashCode(s: string) {
-    if (!s.length)
-      return 0
+    if (!s.length) return 0
     let hash = 0
     for (let i = 0; i < s.length; i++) {
       hash = (hash << 5) - hash + s.charCodeAt(i)
@@ -262,8 +246,7 @@ onMounted(() => {
   }
 
   function addKeywords(source: string, keywords: string[] | null) {
-    if (!keywords)
-      return source
+    if (!keywords) return source
     let keywordsString = ''
     for (const keyword of keywords) {
       keywordsString += `#define ${keyword}\n`
@@ -271,30 +254,20 @@ onMounted(() => {
     return keywordsString + source
   }
 
-  function compileShader(
-    type: number,
-    source: string,
-    keywords: string[] | null = null,
-  ): WebGLShader | null {
+  function compileShader(type: number, source: string, keywords: string[] | null = null): WebGLShader | null {
     const shaderSource = addKeywords(source, keywords)
     const shader = gl.createShader(type)
-    if (!shader)
-      return null
+    if (!shader) return null
     gl.shaderSource(shader, shaderSource)
     gl.compileShader(shader)
 
     return shader
   }
 
-  function createProgram(
-    vertexShader: WebGLShader | null,
-    fragmentShader: WebGLShader | null,
-  ): WebGLProgram | null {
-    if (!vertexShader || !fragmentShader)
-      return null
+  function createProgram(vertexShader: WebGLShader | null, fragmentShader: WebGLShader | null): WebGLProgram | null {
+    if (!vertexShader || !fragmentShader) return null
     const program = gl.createProgram()
-    if (!program)
-      return null
+    if (!program) return null
     gl.attachShader(program, vertexShader)
     gl.attachShader(program, fragmentShader)
     gl.linkProgram(program)
@@ -320,14 +293,11 @@ onMounted(() => {
 
     constructor(vertexShader: WebGLShader | null, fragmentShader: WebGLShader | null) {
       this.program = createProgram(vertexShader, fragmentShader)
-      this.uniforms = this.program
-        ? getUniforms(this.program)
-        : {}
+      this.uniforms = this.program ? getUniforms(this.program) : {}
     }
 
     bind() {
-      if (this.program)
-        gl.useProgram(this.program)
+      if (this.program) gl.useProgram(this.program)
     }
   }
 
@@ -353,16 +323,11 @@ onMounted(() => {
       }
       let program = this.programs[hash]
       if (program == null) {
-        const fragmentShader = compileShader(
-          gl.FRAGMENT_SHADER,
-          this.fragmentShaderSource,
-          keywords,
-        )
+        const fragmentShader = compileShader(gl.FRAGMENT_SHADER, this.fragmentShaderSource, keywords)
         program = createProgram(this.vertexShader, fragmentShader)
         this.programs[hash] = program
       }
-      if (program === this.activeProgram)
-        return
+      if (program === this.activeProgram) return
       if (program) {
         this.uniforms = getUniforms(program)
       }
@@ -530,9 +495,7 @@ onMounted(() => {
           gl_FragColor = result / decay;
         }
       `,
-    ext.supportLinearFiltering
-      ? null
-      : ['MANUAL_FILTERING'],
+    ext.supportLinearFiltering ? null : ['MANUAL_FILTERING'],
   )
 
   const divergenceShader = compileShader(
@@ -686,13 +649,11 @@ onMounted(() => {
     gl.enableVertexAttribArray(0)
 
     return (target: FBO | null, doClear = false) => {
-      if (!gl)
-        return
+      if (!gl) return
       if (!target) {
         gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight)
         gl.bindFramebuffer(gl.FRAMEBUFFER, null)
-      }
-      else {
+      } else {
         gl.viewport(0, 0, target.width, target.height)
         gl.bindFramebuffer(gl.FRAMEBUFFER, target.fbo)
       }
@@ -745,14 +706,7 @@ onMounted(() => {
   const displayMaterial = new Material(baseVertexShader, displayShaderSource)
 
   // -------------------- FBO creation --------------------
-  function createFBO(
-    w: number,
-    h: number,
-    internalFormat: number,
-    format: number,
-    type: number,
-    param: number,
-  ): FBO {
+  function createFBO(w: number, h: number, internalFormat: number, format: number, type: number, param: number): FBO {
     gl.activeTexture(gl.TEXTURE0)
     const texture = gl.createTexture()!
     gl.bindTexture(gl.TEXTURE_2D, texture)
@@ -821,8 +775,7 @@ onMounted(() => {
   ) {
     const newFBO = createFBO(w, h, internalFormat, format, type, param)
     copyProgram.bind()
-    if (copyProgram.uniforms.uTexture)
-      gl.uniform1i(copyProgram.uniforms.uTexture, target.attach(0))
+    if (copyProgram.uniforms.uTexture) gl.uniform1i(copyProgram.uniforms.uTexture, target.attach(0))
     blit(newFBO, false)
     return newFBO
   }
@@ -836,8 +789,7 @@ onMounted(() => {
     type: number,
     param: number,
   ) {
-    if (target.width === w && target.height === h)
-      return target
+    if (target.width === w && target.height === h) return target
     target.read = resizeFBO(target.read, w, h, internalFormat, format, type, param)
     target.write = createFBO(w, h, internalFormat, format, type, param)
     target.width = w
@@ -859,38 +811,14 @@ onMounted(() => {
     gl.disable(gl.BLEND)
 
     if (!dye) {
-      dye = createDoubleFBO(
-        dyeRes.width,
-        dyeRes.height,
-        rgba.internalFormat,
-        rgba.format,
-        texType,
-        filtering,
-      )
-    }
-    else {
-      dye = resizeDoubleFBO(
-        dye,
-        dyeRes.width,
-        dyeRes.height,
-        rgba.internalFormat,
-        rgba.format,
-        texType,
-        filtering,
-      )
+      dye = createDoubleFBO(dyeRes.width, dyeRes.height, rgba.internalFormat, rgba.format, texType, filtering)
+    } else {
+      dye = resizeDoubleFBO(dye, dyeRes.width, dyeRes.height, rgba.internalFormat, rgba.format, texType, filtering)
     }
 
     if (!velocity) {
-      velocity = createDoubleFBO(
-        simRes.width,
-        simRes.height,
-        rg.internalFormat,
-        rg.format,
-        texType,
-        filtering,
-      )
-    }
-    else {
+      velocity = createDoubleFBO(simRes.width, simRes.height, rg.internalFormat, rg.format, texType, filtering)
+    } else {
       velocity = resizeDoubleFBO(
         velocity,
         simRes.width,
@@ -902,29 +830,14 @@ onMounted(() => {
       )
     }
 
-    divergence = createFBO(
-      simRes.width,
-      simRes.height,
-      r.internalFormat,
-      r.format,
-      texType,
-      gl.NEAREST,
-    )
+    divergence = createFBO(simRes.width, simRes.height, r.internalFormat, r.format, texType, gl.NEAREST)
     curl = createFBO(simRes.width, simRes.height, r.internalFormat, r.format, texType, gl.NEAREST)
-    pressure = createDoubleFBO(
-      simRes.width,
-      simRes.height,
-      r.internalFormat,
-      r.format,
-      texType,
-      gl.NEAREST,
-    )
+    pressure = createDoubleFBO(simRes.width, simRes.height, r.internalFormat, r.format, texType, gl.NEAREST)
   }
 
   function updateKeywords() {
     const displayKeywords: string[] = []
-    if (config.SHADING)
-      displayKeywords.push('SHADING')
+    if (config.SHADING) displayKeywords.push('SHADING')
     displayMaterial.setKeywords(displayKeywords)
   }
 
@@ -932,9 +845,7 @@ onMounted(() => {
     const w = gl.drawingBufferWidth
     const h = gl.drawingBufferHeight
     const aspectRatio = w / h
-    const aspect = aspectRatio < 1
-      ? 1 / aspectRatio
-      : aspectRatio
+    const aspect = aspectRatio < 1 ? 1 / aspectRatio : aspectRatio
     const min = Math.round(resolution)
     const max = Math.round(resolution * aspect)
     if (w > h) {
@@ -957,8 +868,7 @@ onMounted(() => {
 
   function updateFrame() {
     const dt = calcDeltaTime()
-    if (resizeCanvas())
-      initFramebuffers()
+    if (resizeCanvas()) initFramebuffers()
     updateColors(dt)
     applyInputs()
     step(dt)
@@ -1077,11 +987,7 @@ onMounted(() => {
     // Gradient Subtract
     gradienSubtractProgram.bind()
     if (gradienSubtractProgram.uniforms.texelSize) {
-      gl.uniform2f(
-        gradienSubtractProgram.uniforms.texelSize,
-        velocity.texelSizeX,
-        velocity.texelSizeY,
-      )
+      gl.uniform2f(gradienSubtractProgram.uniforms.texelSize, velocity.texelSizeX, velocity.texelSizeY)
     }
     if (gradienSubtractProgram.uniforms.uPressure) {
       gl.uniform1i(gradienSubtractProgram.uniforms.uPressure, pressure.read.attach(0))
@@ -1098,11 +1004,7 @@ onMounted(() => {
       gl.uniform2f(advectionProgram.uniforms.texelSize, velocity.texelSizeX, velocity.texelSizeY)
     }
     if (!ext.supportLinearFiltering && advectionProgram.uniforms.dyeTexelSize) {
-      gl.uniform2f(
-        advectionProgram.uniforms.dyeTexelSize,
-        velocity.texelSizeX,
-        velocity.texelSizeY,
-      )
+      gl.uniform2f(advectionProgram.uniforms.dyeTexelSize, velocity.texelSizeX, velocity.texelSizeY)
     }
     const velocityId = velocity.read.attach(0)
     if (advectionProgram.uniforms.uVelocity) {
@@ -1205,8 +1107,7 @@ onMounted(() => {
 
   function correctRadius(radius: number) {
     const aspectRatio = canvas!.width / canvas!.height
-    if (aspectRatio > 1)
-      radius *= aspectRatio
+    if (aspectRatio > 1) radius *= aspectRatio
     return radius
   }
 
@@ -1240,15 +1141,13 @@ onMounted(() => {
 
   function correctDeltaX(delta: number) {
     const aspectRatio = canvas!.width / canvas!.height
-    if (aspectRatio < 1)
-      delta *= aspectRatio
+    if (aspectRatio < 1) delta *= aspectRatio
     return delta
   }
 
   function correctDeltaY(delta: number) {
     const aspectRatio = canvas!.width / canvas!.height
-    if (aspectRatio > 1)
-      delta /= aspectRatio
+    if (aspectRatio > 1) delta /= aspectRatio
     return delta
   }
 
@@ -1307,8 +1206,7 @@ onMounted(() => {
 
   function wrap(value: number, min: number, max: number) {
     const range = max - min
-    if (range === 0)
-      return min
+    if (range === 0) return min
     return ((value - min) % range) + min
   }
 
@@ -1422,14 +1320,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div
-    class="size-full pointer-events-none left-0 top-0 fixed z-50"
-    :class="props.class"
-  >
-    <canvas
-      id="fluid"
-      ref="canvasRef"
-      class="h-screen w-screen block"
-    />
+  <div class="size-full pointer-events-none left-0 top-0 fixed z-50" :class="props.class">
+    <canvas id="fluid" ref="canvasRef" class="h-screen w-screen block" />
   </div>
 </template>

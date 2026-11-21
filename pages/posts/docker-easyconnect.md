@@ -40,7 +40,7 @@ mode: Rule
 log-level: info
 external-controller: :9090
 proxies:
-  - {name: vpn, type: socks5, server: 127.0.0.1, port: 1080}
+  - { name: vpn, type: socks5, server: 127.0.0.1, port: 1080 }
 proxy-groups:
   - name: EasyConnect
     type: select

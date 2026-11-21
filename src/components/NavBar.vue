@@ -18,11 +18,7 @@ const { y: scroll } = useWindowScroll()
           stay pinned to the top-left corner while the page scrolls.
         -->
     <div class="brand">
-      <RouterLink
-        class="logo select-none outline-none"
-        to="/"
-        focusable="false"
-      >
+      <RouterLink class="logo select-none outline-none" to="/" focusable="false">
         <SvgAvatar />
       </RouterLink>
       <div class="brand-search" print:hidden>
@@ -71,12 +67,7 @@ const { y: scroll } = useWindowScroll()
           <span lt-md:hidden>Waifus/老婆列表</span>
           <div i-icon-park-outline-girl md:hidden />
         </RouterLink>
-        <a
-          href="https://github.com/Vincent-the-gamer"
-          target="_blank"
-          title="GitHub"
-          class="lt-md:hidden"
-        >
+        <a href="https://github.com/Vincent-the-gamer" target="_blank" title="GitHub" class="lt-md:hidden">
           <div i-uil-github-alt />
         </a>
         <ToggleTheme />

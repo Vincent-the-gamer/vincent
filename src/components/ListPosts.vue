@@ -11,23 +11,13 @@ const props = defineProps<{
 const router = useRouter()
 const routes: Post[] = router
   .getRoutes()
-  .filter(
-    i =>
-      i.path.startsWith('/posts')
-      && i.meta.frontmatter.date
-      && !i.meta.frontmatter.draft,
-  )
-  .filter(
-    i =>
-      !i.path.endsWith('.html')
-      && (i.meta.frontmatter.type || 'blog').split('+'),
-  )
+  .filter((i) => i.path.startsWith('/posts') && i.meta.frontmatter.date && !i.meta.frontmatter.draft)
+  .filter((i) => !i.path.endsWith('.html') && (i.meta.frontmatter.type || 'blog').split('+'))
   .map((i) => {
     let path = ''
     if (i.meta.frontmatter.redirect) {
       path = i.meta.frontmatter.redirect.replace('//', '/')
-    }
-    else {
+    } else {
       path = i.path.replace('//', '/')
     }
     return {
@@ -46,16 +36,13 @@ const routes: Post[] = router
   })
 
 const posts = computed(() => {
-  return [
-    ...(props.posts || routes),
-    ...(props.extra || []),
-  ]
+  return [...(props.posts || routes), ...(props.extra || [])]
     .sort((a, b) => +new Date(b.date) - +new Date(a.date))
     .filter((i) => {
       return (
-        (!englishOnly.value || i.lang !== 'zh')
-        && (!showNoteOnly.value || i.type === 'note')
-        && (!showToolsOnly.value || i.type === 'tool')
+        (!englishOnly.value || i.lang !== 'zh') &&
+        (!showNoteOnly.value || i.type === 'note') &&
+        (!showToolsOnly.value || i.type === 'tool')
       )
     })
 })
@@ -66,14 +53,11 @@ function isSameYear(a?: Date | string | number, b?: Date | string | number) {
   return a && b && getYear(a) === getYear(b)
 }
 function isSameGroup(a: Post, b?: Post) {
-  return (
-    isFuture(a.date) === isFuture(b?.date) && isSameYear(a.date, b?.date)
-  )
+  return isFuture(a.date) === isFuture(b?.date) && isSameYear(a.date, b?.date)
 }
 
 function getGroupName(p: Post) {
-  if (isFuture(p.date))
-    return 'Upcoming'
+  if (isFuture(p.date)) return 'Upcoming'
   return getYear(p.date)
 }
 </script>
@@ -81,9 +65,7 @@ function getGroupName(p: Post) {
 <template>
   <ul>
     <template v-if="!posts.length">
-      <div py2 op50>
-        { nothing here yet }
-      </div>
+      <div py2 op50>{ nothing here yet }</div>
     </template>
 
     <template v-for="(route, idx) in posts" :key="route.path">
@@ -109,7 +91,8 @@ function getGroupName(p: Post) {
           text-stroke-2
           text-stroke-hex-aaa
           op20
-        >{{ getGroupName(route) }}</span>
+          >{{ getGroupName(route) }}</span
+        >
       </div>
       <div
         class="slide-enter"
@@ -123,44 +106,40 @@ function getGroupName(p: Post) {
           v-bind="
             route.path.includes('://')
               ? {
-                href: route.path,
-                target: '_blank',
-                rel: 'noopener noreferrer',
-              }
+                  href: route.path,
+                  target: '_blank',
+                  rel: 'noopener noreferrer',
+                }
               : {
-                to: route.path,
-              }
+                  to: route.path,
+                }
           "
           class="item block font-normal mb-6 mt-2 no-underline"
         >
-          <li
-            :id="route.path"
-            class="no-underline"
-            flex="~ col md:row gap-2 md:items-center"
-          >
-            <div
-              class="title text-lg leading-1.2em"
-              flex="~ gap-2 wrap"
-            >
+          <li :id="route.path" class="no-underline" flex="~ col md:row gap-2 md:items-center">
+            <div class="title text-lg leading-1.2em" flex="~ gap-2 wrap">
               <template v-if="route.lang === 'zh'">
                 <span
                   v-if="route.type === 'note'"
                   align-middle
                   flex-none
                   class="text-xs bg-zinc:55 text-black dark:text-white rounded px-1 py-0.5 ml--12 mr2 my-auto hidden md:block"
-                >中文/笔记</span>
+                  >中文/笔记</span
+                >
                 <span
                   v-else-if="route.type === 'tool'"
                   align-middle
                   flex-none
                   class="text-xs bg-zinc:55 text-black dark:text-white rounded px-1 py-0.5 ml--12 mr2 my-auto hidden md:block"
-                >中文/工具</span>
+                  >中文/工具</span
+                >
                 <span
                   v-else
                   align-middle
                   flex-none
                   class="text-xs bg-zinc:55 text-black dark:text-white rounded px-1 py-0.5 ml--12 mr2 my-auto hidden md:block"
-                >中文</span>
+                  >中文</span
+                >
               </template>
               <template v-else>
                 <span
@@ -168,13 +147,15 @@ function getGroupName(p: Post) {
                   align-middle
                   flex-none
                   class="text-xs bg-zinc:55 text-black dark:text-white rounded px-1 py-0.5 ml--12 mr2 my-auto hidden md:block"
-                >Note</span>
+                  >Note</span
+                >
                 <span
                   v-else-if="route.type === 'tool'"
                   align-middle
                   flex-none
                   class="text-xs bg-zinc:55 text-black dark:text-white rounded px-1 py-0.5 ml--12 mr2 my-auto hidden md:block"
-                >Tool</span>
+                  >Tool</span
+                >
               </template>
               <span align-middle>{{ route.title }}</span>
             </div>
@@ -191,14 +172,7 @@ function getGroupName(p: Post) {
                 i-carbon-arrow-up-right
                 title="External"
               />
-              <span
-                v-if="route.inperson"
-                align-middle
-                op50
-                flex-none
-                i-ri:group-2-line
-                title="In person"
-              />
+              <span v-if="route.inperson" align-middle op50 flex-none i-ri:group-2-line title="In person" />
               <span
                 v-if="route.recording || route.video"
                 align-middle
@@ -207,14 +181,7 @@ function getGroupName(p: Post) {
                 i-ri:film-line
                 title="Provided in video"
               />
-              <span
-                v-if="route.radio"
-                align-middle
-                op50
-                flex-none
-                i-ri:radio-line
-                title="Provided in radio"
-              />
+              <span v-if="route.radio" align-middle op50 flex-none i-ri:radio-line title="Provided in radio" />
 
               <span text-sm op50 ws-nowrap>
                 {{ formatDate(route.date, true) }}
@@ -223,38 +190,31 @@ function getGroupName(p: Post) {
               <span v-if="route.platform" text-sm op40 ws-nowrap>· {{ route.platform }}</span>
               <span
                 v-if="
-                  route.lastModified
-                    && new Date(
-                      route.lastModified,
-                    ).toDateString()
-                      !== new Date(route.date).toDateString()
+                  route.lastModified &&
+                  new Date(route.lastModified).toDateString() !== new Date(route.date).toDateString()
                 "
                 text-sm
                 op40
                 ws-nowrap
                 title="最后更新"
-              >· 更新于
-                {{ formatDate(route.lastModified, true) }}</span>
-              <span
-                v-if="route.place"
-                text-sm
-                op40
-                ws-nowrap
-                md:hidden
-              >· {{ route.place }}</span>
+                >· 更新于 {{ formatDate(route.lastModified, true) }}</span
+              >
+              <span v-if="route.place" text-sm op40 ws-nowrap md:hidden>· {{ route.place }}</span>
               <template v-if="route.lang === 'zh'">
                 <span
                   v-if="route.type === 'note'"
                   align-middle
                   flex-none
                   class="text-xs bg-zinc:15 text-zinc6 dark:text-zinc4 rounded px-1 py-0.5 my-auto md:hidden"
-                >中文/笔记</span>
+                  >中文/笔记</span
+                >
                 <span
                   v-else
                   align-middle
                   flex-none
                   class="text-xs bg-zinc:15 text-zinc6 dark:text-zinc4 rounded px-1 py-0.5 my-auto md:hidden"
-                >中文</span>
+                  >中文</span
+                >
               </template>
               <template v-else>
                 <span
@@ -262,7 +222,8 @@ function getGroupName(p: Post) {
                   align-middle
                   flex-none
                   class="text-xs bg-zinc:15 text-zinc6 dark:text-zinc4 rounded px-1 py-0.5 my-auto md:hidden"
-                >Note</span>
+                  >Note</span
+                >
               </template>
             </div>
           </li>

@@ -59,14 +59,7 @@ import { useI18n } from 'vue-i18n'
 import ArcText from '@/components/ArcText.vue'
 import CardFace from '@/components/CardFace.vue'
 import Number from '@/components/Number.vue'
-import {
-  CardType,
-  ClassType,
-  Flag,
-  KindType,
-  Rarity,
-  WaterMark,
-} from '@/datatypes/card'
+import { CardType, ClassType, Flag, KindType, Rarity, WaterMark } from '@/datatypes/card'
 import useStyledDescription from '@/hooks/useStyledDescription'
 import { useStore } from '@/store/useStore'
 import Mask from './Mask.vue'
@@ -125,14 +118,7 @@ import { useI18n } from 'vue-i18n'
 import ArcText from '@/components/ArcText.vue'
 import CardFace from '@/components/CardFace.vue'
 import Number from '@/components/Number.vue'
-import {
-  CardType,
-  ClassType,
-  Flag,
-  KindType,
-  Rarity,
-  WaterMark,
-} from '@/datatypes/card'
+import { CardType, ClassType, Flag, KindType, Rarity, WaterMark } from '@/datatypes/card'
 import useStyledDescription from '@/hooks/useStyledDescription'
 import { useStore } from '@/store/useStore'
 import Mask from './Mask.vue'

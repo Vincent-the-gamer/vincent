@@ -468,11 +468,7 @@ MCP 解决了这些问题：**一次编写，到处使用**。
   "mcpServers": {
     "filesystem": {
       "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-filesystem",
-        "/path/to/workspace"
-      ]
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/path/to/workspace"]
     },
     "github": {
       "command": "npx",

@@ -22,9 +22,7 @@ import 'uno.css'
 const routes = autoRoutes.map((i) => {
   return {
     ...i,
-    alias: i.path.endsWith('/')
-      ? `${i.path}index.html`
-      : `${i.path}.html`,
+    alias: i.path.endsWith('/') ? `${i.path}index.html` : `${i.path}.html`,
   }
 })
 
@@ -45,10 +43,8 @@ export const createApp = ViteSSG(
         selectors: {
           html(ctx) {
             // only do the sliding transition when the scroll position is not 0
-            if (ctx.savedPosition?.top)
-              html.classList.add('no-sliding')
-            else
-              html.classList.remove('no-sliding')
+            if (ctx.savedPosition?.top) html.classList.add('no-sliding')
+            else html.classList.remove('no-sliding')
             return true
           },
         },

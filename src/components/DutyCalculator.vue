@@ -47,9 +47,7 @@ function predict() {
   for (let i = 1; i <= daysToPredict.value; i++) {
     const date = dayjsDate.add(period.value * i, 'days')
     const dayOfWeek = date.day()
-    result.value.push(
-      `${date.format('YYYY-MM-DD')}，${dayOfWeekMap[dayOfWeek]}`,
-    )
+    result.value.push(`${date.format('YYYY-MM-DD')}，${dayOfWeekMap[dayOfWeek]}`)
   }
 }
 </script>
@@ -57,29 +55,25 @@ function predict() {
 <template>
   <p>
     <span>值班日期（任意一次）：</span>
-    <input v-model="date" type="date">
+    <input v-model="date" type="date" />
   </p>
   <p>
     <span>值班周期：</span>
-    <input v-model="period" type="number" w-20 mr-1>
+    <input v-model="period" type="number" w-20 mr-1 />
     <span>天</span>
   </p>
   <p>
     <span>你需要推算多少天：</span>
-    <input v-model="daysToPredict" type="number" w-20 mr-1>
+    <input v-model="daysToPredict" type="number" w-20 mr-1 />
     <span>天</span>
   </p>
 
   <p>
-    <button color-black bg-green w-20 p-2 b-rd-2 @click="predict">
-      推算
-    </button>
+    <button color-black bg-green w-20 p-2 b-rd-2 @click="predict">推算</button>
   </p>
 
   <div>
-    <p font-bold>
-      推算结果：
-    </p>
+    <p font-bold>推算结果：</p>
     <ul>
       <li v-for="item of result" :key="item">
         {{ item }}

@@ -191,18 +191,10 @@ const pointerCurrent = { x: 0, y: 0 }
 
 function hexToRgb(hex: string): [number, number, number] {
   const h = hex.replace('#', '').trim()
-  const v
-    = h.length === 3
-      ? [
-          parseInt(h[0] + h[0], 16),
-          parseInt(h[1] + h[1], 16),
-          parseInt(h[2] + h[2], 16),
-        ]
-      : [
-          parseInt(h.slice(0, 2), 16),
-          parseInt(h.slice(2, 4), 16),
-          parseInt(h.slice(4, 6), 16),
-        ]
+  const v =
+    h.length === 3
+      ? [parseInt(h[0] + h[0], 16), parseInt(h[1] + h[1], 16), parseInt(h[2] + h[2], 16)]
+      : [parseInt(h.slice(0, 2), 16), parseInt(h.slice(2, 4), 16), parseInt(h.slice(4, 6), 16)]
   return [v[0] / 255, v[1] / 255, v[2] / 255]
 }
 
@@ -219,13 +211,8 @@ function writeColors() {
 }
 
 function applyUniforms() {
-  if (!gl || !uniforms)
-    return
-  gl.uniform2f(
-    uniforms.uCanvas,
-    gl.drawingBufferWidth,
-    gl.drawingBufferHeight,
-  )
+  if (!gl || !uniforms) return
+  gl.uniform2f(uniforms.uCanvas, gl.drawingBufferWidth, gl.drawingBufferHeight)
   gl.uniform1f(uniforms.uSpeed, props.speed)
   gl.uniform1f(uniforms.uScale, props.scale)
   gl.uniform1f(uniforms.uFrequency, props.frequency)
@@ -244,8 +231,7 @@ function applyUniforms() {
 function resize() {
   const container = containerRef.value
   const canvas = gl?.canvas as HTMLCanvasElement | undefined
-  if (!container || !gl || !canvas)
-    return
+  if (!container || !gl || !canvas) return
   const dpr = Math.min(window.devicePixelRatio || 1, 2)
   const w = container.clientWidth || 1
   const h = container.clientHeight || 1
@@ -260,11 +246,9 @@ function resize() {
 }
 
 function renderFrame() {
-  if (!gl || !uniforms || !program)
-    return
+  if (!gl || !uniforms || !program) return
   const now = performance.now()
-  if (!startTime)
-    startTime = now
+  if (!startTime) startTime = now
   const elapsed = (now - startTime) / 1000
   const dt = Math.min((now - lastFrame) / 1000, 0.1)
   lastFrame = now
@@ -292,8 +276,7 @@ function loop() {
 
 function onPointerMove(e: PointerEvent) {
   const container = containerRef.value
-  if (!container)
-    return
+  if (!container) return
   const rect = container.getBoundingClientRect()
   pointerTarget.x = ((e.clientX - rect.left) / (rect.width || 1)) * 2 - 1
   pointerTarget.y = -(((e.clientY - rect.top) / (rect.height || 1)) * 2 - 1)
@@ -313,8 +296,7 @@ function compile(type: number, source: string) {
 
 function setup() {
   const container = containerRef.value
-  if (!container)
-    return
+  if (!container) return
 
   const canvas = document.createElement('canvas')
   canvas.style.display = 'block'
@@ -333,8 +315,7 @@ function setup() {
 
   const vert = compile(gl.VERTEX_SHADER, VERT)
   const frag = compile(gl.FRAGMENT_SHADER, FRAG)
-  if (!vert || !frag)
-    return
+  if (!vert || !frag) return
 
   program = gl.createProgram()!
   gl.attachShader(program, vert)
@@ -350,11 +331,7 @@ function setup() {
 
   const buffer = gl.createBuffer()
   gl.bindBuffer(gl.ARRAY_BUFFER, buffer)
-  gl.bufferData(
-    gl.ARRAY_BUFFER,
-    new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]),
-    gl.STATIC_DRAW,
-  )
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW)
   const positionLoc = gl.getAttribLocation(program, 'position')
   gl.enableVertexAttribArray(positionLoc)
   gl.vertexAttribPointer(positionLoc, 2, gl.FLOAT, false, 0, 0)
@@ -386,8 +363,7 @@ function setup() {
   if ('ResizeObserver' in window) {
     resizeObserver = new ResizeObserver(resize)
     resizeObserver.observe(container)
-  }
-  else {
+  } else {
     useEventListener(window, 'resize', resize)
   }
 
@@ -395,8 +371,7 @@ function setup() {
 
   if (props.paused) {
     renderFrame()
-  }
-  else {
+  } else {
     rafId = requestAnimationFrame(loop)
   }
 }
@@ -428,15 +403,13 @@ onBeforeUnmount(() => teardown())
 watch(
   () => [props.paused, props.colors],
   () => {
-    if (!gl)
-      return
+    if (!gl) return
     writeColors()
     applyUniforms()
     cancelAnimationFrame(rafId)
     if (props.paused) {
       renderFrame()
-    }
-    else {
+    } else {
       startTime = 0
       lastFrame = 0
       rafId = requestAnimationFrame(loop)
@@ -462,19 +435,14 @@ watch(
   ],
   () => {
     applyUniforms()
-    if (props.paused)
-      renderFrame()
+    if (props.paused) renderFrame()
   },
 )
 </script>
 
 <template>
   <div ref="containerRef" class="color-bends">
-    <div
-      v-if="fadeTop > 0"
-      class="color-bends__fade"
-      :style="{ opacity: fadeTop }"
-    />
+    <div v-if="fadeTop > 0" class="color-bends__fade" :style="{ opacity: fadeTop }" />
   </div>
 </template>
 

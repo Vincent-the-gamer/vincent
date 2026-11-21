@@ -18,12 +18,14 @@ function linkHref(link: string) {
 <template>
   <div flex="~ justify-center items-center" flex-wrap>
     <div
-      v-for="waifu of props.waifus" class="card" flex="~ col justify-center items-center"
+      v-for="waifu of props.waifus"
+      class="card"
+      flex="~ col justify-center items-center"
       @click="linkHref(waifu.moegirlLink)"
     >
       <!-- Waifu avatar -->
       <div w-25 h-25>
-        <img :src="waifu.avatar" b-rd-full pointer-events-none>
+        <img :src="waifu.avatar" b-rd-full pointer-events-none />
       </div>
       <!-- Waifu name -->
       <h2>{{ waifu.name }}</h2>

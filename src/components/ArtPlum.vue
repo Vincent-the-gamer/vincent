@@ -1,4 +1,4 @@
-<script setup lang='ts'>
+<script setup lang="ts">
 import type { Fn } from '@vueuse/core'
 
 const r180 = Math.PI
@@ -21,7 +21,13 @@ function initCanvas(canvas: HTMLCanvasElement, width = 400, height = 400, _dpi?:
 
   const dpr = window.devicePixelRatio || 1
   // @ts-expect-error vendor
-  const bsr = ctx.webkitBackingStorePixelRatio || ctx.mozBackingStorePixelRatio || ctx.msBackingStorePixelRatio || ctx.oBackingStorePixelRatio || ctx.backingStorePixelRatio || 1
+  const bsr =
+    ctx.webkitBackingStorePixelRatio ||
+    ctx.mozBackingStorePixelRatio ||
+    ctx.msBackingStorePixelRatio ||
+    ctx.oBackingStorePixelRatio ||
+    ctx.backingStorePixelRatio ||
+    1
 
   const dpi = _dpi || dpr / bsr
 
@@ -63,20 +69,15 @@ onMounted(async () => {
     const rad2 = rad - random() * r15
 
     // out of bounds
-    if (nx < -100 || nx > size.width + 100 || ny < -100 || ny > size.height + 100)
-      return
+    if (nx < -100 || nx > size.width + 100 || ny < -100 || ny > size.height + 100) return
 
-    const rate = counter.value <= MIN_BRANCH
-      ? 0.8
-      : 0.5
+    const rate = counter.value <= MIN_BRANCH ? 0.8 : 0.5
 
     // left branch
-    if (random() < rate)
-      steps.push(() => step(nx, ny, rad1, counter))
+    if (random() < rate) steps.push(() => step(nx, ny, rad1, counter))
 
     // right branch
-    if (random() < rate)
-      steps.push(() => step(nx, ny, rad2, counter))
+    if (random() < rate) steps.push(() => step(nx, ny, rad2, counter))
   }
 
   let lastTime = performance.now()
@@ -85,8 +86,7 @@ onMounted(async () => {
   let controls: ReturnType<typeof useRafFn>
 
   const frame = () => {
-    if (performance.now() - lastTime < interval)
-      return
+    if (performance.now() - lastTime < interval) return
 
     prevSteps = steps
     steps = []
@@ -100,10 +100,8 @@ onMounted(async () => {
     // Execute all the steps from the previous frame
     prevSteps.forEach((i) => {
       // 50% chance to keep the step for the next frame, to create a more organic look
-      if (random() < 0.5)
-        steps.push(i)
-      else
-        i()
+      if (random() < 0.5) steps.push(i)
+      else i()
     })
   }
 
@@ -126,8 +124,7 @@ onMounted(async () => {
       () => step(-5, randomMiddle() * size.height, 0),
       () => step(size.width + 5, randomMiddle() * size.height, r180),
     ]
-    if (size.width < 500)
-      steps = steps.slice(0, 2)
+    if (size.width < 500) steps = steps.slice(0, 2)
     controls.resume()
     stopped.value = false
   }

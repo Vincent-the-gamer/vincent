@@ -77,7 +77,8 @@ const examples: JevExample[] = [
   {
     title: '智能体工具选择',
     type: 'choice',
-    state: '用户说：「帮我查一下明天北京到上海的高铁还有没有票。」智能体当前可用的工具：网页搜索、日历、订票系统、计算器。',
+    state:
+      '用户说：「帮我查一下明天北京到上海的高铁还有没有票。」智能体当前可用的工具：网页搜索、日历、订票系统、计算器。',
     question: '智能体下一步应该调用哪个工具？',
     options: ['网页搜索', '日历', '订票系统', '计算器'],
   },
@@ -131,8 +132,7 @@ const isChoiceLike = computed(() => questionType.value !== 'noul')
 
 const bars = computed(() => {
   const r = result.value
-  if (!r)
-    return []
+  if (!r) return []
   return r.probabilities.map((probability, index) => ({
     label: resultLabels.value[index] ?? `选项 ${index + 1}`,
     percent: probability * 100,
@@ -142,61 +142,48 @@ const bars = computed(() => {
 
 const decisionText = computed(() => {
   const r = result.value
-  if (!r)
-    return ''
+  if (!r) return ''
   return resultLabels.value[r.decisionIndex] ?? `选项 ${r.decisionIndex + 1}`
 })
 
 const decisionPercent = computed(() => {
   const r = result.value
-  if (!r)
-    return 0
+  if (!r) return 0
   return (r.probabilities[r.decisionIndex] ?? 0) * 100
 })
 
 const noulYes = computed(() => {
   const r = result.value
-  if (!r || r.type !== 'noul')
-    return 0
+  if (!r || r.type !== 'noul') return 0
   return (r.probabilities[0] ?? 0) * 100
 })
 
 /** score 是 0 基的期望等级，换算成 1~N 分制展示更直观。 */
 const expectedScore = computed(() => {
   const r = result.value
-  if (!r || r.type !== 'score' || r.score === undefined)
-    return null
+  if (!r || r.type !== 'score' || r.score === undefined) return null
   return { current: r.score + 1, max: r.probabilities.length }
 })
 
-const rawJson = computed(() =>
-  result.value
-    ? JSON.stringify(result.value, null, 2)
-    : '',
-)
+const rawJson = computed(() => (result.value ? JSON.stringify(result.value, null, 2) : ''))
 
 function optionLabel(index: number): string {
-  return index < LETTERS.length
-    ? LETTERS[index]
-    : String(index + 1)
+  return index < LETTERS.length ? LETTERS[index] : String(index + 1)
 }
 
 function selectType(type: JevType) {
-  if (questionType.value === type)
-    return
+  if (questionType.value === type) return
   questionType.value = type
   clearResult()
 }
 
 function addOption() {
-  if (options.value.length >= MAX_OPTIONS)
-    return
+  if (options.value.length >= MAX_OPTIONS) return
   options.value.push('')
 }
 
 function removeOption(index: number) {
-  if (options.value.length <= 2)
-    return
+  if (options.value.length <= 2) return
   options.value.splice(index, 1)
 }
 
@@ -209,9 +196,7 @@ function loadExample(example: JevExample) {
     return
   }
   const opts = example.options?.slice(0, MAX_OPTIONS) ?? []
-  options.value = opts.length >= 2
-    ? opts
-    : ['', '', '']
+  options.value = opts.length >= 2 ? opts : ['', '', '']
   clearResult()
 }
 
@@ -243,22 +228,17 @@ function toast(message: string) {
 }
 
 function validate(): string | null {
-  if (!state.value.trim())
-    return '请填写状态（state）'
-  if (!question.value.trim())
-    return '请填写问题（question）'
+  if (!state.value.trim()) return '请填写状态（state）'
+  if (!question.value.trim()) return '请填写问题（question）'
   if (isChoiceLike.value) {
-    if (options.value.length < 2)
-      return '至少需要 2 个选项'
-    if (options.value.some(o => !o.trim()))
-      return '选项内容不能为空'
+    if (options.value.length < 2) return '至少需要 2 个选项'
+    if (options.value.some((o) => !o.trim())) return '选项内容不能为空'
   }
   return null
 }
 
 async function run() {
-  if (loading.value)
-    return
+  if (loading.value) return
 
   const invalid = validate()
   if (invalid) {
@@ -266,17 +246,14 @@ async function run() {
     return
   }
 
-  const labels = isChoiceLike.value
-    ? options.value.map(o => o.trim())
-    : ['是', '否']
+  const labels = isChoiceLike.value ? options.value.map((o) => o.trim()) : ['是', '否']
 
   const payload: Record<string, unknown> = {
     type: questionType.value,
     state: state.value.trim(),
     question: question.value.trim(),
   }
-  if (isChoiceLike.value)
-    payload.options = labels
+  if (isChoiceLike.value) payload.options = labels
 
   loading.value = true
   errorMsg.value = ''
@@ -286,27 +263,19 @@ async function run() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
     })
-    const json = (await res
-      .json()
-      .catch(() => null)) as JevApiResponse | null
+    const json = (await res.json().catch(() => null)) as JevApiResponse | null
 
-    if (!res.ok)
-      throw new Error(json?.message || `请求失败（HTTP ${res.status}）`)
-    if (!json || json.code !== 0)
-      throw new Error(json?.message || '接口返回了未知错误')
+    if (!res.ok) throw new Error(json?.message || `请求失败（HTTP ${res.status}）`)
+    if (!json || json.code !== 0) throw new Error(json?.message || '接口返回了未知错误')
 
     result.value = json.data
     resultLabels.value = labels
     toast('决策完成')
-  }
-  catch (e) {
-    const message = e instanceof Error
-      ? e.message
-      : String(e)
+  } catch (e) {
+    const message = e instanceof Error ? e.message : String(e)
     errorMsg.value = message
     toast(`决策失败：${message}`)
-  }
-  finally {
+  } finally {
     loading.value = false
   }
 }
@@ -358,21 +327,11 @@ async function run() {
         </label>
 
         <label class="field">
-          <span class="field-label">
-            问题 <code>question</code>
-          </span>
+          <span class="field-label"> 问题 <code>question</code> </span>
           <span class="field-hint">
-            {{
-              questionType === "noul"
-                ? "一个可以用是/否回答的问题"
-                : "一个聚焦的问题"
-            }}
+            {{ questionType === 'noul' ? '一个可以用是/否回答的问题' : '一个聚焦的问题' }}
           </span>
-          <input
-            v-model="question"
-            type="text"
-            placeholder="例如：这个请求应该交给哪个团队处理？"
-          >
+          <input v-model="question" type="text" placeholder="例如：这个请求应该交给哪个团队处理？" />
         </label>
 
         <div v-if="isChoiceLike" class="field">
@@ -384,11 +343,7 @@ async function run() {
 
           <div v-for="(_, i) in options" :key="i" class="option-row">
             <span class="option-badge">{{ optionLabel(i) }}</span>
-            <input
-              v-model="options[i]"
-              type="text"
-              :placeholder="`选项 ${optionLabel(i)}`"
-            >
+            <input v-model="options[i]" type="text" :placeholder="`选项 ${optionLabel(i)}`" />
             <button
               class="option-remove"
               type="button"
@@ -400,36 +355,18 @@ async function run() {
             </button>
           </div>
 
-          <button
-            class="option-add"
-            type="button"
-            :disabled="options.length >= MAX_OPTIONS"
-            @click="addOption"
-          >
+          <button class="option-add" type="button" :disabled="options.length >= MAX_OPTIONS" @click="addOption">
             <div i-carbon-add />
             添加选项
           </button>
         </div>
 
         <div class="actions">
-          <button
-            class="btn-run"
-            type="button"
-            :disabled="loading"
-            @click="run"
-          >
-            <div
-              :class="
-                loading
-                  ? 'i-carbon-circle-dash spin'
-                  : 'i-carbon-play'
-              "
-            />
-            {{ loading ? "决策中…" : "运行决策" }}
+          <button class="btn-run" type="button" :disabled="loading" @click="run">
+            <div :class="loading ? 'i-carbon-circle-dash spin' : 'i-carbon-play'" />
+            {{ loading ? '决策中…' : '运行决策' }}
           </button>
-          <button class="btn-ghost" type="button" @click="reset">
-            重置
-          </button>
+          <button class="btn-ghost" type="button" @click="reset">重置</button>
         </div>
 
         <div class="privacy">
@@ -462,27 +399,17 @@ async function run() {
             <div class="decision-value">
               {{ decisionText }}
             </div>
-            <div class="decision-prob">
-              P = {{ decisionPercent.toFixed(1) }}%
-            </div>
+            <div class="decision-prob">P = {{ decisionPercent.toFixed(1) }}%</div>
           </div>
 
           <div class="bars">
-            <div
-              v-for="(bar, i) in bars"
-              :key="i"
-              class="bar"
-              :class="{ on: bar.isDecision }"
-            >
+            <div v-for="(bar, i) in bars" :key="i" class="bar" :class="{ on: bar.isDecision }">
               <div class="bar-top">
                 <span class="bar-label">{{ bar.label }}</span>
                 <span class="bar-percent">{{ bar.percent.toFixed(1) }}%</span>
               </div>
               <div class="bar-track">
-                <div
-                  class="bar-fill"
-                  :style="{ width: `${bar.percent}%` }"
-                />
+                <div class="bar-fill" :style="{ width: `${bar.percent}%` }" />
               </div>
             </div>
           </div>
@@ -492,19 +419,13 @@ async function run() {
               <span class="metric-label">P(是)</span>
               <span class="metric-value">{{ noulYes.toFixed(1) }}%</span>
             </div>
-            <div
-              v-if="result.confidence !== undefined"
-              class="metric"
-            >
+            <div v-if="result.confidence !== undefined" class="metric">
               <span class="metric-label">置信度</span>
-              <span class="metric-value">{{
-                (result.confidence * 100).toFixed(1)
-              }}%</span>
+              <span class="metric-value">{{ (result.confidence * 100).toFixed(1) }}%</span>
             </div>
             <div v-if="expectedScore" class="metric">
               <span class="metric-label">E[score]</span>
-              <span class="metric-value">{{ expectedScore.current.toFixed(2) }} /
-                {{ expectedScore.max }}</span>
+              <span class="metric-value">{{ expectedScore.current.toFixed(2) }} / {{ expectedScore.max }}</span>
             </div>
             <div class="metric">
               <span class="metric-label">延迟</span>
@@ -517,16 +438,13 @@ async function run() {
             <pre>{{ rawJson }}</pre>
           </details>
 
-          <p class="meta">
-            {{ result.model }} · {{ result.requestId }}
-          </p>
+          <p class="meta">{{ result.model }} · {{ result.requestId }}</p>
         </div>
 
         <div v-else class="state-block empty">
           <div i-carbon-cube />
           <p>随时可以开始</p>
-          <small>编辑输入或加载一个示例，然后运行决策，看看 Jev
-            如何作答。</small>
+          <small>编辑输入或加载一个示例，然后运行决策，看看 Jev 如何作答。</small>
         </div>
       </section>
     </div>
@@ -542,9 +460,7 @@ async function run() {
           type="button"
           @click="loadExample(example)"
         >
-          <span class="chip-type" :class="`t-${example.type}`">{{
-            example.type
-          }}</span>
+          <span class="chip-type" :class="`t-${example.type}`">{{ example.type }}</span>
           {{ example.title }}
         </button>
       </div>

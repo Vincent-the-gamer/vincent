@@ -1,10 +1,10 @@
 import type { FeedOptions, Item } from 'feed'
-import { dirname } from 'node:path'
 import fg from 'fast-glob'
 import { Feed } from 'feed'
 import fs from 'fs-extra'
 import matter from 'gray-matter'
 import MarkdownIt from 'markdown-it'
+import { dirname } from 'node:path'
 
 const DOMAIN = 'https://blog.vince-g.xyz'
 const AUTHOR = {
@@ -27,7 +27,7 @@ async function buildBlogRSS() {
 
   const options = {
     title: '诡锋的博客',
-    description: 'Vincent\'s Blog',
+    description: "Vincent's Blog",
     id: 'https://blog.vince-g.xyz',
     link: 'https://blog.vince-g.xyz',
     copyright: 'CC BY-NC-SA 4.0 2023-PRESENT © Vincent-the-gamer',
@@ -39,19 +39,17 @@ async function buildBlogRSS() {
   }
   const posts: any[] = (
     await Promise.all(
-      files.filter(i => !i.includes('index'))
+      files
+        .filter((i) => !i.includes('index'))
         .map(async (i) => {
           const raw = await fs.readFile(i, 'utf-8')
           const { data, content } = matter(raw)
 
-          if (data.lang !== 'en')
-            return
+          if (data.lang !== 'en') return
 
-          const html = markdown.render(content)
-            .replace('src="/', `src="${DOMAIN}/`)
+          const html = markdown.render(content).replace('src="/', `src="${DOMAIN}/`)
 
-          if (data.image?.startsWith('/'))
-            data.image = DOMAIN + data.image
+          if (data.image?.startsWith('/')) data.image = DOMAIN + data.image
 
           return {
             ...data,
@@ -61,8 +59,8 @@ async function buildBlogRSS() {
             link: DOMAIN + i.replace(/^pages(.+)\.md$/, '$1'),
           }
         }),
-    ))
-    .filter(Boolean)
+    )
+  ).filter(Boolean)
 
   posts.sort((a, b) => +new Date(b.date) - +new Date(a.date))
 
@@ -76,7 +74,7 @@ async function writeFeed(name: string, options: FeedOptions, items: Item[]) {
 
   const feed = new Feed(options)
 
-  items.forEach(item => feed.addItem(item))
+  items.forEach((item) => feed.addItem(item))
   // items.forEach(i=> console.log(i.title, i.date))
 
   await fs.ensureDir(dirname(`./dist/${name}`))

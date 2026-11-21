@@ -10,12 +10,12 @@ projects:
       link: 'https://github.com/Niko1221/Strata'
       desc: 'LLM推理框架，可实现将Qwen3.8-Flash-Next等大型开源LLM本地运行'
       icon: 'i-hugeicons-artificial-intelligence-04'
-    
+
     - name: 'MOSS-Image'
       link: 'https://github.com/OpenMOSS/MOSS-Image'
       desc: '开源版 MOSS 文生图模型'
       icon: 'i-hugeicons-artificial-intelligence-04'
-    
+
     - name: 'See Through'
       link: 'https://github.com/shitagaki-lab/see-through'
       desc: '将动漫角色图片拆分成分层PSD文件'
@@ -25,18 +25,18 @@ projects:
       link: 'https://comfy.org/'
       desc: '使用工作流形式编排AI推理任务'
       icon: 'comfy'
-  
+
   Agent Skills:
     - name: 'Skills'
       link: 'https://github.com/Vincent-the-gamer/skills'
       desc: '我的Agent Skills'
       icon: 'i-pajamas-agent-ai'
-    
+
     - name: 'Matt Pocock的Skills'
       link: 'https://github.com/mattpocock/skills'
       desc: '为软件工程师设计的一套Agent Skill'
-      icon: 'i-pajamas-agent-ai'  
-    
+      icon: 'i-pajamas-agent-ai'
+
     - name: 'I have ADHD'
       link: 'https://github.com/ayghri/i-have-adhd'
       desc: '用于提炼Agent输出结果，只输出重点内容的Skill'
@@ -59,21 +59,21 @@ projects:
       icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUY2sdc1maSyq5zDpca20o281dn2RIMqbPWigkkpoKiA&s'
 
   实用工具推荐:
-    - name: "汉典"
-      link: "https://www.zdic.net"
-      desc: "可以使用部首搜索特殊文字、异体字等"
-      icon: "i-material-symbols-light-format-color-text-rounded"
-    
-    - name: "字统网"
-      link: "https://zi.tools/"
-      desc: "另一个搜字网站，可以使用部首搜索特殊文字、异体字等"
-      icon: "i-material-symbols-format-color-text"
-    
-    - name: "免费Stable Diffusion"
-      link: "https://stablediffusion3.net/zh-CN/app"
-      desc: "可以免费在线使用的Stable Diffusion"
-      icon: "i-hugeicons-artificial-intelligence-02"
-    
+    - name: '汉典'
+      link: 'https://www.zdic.net'
+      desc: '可以使用部首搜索特殊文字、异体字等'
+      icon: 'i-material-symbols-light-format-color-text-rounded'
+
+    - name: '字统网'
+      link: 'https://zi.tools/'
+      desc: '另一个搜字网站，可以使用部首搜索特殊文字、异体字等'
+      icon: 'i-material-symbols-format-color-text'
+
+    - name: '免费Stable Diffusion'
+      link: 'https://stablediffusion3.net/zh-CN/app'
+      desc: '可以免费在线使用的Stable Diffusion'
+      icon: 'i-hugeicons-artificial-intelligence-02'
+
     - name: '临时邮箱'
       link: 'https://temp-mail.org/zh/'
       desc: '用于临时接收邮件'
@@ -109,62 +109,61 @@ projects:
       desc: '字体转换器，可以在TTF, WOFF, WOFF2, SVG字体间互转, 可以导入OTF转成其它格式。'
       icon: 'transfonter'
 
-    - name: "在线音频处理"
-      link: "https://vocalremover.org/zh/cutter"
-      desc: "可以在线对音频进行各种处理"
-      icon: "https://vocalremover.org/favicon.ico"
+    - name: '在线音频处理'
+      link: 'https://vocalremover.org/zh/cutter'
+      desc: '可以在线对音频进行各种处理'
+      icon: 'https://vocalremover.org/favicon.ico'
 
-    - name: "在线音频可视化"
-      link: "https://vizzy.io/"
-      desc: "在线免费生成音频可视化的视频"
-      icon: "vizzy"
+    - name: '在线音频可视化'
+      link: 'https://vizzy.io/'
+      desc: '在线免费生成音频可视化的视频'
+      icon: 'vizzy'
 
-    - name: "特殊符号集"
-      link: "https://cn.piliapp.com/symbol/"
-      desc: "快速寻找特殊符号"
-      icon: "i-material-symbols-emoji-symbols-rounded"
-    
-    - name: "Markdown在线生成PDF"
-      link: "https://resumd.t9t.io/"
-      desc: "可以用于使用Markdown快速编写并导出文档/简历等PDF文件"
-      icon: "i-famicons-logo-markdown"
-  
+    - name: '特殊符号集'
+      link: 'https://cn.piliapp.com/symbol/'
+      desc: '快速寻找特殊符号'
+      icon: 'i-material-symbols-emoji-symbols-rounded'
+
+    - name: 'Markdown在线生成PDF'
+      link: 'https://resumd.t9t.io/'
+      desc: '可以用于使用Markdown快速编写并导出文档/简历等PDF文件'
+      icon: 'i-famicons-logo-markdown'
+
   动漫下载站:
-    - name: "ACG盒子"
-      link: "https://www.acgbox.link/"
-      desc: "大型动漫下载站整合"
-      icon: "https://www.acgbox.link/wp-content/uploads/logo/86742914_p0.png"
+    - name: 'ACG盒子'
+      link: 'https://www.acgbox.link/'
+      desc: '大型动漫下载站整合'
+      icon: 'https://www.acgbox.link/wp-content/uploads/logo/86742914_p0.png'
 
-    - name: "ANi Open"
-      link: "https://openani.an-i.workers.dev/"
-      desc: "网页直链动漫下载站"
-      icon: "https://cdn.jsdelivr.net/gh/RyanL-29/aniopen/favicon.ico"
+    - name: 'ANi Open'
+      link: 'https://openani.an-i.workers.dev/'
+      desc: '网页直链动漫下载站'
+      icon: 'https://cdn.jsdelivr.net/gh/RyanL-29/aniopen/favicon.ico'
 
-    - name: "MioBT"
-      link: "https://miobt.com/"
-      desc: "＊MioBT＊★就是＊MioBT＊喵～"
-      icon: "mio-bt"
+    - name: 'MioBT'
+      link: 'https://miobt.com/'
+      desc: '＊MioBT＊★就是＊MioBT＊喵～'
+      icon: 'mio-bt'
 
-    - name: "蜜柑计划"
-      link: "https://mikanani.me/"
-      desc: "蜜柑计划：新一代的动漫下载站"
-      icon: "mikan"
+    - name: '蜜柑计划'
+      link: 'https://mikanani.me/'
+      desc: '蜜柑计划：新一代的动漫下载站'
+      icon: 'mikan'
 
-    - name: "萌番组"
-      link: "https://bangumi.moe/"
-      desc: "也是种子动漫下载站"
-      icon: "https://static.bangumi.moe/avatar/09d1dc53c5e3666ab8b7c872cdff4357"
-    
-    - name: "Nyaa.si"
-      link: "https://nyaa.si/"
-      desc: "A BitTorrent community focused on Eastern Asian media including anime, manga, music, and more"
-      icon: "nyaa"
+    - name: '萌番组'
+      link: 'https://bangumi.moe/'
+      desc: '也是种子动漫下载站'
+      icon: 'https://static.bangumi.moe/avatar/09d1dc53c5e3666ab8b7c872cdff4357'
 
-    - name: "末日动漫资源库"
-      link: "https://share.acgnx.se/"
-      desc: "可以获取种子文件，挂BT下载动漫"
-      icon: "https://www.acgbox.link/wp-content/uploads/favicon/share.acgnx.se.ico"
+    - name: 'Nyaa.si'
+      link: 'https://nyaa.si/'
+      desc: 'A BitTorrent community focused on Eastern Asian media including anime, manga, music, and more'
+      icon: 'nyaa'
 
+    - name: '末日动漫资源库'
+      link: 'https://share.acgnx.se/'
+      desc: '可以获取种子文件，挂BT下载动漫'
+      icon: 'https://www.acgbox.link/wp-content/uploads/favicon/share.acgnx.se.ico'
 ---
 
 <!-- @layout-full-width -->

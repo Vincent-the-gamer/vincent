@@ -52,7 +52,8 @@ window.__DUFS_MATERIAL_CONFIG__ = {
   },
   // 自定义页脚
   // 可以使用 Markdown 格式
-  footer: 'Copyright © 2025 **John Doe** ![](https://img.shields.io/badge/any_text-you_like-blue)\\n\\n[京ICP备XXXXXXXX号-X](https://beian.miit.gov.cn/)',
+  footer:
+    'Copyright © 2025 **John Doe** ![](https://img.shields.io/badge/any_text-you_like-blue)\\n\\n[京ICP备XXXXXXXX号-X](https://beian.miit.gov.cn/)',
   // 背景图片
   background: {
     light: 'https://example.com/background-light.webp',

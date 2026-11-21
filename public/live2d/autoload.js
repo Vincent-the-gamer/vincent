@@ -5,8 +5,7 @@
 
 // Recommended to use absolute path for live2d_path parameter
 // live2d_path 参数建议使用绝对路径
-const live2d_path
-  = 'https://fastly.jsdelivr.net/npm/live2d-widgets@1.0.1/dist/'
+const live2d_path = 'https://fastly.jsdelivr.net/npm/live2d-widgets@1.0.1/dist/'
 const local_live2d_path = '/live2d/'
 
 // Method to encapsulate asynchronous resource loading
@@ -19,8 +18,7 @@ function loadExternalResource(url, type) {
       tag = document.createElement('link')
       tag.rel = 'stylesheet'
       tag.href = url
-    }
-    else if (type === 'js') {
+    } else if (type === 'js') {
       tag = document.createElement('script')
       tag.type = 'module'
       tag.src = url
@@ -33,7 +31,7 @@ function loadExternalResource(url, type) {
   })
 }
 
-(async () => {
+;(async () => {
   // If you are concerned about display issues on mobile devices, you can use screen.width to determine whether to load
   // 如果担心手机上显示效果不佳，可以根据屏幕宽度来判断是否加载
   // if (screen.width < 768) return;
@@ -60,17 +58,8 @@ function loadExternalResource(url, type) {
     waifuPath: `${local_live2d_path}waifu-tips.json`,
     // cdnPath: 'https://fastly.jsdelivr.net/gh/fghrsh/live2d_api/',
     cubism2Path: `${live2d_path}live2d.min.js`,
-    cubism5Path:
-      'https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js',
-    tools: [
-      'hitokoto',
-      'asteroids',
-      'switch-model',
-      'switch-texture',
-      'photo',
-      'info',
-      'quit',
-    ],
+    cubism5Path: 'https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js',
+    tools: ['hitokoto', 'asteroids', 'switch-model', 'switch-texture', 'photo', 'info', 'quit'],
     logLevel: 'warn',
     drag: false,
   })
