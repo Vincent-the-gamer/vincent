@@ -28,7 +28,7 @@
     "nprogress": "^0.2.0",
     "sharp": "^0.35.5",
     "typed.js": "^3.0.0",
-    "vue": "^3.5.45",
+    "vue": "^3.5.46",
     "vue-router": "^5.5.1",
     "vue-router-better-scroller": "^0.0.0"
   },
@@ -53,7 +53,7 @@
     "feed": "^6.0.0",
     "fs-extra": "^11.4.1",
     "gray-matter": "^4.0.3",
-    "knip": "^6.45.1",
+    "knip": "^6.47.0",
     "markdown-it": "^15.0.3",
     "markdown-it-anchor": "^10.1.0",
     "markdown-it-github-alerts": "^1.0.1",

@@ -87,17 +87,15 @@ dsh plugin --profile desktop add dshmarket
 
 ![dshmarket1](/images/posts/dsh/dshmarket1.png)
 
-> [!WARNING] 两个坑
->
-> - 官方 README 专门写了：在装了 Desktop 的机器上执行 `dsh plugin --profile web add dshmarket`，命令会提示成功，但插件装进了 `profiles/web`，Desktop 里看不到。所以要么用应用内的 **Settings → Plugins**，要么确认 profile 名（我这里是 `desktop`）。
-> - 市场要求 dsh web **0.1.0-rc.6** 及以上。如果 Desktop 自带的 dsh 比较老，「插件市场」入口不会出现，控制台里还会留一行提示——先去升级客户端。
+> [!WARNING] 市场不等于安全审计
+> 它只保证插件来源在收录列表里。插件是第三方代码，跑在你 agent 的权限下，装之前扫一眼仓库和它申请的权限。
 
 有了市场，后面这些插件直接搜名字点安装就行，不用再记包名。下面我仍然保留命令行写法，方便一次装一批，或者市场打不开的时候备用。
 
-> [!NOTE] 市场不等于安全审计
-> 它只保证插件来源在收录列表里。插件是第三方代码，跑在你 agent 的权限下，装之前扫一眼仓库和它申请的权限。
-
 ## 必装：dsh-our-free-model - 白嫖大模型
+
+> [!WARNING] 注意
+> 目前这个插件安装后是有问题的，所以解决办法是用DeepSeek Harness先接入免费模型把这个插件修好，然后再使用。我开发了一个命令行程序，需要你安装了Node.js，然后运行`npx freiheit`，这样就可以启动一个免费模型端点，先让dsh接入，一般两轮对话就可以修复插件。
 
 安装命令: (注意包名带scope，不要安装dsh-our-free-model，那个是旧版)
 
