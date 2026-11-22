@@ -117,6 +117,16 @@ dsh plugin --profile desktop add @ebony-vinyl/dsh-our-free-model@latest
 
 ![dsh-our-free-model](/images/posts/dsh/dsh-our-free-model.png)
 
+## 补充：接入免费Agnes多模态模型
+
+Agnes AI分为 [国内站](https://agnes-ai.cn/) 和 [国外站](https://agnes-ai.com/)，包含多模态免费LLM`agnes-3.0-flash`和图片，视频生成模型。
+
+**国内站**注册只需要邮箱即可，**实名认证不必填写真实信息**，网上找一个就行，不做校验，**国外站**只要邮箱。
+
+注册好后还是添加一个API Key，然后接入你的dsh即可。
+
+但是要注意，添加自定义提供商后，dsh 的 Agnes 提供商配置里，文本模型没有声明 maxTokens，DSH/pi-ai 就回退到默认的 128000，超过了 Agnes agnes-3.0-flash 的最大输出上限 65536，网关返回 400。这时候需要用你的其它模型修一下，让它改你的dsh配置，然后重启dsh即可使用。
+
 ## dsh-pocket：局域网/手机也能访问
 
 `dsh-pocket` 解决的是「人离开电脑，但会话还想继续」的问题。它会把当前会话通过局域网暴露出来，因为dsh做了安全措施，禁止了`0.0.0.0`的访问，这个插件可以解决这个问题。
