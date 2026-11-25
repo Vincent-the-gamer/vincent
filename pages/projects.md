@@ -5,6 +5,27 @@ description: 收集那些我使用到的项目和工具
 art: dots
 wrapperClass: 'text-center'
 projects:
+  我的Git仓库:
+    - name: 'Skills'
+      link: 'https://github.com/Vincent-the-gamer/skills'
+      desc: '我的Agent Skills'
+      icon: 'i-pajamas-agent-ai'
+
+    - name: 'dotfiles'
+      link: 'https://github.com/Vincent-the-gamer/dotfiles'
+      desc: '我的开发环境配置'
+      icon: 'i-withicons-rangoli-file'
+
+    - name: 'Omniext'
+      link: 'https://github.com/Vincent-the-gamer/omniext'
+      desc: '多功能浏览器插件'
+      icon: 'https://cdn.jsdelivr.net/gh/Vincent-the-gamer/omniext@main/public/icon/32.png'
+
+    - name: 'dufs-extra'
+      link: 'https://github.com/Vincent-the-gamer/dufs-extra'
+      desc: '为dufs设计的更好用的前端页面'
+      icon: 'https://cdn.jsdelivr.net/gh/sigoden/dufs@main/assets/favicon.ico'
+
   AI项目:
     - name: 'Strata'
       link: 'https://github.com/Niko1221/Strata'
@@ -26,12 +47,7 @@ projects:
       desc: '使用工作流形式编排AI推理任务'
       icon: 'comfy'
 
-  Agent Skills:
-    - name: 'Skills'
-      link: 'https://github.com/Vincent-the-gamer/skills'
-      desc: '我的Agent Skills'
-      icon: 'i-pajamas-agent-ai'
-
+  第三方Agent Skills:
     - name: 'Matt Pocock的Skills'
       link: 'https://github.com/mattpocock/skills'
       desc: '为软件工程师设计的一套Agent Skill'
