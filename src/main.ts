@@ -19,7 +19,13 @@ import './styles/markdown.css'
 import '@snackbar/core/dist/snackbar.css'
 import 'uno.css'
 
-const routes = autoRoutes.map((i) => {
+const routes = autoRoutes.map((i: any) => {
+  // Catch-all routes end with a repeatable param (e.g. `/:404(.*)*`).
+  // Appending `.html` would place that param mid-segment, which vue-router
+  // rejects (VUE_ROUTER_R0131). The catch-all already matches `.html` URLs,
+  // so it doesn't need an alias.
+  if (/[*+]$/.test(i.path)) return i
+
   return {
     ...i,
     alias: i.path.endsWith('/') ? `${i.path}index.html` : `${i.path}.html`,
