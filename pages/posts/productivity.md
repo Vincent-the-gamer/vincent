@@ -4,6 +4,9 @@ date: 2026-11-02
 art: dots
 ---
 
+> [!TIP] Tip
+> Chinese version（中文版）: click [here](/posts/productivity-zh)
+
 > [!NOTE]
 > To be updated.
 
@@ -12,13 +15,25 @@ art: dots
 - [DeepSeek Harness](https://www.deepseek.com/en/harness) - AI Agent, including plugin system.
 - [Rayburst](https://github.com/AnInsomniacy/rayburst) - Aria2 Next download engine, a Motrix alternative.
 - [Raycast](https://www.raycast.com/) - Multifunction tool, including clipboard history, global search, and supporting extensions.
+- [Tinycast](https://github.com/abue-ammar/tinycast) - An open source alternative Raycast, macOS only.
 - [capcap](https://github.com/realskyrin/capcap) - macOS only open source screenshot tool, supporting scroll screenshot(long pic).
-- [Atoll](https://github.com/Ebullioscopic/Atoll) - Provide dynamic island for macOS(earlier than the first PROLED XDR Devices).
+- [Atoll](https://github.com/Ebullioscopic/Atoll) - Provide dynamic island for macOS(for devices that earlier than the first PROLED XDR product).
 
-## Agent Skills
+## AI
+
+### Agent Skills
 
 - [My skills pack - Vincent-the-gamer/skills](https://github.com/Vincent-the-gamer/skills)
 - [Matt Pocock's skills](https://github.com/mattpocock/skills)
+
+### Assist Tools
+
+- [repomix](https://github.com/yamadashy/repomix) - Pack your codebase into AI-friendly formats.
+
+### Self-host LLMs
+
+- [Strata](https://github.com/Niko1221/Strata) - Inference framework that make LLMs runs on single gaming graphic card.
+- [BitNet](https://github.com/microsoft/BitNet) - Microsoft's official inference framework for 1-bit LLMs.
 
 ## Development
 
@@ -31,7 +46,7 @@ art: dots
 
 - [DBX](https://github.com/t8y2/dbx) - Lightweight cross-platform database client, built-in MCP Support.
 
-## Remote
+## Remote Connect Tools
 
 - [easytier](https://github.com/EasyTier/EasyTier) - Decentralized mesh VPN with WireGuard support.
 - [code-server](https://github.com/coder/code-server) - Web VSCode, deploy on server, use in your browser.
